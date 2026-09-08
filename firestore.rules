@@ -1,0 +1,18 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isValidBooking(data) {
+      return data.fullName is string && data.fullName.size() >= 2 && data.fullName.size() <= 100 &&
+             data.email is string && data.email.size() >= 4 && data.email.size() <= 150 &&
+             data.phone is string && data.phone.size() >= 4 && data.phone.size() <= 50 &&
+             data.storeName is string && data.storeName.size() >= 1 && data.storeName.size() <= 120 &&
+             data.createdAt is string;
+    }
+
+    match /consultations/{consultationId} {
+      allow create: if isValidBooking(request.resource.data);
+      allow read, update, delete: if true;
+    }
+  }
+}

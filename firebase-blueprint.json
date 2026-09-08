@@ -1,0 +1,73 @@
+{
+  "entities": {
+    "ConsultationBooking": {
+      "title": "ConsultationBooking",
+      "description": "A consultation booking request submitted by a retailer",
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "description": "Full name of the retailer or store owner"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Work or direct email address"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Contact phone or WhatsApp number"
+        },
+        "storeName": {
+          "type": "string",
+          "description": "Retail brand or store name"
+        },
+        "website": {
+          "type": "string",
+          "description": "Store URL or primary social commerce link"
+        },
+        "channels": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Active sales channels (e.g., Shopify, WhatsApp, In-Store)"
+        },
+        "monthlyOrders": {
+          "type": "string",
+          "description": "Estimated monthly order volume or business scale"
+        },
+        "primaryGoal": {
+          "type": "string",
+          "description": "Key bottlenecks, automation priorities, or primary retail goal"
+        },
+        "preferredDate": {
+          "type": "string",
+          "description": "Preferred date for the 30-minute strategic consultation"
+        },
+        "preferredTime": {
+          "type": "string",
+          "description": "Preferred time or window for the call"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "contacted", "scheduled", "completed", "cancelled"],
+          "description": "Lifecycle state of the consultation lead"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp when the consultation request was logged"
+        },
+        "adminNotes": {
+          "type": "string",
+          "description": "Internal notes added by Ernest / retail strategist"
+        }
+      },
+      "required": ["fullName", "email", "phone", "storeName", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/consultations/{consultationId}": {
+      "schema": "ConsultationBooking",
+      "description": "Incoming consultation bookings and inquiries from prospective retail clients"
+    }
+  }
+}

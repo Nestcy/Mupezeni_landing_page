@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 350" fill="none">
+  <defs>
+    <linearGradient id="topWingGrad" x1="180" y1="60" x2="360" y2="170" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#991B07" />
+      <stop offset="25%" stop-color="#CC290A" />
+      <stop offset="60%" stop-color="#E84813" />
+      <stop offset="85%" stop-color="#F25E1C" />
+      <stop offset="100%" stop-color="#D6300B" />
+    </linearGradient>
+
+    <linearGradient id="wingShadowGrad" x1="260" y1="110" x2="355" y2="185" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#700C03" />
+      <stop offset="50%" stop-color="#420601" />
+      <stop offset="100%" stop-color="#240200" />
+    </linearGradient>
+
+    <linearGradient id="headGrad" x1="330" y1="140" x2="420" y2="155" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#D6320B" />
+      <stop offset="40%" stop-color="#EE4E15" />
+      <stop offset="80%" stop-color="#F76520" />
+      <stop offset="100%" stop-color="#BA2407" />
+    </linearGradient>
+
+    <linearGradient id="breastGrad" x1="280" y1="150" x2="380" y2="230" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#ED4A14" />
+      <stop offset="45%" stop-color="#BF2608" />
+      <stop offset="85%" stop-color="#730F03" />
+      <stop offset="100%" stop-color="#380401" />
+    </linearGradient>
+
+    <linearGradient id="lowerWingGrad" x1="220" y1="180" x2="350" y2="250" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#800E03" />
+      <stop offset="45%" stop-color="#4C0601" />
+      <stop offset="100%" stop-color="#1C0100" />
+    </linearGradient>
+
+    <linearGradient id="tailGrad" x1="140" y1="200" x2="330" y2="175" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2A0300" />
+      <stop offset="40%" stop-color="#700C03" />
+      <stop offset="80%" stop-color="#B82307" />
+      <stop offset="100%" stop-color="#DE370C" />
+    </linearGradient>
+
+    <radialGradient id="starCoreGrad" cx="445" cy="150" r="22" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#FFFBEB" />
+      <stop offset="20%" stop-color="#FFDE59" />
+      <stop offset="55%" stop-color="#F25514" />
+      <stop offset="85%" stop-color="#B81E04" />
+      <stop offset="100%" stop-color="#540700" />
+    </radialGradient>
+  </defs>
+
+  <path d="M185 70 C240 85, 310 120, 350 170 C310 160, 260 135, 230 115 C205 98, 192 82, 185 70 Z" fill="url(#topWingGrad)" />
+  <path d="M230 115 C275 140, 320 162, 350 170 C325 182, 285 190, 248 190 C232 170, 226 142, 230 115 Z" fill="url(#wingShadowGrad)" />
+  <path d="M335 152 C355 142, 385 145, 420 152 C385 160, 360 168, 340 168 C332 162, 331 156, 335 152 Z" fill="url(#headGrad)" />
+  <path d="M340 168 C320 195, 285 235, 225 248 C248 228, 280 200, 305 182 C320 172, 332 167, 340 168 Z" fill="url(#breastGrad)" />
+  <path d="M225 248 C265 240, 305 210, 330 178 C310 200, 275 238, 205 272 C202 266, 210 258, 225 248 Z" fill="url(#lowerWingGrad)" />
+  <path d="M142 195 C205 190, 265 182, 315 174 C260 188, 200 202, 142 195 Z" fill="url(#tailGrad)" />
+  <path d="M148 230 C205 218, 260 205, 295 195 C245 208, 195 222, 148 230 Z" fill="url(#tailGrad)" />
+  <path d="M205 272 C240 248, 272 222, 292 202 C270 225, 238 252, 205 272 Z" fill="#200200" />
+  <g>
+    <path d="M445 125 Q445 150, 428 150 Q445 150, 445 175 Q445 150, 462 150 Q445 150, 445 125 Z" fill="url(#starCoreGrad)" />
+    <circle cx="445" cy="150" r="2.2" fill="#FFFFFF" />
+  </g>
+</svg>
