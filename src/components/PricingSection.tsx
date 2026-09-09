@@ -265,7 +265,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
               onClick={() => onNavigate('contact')}
               className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-xl font-syne font-black text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-[0_0_30px_rgba(217,90,26,0.35)] transition-all transform hover:-translate-y-0.5 active:scale-98 cursor-pointer whitespace-nowrap"
             >
-              <span>Get Your AI Team</span>
+              <span>Book My AI Growth Consultation</span>
               <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
             </button>
             <button
@@ -278,8 +278,8 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
           </div>
 
           {/* Underneath smaller clarification note */}
-          <p className="text-[10px] sm:text-xs text-[#FAFAF9]/50 max-w-md mx-auto leading-relaxed font-normal">
-            Starting from K5,000/month. Final pricing depends on sales channels and requirements.
+          <p className="text-[10px] sm:text-xs text-[#FAFAF9]/60 max-w-md mx-auto leading-relaxed font-normal">
+            K5,000/month, all-inclusive. Simple, transparent pricing with no hidden fees.
           </p>
         </motion.div>
 

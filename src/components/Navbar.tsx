@@ -101,9 +101,9 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
               <button
                 id="nav-btn-build-workforce"
                 onClick={() => handleNavClick('contact')}
-                className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-lg hover:shadow-[#9B2208]/30 transition-all duration-200 active:scale-95 cursor-pointer font-syne"
+                className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-lg hover:shadow-[#9B2208]/30 transition-all duration-200 active:scale-95 cursor-pointer font-syne whitespace-nowrap"
               >
-                <span>Book Consultation</span>
+                <span>Book My AI Growth Consultation</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
               </button>
             </div>
@@ -172,7 +172,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
               onClick={() => handleNavClick('contact')}
               className="w-full flex items-center justify-center gap-2 py-4 rounded-xl text-sm font-extrabold text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] font-syne shadow-lg shadow-[#9B2208]/40"
             >
-              <span>Build My AI Team</span>
+              <span>Book My AI Growth Consultation</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

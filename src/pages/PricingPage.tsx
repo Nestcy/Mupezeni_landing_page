@@ -379,11 +379,11 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
               onClick={scrollToBooking}
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-syne font-black text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-[0_0_30px_rgba(217,90,26,0.35)] transition-all transform hover:-translate-y-0.5 active:scale-98 cursor-pointer"
             >
-              <span>Get Your AI Team</span>
+              <span>Book My AI Growth Consultation</span>
               <ArrowRight className="w-4 h-4 text-white" />
             </button>
-            <p className="text-[10px] sm:text-xs text-[#FAFAF9]/50 max-w-md mx-auto mt-2 leading-relaxed">
-              Starting from K5,000/month. Final pricing depends on your sales channels and implementation requirements.
+            <p className="text-[10px] sm:text-xs text-[#FAFAF9]/60 max-w-md mx-auto mt-2 leading-relaxed">
+              K5,000/month, all-inclusive. Simple, transparent pricing with no hidden fees.
             </p>
           </div>
 
@@ -449,7 +449,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
               </div>
 
               <div className="pt-2.5 border-t border-white/10 flex items-center justify-between">
-                <span className="text-[10px] sm:text-xs text-[#FAFAF9]/60 font-syne">Base: K5,000 /mo</span>
+                <span className="text-[10px] sm:text-xs text-[#FAFAF9]/60 font-syne">K5,000 /mo (All-Inclusive)</span>
                 <button
                   onClick={() => onNavigate('solutions')}
                   className="text-[11px] sm:text-xs font-bold font-syne text-[#D95A1A] hover:text-white inline-flex items-center gap-1 cursor-pointer"
@@ -498,7 +498,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
               </div>
 
               <div className="pt-2.5 border-t border-white/10 flex items-center justify-between">
-                <span className="text-[10px] sm:text-xs text-[#FAFAF9]/60 font-syne">Base: K5,000 /mo</span>
+                <span className="text-[10px] sm:text-xs text-[#FAFAF9]/60 font-syne">K5,000 /mo (All-Inclusive)</span>
                 <button
                   onClick={() => onNavigate('solutions')}
                   className="text-[11px] sm:text-xs font-bold font-syne text-[#D95A1A] hover:text-white inline-flex items-center gap-1 cursor-pointer"

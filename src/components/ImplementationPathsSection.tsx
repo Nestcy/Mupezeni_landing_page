@@ -269,9 +269,9 @@ export const ImplementationPathsSection: React.FC<ImplementationPathsSectionProp
             
             <button
               onClick={() => onNavigate('contact')}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-syne font-black text-[11px] sm:text-xs text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:opacity-95 transition-all cursor-pointer shadow"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-syne font-black text-[11px] sm:text-xs text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:opacity-95 transition-all cursor-pointer shadow whitespace-nowrap"
             >
-              <span>Book Consultation</span>
+              <span>Book My AI Growth Consultation</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>

@@ -638,7 +638,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                       </div>
                     ) : (
                       <>
-                        <span>Submit & Book Free AI Growth Consultation</span>
+                        <span>Book My AI Growth Consultation</span>
                         <ArrowRight className="w-5 h-5" />
                       </>
                     )}

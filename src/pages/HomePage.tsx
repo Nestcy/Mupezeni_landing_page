@@ -58,27 +58,31 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </p>
 
             {/* Buttons (Side-by-side on mobile and desktop) */}
-            <div className="pt-1 sm:pt-2 flex flex-row items-center justify-center gap-2 sm:gap-4">
+            <div className="pt-1 sm:pt-2 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4">
               <button
                 id="hero-btn-build-workforce"
                 onClick={() => onNavigate('contact')}
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 sm:gap-3 px-3 py-2.5 sm:px-8 sm:py-3.5 rounded-xl font-syne font-black text-xs sm:text-base text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-2xl hover:shadow-[#9B2208]/40 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-98 cursor-pointer whitespace-nowrap"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-8 sm:py-3.5 rounded-xl font-syne font-black text-xs sm:text-base text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-2xl hover:shadow-[#9B2208]/40 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-98 cursor-pointer whitespace-nowrap"
               >
-                <span className="sm:hidden">Book Consultation</span>
-                <span className="hidden sm:inline">Book My AI Growth Consultation</span>
+                <span>Book My AI Growth Consultation</span>
                 <ArrowRight className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white flex-shrink-0" />
               </button>
 
               <button
                 id="hero-btn-see-how-it-works"
                 onClick={() => onNavigate('how-it-works')}
-                className="flex-1 sm:flex-initial inline-flex items-center justify-center gap-1.5 px-3 py-2.5 sm:px-6 sm:py-3.5 rounded-xl font-syne font-bold text-xs sm:text-base text-[#FAFAF9] bg-[#140D08] hover:bg-[#1E110A] border border-[#9B2208]/30 hover:border-[#9B2208]/60 transition-all duration-300 cursor-pointer whitespace-nowrap"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-3 sm:px-6 sm:py-3.5 rounded-xl font-syne font-bold text-xs sm:text-base text-[#FAFAF9] bg-[#140D08] hover:bg-[#1E110A] border border-[#9B2208]/30 hover:border-[#9B2208]/60 transition-all duration-300 cursor-pointer whitespace-nowrap"
               >
-                <span className="sm:hidden">How It Works</span>
-                <span className="hidden sm:inline">See How It Works</span>
+                <span>See How It Works</span>
                 <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D95A1A] flex-shrink-0" />
               </button>
             </div>
+
+            {/* Timeline expectation note */}
+            <p className="text-[11px] sm:text-xs text-[#FAFAF9]/60 font-syne flex items-center justify-center gap-1.5 pt-1">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#25D366] flex-shrink-0" />
+              <span>Custom-trained on your products & live across your store within 4 weeks of onboarding</span>
+            </p>
 
           </div>
 

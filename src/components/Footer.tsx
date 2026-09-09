@@ -171,7 +171,7 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => handleNav('contact')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Book Consultation
+                  Book My AI Growth Consultation
                 </button>
               </li>
             </ul>
@@ -190,7 +190,7 @@ export const Footer: React.FC<FooterProps> = ({
               onClick={() => handleNav('contact')}
               className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-syne font-bold text-xs text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:opacity-95 shadow-md shadow-[#9B2208]/30 transition-all cursor-pointer"
             >
-              <span>Build My AI Team</span>
+              <span>Book My AI Growth Consultation</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>

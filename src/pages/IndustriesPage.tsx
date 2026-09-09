@@ -237,9 +237,9 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate }) =>
 
               <button
                 onClick={() => onNavigate('contact')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-syne font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:shadow-lg hover:shadow-[#9B2208]/30 transition-all cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-syne font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:shadow-lg hover:shadow-[#9B2208]/30 transition-all cursor-pointer whitespace-nowrap"
               >
-                <span>Book {selectedSolution.name} Consultation</span>
+                <span>Book My AI Growth Consultation</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

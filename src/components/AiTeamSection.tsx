@@ -146,9 +146,9 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-2 sm:gap-3 justify-center pt-1 sm:pt-0">
               <button
                 onClick={() => onNavigate('contact')}
-                className="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2 sm:px-6 sm:py-3.5 rounded-xl font-syne font-black text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:opacity-95 shadow-md shadow-[#9B2208]/30 transition-all cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2 sm:px-6 sm:py-3.5 rounded-xl font-syne font-black text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:opacity-95 shadow-md shadow-[#9B2208]/30 transition-all cursor-pointer whitespace-nowrap"
               >
-                <span>Deploy Your AI Teams</span>
+                <span>Book My AI Growth Consultation</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>

@@ -368,26 +368,26 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
                 <span>Predictable Transparent Pricing</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-black font-syne text-white">
-                Both Paths Start at K5,000 /month
+                Both Paths Covered for K5,000 /month
               </h3>
               <p className="text-xs sm:text-sm text-[#FAFAF9]/75 max-w-xl">
-                No per-message surcharges or hidden license fees. Complete 24/7 AI Support, Marketing, and Operations with setup included.
+                K5,000/month, all-inclusive. Complete 24/7 AI Support, Marketing, and Operations with setup and implementation included.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row items-center gap-3 flex-shrink-0 w-full md:w-auto">
               <button
                 onClick={() => onNavigate('pricing')}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-syne font-bold text-xs sm:text-sm text-white bg-[#20100A] border border-[#9B2208] hover:border-[#D95A1A] transition-all cursor-pointer flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-syne font-bold text-xs sm:text-sm text-white bg-[#20100A] border border-[#9B2208] hover:border-[#D95A1A] transition-all cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap"
               >
                 <span>View Full Pricing Plan</span>
                 <ArrowRight className="w-4 h-4 text-[#D95A1A]" />
               </button>
               <button
                 onClick={() => onNavigate('contact')}
-                className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-syne font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:shadow-lg hover:shadow-[#9B2208]/30 transition-all cursor-pointer flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-syne font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:shadow-lg hover:shadow-[#9B2208]/30 transition-all cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap"
               >
-                <span>Book Consultation</span>
+                <span>Book My AI Growth Consultation</span>
               </button>
             </div>
           </div>

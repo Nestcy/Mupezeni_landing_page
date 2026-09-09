@@ -74,14 +74,18 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
             Discover how your AI Customer Support, Marketing, and Business Management teams work together seamlessly across every stage of the customer lifecycle—from first message to repeat purchase.
           </p>
 
-          <div className="pt-2 flex justify-center">
+          <div className="pt-2 flex flex-col items-center justify-center gap-3">
             <button
               onClick={() => onNavigate('contact')}
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-syne font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:shadow-lg hover:shadow-[#9B2208]/30 transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-syne font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:shadow-lg hover:shadow-[#9B2208]/30 transition-all cursor-pointer whitespace-nowrap"
             >
-              <span>Deploy Your Scalable AI Teams</span>
+              <span>Book My AI Growth Consultation</span>
               <ArrowRight className="w-4 h-4" />
             </button>
+            <p className="text-[11px] sm:text-xs text-[#FAFAF9]/60 font-syne flex items-center justify-center gap-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#25D366] flex-shrink-0" />
+              <span>AI Teams go live across your sales channels within 4 weeks of onboarding</span>
+            </p>
           </div>
         </div>
       </section>
