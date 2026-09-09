@@ -76,7 +76,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           </h1>
 
           <p className="text-base sm:text-lg text-[#FAFAF9]/80 font-normal max-w-2xl mx-auto leading-relaxed">
-            Mupezeni is an AI Business Growth Company. We give retailers scalable AI Teams that manage digital interactions, marketing, and operations so owners can focus on inventory, sourcing, and physical dispatch.
+            Mupezeni is an AI Business Growth Company. We give retailers scalable AI Teams that manage digital interactions, marketing, and operations so owners can focus on finding great products from suppliers and delivering them to your customers.
           </p>
         </div>
       </section>
@@ -246,10 +246,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                   Modern retail lives across fast-paced conversational channels: <strong>WhatsApp chats, Instagram direct messages, Facebook Marketplace</strong>, and physical shop counters.
                 </p>
                 <p>
-                  However, as soon as a retailer begins to see success, an operational bottleneck occurs. The owner becomes chained to their phone—answering the same sizing questions, quoting prices, and drafting dispatch details until late into the night.
+                  However, as soon as a retailer begins to see success, an operational bottleneck occurs. The owner becomes chained to their phone—answering the same sizing questions, quoting prices, and arranging customer deliveries until late into the night.
                 </p>
                 <p>
-                  Mupezeni was built to solve this challenge. By equipping retail businesses with dedicated AI Teams, we manage the digital work around the clock while owners focus on inventory, sourcing, and dispatch.
+                  Mupezeni was built to solve this challenge. By equipping retail businesses with dedicated AI Teams, we manage the digital work around the clock while owners focus on finding great products from suppliers and delivering them to your customers.
                 </p>
               </div>
 

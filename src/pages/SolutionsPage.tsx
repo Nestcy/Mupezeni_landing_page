@@ -39,9 +39,9 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
     },
     {
       title: '2. Complete Digital Product Catalogue',
-      badge: 'Organized Inventory',
-      description: 'Your physical inventory is photographed, categorized, and uploaded with accurate descriptions, sizes, colors, and live stock tracking.',
-      deliverables: ['SKU & variant management', 'Stock alert thresholds', 'High-definition image galleries']
+      badge: 'Supplier Products',
+      description: 'Your products from suppliers are photographed, categorized, and uploaded with clear descriptions, sizes, colors, and live stock tracking.',
+      deliverables: ['Product & variant management', 'Stock alert thresholds', 'High-definition image galleries']
     },
     {
       title: '3. Automated Payment Setup',
@@ -62,9 +62,9 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
       deliverables: ['Instagram DM-to-checkout automation', 'Facebook Page Messenger shop link', 'Automatic responses to price/size comments']
     },
     {
-      title: '6. Delivery Dispatch Integration',
-      badge: 'Last-Mile Fulfillment',
-      description: 'Orders automatically generate delivery slips and dispatch alerts routed directly to Yango Delivery, DHL, or your trusted local courier riders.',
+      title: '6. Customer Delivery & Rider Integration',
+      badge: 'Delivering to Customers',
+      description: 'Orders automatically generate delivery slips and alerts routed directly to Yango Delivery, DHL, or your local delivery riders to deliver items quickly.',
       deliverables: ['Automated delivery slip generation', 'Customer live tracking updates', 'Courier notification via WhatsApp']
     },
     {
@@ -79,14 +79,14 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
     {
       title: '1. Shopify Store Integration',
       badge: '1-Click API Connector',
-      description: 'Direct API integration with your existing Shopify store. Syncs live products, inventory counts, collections, and order fulfillment in real time.',
+      description: 'Direct API integration with your existing Shopify store. Syncs live products from suppliers, stock counts, collections, and customer orders in real time.',
       deliverables: ['Zero-code Shopify webhook setup', 'Live product stock synchronization', 'Automated order status checking']
     },
     {
       title: '2. WooCommerce Store Integration',
       badge: 'WordPress Native',
       description: 'Native connector for WordPress and WooCommerce storefronts, ensuring instantaneous stock updates and frictionless conversational checkout.',
-      deliverables: ['Secure WooCommerce REST API sync', 'Database inventory mapping', 'Multi-currency checkout support']
+      deliverables: ['Secure WooCommerce REST API sync', 'Database stock & product mapping', 'Multi-currency checkout support']
     },
     {
       title: '3. Custom Website & Storefront Integration',
@@ -98,7 +98,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
       title: '4. Existing Catalogue & Stock Feed Sync',
       badge: 'Real-Time Sync',
       description: 'Connects directly to your existing product database, Google Sheets, or ERP system so your AI Teams always quote exact pricing and available stock.',
-      deliverables: ['Bi-directional inventory sync', 'Price change propagation in seconds', 'Out-of-stock prevention safeguards']
+      deliverables: ['Bi-directional stock sync', 'Price change propagation in seconds', 'Out-of-stock prevention safeguards']
     },
     {
       title: '5. Existing Social Channels Handshake',
@@ -121,15 +121,15 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
     },
     {
       q: 'We already have an active Shopify store and staff. Will this disrupt our daily operations?',
-      a: 'Zero disruption. Implementation Path 2 connects seamlessly via official APIs in under 48 hours. Your existing team continues using your current Shopify dashboard, while Mupezeni’s AI Teams handle the repetitive customer queries, social outreach, and late-night inquiries.'
+      a: 'Zero disruption. During our 4–6 week staged rollout, we connect seamlessly via official APIs in the background. Your team continues using your existing Shopify or WooCommerce dashboard without interruption, while our engineers calibrate AI responses and verify live stock syncing.'
     },
     {
       q: 'How long does implementation take from consultation to go-live?',
-      a: 'For businesses without an online store (Path 1), the complete setup and AI deployment takes 3 to 5 business days. For businesses with an existing website or Shopify store (Path 2), integration typically takes 48 hours.'
+      a: 'Implementation typically takes 4 to 6 weeks. Because businesses vary in size, sales channels, catalog volume, and technical architecture, we start with a thorough consultation and provide a custom-tailored quote and implementation roadmap for your business.'
     },
     {
       q: 'Can we still use our own delivery riders and local couriers?',
-      a: 'Yes. Our delivery integration can connect directly with your existing courier contacts, or we can integrate automated dispatch with providers like Yango Delivery and DHL.'
+      a: 'Yes! Our delivery setup connects directly with your existing delivery riders and couriers, or we can integrate automated delivery booking with providers like Yango Delivery and DHL to deliver orders straight to your customers.'
     }
   ];
 
@@ -225,32 +225,32 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
               </div>
 
               {/* Step-by-Step Architecture Stack */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
                 {path1Detailed.map((step, idx) => (
                   <div
                     key={idx}
-                    className="p-5 sm:p-7 rounded-2xl bg-[#110A07] border border-white/5 hover:border-[#9B2208]/50 transition-all duration-200 flex flex-col justify-between space-y-4 group"
+                    className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#110A07] border border-white/5 hover:border-[#9B2208]/50 transition-all duration-200 flex flex-col justify-between space-y-2.5 group"
                   >
-                    <div className="space-y-2.5">
+                    <div className="space-y-1.5">
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] sm:text-xs font-bold font-syne px-2.5 py-1 rounded-full bg-[#1C0F0A] text-[#D95A1A] border border-[#9B2208]/30">
+                        <span className="text-[8.5px] sm:text-xs font-bold font-syne px-2 py-0.5 rounded-full bg-[#1C0F0A] text-[#D95A1A] border border-[#9B2208]/30">
                           {step.badge}
                         </span>
-                        <span className="text-xs font-mono text-white/40">Step 0{idx + 1}</span>
+                        <span className="text-[10px] sm:text-xs font-mono text-white/40">0{idx + 1}</span>
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold font-syne text-white group-hover:text-[#FAFAF9]">
+                      <h3 className="text-xs sm:text-base font-bold font-syne text-white group-hover:text-[#FAFAF9] leading-tight">
                         {step.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-[#FAFAF9]/70 leading-relaxed">
+                      <p className="text-[10px] sm:text-xs text-[#FAFAF9]/70 leading-relaxed line-clamp-3 sm:line-clamp-none">
                         {step.description}
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-white/5 space-y-1.5">
+                    <div className="pt-2 border-t border-white/5 space-y-1">
                       {step.deliverables.map((item, dIdx) => (
-                        <div key={dIdx} className="flex items-center gap-2 text-[11px] sm:text-xs text-[#FAFAF9]/85 font-medium">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />
-                          <span>{item}</span>
+                        <div key={dIdx} className="flex items-center gap-1.5 text-[9.5px] sm:text-xs text-[#FAFAF9]/85 font-medium">
+                          <CheckCircle2 className="w-3 h-3 text-[#D95A1A] flex-shrink-0" />
+                          <span className="truncate">{item}</span>
                         </div>
                       ))}
                     </div>
@@ -288,32 +288,32 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
               </div>
 
               {/* Step-by-Step Architecture Stack */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+              <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-4">
                 {path2Detailed.map((step, idx) => (
                   <div
                     key={idx}
-                    className="p-5 sm:p-7 rounded-2xl bg-[#110A07] border border-white/5 hover:border-[#9B2208]/50 transition-all duration-200 flex flex-col justify-between space-y-4 group"
+                    className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#110A07] border border-white/5 hover:border-[#9B2208]/50 transition-all duration-200 flex flex-col justify-between space-y-2.5 group"
                   >
-                    <div className="space-y-2.5">
+                    <div className="space-y-1.5">
                       <div className="flex items-center justify-between">
-                        <span className="text-[10px] sm:text-xs font-bold font-syne px-2.5 py-1 rounded-full bg-[#1C0F0A] text-[#D95A1A] border border-[#9B2208]/30">
+                        <span className="text-[8.5px] sm:text-xs font-bold font-syne px-2 py-0.5 rounded-full bg-[#1C0F0A] text-[#D95A1A] border border-[#9B2208]/30">
                           {step.badge}
                         </span>
-                        <span className="text-xs font-mono text-white/40">Step 0{idx + 1}</span>
+                        <span className="text-[10px] sm:text-xs font-mono text-white/40">0{idx + 1}</span>
                       </div>
-                      <h3 className="text-base sm:text-lg font-bold font-syne text-white group-hover:text-[#FAFAF9]">
+                      <h3 className="text-xs sm:text-base font-bold font-syne text-white group-hover:text-[#FAFAF9] leading-tight">
                         {step.title}
                       </h3>
-                      <p className="text-xs sm:text-sm text-[#FAFAF9]/70 leading-relaxed">
+                      <p className="text-[10px] sm:text-xs text-[#FAFAF9]/70 leading-relaxed line-clamp-3 sm:line-clamp-none">
                         {step.description}
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-white/5 space-y-1.5">
+                    <div className="pt-2 border-t border-white/5 space-y-1">
                       {step.deliverables.map((item, dIdx) => (
-                        <div key={dIdx} className="flex items-center gap-2 text-[11px] sm:text-xs text-[#FAFAF9]/85 font-medium">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />
-                          <span>{item}</span>
+                        <div key={dIdx} className="flex items-center gap-1.5 text-[9.5px] sm:text-xs text-[#FAFAF9]/85 font-medium">
+                          <CheckCircle2 className="w-3 h-3 text-[#D95A1A] flex-shrink-0" />
+                          <span className="truncate">{item}</span>
                         </div>
                       ))}
                     </div>

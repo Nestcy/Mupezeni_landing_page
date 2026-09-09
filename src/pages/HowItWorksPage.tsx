@@ -368,7 +368,7 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
               </p>
               <div className="p-3 rounded-xl bg-[#090604] border border-white/5 text-xs text-white/80 space-y-1">
                 <span className="text-[10px] font-bold uppercase text-[#D95A1A] block">Receives Signals From:</span>
-                <p>• Management (Slow-moving or hot inventory)</p>
+                <p>• Management (Fast-selling products & supplier stock alerts)</p>
                 <p>• Support (Common questions to answer in ads)</p>
               </div>
             </div>
@@ -385,11 +385,11 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
                 </div>
               </div>
               <p className="text-xs text-[#FAFAF9]/75 leading-relaxed">
-                Keeps stock balances accurate, logs financial velocity, and generates rider dispatch slips for the owner.
+                Keeps stock balances accurate, logs financial performance, and prepares customer delivery slips for riders.
               </p>
               <div className="p-3 rounded-xl bg-[#090604] border border-white/5 text-xs text-white/80 space-y-1">
                 <span className="text-[10px] font-bold uppercase text-[#D95A1A] block">Coordinates For:</span>
-                <p>• Retailer (Daily briefing & restock alerts)</p>
+                <p>• Retailer (Daily briefing & supplier reorder alerts)</p>
                 <p>• Support (Real-time stock validation)</p>
               </div>
             </div>

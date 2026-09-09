@@ -64,16 +64,16 @@ export const AI_TEAM_MEMBERS: AiTeamMember[] = [
       'Monitor business performance and sales velocity.',
       'Generate daily executive reports and summaries.',
       'Track incoming and completed orders.',
-      'Provide actionable inventory insights.',
+      'Provide actionable insights on products and supplier stock.',
       'Highlight growth and revenue opportunities.',
-      'Organise digital operations and dispatch preparation.'
+      'Organise digital orders and customer delivery notes.'
     ],
     businessOutcome: 'Manage a growing business without proportionally increasing management overhead.',
     mockVisual: {
       headline: 'Store Intelligence & Operations Manifest',
-      subline: 'Daily Sales • Stock Alerts • Dispatch Logs',
-      badges: ['K4,850 Revenue Logged', '2 Restock Alerts', '14 Slips Ready'],
-      sampleSnippet: '"Morning briefing: 14 weekend orders pre-packaged for dispatch riders. 3 high-margin sneakers low in stock."',
+      subline: 'Daily Sales • Stock Alerts • Delivery Notes',
+      badges: ['K4,850 Revenue Logged', '2 Restock Alerts', '14 Delivery Notes'],
+      sampleSnippet: '"Morning briefing: 14 weekend orders packed and ready for delivery riders. 3 popular products are low in stock."',
       metricsTag: 'Zero Blindspots'
     }
   }
@@ -141,7 +141,7 @@ export const END_TO_END_WORKFLOW: EndToEndWorkflowStep[] = [
     details: [
       'Payment details verified and confirmed instantly',
       'Delivery address and customer contact saved accurately',
-      'Customer receives instant order verification and dispatch timeline'
+      'Customer receives instant order verification and delivery schedule'
     ],
     businessImpact: 'Fast, frictionless closing without requiring the owner to pick up the phone.',
     iconName: 'ShoppingBag',
@@ -152,13 +152,13 @@ export const END_TO_END_WORKFLOW: EndToEndWorkflowStep[] = [
     stageTitle: 'Operations & Tracking',
     actor: 'AI Business Management Team',
     action: 'AI Business Management Team records activity & tracks performance',
-    description: 'Your digital operations team updates inventory levels, logs the transaction, prepares delivery manifests for dispatch, and updates sales dashboards.',
+    description: 'Your digital operations team updates available stock, logs the transaction, prepares delivery notes for riders, and updates sales dashboards.',
     details: [
-      'Creates clean packing and rider dispatch manifests',
-      'Alerts the owner when popular inventory runs low',
+      'Creates clean packing lists and delivery notes for riders',
+      'Alerts the owner when popular products run low',
       'Maintains clean sales logs and daily performance summaries'
     ],
-    businessImpact: 'Total operational order while the retailer focuses purely on physical packing and dispatch.',
+    businessImpact: 'Complete digital order while you focus on finding great products from suppliers and delivering them to your customers.',
     iconName: 'BarChart3',
     accentColor: 'from-[#B83A0A] to-[#D95A1A]'
   },
@@ -200,7 +200,7 @@ export const END_TO_END_WORKFLOW: EndToEndWorkflowStep[] = [
     description: 'The retailer scales sales volume, expands product lines, and serves thousands of customers while digital operating costs remain lean and predictable.',
     details: [
       'AI Teams scale effortlessly with spikes in demand',
-      'The business owner focuses on sourcing, vendor relations, and physical dispatch',
+      'The business owner focuses on finding great products from suppliers and delivering them to your customers',
       'Profit margins expand as overhead remains controlled'
     ],
     businessImpact: 'Scale your business, not your overhead.',
@@ -228,7 +228,7 @@ export const PHILOSOPHY_PRINCIPLES: PhilosophyPrinciple[] = [
     id: 'amplify-not-replace',
     title: 'Amplify the Business Owner',
     quote: 'AI should amplify business owners instead of replacing them.',
-    explanation: 'Retailers are masters of sourcing, product taste, and physical inventory. Our AI Teams lift the heavy digital burden so owners can lead with greater focus and freedom.',
+    explanation: 'Retailers are masters of finding great products from suppliers and serving their customers. Our AI Teams lift the heavy digital burden so owners can lead with greater focus and freedom.',
     iconName: 'Sparkles'
   },
   {
@@ -285,11 +285,11 @@ export const BUSINESS_OUTCOMES: BusinessOutcome[] = [
     id: 'reduce-repetitive-work',
     title: 'Reduce Repetitive Work',
     tagline: 'Automate admin so you can focus on high-value retail',
-    description: 'Stop spending hours copying customer delivery addresses, re-explaining sizing charts, or manually checking inventory lists.',
+    description: 'Stop spending hours copying customer delivery addresses, re-explaining sizing charts, or manually checking what is in stock.',
     bulletPoints: [
-      'Automated capture of delivery addresses and rider dispatch slips',
+      'Automated capture of customer delivery addresses and rider slips',
       'Structured FAQs for sizing, delivery rates, and return policies',
-      'Daily summaries of top-selling items and inventory alerts'
+      'Daily summaries of top-selling items and low-stock reminders'
     ],
     iconName: 'Layers',
     accentBadge: 'Operational Freedom'
@@ -312,58 +312,58 @@ export const BUSINESS_OUTCOMES: BusinessOutcome[] = [
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     stepNumber: '01',
-    title: 'Book a Consultation',
-    timeline: 'Day 1 • 30 Minutes',
-    summary: 'We start by sitting down with you to understand your specific retail business, current sales channels, catalogue size, and operational bottlenecks.',
+    title: 'Consultation & Operational Audit',
+    timeline: 'Week 1 • Strategic Discovery',
+    summary: 'We start with a thorough strategic consultation to understand your retail business model, sales channels, catalogue volume, and current bottlenecks.',
     detailedPoints: [
-      'Review your current sales channels (Physical shop, WhatsApp, Instagram, Facebook, Web)',
-      'Analyze your customer inquiry volume and peak busy hours',
-      'Identify where you are losing sales due to delayed replies or manual friction'
+      'Review all your current sales channels (Physical shop, WhatsApp, Instagram, Facebook, Web)',
+      'Analyze your customer inquiry volume, peak shopping hours, and average order values',
+      'Audit your product catalogue, payment preferences, and delivery rider setup'
     ],
-    retailerAction: 'Share your retail story, product catalog, and biggest day-to-day headaches.',
-    mupezeniExecution: 'We assess feasibility, map your customer journey, and outline high-leverage AI opportunities.',
+    retailerAction: 'Share your retail workflow, product catalogue, and operational challenges.',
+    mupezeniExecution: 'We assess feasibility, map your multi-channel customer journey, and outline tailored AI architecture.',
     iconName: 'CalendarCheck'
   },
   {
     stepNumber: '02',
-    title: 'Business Discovery and AI Growth Blueprint',
-    timeline: 'Days 2–3 • Deep Dive',
-    summary: 'We engineer a tailored AI Growth Blueprint specifying the exact digital workers, conversational scripts, product databases, and channel integrations needed.',
+    title: 'Custom Blueprint & Tailored Quote',
+    timeline: 'Week 2 • Custom Scoping',
+    summary: 'Because retail businesses vary in size and implementation complexity, we formulate a custom quote and technical growth blueprint suited specifically to your store.',
     detailedPoints: [
-      'Map product categories, sizing tables, pricing rules, and delivery fees',
-      'Define your brand tone of voice, greeting style, and escalation triggers',
-      'Design the operational bridge between customer chat and rider dispatch'
+      'Deliver a transparent, custom-scoped implementation quote matched to your store size',
+      'Map product categories, sizing tables, pricing logic, and courier delivery rails',
+      'Define custom brand tone of voice, greeting style, and escalation triggers'
     ],
-    retailerAction: 'Review and approve the custom AI worker personality and operational rules.',
-    mupezeniExecution: 'We draft the complete prompt engineering, system guardrails, and catalog indexing.',
+    retailerAction: 'Review and approve your tailored quote and custom AI worker operational parameters.',
+    mupezeniExecution: 'We draft the detailed architecture, prompt engineering schemas, and catalog indexing specs.',
     iconName: 'FileText'
   },
   {
     stepNumber: '03',
-    title: 'Custom AI Workforce Design and Deployment',
-    timeline: 'Days 4–7 • Activation',
-    summary: 'We build, test, and securely connect your AI workers directly to your WhatsApp Business, Instagram DMs, Facebook Page, or eCommerce store.',
+    title: 'Engineering, Integration & AI Training',
+    timeline: 'Weeks 3–5 • Build & Calibration',
+    summary: 'We build your digital storefront (or connect to Shopify/WooCommerce), train your 3 AI teams on your products and pricing, and configure payment and WhatsApp gateways.',
     detailedPoints: [
-      'Connect secure API webhooks to your official business communication channels',
-      'Run stress-tests across hundreds of simulated retail customer queries',
-      'Provide your team with a straightforward monitoring dashboard'
+      'Construct mobile storefront or integrate official APIs into existing eCommerce backend',
+      'Train AI Customer Support, Marketing, and Operations teams on historical data & FAQs',
+      'Run rigorous stress-tests across hundreds of simulated retail buying scenarios'
     ],
-    retailerAction: 'Test-drive the AI worker in a sandbox or staging environment.',
-    mupezeniExecution: 'We deploy the live system with strict fallback protections and human-in-the-loop safeguards.',
+    retailerAction: 'Test-drive your AI workforce in a private staging environment with your team.',
+    mupezeniExecution: 'We calibrate system guardrails, payment webhooks, and human-in-the-loop escalation safeguards.',
     iconName: 'Cpu'
   },
   {
     stepNumber: '04',
-    title: 'Continuous Optimisation and Growth',
-    timeline: 'Ongoing • Weekly Calibration',
-    summary: 'Your AI workforce gets smarter every single week. We monitor unresolved queries, tune recommendations, and help you launch high-performing campaigns.',
+    title: 'Autonomous Go-Live & Ongoing Growth',
+    timeline: 'Week 6 & Ongoing • Launch & Scale',
+    summary: 'Your 3 AI Teams go live across all customer touchpoints, scaling sales 24/7 with dedicated ongoing optimization and monthly reviews.',
     detailedPoints: [
-      'Weekly review of customer interactions, conversion rates, and drop-offs',
-      'Update stock lists, seasonal promos, and new product arrivals dynamically',
-      'Continuous prompt tuning to maximize completed orders and customer delight'
+      'Official rollout across WhatsApp, Instagram, Facebook, and Web storefronts',
+      'Weekly review of customer interactions, conversion rates, and revenue velocity',
+      'Continuous prompt tuning and catalogue updates to maximize monthly revenue'
     ],
-    retailerAction: 'Fulfill paid orders and enjoy consistent, predictable business expansion.',
-    mupezeniExecution: 'We handle the technical maintenance, model updates, and weekly performance analytics.',
+    retailerAction: 'Fulfill paid orders and enjoy autonomous, predictable retail growth.',
+    mupezeniExecution: 'We provide ongoing technical maintenance, AI model enhancements, and monthly strategic reviews.',
     iconName: 'TrendingUp'
   }
 ];
@@ -439,7 +439,7 @@ export const INDUSTRY_SOLUTIONS: IndustrySolution[] = [
     badge: 'Hardware & Materials',
     iconName: 'Wrench',
     challenge: 'Builders and technicians send messy lists of technical part numbers, paint codes, pipe gauges, and cement quantities that overwhelm counter staff during morning rushes.',
-    howMupezeniHelps: 'The AI Hardware Worker instantly digests handwritten or bulleted material lists, checks inventory availability, calculates tonnage/bulk discounts, and creates ready-to-dispatch quotes.',
+    howMupezeniHelps: 'The AI Hardware Worker instantly digests handwritten or bulleted material lists, checks stock availability, calculates tonnage/bulk discounts, and creates ready-to-deliver quotes.',
     keyFeatures: [
       'Rapid bulk quote generation from contractor material lists',
       'Part number cross-referencing and substitute recommendations',
@@ -448,7 +448,7 @@ export const INDUSTRY_SOLUTIONS: IndustrySolution[] = [
     ],
     sampleInteraction: {
       customerQuery: 'Need a quote for 50 bags 42.5R Dangote cement, 20 lengths 12mm rebar, and 4 rolls binding wire to Silverest site.',
-      aiResponse: 'Hello Mr. Banda! Here is your instant quotation: 50x Dangote 42.5R @ K165 = K8,250; 20x 12mm High-Tensile Rebar @ K195 = K3,900; 4x Binding Wire @ K120 = K480. Total Materials: K12,630. Site delivery to Silverest by 2-ton truck: K450. Total: K13,080. Shall I lock in this quote and send payment details for dispatch?',
+      aiResponse: 'Hello Mr. Banda! Here is your instant quotation: 50x Dangote 42.5R @ K165 = K8,250; 20x 12mm High-Tensile Rebar @ K195 = K3,900; 4x Binding Wire @ K120 = K480. Total Materials: K12,630. Site delivery to Silverest by 2-ton truck: K450. Total: K13,080. Shall I lock in this quote and send payment details for delivery to your site?',
       outcomeNote: 'Contractor quotation generated in under 10 seconds before counter opens.'
     },
     metricsHighlight: 'Under 1-minute quote turnaround for complex contractor orders.'
@@ -501,13 +501,13 @@ export const INDUSTRY_SOLUTIONS: IndustrySolution[] = [
     tagline: 'Weekly Specials Broadcast, Bulk Pantry Builder & Quick Re-order',
     badge: 'Supermarkets & Food',
     iconName: 'ShoppingBag',
-    challenge: 'High transaction frequency, perishable inventory requiring daily clearance, and customers who want to send a quick bulleted grocery list on WhatsApp.',
+    challenge: 'High transaction frequency, fast-moving items requiring daily clearance, and customers who want to send a quick bulleted grocery list on WhatsApp.',
     howMupezeniHelps: 'The AI Grocery Worker digests bulleted shopping lists, calculates cart totals, broadcasts weekly fresh produce specials, and coordinates pickup or express delivery.',
     keyFeatures: [
       'Rapid conversion of casual text lists into itemized digital carts',
       'Automated Tuesday/Friday fresh produce & butcher specials broadcasts',
       'Repeat "1-Tap" monthly pantry replenishment orders',
-      'Express same-day delivery dispatch integration'
+      'Express same-day customer delivery rider integration'
     ],
     sampleInteraction: {
       customerQuery: 'Hey! Here is my weekly list: 10kg Pembe mealie meal, 2 trays eggs, 5L cooking oil, 2kg sugar, and 1kg chicken breasts. How much is everything and can I get it today?',

@@ -115,7 +115,9 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
         </div>
 
         {/* Mobile Compact Cards View */}
-        <div className="lg:hidden space-y-2.5 sm:space-y-4 mb-5 sm:mb-10">
+        <div className={`lg:hidden gap-2.5 sm:gap-4 mb-5 sm:mb-10 ${
+          mobileWorkerTab === 'all' ? 'grid grid-cols-1 sm:grid-cols-2' : 'space-y-2.5 sm:space-y-4'
+        }`}>
           {visibleMembers.map(member => renderMobileCard(member))}
         </div>
 
@@ -167,13 +169,13 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
     return (
       <div
         key={member.id}
-        className="rounded-xl bg-gradient-to-b from-[#180E09] via-[#120B07] to-[#0A0705] border border-[#9B2208]/40 shadow-lg p-3.5 space-y-2.5"
+        className="rounded-xl bg-gradient-to-b from-[#180E09] via-[#120B07] to-[#0A0705] border border-[#9B2208]/40 shadow-lg p-3 space-y-2"
       >
         {/* Header Row */}
-        <div className="flex items-center gap-2.5">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#25130A] via-[#1A0E08] to-[#0A0705] border border-[#9B2208]/40 p-0.5 flex-shrink-0 flex items-center justify-center relative shadow-md">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#25130A] via-[#1A0E08] to-[#0A0705] border border-[#9B2208]/40 p-0.5 flex-shrink-0 flex items-center justify-center relative shadow-sm">
             <AiWorkerIllustration workerId={member.id} className="w-full h-full" />
-            <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border border-[#140D08]" />
+            <span className="absolute -bottom-0.5 -right-0.5 w-2 h-2 rounded-full bg-emerald-500 border border-[#140D08]" />
           </div>
 
           <div className="flex-1 min-w-0">
@@ -181,54 +183,52 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
               <span className="text-[9px] font-bold uppercase tracking-wider text-[#D95A1A] font-syne truncate">
                 {member.badge}
               </span>
-              <span className="text-[9px] text-emerald-400 font-bold font-syne whitespace-nowrap">
+              <span className="text-[8px] text-emerald-400 font-bold font-syne whitespace-nowrap">
                 {isSupport ? '24/7 Active' : isMarketing ? 'Auto-Schedule' : 'Live Sync'}
               </span>
             </div>
-            <h3 className="text-sm font-black font-syne text-white leading-tight truncate">
+            <h3 className="text-xs font-black font-syne text-white leading-tight truncate">
               {member.title}
             </h3>
-            <p className="text-[10px] text-[#FAFAF9]/70 font-syne truncate">
-              {member.roleDescription}
-            </p>
           </div>
         </div>
 
         {/* 1-line channel badge */}
-        <div className="px-2 py-1 rounded-md bg-[#090604] border border-white/5 flex items-center justify-between text-[10px]">
+        <div className="px-2 py-0.5 rounded bg-[#090604] border border-white/5 flex items-center justify-between text-[9px]">
           <span className="text-[#D95A1A] font-bold flex items-center gap-1 truncate">
-            <Zap className="w-3 h-3 flex-shrink-0" />
+            <Zap className="w-2.5 h-2.5 flex-shrink-0" />
             <span className="truncate">{member.mockVisual.headline}</span>
           </span>
-          <span className="text-white/50 text-[9px] ml-1 flex-shrink-0">{member.mockVisual.metricsTag}</span>
+          <span className="text-white/50 text-[8px] ml-1 flex-shrink-0">{member.mockVisual.metricsTag}</span>
         </div>
 
-        {/* 3 Key Responsibilities */}
-        <ul className="space-y-1 text-[10px] text-[#FAFAF9]/85">
-          {member.responsibilities.slice(0, 3).map((resp, rIdx) => (
-            <li key={rIdx} className="flex items-start gap-1.5">
-              <CheckCircle2 className="w-3 h-3 text-[#D95A1A] mt-0.5 flex-shrink-0" />
-              <span className="leading-snug">{resp}</span>
-            </li>
+        {/* 4 Key Responsibilities in 2-Column Side-by-Side Grid */}
+        <div className="grid grid-cols-2 gap-1 text-[9px] text-[#FAFAF9]/85">
+          {member.responsibilities.slice(0, 4).map((resp, rIdx) => (
+            <div key={rIdx} className="flex items-start gap-1 p-1 rounded bg-[#130B07] border border-white/5">
+              <CheckCircle2 className="w-2.5 h-2.5 text-[#D95A1A] mt-0.5 flex-shrink-0" />
+              <span className="leading-tight text-[8.5px] line-clamp-2">{resp}</span>
+            </div>
           ))}
-        </ul>
-
-        {/* Compact Outcome Box */}
-        <div className="p-2 rounded-lg bg-[#20110A]/90 border border-[#9B2208]/30 flex items-start gap-1.5 text-[10px]">
-          <TrendingUp className="w-3 h-3 text-[#D95A1A] mt-0.5 flex-shrink-0" />
-          <span className="text-[#FAFAF9] font-medium leading-snug">
-            {member.businessOutcome}
-          </span>
         </div>
 
-        {/* Deploy Button */}
-        <button
-          onClick={() => onNavigate('contact')}
-          className="w-full py-2 px-3 rounded-lg font-syne font-bold text-[11px] text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] flex items-center justify-center gap-1.5 cursor-pointer shadow"
-        >
-          <span>Deploy Team</span>
-          <ArrowRight className="w-3 h-3" />
-        </button>
+        {/* Bottom Outcome & Deploy Button side-by-side */}
+        <div className="flex items-center gap-2 pt-1 border-t border-white/5">
+          <div className="flex-1 min-w-0 p-1.5 rounded-lg bg-[#20110A]/90 border border-[#9B2208]/30 flex items-center gap-1 text-[9px]">
+            <TrendingUp className="w-2.5 h-2.5 text-[#D95A1A] flex-shrink-0" />
+            <span className="text-[#FAFAF9] font-semibold leading-tight truncate">
+              {member.businessOutcome}
+            </span>
+          </div>
+
+          <button
+            onClick={() => onNavigate('contact')}
+            className="py-1.5 px-2.5 rounded-lg font-syne font-bold text-[10px] text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] flex items-center justify-center gap-1 cursor-pointer shadow flex-shrink-0 whitespace-nowrap"
+          >
+            <span>Deploy</span>
+            <ArrowRight className="w-2.5 h-2.5" />
+          </button>
+        </div>
       </div>
     );
   }

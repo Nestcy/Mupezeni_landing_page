@@ -218,15 +218,15 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                   <ul className="space-y-2 text-xs text-[#FAFAF9]/75">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] mt-0.5 flex-shrink-0" />
-                      <span>We review your current sales channels & inquiry volume.</span>
+                      <span>We conduct a 30-min consultation to review your store channels & catalogue.</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] mt-0.5 flex-shrink-0" />
-                      <span>We draft your tailored AI Workforce Blueprint.</span>
+                      <span>We provide a custom quote & tailored AI Growth Blueprint for your store size.</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] mt-0.5 flex-shrink-0" />
-                      <span>We connect directly for your 30-min strategy session.</span>
+                      <span>4–6 week tailored engineering, testing & multi-agent rollout.</span>
                     </li>
                   </ul>
                 </div>

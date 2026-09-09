@@ -66,8 +66,8 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaProps> = ({
                 <CheckCircle2 className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-white font-syne">3. Implementation Plan</h4>
-                <p className="text-[11px] text-[#FAFAF9]/70 mt-0.5">Fast rollout on WhatsApp, Instagram & eCommerce.</p>
+                <h4 className="text-xs font-bold text-white font-syne">3. Custom Quoter & Rollout</h4>
+                <p className="text-[11px] text-[#FAFAF9]/70 mt-0.5">Tailored 4–6 week rollout matched to your size & implementation.</p>
               </div>
             </div>
           </div>
