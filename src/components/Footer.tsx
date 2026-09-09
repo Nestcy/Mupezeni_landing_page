@@ -125,6 +125,25 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <button
+                  onClick={() => handleNav('solutions')}
+                  className="hover:text-white transition-colors cursor-pointer"
+                >
+                  Solutions (2 Implementation Paths)
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('pricing')}
+                  className="hover:text-white transition-colors cursor-pointer text-left flex items-center gap-1.5"
+                >
+                  <span>Pricing</span>
+                  <span className="text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-[#1C0F0A] text-[#D95A1A] border border-[#9B2208]/30">
+                    K5,000/mo
+                  </span>
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => handleNav('how-it-works')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >

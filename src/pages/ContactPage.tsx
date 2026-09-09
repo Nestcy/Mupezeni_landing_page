@@ -66,6 +66,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
     monthlyEnquiries: '50-200',
     biggestChallenge: '',
     preferredConsultationMethod: 'Google Meet',
+    implementationPath: 'path1-build',
     additionalDetails: ''
   });
 
@@ -231,8 +232,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 </div>
               </div>
 
-              {/* Founder Guarantee Note */}
-              <div className="p-6 rounded-3xl bg-[#140D08] border border-white/5 space-y-3">
+              {/* Founder Guarantee Note & Pricing Assurance */}
+              <div className="p-6 rounded-3xl bg-[#140D08] border border-white/5 space-y-4">
                 <div className="flex items-center gap-2 text-xs font-bold text-white font-syne">
                   <ShieldCheck className="w-4 h-4 text-[#D95A1A]" />
                   <span>100% Free & No Obligation</span>
@@ -240,6 +241,23 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 <p className="text-xs text-[#FAFAF9]/70 leading-relaxed">
                   You are under no obligation to purchase software. The consultation is designed to deliver immediate tactical clarity on how AI can accelerate your retail business.
                 </p>
+                <div className="pt-3 border-t border-white/10 space-y-1.5">
+                  <div className="flex items-center justify-between text-xs font-syne">
+                    <span className="font-bold text-white">Transparent Pricing:</span>
+                    <span className="text-[#D95A1A] font-bold">K5,000 /mo</span>
+                  </div>
+                  <p className="text-[11px] text-[#FAFAF9]/60 leading-tight">
+                    All-inclusive AI Support, Marketing, and Operations. Zero per-message license fees.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => onNavigate('pricing')}
+                    className="text-xs font-bold font-syne text-[#D95A1A] hover:text-white inline-flex items-center gap-1 cursor-pointer pt-1"
+                  >
+                    <span>View full pricing breakdown</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
+                </div>
               </div>
 
             </div>
@@ -341,12 +359,74 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                   className="p-6 sm:p-10 rounded-3xl bg-gradient-to-br from-[#160E09] via-[#120B07] to-[#0A0705] border border-[#9B2208]/40 shadow-2xl space-y-8"
                 >
                   <div className="space-y-1">
-                    <h3 className="text-2xl font-black font-syne text-white">
-                      Retail Diagnostic Form
-                    </h3>
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                      <h3 className="text-2xl font-black font-syne text-white">
+                        Retail Diagnostic Form
+                      </h3>
+                      <span className="text-[11px] font-bold font-syne px-2.5 py-0.5 rounded-full bg-[#1C0F0A] text-[#D95A1A] border border-[#9B2208]/30 self-start sm:self-auto">
+                        Pricing: K5,000/mo
+                      </span>
+                    </div>
                     <p className="text-xs sm:text-sm text-[#FAFAF9]/75">
                       Please complete the fields below to help us tailor your AI Growth Blueprint.
                     </p>
+                  </div>
+
+                  {/* Implementation Path Preference Selector */}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <label className="text-xs font-bold text-white font-syne">
+                        Implementation Track Preference
+                      </label>
+                      <button
+                        type="button"
+                        onClick={() => onNavigate('solutions')}
+                        className="text-[11px] font-semibold text-[#D95A1A] hover:text-white cursor-pointer underline"
+                      >
+                        Compare Path 1 vs Path 2
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, implementationPath: 'path1-build' })}
+                        className={`p-3 rounded-xl text-left border transition-all cursor-pointer ${
+                          formData.implementationPath === 'path1-build'
+                            ? 'bg-[#24110A] border-[#9B2208] text-white shadow-md'
+                            : 'bg-[#090604] border-white/10 text-[#FAFAF9]/70 hover:border-white/20'
+                        }`}
+                      >
+                        <div className="font-bold text-xs font-syne text-white">Path 1: Build Store</div>
+                        <p className="text-[10px] text-[#FAFAF9]/60 mt-0.5 leading-snug">No online presence yet</p>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, implementationPath: 'path2-upgrade' })}
+                        className={`p-3 rounded-xl text-left border transition-all cursor-pointer ${
+                          formData.implementationPath === 'path2-upgrade'
+                            ? 'bg-[#24110A] border-[#9B2208] text-white shadow-md'
+                            : 'bg-[#090604] border-white/10 text-[#FAFAF9]/70 hover:border-white/20'
+                        }`}
+                      >
+                        <div className="font-bold text-xs font-syne text-white">Path 2: Upgrade Store</div>
+                        <p className="text-[10px] text-[#FAFAF9]/60 mt-0.5 leading-snug">Shopify / WooCommerce / Custom</p>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => setFormData({ ...formData, implementationPath: 'undecided' })}
+                        className={`p-3 rounded-xl text-left border transition-all cursor-pointer ${
+                          formData.implementationPath === 'undecided'
+                            ? 'bg-[#24110A] border-[#9B2208] text-white shadow-md'
+                            : 'bg-[#090604] border-white/10 text-[#FAFAF9]/70 hover:border-white/20'
+                        }`}
+                      >
+                        <div className="font-bold text-xs font-syne text-white">Need Guidance</div>
+                        <p className="text-[10px] text-[#FAFAF9]/60 mt-0.5 leading-snug">Decide during consultation</p>
+                      </button>
+                    </div>
                   </div>
 
                   {/* Row 1: Business Name & Owner Name */}

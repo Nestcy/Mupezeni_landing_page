@@ -399,7 +399,42 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* 5. CONSULTATION CTA SECTION */}
+      {/* 5. PRICING & SOLUTIONS BRIDGE */}
+      <section className="py-12 border-t border-white/10 bg-[#070402]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#140A06] to-[#1D0E07] border border-[#9B2208]/40 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="space-y-2 text-center md:text-left">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#D95A1A] font-syne">
+                Predictable Fixed Investment
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black font-syne text-white">
+                Everything in the Workflow for K5,000 /month
+              </h3>
+              <p className="text-xs sm:text-sm text-[#FAFAF9]/75 max-w-xl">
+                Whether you need Path 1 (complete digital store build) or Path 2 (Shopify/WooCommerce upgrade), your setup and 24/7 AI workforce are fully covered.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto flex-shrink-0">
+              <button
+                onClick={() => onNavigate('pricing')}
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-syne font-bold text-xs sm:text-sm text-white bg-[#20100A] border border-[#9B2208] hover:border-[#D95A1A] transition-all cursor-pointer flex items-center justify-center gap-2"
+              >
+                <span>View Dedicated Pricing</span>
+                <ArrowRight className="w-4 h-4 text-[#D95A1A]" />
+              </button>
+              <button
+                onClick={() => onNavigate('solutions')}
+                className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-syne font-bold text-xs sm:text-sm text-[#FAFAF9]/80 hover:text-white bg-white/5 hover:bg-white/10 transition-all cursor-pointer flex items-center justify-center gap-2"
+              >
+                <span>Compare 2 Solutions</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. CONSULTATION CTA SECTION */}
       <ConsultationCtaSection
         onNavigateToContact={() => onNavigate('contact')}
         badgeText="Scale Your Operations"

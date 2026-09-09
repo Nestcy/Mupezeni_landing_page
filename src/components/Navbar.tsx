@@ -29,14 +29,16 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
 
   const navItems: { id: PageId; label: string; badge?: string }[] = [
     { id: 'home', label: 'Home' },
+    { id: 'solutions', label: 'Solutions', badge: '2 Paths' },
+    { id: 'pricing', label: 'Pricing', badge: 'K5,000' },
     { id: 'how-it-works', label: 'How It Works' },
     { id: 'industries', label: 'Industries', badge: '7 Sectors' },
     { id: 'about', label: 'About' },
     { id: 'contact', label: 'Contact' },
   ];
 
-  const handleNavClick = (page: PageId) => {
-    onNavigate(page);
+  const handleNavClick = (target: PageId) => {
+    onNavigate(target);
     setMobileMenuOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

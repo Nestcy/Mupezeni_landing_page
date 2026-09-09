@@ -43,48 +43,48 @@ const BELIEFS = [
 
 export const WhatWeBelieveSection: React.FC<WhatWeBelieveSectionProps> = ({ onNavigate }) => {
   return (
-    <section className="py-20 sm:py-28 relative bg-[#090503] border-t border-white/5 overflow-hidden">
+    <section className="py-10 sm:py-20 lg:py-28 relative bg-[#090503] border-t border-white/5 overflow-hidden">
       {/* Glow */}
       <div className="absolute top-1/3 right-1/4 w-[500px] h-[500px] bg-[#9B2208]/10 rounded-full blur-[160px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-14 sm:mb-18">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1A0E08] border border-[#9B2208]/40 text-[#D95A1A] text-xs font-bold font-syne uppercase tracking-wider">
+        <div className="max-w-3xl mx-auto text-center space-y-2.5 sm:space-y-4 mb-8 sm:mb-18">
+          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-[#1A0E08] border border-[#9B2208]/40 text-[#D95A1A] text-[11px] sm:text-xs font-bold font-syne uppercase tracking-wider">
             <Quote className="w-3.5 h-3.5 text-[#D95A1A]" />
             <span>Our Core Philosophy</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black font-syne text-[#FAFAF9] tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black font-syne text-[#FAFAF9] tracking-tight leading-tight">
             What We Believe
           </h2>
 
-          <p className="text-sm sm:text-lg text-[#FAFAF9]/80 font-normal leading-relaxed">
+          <p className="text-xs sm:text-base md:text-lg text-[#FAFAF9]/80 font-normal leading-relaxed">
             Mupezeni was founded on a simple conviction: technology should give business owners back their time and empower them to build enduring, high-margin retail businesses.
           </p>
         </div>
 
         {/* 4 Premium Quote Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
           {BELIEFS.map((belief, idx) => {
             const Icon = belief.icon;
             return (
               <div 
                 key={idx}
-                className="p-7 sm:p-9 rounded-3xl bg-gradient-to-br from-[#150D08] via-[#110A06] to-[#0A0704] border border-[#9B2208]/30 hover:border-[#9B2208]/60 hover:shadow-2xl hover:shadow-[#9B2208]/15 transition-all duration-300 flex flex-col justify-between space-y-6 group"
+                className="p-4 sm:p-7 lg:p-9 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#150D08] via-[#110A06] to-[#0A0704] border border-[#9B2208]/30 hover:border-[#9B2208]/60 hover:shadow-2xl hover:shadow-[#9B2208]/15 transition-all duration-300 flex flex-col justify-between space-y-3.5 sm:space-y-6 group"
               >
-                <div className="space-y-4">
+                <div className="space-y-2 sm:space-y-4">
                   <div className="flex items-center justify-between">
-                    <div className="w-10 h-10 rounded-xl bg-[#20100A] border border-[#9B2208]/40 flex items-center justify-center text-[#D95A1A]">
-                      <Icon className="w-5 h-5" />
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#20100A] border border-[#9B2208]/40 flex items-center justify-center text-[#D95A1A]">
+                      <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                     </div>
-                    <span className="text-xs font-bold text-[#D95A1A] font-syne px-3 py-1 rounded-full bg-[#1E0F09] border border-[#9B2208]/20">
+                    <span className="text-[11px] sm:text-xs font-bold text-[#D95A1A] font-syne px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#1E0F09] border border-[#9B2208]/20">
                       {belief.author}
                     </span>
                   </div>
 
-                  <blockquote className="text-xl sm:text-2xl font-black font-syne text-white tracking-tight leading-snug group-hover:text-[#FAFAF9] transition-colors">
+                  <blockquote className="text-base sm:text-xl lg:text-2xl font-black font-syne text-white tracking-tight leading-snug group-hover:text-[#FAFAF9] transition-colors">
                     "{belief.quote}"
                   </blockquote>
 
@@ -93,11 +93,11 @@ export const WhatWeBelieveSection: React.FC<WhatWeBelieveSectionProps> = ({ onNa
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/5 flex items-center justify-between text-xs">
-                  <span className="font-bold text-[#D95A1A] font-syne uppercase tracking-wider text-[11px]">
+                <div className="pt-2.5 sm:pt-4 border-t border-white/5 flex items-center justify-between text-xs">
+                  <span className="font-bold text-[#D95A1A] font-syne uppercase tracking-wider text-[10px] sm:text-[11px]">
                     {belief.subtitle}
                   </span>
-                  <span className="text-white/40 font-syne">Principle 0{idx + 1}</span>
+                  <span className="text-white/40 font-syne text-[10px] sm:text-xs">Principle 0{idx + 1}</span>
                 </div>
               </div>
             );
@@ -109,7 +109,7 @@ export const WhatWeBelieveSection: React.FC<WhatWeBelieveSectionProps> = ({ onNa
           <div className="text-center pt-2">
             <button
               onClick={() => onNavigate('contact')}
-              className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl font-syne font-black text-sm text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-xl hover:shadow-[#9B2208]/30 transition-all cursor-pointer"
+              className="inline-flex items-center gap-2 px-5 py-3 sm:px-8 sm:py-4 rounded-xl font-syne font-black text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-xl hover:shadow-[#9B2208]/30 transition-all cursor-pointer"
             >
               <span>Book My AI Growth Consultation</span>
               <ArrowRight className="w-4 h-4" />

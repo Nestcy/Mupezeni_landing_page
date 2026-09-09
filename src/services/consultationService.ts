@@ -38,6 +38,11 @@ export async function sendConsultationEmailNotification(
       'WhatsApp / Phone': formattedPhone,
       'City / Location': data.city,
       'Retail Sector': data.businessCategory,
+      'Implementation Path': data.implementationPath === 'path1-build' 
+        ? 'Path 1: Build Digital Store (No current online presence)' 
+        : data.implementationPath === 'path2-upgrade' 
+          ? 'Path 2: Upgrade Existing Store (Shopify / WooCommerce / Website)' 
+          : 'To be determined during consultation',
       'Active Sales Channels': channelsList,
       'Monthly Customer Inquiries': data.monthlyEnquiries,
       'Preferred Format': data.preferredConsultationMethod,
@@ -89,6 +94,12 @@ export function generateWhatsAppBookingUrl(data: ConsultationBookingData): strin
   const formattedPhone = `${data.phoneCountryCode} ${data.phoneNumber}`.trim();
   const channelsList = data.currentSalesChannels.join(', ') || 'Not specified';
 
+  const pathDescription = data.implementationPath === 'path1-build'
+    ? 'Path 1: Build Digital Store (No current online presence)'
+    : data.implementationPath === 'path2-upgrade'
+      ? 'Path 2: Upgrade Existing Store (Shopify / WooCommerce / Website)'
+      : 'To be determined';
+
   const text = 
 `*⚡ NEW CONSULTATION BOOKING — MUPEZENI AI*
 
@@ -98,6 +109,7 @@ export function generateWhatsAppBookingUrl(data: ConsultationBookingData): strin
 *Phone / WhatsApp:* ${formattedPhone}
 *Location:* ${data.city}
 *Retail Sector:* ${data.businessCategory}
+*Implementation Track:* ${pathDescription}
 *Sales Channels:* ${channelsList}
 *Monthly Volume:* ${data.monthlyEnquiries} inquiries/mo
 *Preferred Format:* ${data.preferredConsultationMethod}
@@ -127,6 +139,7 @@ Here are the details for our AI Growth Consultation booking:
 - Phone: ${formattedPhone}
 - City: ${data.city}
 - Sector: ${data.businessCategory}
+- Implementation Track: ${data.implementationPath || 'To be determined'}
 - Sales Channels: ${data.currentSalesChannels.join(', ')}
 - Monthly Volume: ${data.monthlyEnquiries}
 - Preferred Format: ${data.preferredConsultationMethod}
@@ -161,6 +174,7 @@ export async function saveConsultationToFirestore(
       monthlyOrders: data.monthlyEnquiries,
       primaryGoal: data.biggestChallenge.trim(),
       preferredFormat: data.preferredConsultationMethod,
+      implementationPath: data.implementationPath || 'undecided',
       status: 'pending' as ConsultationStatus,
       createdAt: new Date().toISOString(),
       adminNotes: '',

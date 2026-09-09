@@ -29,15 +29,15 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
   });
 
   return (
-    <section id="ai-team" className="py-10 sm:py-20 lg:py-28 relative bg-[#070503] border-t border-white/5 overflow-hidden">
+    <section id="ai-team" className="py-8 sm:py-20 lg:py-28 relative bg-[#070503] border-t border-white/5 overflow-hidden">
       {/* Ambient background glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[400px] sm:w-[900px] h-[250px] sm:h-[500px] bg-gradient-to-b from-[#9B2208]/15 via-[#D95A1A]/10 to-transparent rounded-full blur-[100px] sm:blur-[180px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-3.5 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-2 sm:space-y-4 mb-6 sm:mb-14 lg:mb-16">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-[#1A0E08] border border-[#9B2208]/40 shadow-sm">
+        <div className="max-w-3xl mx-auto text-center space-y-2 sm:space-y-4 mb-4 sm:mb-14 lg:mb-16">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-4 sm:py-1.5 rounded-full bg-[#1A0E08] border border-[#9B2208]/40 shadow-sm">
             <Users className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D95A1A]" />
             <span className="text-[10px] sm:text-xs font-bold text-[#F5EDE4] font-syne uppercase tracking-wider">
               Your Digital Employees
@@ -53,20 +53,21 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
           </p>
 
           {/* Principle pill */}
-          <div className="pt-1">
-            <span className="inline-flex items-center gap-1.5 text-[10px] sm:text-xs md:text-sm font-semibold text-[#F5EDE4]/90 bg-[#160D09]/80 border border-[#9B2208]/30 px-3 py-1 rounded-xl font-syne text-center">
+          <div className="pt-0.5 sm:pt-1">
+            <span className="inline-flex items-center gap-1.5 text-[9px] sm:text-xs md:text-sm font-semibold text-[#F5EDE4]/90 bg-[#160D09]/80 border border-[#9B2208]/30 px-2.5 py-1 rounded-xl font-syne text-center">
               <span className="text-[#D95A1A] flex-shrink-0">💡 Mindset:</span>
-              <span>"I'm adding three intelligent digital teams to scale my business without growing payroll."</span>
+              <span className="hidden sm:inline">"I'm adding three intelligent digital teams to scale my business without growing payroll."</span>
+              <span className="sm:hidden">Add 3 AI teams without growing payroll.</span>
             </span>
           </div>
         </div>
 
         {/* Mobile Worker Switcher Bar (Mobile & Tablet) */}
-        <div className="lg:hidden mb-4 sm:mb-6">
+        <div className="lg:hidden mb-3 sm:mb-6">
           <div className="flex items-center justify-between p-1 bg-[#140D08] rounded-xl border border-white/10 max-w-sm mx-auto shadow-md">
             <button
               onClick={() => setMobileWorkerTab('customer-support')}
-              className={`flex-1 py-1.5 px-2 rounded-lg font-syne font-bold text-[10px] sm:text-[11px] transition-all flex items-center justify-center gap-1 whitespace-nowrap cursor-pointer ${
+              className={`flex-1 py-1 px-1.5 sm:py-1.5 sm:px-2 rounded-lg font-syne font-bold text-[10px] sm:text-[11px] transition-all flex items-center justify-center gap-1 whitespace-nowrap cursor-pointer ${
                 mobileWorkerTab === 'customer-support'
                   ? 'bg-gradient-to-r from-[#9B2208] to-[#D95A1A] text-white shadow'
                   : 'text-white/60 hover:text-white'
@@ -78,7 +79,7 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
 
             <button
               onClick={() => setMobileWorkerTab('marketing-specialist')}
-              className={`flex-1 py-1.5 px-2 rounded-lg font-syne font-bold text-[10px] sm:text-[11px] transition-all flex items-center justify-center gap-1 whitespace-nowrap cursor-pointer ${
+              className={`flex-1 py-1 px-1.5 sm:py-1.5 sm:px-2 rounded-lg font-syne font-bold text-[10px] sm:text-[11px] transition-all flex items-center justify-center gap-1 whitespace-nowrap cursor-pointer ${
                 mobileWorkerTab === 'marketing-specialist'
                   ? 'bg-gradient-to-r from-[#9B2208] to-[#D95A1A] text-white shadow'
                   : 'text-white/60 hover:text-white'
@@ -90,7 +91,7 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
 
             <button
               onClick={() => setMobileWorkerTab('business-manager')}
-              className={`flex-1 py-1.5 px-2 rounded-lg font-syne font-bold text-[10px] sm:text-[11px] transition-all flex items-center justify-center gap-1 whitespace-nowrap cursor-pointer ${
+              className={`flex-1 py-1 px-1.5 sm:py-1.5 sm:px-2 rounded-lg font-syne font-bold text-[10px] sm:text-[11px] transition-all flex items-center justify-center gap-1 whitespace-nowrap cursor-pointer ${
                 mobileWorkerTab === 'business-manager'
                   ? 'bg-gradient-to-r from-[#9B2208] to-[#D95A1A] text-white shadow'
                   : 'text-white/60 hover:text-white'
@@ -102,7 +103,7 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
 
             <button
               onClick={() => setMobileWorkerTab('all')}
-              className={`py-1.5 px-2.5 rounded-lg font-syne font-bold text-[9px] uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
+              className={`py-1 px-2 sm:py-1.5 sm:px-2.5 rounded-lg font-syne font-bold text-[9px] uppercase tracking-wider transition-all whitespace-nowrap cursor-pointer ${
                 mobileWorkerTab === 'all'
                   ? 'bg-white/15 text-white border border-white/20'
                   : 'text-white/40 hover:text-white'
@@ -114,7 +115,7 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
         </div>
 
         {/* Mobile Compact Cards View */}
-        <div className="lg:hidden space-y-3 sm:space-y-4 mb-6 sm:mb-10">
+        <div className="lg:hidden space-y-2.5 sm:space-y-4 mb-5 sm:mb-10">
           {visibleMembers.map(member => renderMobileCard(member))}
         </div>
 
@@ -124,18 +125,18 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
         </div>
 
         {/* Bottom Banner: How the 3 Teams Collaborate */}
-        <div className="p-4 sm:p-8 lg:p-10 rounded-xl sm:rounded-3xl bg-gradient-to-br from-[#1A0E08] via-[#140C07] to-[#0A0705] border border-[#9B2208]/50 shadow-xl relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 items-center">
+        <div className="p-3.5 sm:p-8 lg:p-10 rounded-xl sm:rounded-3xl bg-gradient-to-br from-[#1A0E08] via-[#140C07] to-[#0A0705] border border-[#9B2208]/50 shadow-xl relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-3.5 sm:gap-8 items-center">
             
-            <div className="lg:col-span-8 space-y-2 sm:space-y-3">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#20110A] border border-[#9B2208]/30 text-[10px] sm:text-[11px] font-bold text-[#D95A1A] font-syne">
+            <div className="lg:col-span-8 space-y-1.5 sm:space-y-3">
+              <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-[#20110A] border border-[#9B2208]/30 text-[9px] sm:text-[11px] font-bold text-[#D95A1A] font-syne">
                 <Zap className="w-3 h-3" />
                 <span>Real-Time Collaboration</span>
               </div>
-              <h3 className="text-base sm:text-2xl lg:text-3xl font-black font-syne text-white tracking-tight">
+              <h3 className="text-sm sm:text-2xl lg:text-3xl font-black font-syne text-white tracking-tight">
                 All 3 AI Teams collaborate in real time.
               </h3>
-              <p className="text-[11px] sm:text-sm text-[#FAFAF9]/80 leading-relaxed max-w-2xl">
+              <p className="text-[10px] sm:text-sm text-[#FAFAF9]/80 leading-relaxed max-w-2xl">
                 When your <strong>AI Customer Support Team</strong> closes a sale, your <strong>AI Business Management Team</strong> updates inventory and prepares dispatch manifests, while your <strong>AI Marketing Team</strong> schedules spotlight promotions for high-demand items.
               </p>
             </div>
@@ -143,7 +144,7 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
             <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col gap-2 sm:gap-3 justify-center pt-1 sm:pt-0">
               <button
                 onClick={() => onNavigate('contact')}
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-xl font-syne font-black text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:opacity-95 shadow-md shadow-[#9B2208]/30 transition-all cursor-pointer"
+                className="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2 sm:px-6 sm:py-3.5 rounded-xl font-syne font-black text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:opacity-95 shadow-md shadow-[#9B2208]/30 transition-all cursor-pointer"
               >
                 <span>Deploy Your AI Teams</span>
                 <ArrowRight className="w-3.5 h-3.5" />

@@ -1,4 +1,4 @@
-export type PageId = 'home' | 'how-it-works' | 'industries' | 'about' | 'contact' | 'admin';
+export type PageId = 'home' | 'solutions' | 'pricing' | 'how-it-works' | 'industries' | 'about' | 'contact' | 'admin';
 
 export interface ConsultationBookingData {
   businessName: string;
@@ -12,6 +12,7 @@ export interface ConsultationBookingData {
   monthlyEnquiries: '<50' | '50-200' | '200-500' | '500-1000' | '1000+';
   biggestChallenge: string;
   preferredConsultationMethod: 'Google Meet' | 'Zoom' | 'Phone' | 'In Person';
+  implementationPath?: 'path1-build' | 'path2-upgrade' | 'undecided';
   additionalDetails?: string;
 }
 
@@ -31,6 +32,7 @@ export interface ConsultationRecord {
   preferredFormat: string;
   status: ConsultationStatus;
   createdAt: string;
+  implementationPath?: 'path1-build' | 'path2-upgrade' | 'undecided';
   adminNotes?: string;
   source?: string;
   emailDispatched?: boolean;

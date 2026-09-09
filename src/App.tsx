@@ -9,6 +9,8 @@ import { Footer } from './components/Footer';
 import { PolicyModal } from './components/PolicyModal';
 import { FloatingCta } from './components/FloatingCta';
 import { HomePage } from './pages/HomePage';
+import { SolutionsPage } from './pages/SolutionsPage';
+import { PricingPage } from './pages/PricingPage';
 import { HowItWorksPage } from './pages/HowItWorksPage';
 import { IndustriesPage } from './pages/IndustriesPage';
 import { AboutPage } from './pages/AboutPage';
@@ -34,7 +36,7 @@ export default function App() {
         setCurrentPage('admin');
         return;
       }
-      if (['home', 'how-it-works', 'industries', 'about', 'contact', 'admin'].includes(rawHash)) {
+      if (['home', 'solutions', 'pricing', 'how-it-works', 'industries', 'about', 'contact', 'admin'].includes(rawHash)) {
         setCurrentPage(rawHash as PageId);
       }
     };
@@ -77,6 +79,12 @@ export default function App() {
       <main className="flex-grow">
         {currentPage === 'home' && (
           <HomePage onNavigate={navigateTo} />
+        )}
+        {currentPage === 'solutions' && (
+          <SolutionsPage onNavigate={navigateTo} />
+        )}
+        {currentPage === 'pricing' && (
+          <PricingPage onNavigate={navigateTo} />
         )}
         {currentPage === 'how-it-works' && (
           <HowItWorksPage onNavigate={navigateTo} />

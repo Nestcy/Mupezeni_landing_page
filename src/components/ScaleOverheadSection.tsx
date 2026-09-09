@@ -18,29 +18,29 @@ interface ScaleOverheadSectionProps {
 
 export const ScaleOverheadSection: React.FC<ScaleOverheadSectionProps> = ({ onNavigate }) => {
   return (
-    <section id="scale-overhead" className="py-20 sm:py-28 relative bg-[#070503] border-t border-white/5 overflow-hidden">
+    <section id="scale-overhead" className="py-10 sm:py-20 lg:py-28 relative bg-[#070503] border-t border-white/5 overflow-hidden">
       {/* Subtle ambient lighting */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[850px] h-[480px] bg-gradient-to-b from-[#9B2208]/15 via-[#D95A1A]/10 to-transparent rounded-full blur-[170px] pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center space-y-4 mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1A0E08] border border-[#9B2208]/40 shadow-sm">
+        <div className="max-w-3xl mx-auto text-center space-y-2.5 sm:space-y-4 mb-8 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full bg-[#1A0E08] border border-[#9B2208]/40 shadow-sm">
             <Scale className="w-3.5 h-3.5 text-[#D95A1A]" />
-            <span className="text-xs font-bold text-[#F5EDE4] font-syne uppercase tracking-wider">
-              The Economic Advantage
+            <span className="text-[11px] sm:text-xs font-bold text-[#F5EDE4] font-syne uppercase tracking-wider">
+              Why AI Teams · The Economic Comparison
             </span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-syne text-[#FAFAF9] tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-black font-syne text-[#FAFAF9] tracking-tight leading-tight">
             Scale Your Business,{' '}
             <span className="text-gradient-fire block sm:inline">
               Not Your Overhead.
             </span>
           </h2>
 
-          <p className="text-base sm:text-lg text-[#FAFAF9]/80 font-normal leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xs sm:text-base lg:text-lg text-[#FAFAF9]/80 font-normal leading-relaxed max-w-2xl mx-auto">
             Growth naturally creates more enquiries, support requests, and operational complexity. Traditionally that meant hiring more people. Mupezeni provides an entirely new economic model.
           </p>
         </div>

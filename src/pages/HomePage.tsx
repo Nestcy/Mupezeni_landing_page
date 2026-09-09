@@ -10,9 +10,12 @@ import {
 } from 'lucide-react';
 import { ChannelsMarquee } from '../components/ChannelsMarquee';
 import { HeroCollaborativeDashboard } from '../components/HeroCollaborativeDashboard';
-import { TheProblemSection } from '../components/TheProblemSection';
+import { EmblemMotionSequence } from '../components/EmblemMotionSequence';
+import { GrowthCrossroadsSection } from '../components/GrowthCrossroadsSection';
 import { AiTeamSection } from '../components/AiTeamSection';
+import { ImplementationPathsSection } from '../components/ImplementationPathsSection';
 import { ScaleOverheadSection } from '../components/ScaleOverheadSection';
+import { PricingSection } from '../components/PricingSection';
 import { WhatWeBelieveSection } from '../components/WhatWeBelieveSection';
 import { ConsultationCtaSection } from '../components/ConsultationCtaSection';
 import { PageId } from '../types';
@@ -26,24 +29,24 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     <div className="pt-20">
       
       {/* 1. HERO SECTION */}
-      <section className="relative pt-10 pb-16 sm:pt-18 sm:pb-24 overflow-hidden bg-[#0A0705]">
+      <section className="relative pt-6 pb-10 sm:pt-18 sm:pb-24 overflow-hidden bg-[#0A0705]">
         {/* Ambient background glows */}
         <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[850px] h-[500px] bg-gradient-to-b from-[#9B2208]/20 via-[#D95A1A]/10 to-transparent rounded-full blur-[160px] pointer-events-none -z-10" />
         <div className="absolute top-1/3 -right-24 w-80 h-80 bg-[#B83A0A]/15 rounded-full blur-[140px] pointer-events-none -z-10" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto space-y-6 sm:space-y-8">
+          <div className="text-center max-w-4xl mx-auto space-y-4 sm:space-y-8">
             
             {/* Category Pill Tag */}
-            <div className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-[#1A0E08] border border-[#9B2208]/40 shadow-sm shadow-[#9B2208]/20">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#D95A1A] animate-pulse"></span>
-              <span className="text-xs sm:text-sm font-bold text-[#F5EDE4] font-syne uppercase tracking-wider">
+            <div className="inline-flex items-center gap-2 px-3 py-1 sm:px-5 sm:py-2 rounded-full bg-[#1A0E08] border border-[#9B2208]/40 shadow-sm shadow-[#9B2208]/20">
+              <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#D95A1A] animate-pulse"></span>
+              <span className="text-[11px] sm:text-sm font-bold text-[#F5EDE4] font-syne uppercase tracking-wider">
                 The AI Business Growth Company for Retail
               </span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-syne text-[#FAFAF9] tracking-tight leading-[1.08]">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-syne text-[#FAFAF9] tracking-tight leading-[1.12] sm:leading-[1.08]">
               Grow your retail business{' '}
               <span className="text-gradient-fire block sm:inline">
                 while you sleep.
@@ -51,31 +54,39 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </h1>
 
             {/* Subheadline */}
-            <p className="text-base sm:text-lg md:text-xl text-[#FAFAF9]/80 font-normal max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xs sm:text-base md:text-xl text-[#FAFAF9]/80 font-normal max-w-3xl mx-auto leading-relaxed">
               Whether you sell from your shop, WhatsApp, Facebook, Instagram or an online store, Mupezeni gives you intelligent AI Teams that help serve customers, market your business and manage digital operations around the clock while you focus on inventory, sourcing and dispatch.
             </p>
 
             {/* Buttons */}
-            <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <div className="pt-1 sm:pt-2 flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4">
               <button
                 id="hero-btn-build-workforce"
                 onClick={() => onNavigate('contact')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-syne font-black text-sm sm:text-base text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-2xl hover:shadow-[#9B2208]/40 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-98 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 sm:gap-3 px-5 py-3 sm:px-8 sm:py-4 rounded-xl font-syne font-black text-xs sm:text-base text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-2xl hover:shadow-[#9B2208]/40 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-98 cursor-pointer"
               >
                 <span>Book My AI Growth Consultation</span>
-                <ArrowRight className="w-5 h-5 text-white" />
+                <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </button>
 
               <button
                 id="hero-btn-see-how-it-works"
                 onClick={() => onNavigate('how-it-works')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-syne font-bold text-sm sm:text-base text-[#FAFAF9] bg-[#140D08] hover:bg-[#1E110A] border border-[#9B2208]/30 hover:border-[#9B2208]/60 transition-all duration-300 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-7 sm:py-4 rounded-xl font-syne font-bold text-xs sm:text-base text-[#FAFAF9] bg-[#140D08] hover:bg-[#1E110A] border border-[#9B2208]/30 hover:border-[#9B2208]/60 transition-all duration-300 cursor-pointer"
               >
                 <span>See How It Works</span>
-                <ChevronRight className="w-4 h-4 text-[#D95A1A]" />
+                <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#D95A1A]" />
               </button>
             </div>
 
+            {/* Interactive Motion Leap: Swallow Star to Skip Scroll */}
+            <EmblemMotionSequence onNavigate={onNavigate} />
+
+          </div>
+
+          {/* Hero Interactive Collaborative Dashboard Preview */}
+          <div className="mt-8 sm:mt-12">
+            <HeroCollaborativeDashboard />
           </div>
         </div>
       </section>
@@ -83,26 +94,25 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       {/* 2. TRUST BAR / CHANNELS MARQUEE */}
       <ChannelsMarquee />
 
-      {/* 3. HERO INTERACTIVE COLLABORATION DEMO */}
-      <section className="relative pb-16 sm:pb-24 bg-[#0A0705] overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <HeroCollaborativeDashboard />
-        </div>
-      </section>
-
-      {/* 4. THE PROBLEM SECTION: Growing your business shouldn't mean hiring endlessly */}
-      <TheProblemSection onNavigate={onNavigate} />
+      {/* 3. THE RETAIL GROWTH CROSSROADS: Motion Graphics Dilemma (The 4 Compounding Bottlenecks & Two Paths to Scale) */}
+      <GrowthCrossroadsSection onNavigate={onNavigate} />
 
       {/* 4. MEET YOUR AI TEAMS */}
       <AiTeamSection onNavigate={onNavigate} />
 
-      {/* 5. SCALE YOUR BUSINESS, NOT YOUR OVERHEAD */}
+      {/* 6. IMPLEMENTATION SOLUTIONS: Will Mupezeni Work With My Business? (Path 1 vs Path 2) */}
+      <ImplementationPathsSection onNavigate={onNavigate} />
+
+      {/* 7. WHY AI TEAMS: THE ECONOMIC COMPARISON (Scale Your Business, Not Your Overhead) */}
       <ScaleOverheadSection onNavigate={onNavigate} />
 
-      {/* 6. WHAT WE BELIEVE (Core Philosophy Quotes) */}
+      {/* 8. ⭐ PRICING (Apple-style reveal: K5,000/month, horizontal feature rows, unboxed whitespace) */}
+      <PricingSection onNavigate={onNavigate} />
+
+      {/* 9. BUSINESS PHILOSOPHY (What We Believe) */}
       <WhatWeBelieveSection onNavigate={onNavigate} />
 
-      {/* 7. FINAL CTA SECTION */}
+      {/* 10. FINAL CTA SECTION */}
       <ConsultationCtaSection
         onNavigateToContact={() => onNavigate('contact')}
       />

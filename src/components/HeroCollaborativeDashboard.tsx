@@ -31,102 +31,102 @@ export const HeroCollaborativeDashboard: React.FC = () => {
   }, []);
 
   return (
-    <div className="w-full max-w-5xl mx-auto mt-8 sm:mt-12 rounded-2xl sm:rounded-3xl bg-[#0F0A07]/90 border border-[#9B2208]/40 shadow-[0_25px_70px_rgba(0,0,0,0.85)] overflow-hidden backdrop-blur-xl transition-all duration-300">
+    <div className="w-full max-w-5xl mx-auto mt-4 sm:mt-12 rounded-xl sm:rounded-3xl bg-[#0F0A07]/90 border border-[#9B2208]/40 shadow-[0_25px_70px_rgba(0,0,0,0.85)] overflow-hidden backdrop-blur-xl transition-all duration-300">
       
       {/* Top Window Bar */}
-      <div className="px-4 py-3 sm:px-6 sm:py-3.5 bg-[#150D08] border-b border-white/10 flex flex-wrap items-center justify-between gap-3">
+      <div className="px-3 py-2 sm:px-6 sm:py-3.5 bg-[#150D08] border-b border-white/10 flex flex-wrap items-center justify-between gap-2 sm:gap-3">
         <div className="flex items-center gap-2 sm:gap-3">
           <div className="flex items-center gap-1.5">
-            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-red-500/80" />
-            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-amber-500/80" />
-            <div className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-emerald-500/80" />
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-red-500/80" />
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-amber-500/80" />
+            <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-emerald-500/80" />
           </div>
           <span className="text-white/30 text-xs hidden sm:inline">|</span>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[11px] sm:text-xs font-bold text-white/90 font-syne tracking-wide">
-              Mupezeni Live OS · 3 AI Teams Active
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span className="text-[10px] sm:text-xs font-bold text-white/90 font-syne tracking-wide">
+              Mupezeni Live OS · 3 Teams
             </span>
           </div>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex items-center p-1 rounded-xl bg-[#090604] border border-white/10 text-[10px] sm:text-xs font-syne">
+        <div className="flex items-center p-0.5 sm:p-1 rounded-lg sm:rounded-xl bg-[#090604] border border-white/10 text-[9px] sm:text-xs font-syne">
           <button 
             onClick={() => setActiveTab('all')}
-            className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${activeTab === 'all' ? 'bg-[#9B2208] text-white font-bold' : 'text-white/60 hover:text-white'}`}
+            className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg transition-all cursor-pointer ${activeTab === 'all' ? 'bg-[#9B2208] text-white font-bold' : 'text-white/60 hover:text-white'}`}
           >
-            Live Overview
+            Overview
           </button>
           <button 
             onClick={() => setActiveTab('support')}
-            className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${activeTab === 'support' ? 'bg-[#9B2208] text-white font-bold' : 'text-white/60 hover:text-white'}`}
+            className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg transition-all cursor-pointer ${activeTab === 'support' ? 'bg-[#9B2208] text-white font-bold' : 'text-white/60 hover:text-white'}`}
           >
             Support
           </button>
           <button 
             onClick={() => setActiveTab('marketing')}
-            className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${activeTab === 'marketing' ? 'bg-[#9B2208] text-white font-bold' : 'text-white/60 hover:text-white'}`}
+            className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg transition-all cursor-pointer ${activeTab === 'marketing' ? 'bg-[#9B2208] text-white font-bold' : 'text-white/60 hover:text-white'}`}
           >
             Marketing
           </button>
           <button 
             onClick={() => setActiveTab('operations')}
-            className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer ${activeTab === 'operations' ? 'bg-[#9B2208] text-white font-bold' : 'text-white/60 hover:text-white'}`}
+            className={`px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md sm:rounded-lg transition-all cursor-pointer ${activeTab === 'operations' ? 'bg-[#9B2208] text-white font-bold' : 'text-white/60 hover:text-white'}`}
           >
-            Operations
+            Ops
           </button>
         </div>
       </div>
 
       {/* Main Dashboard Workspace */}
-      <div className="p-4 sm:p-6 lg:p-8 space-y-6">
+      <div className="p-3 sm:p-6 lg:p-8 space-y-3 sm:space-y-6">
         
         {/* Real-time Status Header */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-          <div className="p-3 sm:p-4 rounded-2xl bg-[#140C07] border border-white/5 space-y-1">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3">
+          <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#140C07] border border-white/5 space-y-0.5 sm:space-y-1">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] sm:text-xs text-white/60 font-syne">Avg Response Time</span>
-              <Zap className="w-3.5 h-3.5 text-[#D95A1A]" />
+              <span className="text-[9px] sm:text-xs text-white/60 font-syne truncate">Response Time</span>
+              <Zap className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D95A1A]" />
             </div>
-            <p className="text-lg sm:text-2xl font-black font-syne text-white tracking-tight">1.8 sec</p>
-            <span className="text-[10px] text-emerald-400 font-medium">99.4% inquiries answered</span>
+            <p className="text-base sm:text-2xl font-black font-syne text-white tracking-tight">1.8s</p>
+            <span className="text-[9px] sm:text-[10px] text-emerald-400 font-medium block truncate">99.4% answered</span>
           </div>
 
-          <div className="p-3 sm:p-4 rounded-2xl bg-[#140C07] border border-white/5 space-y-1">
+          <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#140C07] border border-white/5 space-y-0.5 sm:space-y-1">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] sm:text-xs text-white/60 font-syne">Overnight Sales</span>
-              <TrendingUp className="w-3.5 h-3.5 text-[#D95A1A]" />
+              <span className="text-[9px] sm:text-xs text-white/60 font-syne truncate">Night Sales</span>
+              <TrendingUp className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D95A1A]" />
             </div>
-            <p className="text-lg sm:text-2xl font-black font-syne text-white tracking-tight">K 6,420</p>
-            <span className="text-[10px] text-emerald-400 font-medium">14 orders while sleeping</span>
+            <p className="text-base sm:text-2xl font-black font-syne text-white tracking-tight">K 6,420</p>
+            <span className="text-[9px] sm:text-[10px] text-emerald-400 font-medium block truncate">14 night orders</span>
           </div>
 
-          <div className="p-3 sm:p-4 rounded-2xl bg-[#140C07] border border-white/5 space-y-1">
+          <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#140C07] border border-white/5 space-y-0.5 sm:space-y-1">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] sm:text-xs text-white/60 font-syne">Campaigns Running</span>
-              <Sparkles className="w-3.5 h-3.5 text-[#D95A1A]" />
+              <span className="text-[9px] sm:text-xs text-white/60 font-syne truncate">Campaigns</span>
+              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D95A1A]" />
             </div>
-            <p className="text-lg sm:text-2xl font-black font-syne text-white tracking-tight">4 Live</p>
-            <span className="text-[10px] text-[#D95A1A] font-medium">Instagram & WhatsApp drops</span>
+            <p className="text-base sm:text-2xl font-black font-syne text-white tracking-tight">4 Live</p>
+            <span className="text-[9px] sm:text-[10px] text-[#D95A1A] font-medium block truncate">IG & WhatsApp drops</span>
           </div>
 
-          <div className="p-3 sm:p-4 rounded-2xl bg-[#140C07] border border-white/5 space-y-1">
+          <div className="p-2.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#140C07] border border-white/5 space-y-0.5 sm:space-y-1">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] sm:text-xs text-white/60 font-syne">Dispatch Slips</span>
-              <Package className="w-3.5 h-3.5 text-[#D95A1A]" />
+              <span className="text-[9px] sm:text-xs text-white/60 font-syne truncate">Dispatch</span>
+              <Package className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#D95A1A]" />
             </div>
-            <p className="text-lg sm:text-2xl font-black font-syne text-white tracking-tight">18 Ready</p>
-            <span className="text-[10px] text-white/70 font-medium">Synced with rider manifests</span>
+            <p className="text-base sm:text-2xl font-black font-syne text-white tracking-tight">18 Ready</p>
+            <span className="text-[9px] sm:text-[10px] text-white/70 font-medium block truncate">Synced manifests</span>
           </div>
         </div>
 
         {/* The 3 AI Teams Live Workstreams */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-5">
           
           {/* Stream 1: AI Customer Support Team (Span 4) */}
           {(activeTab === 'all' || activeTab === 'support') && (
-            <div className={`p-4 sm:p-5 rounded-2xl bg-[#130B07] border border-[#9B2208]/30 space-y-3 flex flex-col justify-between ${activeTab === 'support' ? 'lg:col-span-12' : 'lg:col-span-4'}`}>
+            <div className={`p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#130B07] border border-[#9B2208]/30 space-y-2.5 sm:space-y-3 flex flex-col justify-between ${activeTab === 'support' ? 'lg:col-span-12' : 'lg:col-span-4'}`}>
               <div className="space-y-2">
                 <div className="flex items-center justify-between pb-2 border-b border-white/5">
                   <div className="flex items-center gap-2">
@@ -179,7 +179,7 @@ export const HeroCollaborativeDashboard: React.FC = () => {
 
           {/* Stream 2: AI Marketing Team (Span 4) */}
           {(activeTab === 'all' || activeTab === 'marketing') && (
-            <div className={`p-4 sm:p-5 rounded-2xl bg-[#130B07] border border-[#9B2208]/30 space-y-3 flex flex-col justify-between ${activeTab === 'marketing' ? 'lg:col-span-12' : 'lg:col-span-4'}`}>
+            <div className={`p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#130B07] border border-[#9B2208]/30 space-y-2.5 sm:space-y-3 flex flex-col justify-between ${activeTab === 'marketing' ? 'lg:col-span-12' : 'lg:col-span-4'}`}>
               <div className="space-y-2">
                 <div className="flex items-center justify-between pb-2 border-b border-white/5">
                   <div className="flex items-center gap-2">
@@ -199,7 +199,7 @@ export const HeroCollaborativeDashboard: React.FC = () => {
                 </div>
 
                 {/* Campaign Card Preview */}
-                <div className="p-3 rounded-xl bg-[#1C100A] border border-white/5 space-y-2">
+                <div className="p-2.5 sm:p-3 rounded-xl bg-[#1C100A] border border-white/5 space-y-1.5 sm:space-y-2">
                   <div className="flex items-center justify-between text-[10px]">
                     <span className="font-bold text-white font-syne">Weekend Flash Sale Drop</span>
                     <span className="text-emerald-400">Scheduled 10:00 AM</span>
@@ -227,7 +227,7 @@ export const HeroCollaborativeDashboard: React.FC = () => {
 
           {/* Stream 3: AI Business Management Team (Span 4) */}
           {(activeTab === 'all' || activeTab === 'operations') && (
-            <div className={`p-4 sm:p-5 rounded-2xl bg-[#130B07] border border-[#9B2208]/30 space-y-3 flex flex-col justify-between ${activeTab === 'operations' ? 'lg:col-span-12' : 'lg:col-span-4'}`}>
+            <div className={`p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-[#130B07] border border-[#9B2208]/30 space-y-2.5 sm:space-y-3 flex flex-col justify-between ${activeTab === 'operations' ? 'lg:col-span-12' : 'lg:col-span-4'}`}>
               <div className="space-y-2">
                 <div className="flex items-center justify-between pb-2 border-b border-white/5">
                   <div className="flex items-center gap-2">
@@ -247,12 +247,12 @@ export const HeroCollaborativeDashboard: React.FC = () => {
                 </div>
 
                 {/* Operations Updates */}
-                <div className="p-3 rounded-xl bg-[#1C100A] border border-white/5 space-y-2 text-xs">
+                <div className="p-2.5 sm:p-3 rounded-xl bg-[#1C100A] border border-white/5 space-y-1.5 sm:space-y-2 text-xs">
                   <div className="flex items-center justify-between text-[10px]">
                     <span className="font-bold text-white font-syne">Daily Operations Briefing</span>
                     <span className="text-white/40">Updated 2m ago</span>
                   </div>
-                  <ul className="space-y-1.5 text-[11px] text-white/80">
+                  <ul className="space-y-1 sm:space-y-1.5 text-[11px] text-white/80">
                     <li className="flex items-center justify-between">
                       <span>• Morning Orders Logged:</span>
                       <span className="font-bold text-white">18 packages</span>
@@ -281,14 +281,14 @@ export const HeroCollaborativeDashboard: React.FC = () => {
       </div>
 
       {/* Bottom Live Collaboration Bar */}
-      <div className="px-4 py-3 sm:px-6 sm:py-3 bg-[#0D0704] border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-2 text-center sm:text-left text-xs text-white/60">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#D95A1A]" />
-          <span className="font-syne text-white/80">
+      <div className="px-3 py-2 sm:px-6 sm:py-3 bg-[#0D0704] border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-1.5 sm:gap-2 text-center sm:text-left text-[10px] sm:text-xs text-white/60">
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#D95A1A]" />
+          <span className="font-syne text-white/80 text-[10px] sm:text-xs">
             Real-time multi-agent orchestration: all 3 teams share inventory, orders, and customer history.
           </span>
         </div>
-        <span className="text-[11px] text-[#D95A1A] font-bold font-syne">
+        <span className="text-[10px] sm:text-[11px] text-[#D95A1A] font-bold font-syne">
           Zero employee turnover · 24/7 responsiveness
         </span>
       </div>
