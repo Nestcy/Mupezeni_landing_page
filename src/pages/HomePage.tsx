@@ -54,7 +54,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
             {/* Subheadline */}
             <p className="text-xs sm:text-base md:text-lg text-[#FAFAF9]/80 font-normal max-w-3xl mx-auto leading-relaxed">
-              Whether you sell from your shop, WhatsApp, Facebook, Instagram or an online store, Mupezeni gives you intelligent AI Teams that help serve customers, market your business and manage digital operations around the clock while you focus on finding great products from suppliers and delivering them to your customers.
+              Whether you sell from your shop, WhatsApp, Facebook, Instagram, or an online store, <span className="font-roboto font-semibold text-white">Mupezeni</span> gives you an AI Team that serves customers, markets your business, and tracks your operations — around the clock — while you focus on sourcing great products and delivering them to your customers.
             </p>
 
             {/* Buttons (Side-by-side on mobile and desktop) */}
@@ -64,7 +64,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 onClick={() => onNavigate('contact')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-3 sm:px-8 sm:py-3.5 rounded-xl font-syne font-black text-xs sm:text-base text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-2xl hover:shadow-[#9B2208]/40 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-98 cursor-pointer whitespace-nowrap"
               >
-                <span>Book My AI Growth Consultation</span>
+                <span>Get Your AI Growth Team</span>
                 <ArrowRight className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-white flex-shrink-0" />
               </button>
 
@@ -81,7 +81,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             {/* Timeline expectation note */}
             <p className="text-[11px] sm:text-xs text-[#FAFAF9]/60 font-syne flex items-center justify-center gap-1.5 pt-1">
               <ShieldCheck className="w-3.5 h-3.5 text-[#25D366] flex-shrink-0" />
-              <span>Custom-trained on your products & live across your store within 4 weeks of onboarding</span>
+              <span>Real-time AI, working across every channel your customers already use</span>
             </p>
 
           </div>

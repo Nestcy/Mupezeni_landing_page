@@ -4,6 +4,7 @@
   --font-syne: 'Syne', sans-serif;
   --font-body: 'DM Sans', sans-serif;
   --font-display: 'Syne', sans-serif;
+  --font-roboto: 'Roboto', sans-serif;
 
   --color-terracotta: #9B2208;
   --color-terracotta-light: #C76B4F;
@@ -23,6 +24,10 @@
 
 h1, h2, h3, h4, .font-syne {
   font-family: 'Syne', sans-serif;
+}
+
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
 }
 
 /* Custom background patterns */

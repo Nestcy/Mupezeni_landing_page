@@ -219,7 +219,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
                 <span>Founder Terminal Access</span>
               </div>
               <h1 className="text-2xl sm:text-3xl font-black font-syne text-white tracking-tight">
-                Mupezeni Admin Portal
+                <span className="font-roboto font-bold">Mupezeni</span> Admin Portal
               </h1>
               <p className="text-xs text-white/60 mt-1">
                 Restricted portal for founder Ernest Zimba. Enter your security passcode to decrypt and access live client leads.

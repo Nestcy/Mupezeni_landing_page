@@ -61,7 +61,7 @@ export const Logo: React.FC<LogoProps> = ({
       {/* Brand Typography */}
       <div className="flex flex-col justify-center">
         <div className="flex items-center gap-1.5">
-          <span className={`font-syne font-black tracking-tight text-[#FAFAF9] ${textSizes[size]} leading-none`}>
+          <span className={`font-roboto font-bold tracking-tight text-[#FAFAF9] ${textSizes[size]} leading-none`}>
             Mupezeni
           </span>
           <span className="inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#D95A1A] animate-pulse"></span>

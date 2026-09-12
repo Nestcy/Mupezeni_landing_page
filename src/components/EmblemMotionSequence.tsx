@@ -105,7 +105,7 @@ export const EmblemMotionSequence: React.FC<EmblemMotionSequenceProps> = ({
                   AI Swallow
                 </span>
                 <span className="text-xs font-bold text-white font-syne">
-                  Mupezeni Emblem
+                  <span className="font-roboto font-bold">Mupezeni</span> Emblem
                 </span>
               </div>
             </div>
@@ -298,7 +298,7 @@ export const EmblemMotionSequence: React.FC<EmblemMotionSequenceProps> = ({
                 className="text-sm sm:text-base font-black font-syne uppercase tracking-widest text-[#FFD700] flex items-center justify-center gap-2"
               >
                 <Flame className="w-5 h-5 text-[#D95A1A] animate-pulse" />
-                <span>Mupezeni Swallow Absorbing Guiding Star</span>
+                <span><span className="font-roboto font-bold">Mupezeni</span> Swallow Absorbing Guiding Star</span>
               </motion.p>
               <p className="text-xs text-white/70 font-syne">
                 Directing to The Retail Growth Crossroads...

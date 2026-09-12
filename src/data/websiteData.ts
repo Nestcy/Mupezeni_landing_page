@@ -3,102 +3,101 @@ import { IndustrySolution, PhilosophyPrinciple, ProcessStep, BusinessOutcome, Ai
 export const AI_TEAM_MEMBERS: AiTeamMember[] = [
   {
     id: 'customer-support',
-    title: 'AI Customer Support Team',
-    roleDescription: 'Your digital customer support and sales team.',
-    badge: 'Support & Sales Team',
+    title: 'AI Customer Support Agent',
+    roleDescription: 'Your 24/7 digital sales and customer support agent.',
+    badge: 'Core AI Agent',
     avatarIcon: 'Headphones',
     avatarBg: 'from-[#9B2208] to-[#D95A1A]',
-    statusText: 'Always Online • 24/7 Omnichannel Team',
+    statusText: 'Always Online • 24/7 Omnichannel Agent',
     responsibilities: [
       'Answer customer questions instantly across channels.',
-      'Recommend products tailored to customer preferences.',
+      'Recommend products tailored to customer preferences and sizing.',
       'Handle conversations across WhatsApp, Facebook, Instagram and websites.',
-      'Follow up with leads and interested shoppers.',
-      'Convert enquiries into confirmed sales.',
-      'Provide accurate real-time order updates.'
+      'Follow up with leads and interested shoppers to close sales.',
+      'Convert casual enquiries into confirmed, paid orders.',
+      'Provide accurate real-time stock and delivery updates.'
     ],
-    businessOutcome: 'Serve more customers without continually hiring additional customer support staff.',
+    businessOutcome: 'Serve 10x more customers without hiring additional support staff.',
     mockVisual: {
       headline: 'Live Omnichannel Support & Sales',
       subline: 'WhatsApp • Instagram • Facebook • Web',
       badges: ['Instant Reply <2s', 'Stock Verified', 'Payment Link Sent'],
-      sampleSnippet: '"Yes! We have the Beige Trench Coat in Size M in stock. Delivery is K40 tomorrow morning. Would you like me to reserve it?"',
+      sampleSnippet: '"Yes! We have the Chelsea Boots in Size 42 in stock (K650). Delivery to Woodlands is K40 tomorrow morning. Would you like me to lock this in?"',
       metricsTag: '100% Inquiries Handled'
     }
   },
   {
     id: 'marketing-specialist',
-    title: 'AI Marketing Team',
-    roleDescription: 'Your in-house marketing department.',
-    badge: 'In-House Marketing',
+    title: 'AI Marketing Agent',
+    roleDescription: 'Your consistent creative content and campaigns agent.',
+    badge: 'Creative Engine',
     avatarIcon: 'Sparkles',
     avatarBg: 'from-[#B83A0A] to-[#F57C00]',
     statusText: 'Creative Studio & Campaign Engine Active',
     responsibilities: [
-      'Create high-converting social media posts.',
-      'Write engaging captions and product descriptions.',
-      'Generate product images and promotional visuals.',
-      'Create reels and short-form marketing videos.',
-      'Produce promotional graphics for sales and drops.',
-      'Plan consistent content and campaign calendars.',
-      'Run advertising using owner-approved budgets and safeguards.'
+      'Create high-converting social media posts and captions.',
+      'Write engaging copy tailored to your product catalog.',
+      'Generate product images, reels and short-form marketing videos.',
+      'Produce promotional graphics for sales and seasonal drops.',
+      'Plan consistent weekly content and campaign calendars.',
+      'Run targeted advertising with owner-approved budgets and safeguards.'
     ],
-    businessOutcome: 'Market your business consistently without hiring additional marketers, designers or content creators.',
+    businessOutcome: 'Consistent brand presence without hiring designers or copywriters.',
     mockVisual: {
       headline: 'In-House Creative & Content Engine',
       subline: 'Weekly Calendar • Visual Drops • Ad Campaigns',
       badges: ['Captions Ready', 'Asset Generated', 'Budget Safeguarded'],
-      sampleSnippet: '"Fresh Friday drop promo scheduled for 10:00 AM across Instagram & Facebook with 3 carousel creatives."',
+      sampleSnippet: '"Weekend Drop Promo generated with 3 carousel creatives + captions ready for your approval across Instagram & Facebook."',
       metricsTag: 'Consistent 7-Day Presence'
     }
   },
   {
     id: 'business-manager',
-    title: 'AI Business Management Team',
-    roleDescription: 'Your digital operations and business management team.',
-    badge: 'Operations & Management',
+    title: 'Business Insights Dashboard',
+    roleDescription: 'Live command center for orders, stock and sales.',
+    badge: 'Included at No Extra Cost',
     avatarIcon: 'BarChart3',
-    avatarBg: 'from-[#7A1804] to-[#B83A0A]',
-    statusText: 'Live Operational Health: 99.8%',
+    avatarBg: 'from-[#D95A1A] to-[#25D366]',
+    statusText: 'Live Dashboard • Included with Every Plan',
     responsibilities: [
-      'Monitor business performance and sales velocity.',
-      'Generate daily executive reports and summaries.',
-      'Track incoming and completed orders.',
-      'Provide actionable insights on products and supplier stock.',
-      'Highlight growth and revenue opportunities.',
-      'Organise digital orders and customer delivery notes.'
+      'Live tracking of incoming & completed orders across all channels.',
+      'Daily sales velocity and revenue executive summaries.',
+      'Automated restock alerts and supplier reorder signals.',
+      'Instant customer delivery slips formatted for riders.',
+      'Clear inventory levels and fast-moving product insights.',
+      'Actionable recommendations to restock high-demand items.'
     ],
-    businessOutcome: 'Manage a growing business without proportionally increasing management overhead.',
+    businessOutcome: 'Full visibility into sales and stock without manual spreadsheet tracking.',
     mockVisual: {
-      headline: 'Store Intelligence & Operations Manifest',
+      headline: 'Live Order & Sales Command Center',
       subline: 'Daily Sales • Stock Alerts • Delivery Notes',
-      badges: ['K4,850 Revenue Logged', '2 Restock Alerts', '14 Delivery Notes'],
-      sampleSnippet: '"Morning briefing: 14 weekend orders packed and ready for delivery riders. 3 popular products are low in stock."',
-      metricsTag: 'Zero Blindspots'
+      badges: ['K4,850 Revenue Logged', '2 Restock Alerts', '14 Delivery Slips'],
+      sampleSnippet: '"Morning briefing: 14 weekend orders packed and ready for delivery riders. Beige Trench Coat needs reorder."',
+      metricsTag: 'Included Free'
     }
   }
 ];
 
 export const GROWTH_COMPARISON = {
   traditional: [
-    'Hire more customer support staff',
-    'Hire more marketers',
-    'Hire operations staff',
-    'Growing payroll expenses',
-    'More onboarding and training time',
-    'Increasing management complexity',
-    'Higher operating costs eating profit'
+    'Hire customer support staff (~K3,300–K9,500/mo)',
+    'Hire marketing specialists (~K3,600–K10,400/mo)',
+    'Hire business managers (~K4,000–K14,500/mo)',
+    'Growing payroll expenses (K15,000–K30,000+/mo)',
+    'Recruitment delays, training & turnover risk',
+    'Increasing management complexity and payroll taxes',
+    'High overhead eating retail profit margins'
   ],
   mupezeni: [
-    'AI Customer Support Team scales instantly',
-    'AI Marketing Team grows with demand',
-    'AI Business Management Team continuously monitors the business',
-    'Predictable monthly investment',
-    'No recruitment delays or turnover',
-    'Teams scale automatically with your business',
+    'AI Customer Support Agent (K2,000/mo) active 24/7',
+    'AI Marketing Agent (K2,500/mo) creates content continuously',
+    'Business Insights Dashboard included at no extra cost',
+    'Full AI Growth Team for only K5,000/mo all-inclusive',
+    'Live across your channels within 2–4 weeks',
+    'Zero recruitment delays, sick days or turnover risk',
     'Significantly lower operational overhead'
   ],
-  conclusion: 'As your business grows, your AI Teams grow with it, helping you serve more customers without continuously increasing your operating costs.'
+  conclusion: 'As your business grows, your AI Team scales with it, helping you serve more customers without continuously increasing your payroll.'
 };
 
 export const END_TO_END_WORKFLOW: EndToEndWorkflowStep[] = [
@@ -120,9 +119,9 @@ export const END_TO_END_WORKFLOW: EndToEndWorkflowStep[] = [
   {
     stepNumber: '02',
     stageTitle: 'Instant Response',
-    actor: 'AI Customer Support Team',
-    action: 'AI Customer Support Team responds instantly',
-    description: 'Your digital support and sales team answers questions in under two seconds, recommends matching products, and guides the customer toward checkout.',
+    actor: 'AI Customer Support Agent',
+    action: 'AI Customer Support Agent responds instantly',
+    description: 'Your digital support and sales agent answers questions in under two seconds, recommends matching products, and guides the customer toward checkout.',
     details: [
       'Verifies available stock and sizing in real time',
       'Answers policy, delivery, and pricing questions with human-like warmth',
@@ -150,9 +149,9 @@ export const END_TO_END_WORKFLOW: EndToEndWorkflowStep[] = [
   {
     stepNumber: '04',
     stageTitle: 'Operations & Tracking',
-    actor: 'AI Business Management Team',
-    action: 'AI Business Management Team records activity & tracks performance',
-    description: 'Your digital operations team updates available stock, logs the transaction, prepares delivery notes for riders, and updates sales dashboards.',
+    actor: 'Business Insights Dashboard',
+    action: 'Dashboard records activity & generates delivery slips',
+    description: 'Your included command dashboard logs the transaction, updates available stock, prepares delivery notes for riders, and alerts you on low stock.',
     details: [
       'Creates clean packing lists and delivery notes for riders',
       'Alerts the owner when popular products run low',
@@ -165,11 +164,11 @@ export const END_TO_END_WORKFLOW: EndToEndWorkflowStep[] = [
   {
     stepNumber: '05',
     stageTitle: 'Marketing Follow-Up',
-    actor: 'AI Marketing Team',
-    action: 'AI Marketing Team follows up with campaigns and promotions',
-    description: 'Your in-house marketing department schedules tailored post-purchase check-ins, VIP restock drops, and targeted promotional campaigns.',
+    actor: 'AI Marketing Agent',
+    action: 'AI Marketing Agent creates campaigns and promotions',
+    description: 'Your marketing agent creates tailored social posts, VIP restock drops, and targeted promotional campaigns to bring customers back.',
     details: [
-      'Generates social media posts and promotional graphics',
+      'Generates social media posts, reels, and promotional graphics',
       'Sends personalized WhatsApp broadcasts based on past purchase history',
       'Keeps your business top of mind without you having to plan posts'
     ],
@@ -195,12 +194,12 @@ export const END_TO_END_WORKFLOW: EndToEndWorkflowStep[] = [
   {
     stepNumber: '07',
     stageTitle: 'Business Growth',
-    actor: 'Retailer & AI Teams',
+    actor: 'Retailer & AI Team',
     action: 'Business grows without expanding payroll',
     description: 'The retailer scales sales volume, expands product lines, and serves thousands of customers while digital operating costs remain lean and predictable.',
     details: [
-      'AI Teams scale effortlessly with spikes in demand',
-      'The business owner focuses on finding great products from suppliers and delivering them to your customers',
+      'AI Team scales effortlessly with spikes in demand',
+      'The business owner focuses on sourcing great products and delivering them to customers',
       'Profit margins expand as overhead remains controlled'
     ],
     businessImpact: 'Scale your business, not your overhead.',
@@ -312,58 +311,72 @@ export const BUSINESS_OUTCOMES: BusinessOutcome[] = [
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     stepNumber: '01',
-    title: 'Consultation & Operational Audit',
-    timeline: 'Week 1 • Strategic Discovery',
-    summary: 'We start with a thorough strategic consultation to understand your retail business model, sales channels, catalogue volume, and current bottlenecks.',
+    title: 'Get Your AI Growth Team',
+    timeline: 'Step 1 • Initial Connection',
+    summary: 'Click the button, message us on WhatsApp or submit your store details to begin your AI transformation.',
     detailedPoints: [
-      'Review all your current sales channels (Physical shop, WhatsApp, Instagram, Facebook, Web)',
-      'Analyze your customer inquiry volume, peak shopping hours, and average order values',
-      'Audit your product catalogue, payment preferences, and delivery rider setup'
+      'Reach out directly via WhatsApp (+260 973 732 409) or our simple booking form',
+      'Share your retail category, current channels (shop, WhatsApp, social, web), and top bottlenecks',
+      'Receive instant confirmation and consultation schedule'
     ],
-    retailerAction: 'Share your retail workflow, product catalogue, and operational challenges.',
-    mupezeniExecution: 'We assess feasibility, map your multi-channel customer journey, and outline tailored AI architecture.',
-    iconName: 'CalendarCheck'
+    retailerAction: 'Click Get Your AI Growth Team and tell us about your retail shop.',
+    mupezeniExecution: 'We review your business profile and prepare a custom audit ahead of our discussion.',
+    iconName: 'Sparkles'
   },
   {
     stepNumber: '02',
-    title: 'Custom Blueprint & Tailored Quote',
-    timeline: 'Week 2 • Custom Scoping',
-    summary: 'Because retail businesses vary in size and implementation complexity, we formulate a custom quote and technical growth blueprint suited specifically to your store.',
+    title: 'Consultation & Strategic Audit',
+    timeline: 'Step 2 • Real Conversation',
+    summary: 'A direct, hands-on conversation about your specific store, sales channels, customer volume, and operational bottlenecks.',
     detailedPoints: [
-      'Deliver a transparent, custom-scoped implementation quote matched to your store size',
-      'Map product categories, sizing tables, pricing logic, and courier delivery rails',
-      'Define custom brand tone of voice, greeting style, and escalation triggers'
+      'Review your current sales channels (Physical shop, WhatsApp, Instagram, Facebook, Web)',
+      'Analyze inquiry volume, peak customer shopping hours, and average order values',
+      'Map catalogue complexity, payment preferences, and delivery rider logistics'
     ],
-    retailerAction: 'Review and approve your tailored quote and custom AI worker operational parameters.',
-    mupezeniExecution: 'We draft the detailed architecture, prompt engineering schemas, and catalog indexing specs.',
-    iconName: 'FileText'
+    retailerAction: 'Share your retail workflow, product catalogue, and everyday operational challenges.',
+    mupezeniExecution: 'We determine feasibility, map your multi-channel customer journey, and outline tailored AI architecture.',
+    iconName: 'CalendarCheck'
   },
   {
     stepNumber: '03',
-    title: 'Engineering, Integration & AI Training',
-    timeline: 'Weeks 3–5 • Build & Calibration',
-    summary: 'We build your digital storefront (or connect to Shopify/WooCommerce), train your 3 AI teams on your products and pricing, and configure payment and WhatsApp gateways.',
+    title: 'Setup & Digital Foundation',
+    timeline: 'Step 3 • ~2–4 Weeks Build',
+    summary: 'We build your digital storefront or connect directly to your existing Shopify/WooCommerce store and train your AI agents.',
     detailedPoints: [
-      'Construct mobile storefront or integrate official APIs into existing eCommerce backend',
-      'Train AI Customer Support, Marketing, and Operations teams on historical data & FAQs',
-      'Run rigorous stress-tests across hundreds of simulated retail buying scenarios'
+      'Path 1 (Physical Shop): Complete digital store build, catalogue upload, and payment rails (~4 weeks)',
+      'Path 2 (Already Online): Seamless Shopify / WooCommerce API integration and product sync (~2 weeks)',
+      'Train AI Customer Support and Marketing agents on your exact products, sizes, prices, and FAQs'
     ],
-    retailerAction: 'Test-drive your AI workforce in a private staging environment with your team.',
+    retailerAction: 'Test-drive your AI agents in a private staging preview and verify accuracy.',
     mupezeniExecution: 'We calibrate system guardrails, payment webhooks, and human-in-the-loop escalation safeguards.',
     iconName: 'Cpu'
   },
   {
     stepNumber: '04',
-    title: 'Autonomous Go-Live & Ongoing Growth',
-    timeline: 'Week 6 & Ongoing • Launch & Scale',
-    summary: 'Your 3 AI Teams go live across all customer touchpoints, scaling sales 24/7 with dedicated ongoing optimization and monthly reviews.',
+    title: 'Go-Live & First Orders Handled',
+    timeline: 'Step 4 • Official Launch',
+    summary: 'Your AI agents go live across your channels, instantly answering customer messages and securing confirmed sales.',
     detailedPoints: [
-      'Official rollout across WhatsApp, Instagram, Facebook, and Web storefronts',
-      'Weekly review of customer interactions, conversion rates, and revenue velocity',
-      'Continuous prompt tuning and catalogue updates to maximize monthly revenue'
+      'Active 24/7 across WhatsApp, Instagram, Facebook, and Web storefronts',
+      'Instant sub-second replies, live stock lookups, and frictionless checkout links',
+      'Real-time delivery slip preparation and customer notifications'
     ],
-    retailerAction: 'Fulfill paid orders and enjoy autonomous, predictable retail growth.',
-    mupezeniExecution: 'We provide ongoing technical maintenance, AI model enhancements, and monthly strategic reviews.',
+    retailerAction: 'Fulfill customer orders and watch enquiries convert without being glued to your phone.',
+    mupezeniExecution: 'We monitor live interactions, fine-tune accuracy, and ensure 100% operational uptime.',
+    iconName: 'Zap'
+  },
+  {
+    stepNumber: '05',
+    title: 'Ongoing Optimization & Growth',
+    timeline: 'Step 5 • Monthly Reviews & Scale',
+    summary: 'Dedicated monthly performance reviews, continuous prompt tuning, and option to add the Marketing agent anytime.',
+    detailedPoints: [
+      'Monthly business review: inquiry volume, conversion rates, and revenue trends',
+      'Continuous prompt tuning and seasonal catalogue updates',
+      'Add the AI Marketing Agent anytime with zero additional setup fees'
+    ],
+    retailerAction: 'Focus on sourcing great products from suppliers and delivering them to your customers.',
+    mupezeniExecution: 'We provide ongoing technical maintenance, AI model enhancements, and growth strategies.',
     iconName: 'TrendingUp'
   }
 ];

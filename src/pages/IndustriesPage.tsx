@@ -155,7 +155,7 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate }) =>
               <div className="p-6 rounded-2xl bg-[#1A0E08] border border-[#9B2208]/40 space-y-3">
                 <span className="text-xs font-bold uppercase tracking-wider text-emerald-400 font-syne flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                  How Mupezeni Solves It
+                  How <span className="font-roboto font-bold">Mupezeni</span> Solves It
                 </span>
                 <p className="text-xs sm:text-sm text-white/90 leading-relaxed font-medium">
                   {selectedSolution.howMupezeniHelps}
@@ -206,7 +206,7 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate }) =>
                     <div className="max-w-[90%] p-4 rounded-2xl rounded-tr-sm bg-gradient-to-r from-[#2A1108] to-[#1E0D06] border border-[#9B2208]/60 text-xs text-white space-y-2 shadow-md shadow-[#9B2208]/20">
                       <div className="flex items-center gap-1.5 text-[10px] font-bold text-[#D95A1A] font-syne pb-0.5">
                         <Bot className="w-3.5 h-3.5" />
-                        <span>Mupezeni AI Worker (Response Time: 3.2s)</span>
+                        <span><span className="font-roboto font-bold">Mupezeni</span> AI Worker (Response Time: 3.2s)</span>
                       </div>
                       <p className="leading-relaxed text-[#FAFAF9]">
                         "{selectedSolution.sampleInteraction.aiResponse}"

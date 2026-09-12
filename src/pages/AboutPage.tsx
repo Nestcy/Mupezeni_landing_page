@@ -64,7 +64,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1A0E08] border border-[#9B2208]/40 shadow-sm">
             <Compass className="w-3.5 h-3.5 text-[#D95A1A]" />
             <span className="text-xs font-bold text-[#F5EDE4] font-syne uppercase tracking-wider">
-              About Mupezeni · AI Business Growth Company
+              About <span className="font-roboto font-bold">Mupezeni</span> · AI Business Growth Company
             </span>
           </div>
 
@@ -76,7 +76,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           </h1>
 
           <p className="text-base sm:text-lg text-[#FAFAF9]/80 font-normal max-w-2xl mx-auto leading-relaxed">
-            Mupezeni is an AI Business Growth Company. We give retailers scalable AI Teams that manage digital interactions, marketing, and operations so owners can focus on finding great products from suppliers and delivering them to your customers.
+            <span className="font-roboto font-semibold text-white">Mupezeni</span> is an AI Business Growth Company. We give retailers scalable AI Teams that manage digital interactions, marketing, and operations so owners can focus on finding great products from suppliers and delivering them to your customers.
           </p>
         </div>
       </section>
@@ -238,7 +238,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               </span>
 
               <h2 className="text-3xl sm:text-4xl font-black font-syne text-white leading-tight">
-                Why Mupezeni was created.
+                Why <span className="font-roboto font-bold">Mupezeni</span> was created.
               </h2>
 
               <div className="space-y-4 text-sm sm:text-base text-[#FAFAF9]/80 leading-relaxed font-normal">
@@ -249,7 +249,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
                   However, as soon as a retailer begins to see success, an operational bottleneck occurs. The owner becomes chained to their phone—answering the same sizing questions, quoting prices, and arranging customer deliveries until late into the night.
                 </p>
                 <p>
-                  Mupezeni was built to solve this challenge. By equipping retail businesses with dedicated AI Teams, we manage the digital work around the clock while owners focus on finding great products from suppliers and delivering them to your customers.
+                  <span className="font-roboto font-semibold text-white">Mupezeni</span> was built to solve this challenge. By equipping retail businesses with dedicated AI Teams, we manage the digital work around the clock while owners focus on finding great products from suppliers and delivering them to your customers.
                 </p>
               </div>
 

@@ -238,7 +238,7 @@ export const GrowthCrossroadsSection: React.FC<GrowthCrossroadsSectionProps> = (
               <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#25D366] flex-shrink-0" />
               <div>
                 <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#25D366] font-bold font-syne block">
-                  Mupezeni Resolution
+                  <span className="font-roboto font-bold">Mupezeni</span> Resolution
                 </span>
                 <span className="text-[11px] sm:text-xs text-white/90">
                   {BOTTLENECK_STEPS[activeStep].aiSolution}
@@ -398,7 +398,7 @@ export const GrowthCrossroadsSection: React.FC<GrowthCrossroadsSectionProps> = (
               >
                 {/* Floating Top Pill */}
                 <div className="absolute -top-3 right-4 sm:right-10 px-2.5 py-0.5 sm:px-3.5 sm:py-1 rounded-full bg-gradient-to-r from-[#9B2208] to-[#D95A1A] text-white text-[9px] sm:text-[11px] font-black uppercase tracking-wider font-syne shadow-lg">
-                  The Mupezeni Model
+                  The <span className="font-roboto font-bold">Mupezeni</span> Model
                 </div>
 
                 <div className="space-y-3 sm:space-y-5">

@@ -61,7 +61,7 @@ export const WhatWeBelieveSection: React.FC<WhatWeBelieveSectionProps> = ({ onNa
           </h2>
 
           <p className="text-xs sm:text-base md:text-lg text-[#FAFAF9]/80 font-normal leading-relaxed">
-            Mupezeni was founded on a simple conviction: technology should give business owners back their time and empower them to build enduring, high-margin retail businesses.
+            <span className="font-roboto font-semibold text-white">Mupezeni</span> was founded on a simple conviction: technology should give business owners back their time and empower them to build enduring, high-margin retail businesses.
           </p>
         </div>
 

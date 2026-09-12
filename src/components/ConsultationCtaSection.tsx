@@ -13,7 +13,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaProps> = ({
   onNavigateToContact,
   badgeText = 'Start Your Transformation',
   headline = 'Ready to build your AI Team?',
-  subheadline = "Every business is different. During your consultation we'll understand your business, identify opportunities and design a personalised AI growth plan."
+  subheadline = 'Every retailer gets a personalized setup and rollout plan — no obligation, no upfront lock-in.'
 }) => {
   return (
     <section className="py-20 sm:py-28 relative bg-[#0A0705] border-t border-white/5 overflow-hidden">
@@ -47,7 +47,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaProps> = ({
               </div>
               <div>
                 <h4 className="text-xs font-bold text-white font-syne">1. Personalised Consultation</h4>
-                <p className="text-[11px] text-[#FAFAF9]/70 mt-0.5">30-min diagnostic of your store channels & bottlenecks.</p>
+                <p className="text-[11px] text-[#FAFAF9]/70 mt-0.5">Direct diagnostic of your channels & bottlenecks.</p>
               </div>
             </div>
 
@@ -56,8 +56,8 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaProps> = ({
                 <CheckCircle2 className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-white font-syne">2. Growth Strategy</h4>
-                <p className="text-[11px] text-[#FAFAF9]/70 mt-0.5">High-leverage blueprint mapped to your actual catalog.</p>
+                <h4 className="text-xs font-bold text-white font-syne">2. Setup & Foundation</h4>
+                <p className="text-[11px] text-[#FAFAF9]/70 mt-0.5">Mobile store build (~4 wks) or Shopify upgrade (~2 wks).</p>
               </div>
             </div>
 
@@ -66,8 +66,8 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaProps> = ({
                 <CheckCircle2 className="w-4 h-4" />
               </div>
               <div>
-                <h4 className="text-xs font-bold text-white font-syne">3. Custom Quoter & Rollout</h4>
-                <p className="text-[11px] text-[#FAFAF9]/70 mt-0.5">Tailored 4–6 week rollout matched to your size & implementation.</p>
+                <h4 className="text-xs font-bold text-white font-syne">3. Autonomous Go-Live</h4>
+                <p className="text-[11px] text-[#FAFAF9]/70 mt-0.5">AI Agents active 24/7 with monthly strategy reviews.</p>
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaProps> = ({
               onClick={onNavigateToContact}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-syne font-black text-sm sm:text-base text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-2xl hover:shadow-[#9B2208]/40 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-98 cursor-pointer"
             >
-              <span>Book My AI Growth Consultation</span>
+              <span>Get Your AI Growth Team</span>
               <ArrowRight className="w-5 h-5 text-white" />
             </button>
           </div>

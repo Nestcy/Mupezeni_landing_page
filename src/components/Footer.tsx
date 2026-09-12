@@ -67,7 +67,7 @@ export const Footer: React.FC<FooterProps> = ({
             </p>
 
             <p className="text-xs sm:text-sm text-[#FAFAF9]/70 max-w-sm leading-relaxed">
-              Mupezeni is an AI Business Growth Company. We deploy dedicated AI Teams for retailers—operating your digital channels around the clock while you focus on inventory, sourcing, and dispatch.
+              <span className="font-roboto font-semibold text-white">Mupezeni</span> is an AI Business Growth Company. We deploy dedicated AI Teams for retailers—operating your digital channels around the clock while you focus on inventory, sourcing, and dispatch.
             </p>
 
             {/* Location & Contact Details */}
@@ -112,7 +112,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Quick Pages Navigation (Span 3) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#D95A1A] font-syne">
-              Explore Mupezeni
+              Explore <span className="font-roboto font-bold">Mupezeni</span>
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-[#FAFAF9]/75">
               <li>
@@ -125,20 +125,12 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <button
-                  onClick={() => handleNav('solutions')}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  Solutions (2 Implementation Paths)
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => handleNav('pricing')}
                   className="hover:text-white transition-colors cursor-pointer text-left flex items-center gap-1.5"
                 >
                   <span>Pricing</span>
                   <span className="text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-[#1C0F0A] text-[#D95A1A] border border-[#9B2208]/30">
-                    K5,000/mo
+                    From K2,000/mo
                   </span>
                 </button>
               </li>
@@ -147,15 +139,15 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => handleNav('how-it-works')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  How It Works (Operating Workflow)
+                  How It Works
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => handleNav('industries')}
+                  onClick={() => handleNav('solutions')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Supported Industries (7 Sectors)
+                  Solutions
                 </button>
               </li>
               <li>
@@ -163,15 +155,15 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => handleNav('about')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  About & What We Believe
+                  About & Why We Believe
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => handleNav('contact')}
-                  className="hover:text-white transition-colors cursor-pointer"
+                  className="hover:text-white transition-colors cursor-pointer font-semibold text-[#D95A1A]"
                 >
-                  Book My AI Growth Consultation
+                  Get Started
                 </button>
               </li>
             </ul>
@@ -183,14 +175,14 @@ export const Footer: React.FC<FooterProps> = ({
               Transform Your Store
             </h4>
             <p className="text-xs text-[#FAFAF9]/70 leading-relaxed">
-              Every retailer receives a personalized consultation, growth strategy, and implementation plan tailored to their store.
+              Every retailer receives a personalized setup and rollout plan tailored to their store — no obligation, no upfront lock-in.
             </p>
 
             <button
               onClick={() => handleNav('contact')}
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-syne font-bold text-xs text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:opacity-95 shadow-md shadow-[#9B2208]/30 transition-all cursor-pointer"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-syne font-bold text-xs text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:opacity-95 shadow-md shadow-[#9B2208]/30 transition-all cursor-pointer whitespace-nowrap"
             >
-              <span>Book My AI Growth Consultation</span>
+              <span>Get Your AI Growth Team</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
@@ -204,7 +196,7 @@ export const Footer: React.FC<FooterProps> = ({
               className="cursor-default select-none transition-colors active:text-white"
               title="© Mupezeni Technologies"
             >
-              © {new Date().getFullYear()} Mupezeni Technologies. Founder-led AI transformation for retail.
+              © {new Date().getFullYear()} <span className="font-roboto font-medium">Mupezeni</span> Technologies. Founder-led AI transformation for retail.
             </span>
           </div>
 

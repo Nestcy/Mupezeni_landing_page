@@ -26,7 +26,7 @@ export const HeroCollaborativeDashboard: React.FC = () => {
           <div className="flex items-center gap-1.5 pl-1 border-l border-white/10">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
             <span className="text-[10px] sm:text-xs font-bold text-white/90 font-syne tracking-wide">
-              Mupezeni Live OS · 3 Autonomous Teams
+              <span className="font-roboto font-bold">Mupezeni</span> Live OS · 3 Autonomous Teams
             </span>
           </div>
         </div>

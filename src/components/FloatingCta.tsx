@@ -28,7 +28,7 @@ export const FloatingCta: React.FC<FloatingCtaProps> = ({ onNavigateToContact, c
         className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-black text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:opacity-95 shadow-md shadow-[#9B2208]/30 transition-all active:scale-95 font-syne cursor-pointer"
       >
         <Sparkles className="w-3.5 h-3.5 text-white" />
-        <span>Book My AI Growth Consultation</span>
+        <span>Get Your AI Growth Team</span>
         <ArrowRight className="w-3.5 h-3.5 text-white" />
       </button>
     </div>

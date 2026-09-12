@@ -68,10 +68,10 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
       deliverables: ['Automated delivery slip generation', 'Customer live tracking updates', 'Courier notification via WhatsApp']
     },
     {
-      title: '7. AI Team Deployment',
+      title: '7. AI Workforce Deployment',
       badge: 'Autonomous Workforce',
-      description: 'Deploy all three Mupezeni AI Teams to serve customers, publish marketing materials, and track store performance 24 hours a day, 7 days a week.',
-      deliverables: ['24/7 AI Customer Support Team', 'AI Creative Marketing Department', 'AI Business Management & Daily Reports']
+      description: 'Deploy your Mupezeni AI workforce to serve customers, publish marketing materials, and track store performance 24 hours a day, 7 days a week.',
+      deliverables: ['24/7 AI Customer Support Agent', 'AI Marketing Creative Studio', 'Business Insights Dashboard Included']
     }
   ];
 
@@ -107,10 +107,10 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
       deliverables: ['Unified inbox across all channels', 'Zero loss of existing chat histories', 'Seamless human escalation fallback']
     },
     {
-      title: '6. AI Team Deployment & Calibration',
+      title: '6. AI Workforce Calibration & Launch',
       badge: 'Brand Voice Aligned',
-      description: 'We train your AI Teams on your historical customer service transcripts, return policies, and product details for instant, accurate execution.',
-      deliverables: ['Custom brand voice calibration', 'Immediate offloading of 80%+ inquiries', 'Night & weekend autonomous coverage']
+      description: 'We train your AI Support and Marketing agents on your historical customer service transcripts, return policies, and product details for instant execution.',
+      deliverables: ['Custom brand voice calibration', 'Immediate offloading of 80%+ inquiries', 'Business Insights Dashboard Included']
     }
   ];
 
@@ -150,7 +150,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
           </div>
 
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black font-syne text-[#FAFAF9] tracking-tight leading-[1.1]">
-            Will Mupezeni Work with{' '}
+            Will <span className="font-roboto font-bold">Mupezeni</span> Work with{' '}
             <span className="text-gradient-fire block sm:inline">
               Your Business?
             </span>
@@ -368,10 +368,10 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
                 <span>Predictable Transparent Pricing</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-black font-syne text-white">
-                Both Paths Covered for K5,000 /month
+                Starting from K2,000 /mo • Full AI Growth Team K5,000 /mo
               </h3>
               <p className="text-xs sm:text-sm text-[#FAFAF9]/75 max-w-xl">
-                K5,000/month, all-inclusive. Complete 24/7 AI Support, Marketing, and Operations with setup and implementation included.
+                24/7 AI Customer Support, AI Marketing, and the included Business Insights Dashboard. Setup is a one-time investment with zero hidden fees.
               </p>
             </div>
 
@@ -387,7 +387,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
                 onClick={() => onNavigate('contact')}
                 className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-syne font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:shadow-lg hover:shadow-[#9B2208]/30 transition-all cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap"
               >
-                <span>Book My AI Growth Consultation</span>
+                <span>Get Your AI Growth Team</span>
               </button>
             </div>
           </div>
