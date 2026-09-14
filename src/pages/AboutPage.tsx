@@ -19,6 +19,7 @@ import {
   Scale
 } from 'lucide-react';
 import { ConsultationCtaSection } from '../components/ConsultationCtaSection';
+import { EconomicComparisonTable } from '../components/EconomicComparisonTable';
 import { PHILOSOPHY_PRINCIPLES } from '../data/websiteData';
 import { PageId } from '../types';
 import ernestZimbaPortrait from '../assets/images/ernest_zimba_exact_founder_1788808890593.jpg';
@@ -185,6 +186,22 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
             ))}
           </div>
 
+          {/* Philosophy in Practice: Economic Reality Check */}
+          <div className="mt-14 max-w-3xl mx-auto space-y-4">
+            <div className="text-center space-y-1.5">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#D95A1A] font-syne">
+                Philosophy in Practice
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black font-syne text-white">
+                The Economics of Scaling Without Bloat
+              </h3>
+              <p className="text-xs text-[#FAFAF9]/75 max-w-xl mx-auto">
+                Comparing the overhead of 3 full-time human roles versus Mupezeni's coordinated AI workforce.
+              </p>
+            </div>
+            <EconomicComparisonTable />
+          </div>
+
         </div>
       </section>
 
@@ -298,7 +315,29 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* 5. CONSULTATION CTA SECTION */}
+      {/* 5. THE ECONOMIC THESIS */}
+      <section className="py-16 sm:py-24 bg-[#0A0705] border-b border-white/5 relative">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1A0E08] border border-[#9B2208]/40 text-[#D95A1A] text-xs font-bold font-syne uppercase tracking-wider">
+              <TrendingUp className="w-3.5 h-3.5" />
+              <span>Economic Model</span>
+            </div>
+            <h2 className="text-2xl sm:text-4xl font-black font-syne text-white tracking-tight">
+              The Reality Behind Retail Scaling
+            </h2>
+            <p className="text-xs sm:text-sm text-[#FAFAF9]/80 leading-relaxed">
+              Why we engineered Mupezeni: hiring human staff for 3 distinct roles costs K15,000–K30,000+/mo in salaries alone. Our AI workforce delivers 24/7 consistency for a predictable K5,000/mo.
+            </p>
+          </div>
+
+          <div className="max-w-3xl mx-auto">
+            <EconomicComparisonTable showCta onNavigate={onNavigate} />
+          </div>
+        </div>
+      </section>
+
+      {/* 6. CONSULTATION CTA SECTION */}
       <ConsultationCtaSection
         onNavigateToContact={() => onNavigate('contact')}
         badgeText="Work Directly with Our Founder"

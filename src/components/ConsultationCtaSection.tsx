@@ -57,7 +57,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaProps> = ({
               </div>
               <div>
                 <h4 className="text-xs font-bold text-white font-syne">2. Setup & Foundation</h4>
-                <p className="text-[11px] text-[#FAFAF9]/70 mt-0.5">Mobile store build (~4 wks) or Shopify upgrade (~2 wks).</p>
+                <p className="text-[11px] text-[#FAFAF9]/70 mt-0.5">Mobile store build or Shopify upgrade (4–6 weeks go-live).</p>
               </div>
             </div>
 
@@ -84,7 +84,11 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaProps> = ({
           </div>
 
           {/* Guarantees */}
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs text-[#FAFAF9]/65 pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs text-[#FAFAF9]/75 pt-2 font-syne">
+            <div className="flex items-center gap-1.5 text-emerald-400 font-bold">
+              <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+              <span>30-Day 100% Money-Back Guarantee</span>
+            </div>
             <div className="flex items-center gap-1.5">
               <ShieldCheck className="w-4 h-4 text-[#D95A1A]" />
               <span>Zero Obligation or Upfront Lock-in</span>

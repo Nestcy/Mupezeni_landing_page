@@ -91,7 +91,12 @@ export const PolicyModal: React.FC<PolicyModalProps> = ({ type, onClose }) => {
                 Merchants must comply with local commerce laws, consumer protection regulations, and official WhatsApp Business terms. Spamming or selling prohibited goods is strictly forbidden.
               </p>
 
-              <h4 className="font-bold text-[#FAFAF9] font-syne text-sm">5. Inquiries</h4>
+              <h4 className="font-bold text-[#FAFAF9] font-syne text-sm">5. 30-Day 100% Money-Back Guarantee</h4>
+              <p>
+                Every new partner is backed by our 30-Day 100% Money-Back Guarantee. If within the first thirty (30) calendar days of active AI agent deployment you determine that Mupezeni has not provided tangible business value, saved operational hours, or improved your sales conversions, you may request a 100% refund of your initial monthly subscription fee. Refunds are disbursed within 24–48 hours via your original payment method (Airtel Money, MTN MoMo, or bank transfer).
+              </p>
+
+              <h4 className="font-bold text-[#FAFAF9] font-syne text-sm">6. Inquiries</h4>
               <p>
                 Questions regarding platform terms may be directed to <span className="text-[#D95A1A]">nestcy770@gmail.com</span> (Kamwala South, Lusaka, Zambia).
               </p>

@@ -48,26 +48,23 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
       <header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
-            ? 'bg-[#0A0705]/92 backdrop-blur-xl border-b border-[#9B2208]/25 shadow-2xl py-3.5'
-            : 'bg-[#0A0705]/50 backdrop-blur-md border-b border-white/5 py-4'
+            ? 'bg-[#0A0705]/95 backdrop-blur-xl border-b border-[#9B2208]/25 shadow-2xl py-2.5'
+            : 'bg-[#0A0705]/80 backdrop-blur-md border-b border-white/5 py-3'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            {/* Brand Logo */}
-            <div className="flex items-center gap-6">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between gap-3">
+            {/* Brand Logo - Compact and proportional for navbar */}
+            <div className="flex items-center flex-shrink-0">
               <Logo 
-                size="md" 
+                size="sm" 
+                emblemClassName="w-9 h-7 sm:w-10 sm:h-8"
                 onClick={() => handleNavClick('home')} 
               />
-              <div className="hidden xl:flex items-center gap-2 px-3 py-1 rounded-full bg-[#130C08] border border-[#9B2208]/30 text-xs text-[#FAFAF9]/80">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span className="font-medium text-[#F5EDE4]">AI Business Growth</span>
-              </div>
             </div>
 
-            {/* Desktop Navigation Links */}
-            <nav className="hidden md:flex items-center gap-1.5 p-1.5 rounded-2xl bg-[#130C08]/90 border border-white/5 backdrop-blur-lg">
+            {/* Desktop Navigation Links - Compact, sleek, no overflowing badges */}
+            <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1 p-1 rounded-xl bg-[#130C08]/90 border border-white/5 backdrop-blur-lg">
               {navItems.map((item) => {
                 const isActive = currentPage === item.id;
                 return (
@@ -75,52 +72,44 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
                     key={item.id}
                     id={`nav-link-${item.id}`}
                     onClick={() => handleNavClick(item.id)}
-                    className={`relative px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer font-syne flex items-center gap-1.5 ${
+                    className={`relative px-2.5 xl:px-3 py-1.5 rounded-lg text-xs xl:text-[13px] font-semibold transition-all duration-150 cursor-pointer font-syne whitespace-nowrap ${
                       isActive
-                        ? 'text-white bg-[#20110A] border border-[#9B2208]/50 shadow-md shadow-[#9B2208]/20'
+                        ? 'text-white bg-[#20110A] border border-[#9B2208]/50 shadow-sm shadow-[#9B2208]/20'
                         : 'text-[#FAFAF9]/75 hover:text-white hover:bg-white/5'
                     }`}
                   >
                     <span>{item.label}</span>
-                    {item.badge && (
-                      <span className={`text-[10px] font-bold px-1.5 py-0.2 rounded-full uppercase tracking-wider ${
-                        isActive 
-                          ? 'bg-[#9B2208] text-white' 
-                          : 'bg-[#1C0F0A] text-[#D95A1A] border border-[#9B2208]/30'
-                      }`}>
-                        {item.badge}
-                      </span>
-                    )}
                   </button>
                 );
               })}
             </nav>
 
             {/* Primary Action Button */}
-            <div className="hidden sm:flex items-center gap-3">
+            <div className="hidden lg:flex items-center gap-2 flex-shrink-0">
               <button
                 id="nav-btn-build-workforce"
                 onClick={() => handleNavClick('contact')}
-                className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-lg hover:shadow-[#9B2208]/30 transition-all duration-200 active:scale-95 cursor-pointer font-syne whitespace-nowrap"
+                className="group relative inline-flex items-center gap-1.5 px-3.5 xl:px-4 py-2 rounded-xl text-xs xl:text-sm font-bold text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-lg hover:shadow-[#9B2208]/30 transition-all duration-200 active:scale-95 cursor-pointer font-syne whitespace-nowrap"
               >
-                <span>Get Your AI Growth Team</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                <span className="hidden xl:inline">Get Your AI Team</span>
+                <span className="xl:hidden">Get Team</span>
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
               </button>
             </div>
 
-            {/* Mobile Controls */}
-            <div className="flex items-center gap-2 md:hidden">
+            {/* Mobile / Tablet Controls */}
+            <div className="flex items-center gap-2 lg:hidden">
               <button
                 id="nav-btn-mobile-cta"
                 onClick={() => handleNavClick('contact')}
-                className="px-2.5 py-1.5 rounded-lg text-[11px] font-bold text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] font-syne shadow-md shadow-[#9B2208]/30 whitespace-nowrap"
+                className="px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] font-syne shadow-md shadow-[#9B2208]/30 whitespace-nowrap cursor-pointer"
               >
                 Get Team
               </button>
               <button
                 id="nav-mobile-toggle"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2.5 rounded-xl bg-[#130C08] border border-white/10 text-[#FAFAF9]"
+                className="p-2 rounded-lg bg-[#130C08] border border-white/10 text-[#FAFAF9] cursor-pointer"
                 aria-label="Toggle navigation menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
@@ -132,7 +121,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#0A0705]/98 backdrop-blur-2xl md:hidden pt-24 px-6 pb-8 flex flex-col justify-between animate-fadeIn">
+        <div className="fixed inset-0 z-40 bg-[#0A0705]/98 backdrop-blur-2xl lg:hidden pt-24 px-6 pb-8 flex flex-col justify-between animate-fadeIn">
           <div className="space-y-3">
             <div className="text-xs font-bold uppercase tracking-wider text-[#D95A1A] font-syne mb-2">
               Menu Navigation

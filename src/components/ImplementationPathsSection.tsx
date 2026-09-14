@@ -170,7 +170,7 @@ export const ImplementationPathsSection: React.FC<ImplementationPathsSectionProp
               {/* Timeline & Action Footer */}
               <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-2">
                 <div className="text-xs font-syne text-[#FAFAF9]/80">
-                  Setup: <strong className="text-white font-black text-sm">K6,000</strong> <span className="text-[10px] text-[#FAFAF9]/60 block sm:inline">(~4 Weeks to Live)</span>
+                  Setup: <strong className="text-white font-black text-sm">K6,000</strong> <span className="text-[10px] text-[#FAFAF9]/60 block sm:inline">(4–6 Weeks to Live)</span>
                 </div>
                 <button
                   onClick={() => onNavigate('contact')}
@@ -241,7 +241,7 @@ export const ImplementationPathsSection: React.FC<ImplementationPathsSectionProp
               {/* Timeline & Action Footer */}
               <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-2">
                 <div className="text-xs font-syne text-[#FAFAF9]/80">
-                  Setup: <strong className="text-white font-black text-sm">K3,000</strong> <span className="text-[10px] text-[#FAFAF9]/60 block sm:inline">(~2 Weeks to Live)</span>
+                  Setup: <strong className="text-white font-black text-sm">K3,000</strong> <span className="text-[10px] text-[#FAFAF9]/60 block sm:inline">(4–6 Weeks to Live)</span>
                 </div>
                 <button
                   onClick={() => onNavigate('contact')}

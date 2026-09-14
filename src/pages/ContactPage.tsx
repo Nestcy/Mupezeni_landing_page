@@ -241,11 +241,48 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 <p className="text-xs text-[#FAFAF9]/70 leading-relaxed">
                   You are under no obligation to purchase software. The consultation is designed to deliver immediate tactical clarity on how AI can accelerate your retail business.
                 </p>
-                <div className="pt-3 border-t border-white/10 space-y-1.5">
+                <div className="pt-3 border-t border-white/10 space-y-2">
                   <div className="flex items-center justify-between text-xs font-syne">
                     <span className="font-bold text-white">Transparent Pricing:</span>
                     <span className="text-[#D95A1A] font-bold">K5,000 /mo</span>
                   </div>
+
+                  {/* 30-Day Money-Back Guarantee Box */}
+                  <div className="p-2.5 rounded-xl bg-emerald-950/25 border border-emerald-500/35 flex items-start gap-2.5">
+                    <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
+                    <div className="space-y-0.5">
+                      <div className="text-[11px] font-bold text-emerald-300 font-syne flex items-center gap-1.5">
+                        <span>30-Day 100% Money-Back Guarantee</span>
+                      </div>
+                      <p className="text-[10px] text-[#FAFAF9]/80 leading-snug">
+                        If you don't see measurable value, saved hours, or sales growth in your first 30 days of launch, we refund 100% of your investment.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Economic Reality Check Quick Comparison */}
+                  <div className="p-2.5 rounded-xl bg-[#090604] border border-white/5 space-y-1.5 text-[11px] font-syne">
+                    <div className="text-[10px] uppercase font-bold text-[#D95A1A] tracking-wider">
+                      Economic Reality Check:
+                    </div>
+                    <div className="flex justify-between text-white/70">
+                      <span>Support:</span>
+                      <span>~K3,300–K9,500 vs <strong className="text-white">K2,000</strong></span>
+                    </div>
+                    <div className="flex justify-between text-white/70">
+                      <span>Marketing:</span>
+                      <span>~K3,600–K10,400 vs <strong className="text-white">K2,500</strong></span>
+                    </div>
+                    <div className="flex justify-between text-white/70">
+                      <span>Ops & Mgmt:</span>
+                      <span>~K4,000–K14,500 vs <strong className="text-emerald-400 font-bold">FREE</strong></span>
+                    </div>
+                    <div className="pt-1 border-t border-white/10 flex justify-between font-bold text-white">
+                      <span>Total Investment:</span>
+                      <span className="text-emerald-400">K5,000/mo <span className="text-[9px] text-white/50 line-through">(vs K15k–K30k+)</span></span>
+                    </div>
+                  </div>
+
                   <p className="text-[11px] text-[#FAFAF9]/60 leading-tight">
                     All-inclusive AI Support, Marketing, and Operations. Zero per-message license fees.
                   </p>

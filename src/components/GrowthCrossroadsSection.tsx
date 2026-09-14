@@ -346,7 +346,7 @@ export const GrowthCrossroadsSection: React.FC<GrowthCrossroadsSectionProps> = (
                         <X className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                       </div>
                       <span>
-                        <strong className="text-white">Ballooning Payroll:</strong> Fixed salary liabilities (K15,000–K30,000+) that must be paid regardless of sales.
+                        <strong className="text-white">Ballooning Payroll:</strong> Fixed salary liabilities (K15,000–K30,000+/mo) across support (~K3,300–K9,500), marketing (~K3,600–K10,400), and ops (~K4,000–K14,500) that must be paid regardless of sales.
                       </span>
                     </li>
                     <li className="flex items-start gap-2 sm:gap-3">
@@ -434,7 +434,7 @@ export const GrowthCrossroadsSection: React.FC<GrowthCrossroadsSectionProps> = (
                         <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                       </div>
                       <span>
-                        <strong className="text-white">Predictable, Fixed Cost:</strong> Clear monthly investment starting at K5,000 with zero payroll inflation.
+                        <strong className="text-white">Predictable, Fixed Cost:</strong> AI Support (K2,000) + AI Marketing (K2,500) + Free Dashboard — complete AI team for K5,000/mo with zero payroll bloat.
                       </span>
                     </li>
                     <li className="flex items-start gap-2 sm:gap-3">

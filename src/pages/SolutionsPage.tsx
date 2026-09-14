@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import { PageId } from '../types';
 import { ConsultationCtaSection } from '../components/ConsultationCtaSection';
+import { EconomicComparisonTable } from '../components/EconomicComparisonTable';
 
 interface SolutionsPageProps {
   onNavigate: (page: PageId) => void;
@@ -359,9 +360,9 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* Pricing Integration Banner */}
-      <section className="py-12 border-t border-white/10 bg-gradient-to-r from-[#170B06] via-[#1F0E08] to-[#170B06]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Pricing Integration Banner & Economic Reality Check */}
+      <section className="py-14 sm:py-20 border-t border-white/10 bg-gradient-to-r from-[#170B06] via-[#1F0E08] to-[#170B06]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="p-6 sm:p-8 rounded-3xl bg-[#0F0805]/90 border border-[#9B2208]/40 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#20110A] border border-[#9B2208]/50 text-[#D95A1A] text-xs font-bold font-syne">
@@ -389,6 +390,25 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
               >
                 <span>Get Your AI Growth Team</span>
               </button>
+            </div>
+          </div>
+
+          {/* Economic Reality Check Comparison */}
+          <div className="space-y-4">
+            <div className="text-center space-y-1.5 max-w-2xl mx-auto">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#D95A1A] font-syne">
+                Investment Comparison
+              </span>
+              <h4 className="text-xl sm:text-2xl font-black font-syne text-white">
+                The Economic Advantage for Retailers
+              </h4>
+              <p className="text-xs text-[#FAFAF9]/70">
+                See how hiring three separate staff members compares against deploying Mupezeni's coordinated AI workforce.
+              </p>
+            </div>
+
+            <div className="max-w-3xl mx-auto">
+              <EconomicComparisonTable showCta onNavigate={onNavigate} />
             </div>
           </div>
         </div>

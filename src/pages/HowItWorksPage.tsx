@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { END_TO_END_WORKFLOW } from '../data/websiteData';
 import { ConsultationCtaSection } from '../components/ConsultationCtaSection';
+import { EconomicComparisonTable } from '../components/EconomicComparisonTable';
 import { PageId } from '../types';
 
 interface HowItWorksProps {
@@ -84,7 +85,7 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
             </button>
             <p className="text-[11px] sm:text-xs text-[#FAFAF9]/60 font-syne flex items-center justify-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-[#25D366] flex-shrink-0" />
-              <span>AI Teams go live across your sales channels within 4 weeks of onboarding</span>
+              <span>AI Teams go live across your sales channels within 4–6 weeks of onboarding</span>
             </p>
           </div>
         </div>
@@ -404,8 +405,8 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
       </section>
 
       {/* 5. PRICING & SOLUTIONS BRIDGE */}
-      <section className="py-12 border-t border-white/10 bg-[#070402]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-14 sm:py-20 border-t border-white/10 bg-[#070402]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#140A06] to-[#1D0E07] border border-[#9B2208]/40 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
               <span className="text-xs font-bold uppercase tracking-widest text-[#D95A1A] font-syne">
@@ -433,6 +434,25 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
               >
                 <span>Compare 2 Solutions</span>
               </button>
+            </div>
+          </div>
+
+          {/* Detailed Role-by-Role Economic Comparison */}
+          <div className="space-y-4">
+            <div className="text-center space-y-1.5 max-w-2xl mx-auto">
+              <span className="text-xs font-bold uppercase tracking-widest text-[#D95A1A] font-syne">
+                Workflow Economics
+              </span>
+              <h4 className="text-xl sm:text-2xl font-black font-syne text-white">
+                Save K10,000–K25,000+/mo vs Human Staff
+              </h4>
+              <p className="text-xs text-[#FAFAF9]/70">
+                Replace 3 high-overhead roles with always-on AI Support, Marketing, and Operations.
+              </p>
+            </div>
+
+            <div className="max-w-3xl mx-auto">
+              <EconomicComparisonTable showCta onNavigate={onNavigate} />
             </div>
           </div>
         </div>

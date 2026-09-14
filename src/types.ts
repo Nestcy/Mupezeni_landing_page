@@ -114,3 +114,23 @@ export interface EndToEndWorkflowStep {
   iconName: string;
   accentColor?: string;
 }
+
+export interface EconomicComparisonRow {
+  departmentRole: string;
+  humanStaffCost: string;
+  mupezeniCost: string;
+  mupezeniBadge: string;
+}
+
+export interface EconomicComparisonData {
+  title: string;
+  subtitle: string;
+  rows: EconomicComparisonRow[];
+  totalRow: {
+    label: string;
+    humanTotal: string;
+    mupezeniTotal: string;
+    mupezeniNote: string;
+    savingsHighlight: string;
+  };
+}

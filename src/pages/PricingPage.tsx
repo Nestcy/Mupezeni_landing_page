@@ -20,6 +20,8 @@ import {
   MessageSquare
 } from 'lucide-react';
 import { PageId, ConsultationBookingData } from '../types';
+import { EconomicComparisonTable } from '../components/EconomicComparisonTable';
+import { MoneyBackGuaranteeBanner } from '../components/MoneyBackGuaranteeBanner';
 import { 
   sendConsultationEmailNotification, 
   saveConsultationToFirestore, 
@@ -70,7 +72,8 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
         'Recommends products tailored to size & style preference',
         'Follows up with leads and interested shoppers to close sales',
         'Instant stock verification and direct payment links',
-        'Human escalation handoff when personal touch is needed'
+        'Human escalation handoff when personal touch is needed',
+        '30-Day 100% Money-Back Guarantee (Risk-Free)'
       ],
       ctaText: 'Get Your AI Growth Team'
     },
@@ -89,7 +92,8 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
         'Generates product visuals and seasonal promotional drops',
         'Plans and maintains weekly content calendars',
         'Runs targeted ads with owner-approved budgets and safeguards',
-        'Syncs automatically with your product catalog changes'
+        'Syncs automatically with your product catalog changes',
+        '30-Day 100% Money-Back Guarantee (Risk-Free)'
       ],
       ctaText: 'Get Your AI Growth Team'
     },
@@ -109,7 +113,8 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
         'Business Insights Dashboard (Included at no extra cost)',
         'Ongoing prompt, product & catalog optimization',
         'Monthly strategic business review with our lead engineer',
-        'Priority feature requests & dedicated WhatsApp support'
+        'Priority feature requests & dedicated WhatsApp support',
+        '30-Day 100% Money-Back Guarantee (Full Refund)'
       ],
       ctaText: 'Get Your AI Growth Team'
     }
@@ -135,6 +140,10 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
 
   const faqs = [
     {
+      q: 'Do you offer a money-back guarantee if I don\'t see value?',
+      a: 'Yes, 100%. Every Mupezeni client is backed by our 30-Day 100% Money-Back Guarantee. If within the first 30 days of going live with your AI workforce you feel Mupezeni has not delivered tangible business value, saved you dozens of operating hours, or driven customer conversions, simply message our team. We will issue a prompt 100% refund of your monthly subscription fee back to your Airtel Money, MTN MoMo, or bank account — no questions asked and zero risk to your business.'
+    },
+    {
       q: 'Can I start with just AI Customer Support and add Marketing later?',
       a: 'Absolutely. You can start with the AI Customer Support Agent at K2,000/month and add the AI Marketing Agent (K2,500/month) at any time. Adding Marketing requires no additional setup fee.'
     },
@@ -144,7 +153,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
     },
     {
       q: 'How does the one-time setup fee work?',
-      a: 'Setup is a one-time investment in your digital foundation. If you have no online store (Path 1), setup is K6,000 (~4 weeks) for complete store build, payments, inventory, and AI calibration. If you already have Shopify or WooCommerce (Path 2), setup is K3,000 (~2 weeks) for direct API sync and AI calibration.'
+      a: 'Setup is a one-time investment in your digital foundation. If you have no online store (Path 1), setup is K6,000 (4–6 weeks go-live) for complete store build, payments, inventory, and AI calibration. If you already have Shopify or WooCommerce (Path 2), setup is K3,000 (4–6 weeks go-live) for direct API sync and AI calibration.'
     },
     {
       q: 'How does this compare to hiring human employees in Zambia?',
@@ -305,7 +314,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.3 }}
-            className="p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-[#170E08] via-[#1F120A] to-[#120B07] border border-[#D95A1A]/40 shadow-lg mb-8"
+            className="p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-[#170E08] via-[#1F120A] to-[#120B07] border border-[#D95A1A]/40 shadow-lg mb-6"
           >
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div className="flex items-center gap-3">
@@ -335,6 +344,16 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
             </div>
           </motion.div>
 
+          {/* 30-Day Money-Back Guarantee Banner */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.32 }}
+            className="mb-8 max-w-3xl mx-auto"
+          >
+            <MoneyBackGuaranteeBanner />
+          </motion.div>
+
           {/* Visual Economic Comparison Table */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
@@ -342,54 +361,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
             transition={{ duration: 0.4, delay: 0.35 }}
             className="mb-8 max-w-3xl mx-auto"
           >
-            <div className="overflow-hidden rounded-2xl border border-[#9B2208]/40 bg-[#0E0805] shadow-lg">
-              <div className="px-4 py-3 bg-gradient-to-r from-[#170B06] to-[#24110A] border-b border-white/10 flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-widest text-[#D95A1A] font-syne">
-                  Economic Reality Check
-                </span>
-                <span className="text-[11px] font-semibold text-white/60">
-                  Monthly Zambian Retail Cost
-                </span>
-              </div>
-
-              <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="border-b border-white/10 text-xs font-syne text-[#FAFAF9]/70">
-                      <th className="py-2.5 px-4 font-semibold">Department Role</th>
-                      <th className="py-2.5 px-4 font-semibold text-white/50">Hiring 3 Human Staff</th>
-                      <th className="py-2.5 px-4 font-bold text-[#D95A1A] bg-[#180D08]/60">
-                        <span className="font-roboto font-bold">Mupezeni</span> AI Workforce
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-white/5 text-xs font-syne">
-                    <tr className="hover:bg-white/[0.02] transition-colors">
-                      <td className="py-2 px-4 font-medium text-white">Customer Support</td>
-                      <td className="py-2 px-4 text-white/60">~K3,300–K9,500/mo</td>
-                      <td className="py-2 px-4 font-bold text-emerald-400 bg-[#180D08]/60">AI Support: K2,000/mo (24/7)</td>
-                    </tr>
-                    <tr className="hover:bg-white/[0.02] transition-colors">
-                      <td className="py-2 px-4 font-medium text-white">Marketing & Content</td>
-                      <td className="py-2 px-4 text-white/60">~K3,600–K10,400/mo</td>
-                      <td className="py-2 px-4 font-bold text-emerald-400 bg-[#180D08]/60">AI Marketing: K2,500/mo (Creative)</td>
-                    </tr>
-                    <tr className="hover:bg-white/[0.02] transition-colors">
-                      <td className="py-2 px-4 font-medium text-white">Business Management & Ops</td>
-                      <td className="py-2 px-4 text-white/60">~K4,000–K14,500/mo</td>
-                      <td className="py-2 px-4 font-bold text-emerald-400 bg-[#180D08]/60">Insights Dashboard: FREE (Included)</td>
-                    </tr>
-                    <tr className="bg-[#1C0E08]/70 border-t border-[#9B2208]/60">
-                      <td className="py-3 px-4 font-black text-white text-xs sm:text-sm">Total Monthly Investment</td>
-                      <td className="py-3 px-4 font-bold text-white/60 text-xs sm:text-sm line-through decoration-red-500/80">K15,000–K30,000+/mo</td>
-                      <td className="py-3 px-4 font-black text-base sm:text-lg bg-[#25120A] text-[#D95A1A]">
-                        K5,000/mo <span className="text-xs font-normal text-white/60">(or from K2,000/mo)</span>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            <EconomicComparisonTable />
           </motion.div>
 
         </div>
@@ -429,7 +401,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
                       <h3 className="text-sm sm:text-base font-bold font-syne text-white">Starting From Physical Store</h3>
                     </div>
                   </div>
-                  <span className="text-xs text-white/60 font-syne">~4 Weeks</span>
+                  <span className="text-xs text-white/60 font-syne">4–6 Weeks to Live</span>
                 </div>
 
                 <div className="flex items-baseline gap-1.5">
@@ -486,7 +458,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
                       <h3 className="text-sm sm:text-base font-bold font-syne text-white">Already Online</h3>
                     </div>
                   </div>
-                  <span className="text-xs text-white/60 font-syne">~2 Weeks</span>
+                  <span className="text-xs text-white/60 font-syne">4–6 Weeks to Live</span>
                 </div>
 
                 <div className="flex items-baseline gap-1.5">
@@ -666,7 +638,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
                         <span>Path 1: Physical Store (K6,000 setup)</span>
                       </div>
                       <p className="text-[11px] text-[#FAFAF9]/60 mt-1">
-                        Starting from physical shop, showroom, or social media only (~4 weeks).
+                        Starting from physical shop, showroom, or social media only (4–6 weeks go-live).
                       </p>
                     </button>
 
@@ -684,7 +656,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
                         <span>Path 2: Already Online (K3,000 setup)</span>
                       </div>
                       <p className="text-[11px] text-[#FAFAF9]/60 mt-1">
-                        Already have Shopify, WooCommerce, or custom website (~2 weeks).
+                        Already have Shopify, WooCommerce, or custom website (4–6 weeks go-live).
                       </p>
                     </button>
                   </div>
@@ -802,6 +774,11 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
                 <p className="text-[11px] text-center text-[#FAFAF9]/50">
                   By submitting, you agree to our 30-minute diagnostic session. No credit card required.
                 </p>
+
+                <div className="pt-2 flex items-center justify-center gap-2 text-xs font-syne text-emerald-400">
+                  <ShieldCheck className="w-4 h-4 flex-shrink-0" />
+                  <span className="font-semibold">Protected by our 30-Day 100% Money-Back Guarantee</span>
+                </div>
 
               </form>
             )}

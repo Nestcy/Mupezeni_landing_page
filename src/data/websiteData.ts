@@ -1,4 +1,36 @@
-import { IndustrySolution, PhilosophyPrinciple, ProcessStep, BusinessOutcome, AiTeamMember, EndToEndWorkflowStep } from '../types';
+import { IndustrySolution, PhilosophyPrinciple, ProcessStep, BusinessOutcome, AiTeamMember, EndToEndWorkflowStep, EconomicComparisonData, EconomicComparisonRow } from '../types';
+
+export const ECONOMIC_COMPARISON_TABLE: EconomicComparisonData = {
+  title: 'Economic Reality Check',
+  subtitle: 'Monthly Zambian Retail Cost',
+  rows: [
+    {
+      departmentRole: 'Customer Support',
+      humanStaffCost: '~K3,300–K9,500/mo',
+      mupezeniCost: 'AI Support: K2,000/mo',
+      mupezeniBadge: '24/7'
+    },
+    {
+      departmentRole: 'Marketing & Content',
+      humanStaffCost: '~K3,600–K10,400/mo',
+      mupezeniCost: 'AI Marketing: K2,500/mo',
+      mupezeniBadge: 'Creative'
+    },
+    {
+      departmentRole: 'Business Management & Ops',
+      humanStaffCost: '~K4,000–K14,500/mo',
+      mupezeniCost: 'Insights Dashboard: FREE',
+      mupezeniBadge: 'Included'
+    }
+  ],
+  totalRow: {
+    label: 'Total Monthly Investment',
+    humanTotal: 'K15,000–K30,000+/mo',
+    mupezeniTotal: 'K5,000/mo',
+    mupezeniNote: '(or starting at K2,000/mo)',
+    savingsHighlight: 'Save up to K25,000+/mo'
+  }
+};
 
 export const AI_TEAM_MEMBERS: AiTeamMember[] = [
   {
@@ -80,22 +112,22 @@ export const AI_TEAM_MEMBERS: AiTeamMember[] = [
 
 export const GROWTH_COMPARISON = {
   traditional: [
-    'Hire customer support staff (~K3,300–K9,500/mo)',
-    'Hire marketing specialists (~K3,600–K10,400/mo)',
-    'Hire business managers (~K4,000–K14,500/mo)',
-    'Growing payroll expenses (K15,000–K30,000+/mo)',
+    'Customer Support staff (~K3,300–K9,500/mo)',
+    'Marketing & Content staff (~K3,600–K10,400/mo)',
+    'Business Management & Ops (~K4,000–K14,500/mo)',
+    'Total Monthly Investment: K15,000–K30,000+/mo in salaries',
     'Recruitment delays, training & turnover risk',
     'Increasing management complexity and payroll taxes',
     'High overhead eating retail profit margins'
   ],
   mupezeni: [
-    'AI Customer Support Agent (K2,000/mo) active 24/7',
-    'AI Marketing Agent (K2,500/mo) creates content continuously',
-    'Business Insights Dashboard included at no extra cost',
-    'Full AI Growth Team for only K5,000/mo all-inclusive',
-    'Live across your channels within 2–4 weeks',
+    'AI Support: K2,000/mo (24/7 instant omnichannel sales)',
+    'AI Marketing: K2,500/mo (Creative studio & ad campaigns)',
+    'Insights Dashboard: FREE (Included at no extra cost)',
+    'Total Monthly Investment: K5,000/mo all-inclusive',
+    'Live across your channels within 4–6 weeks',
     'Zero recruitment delays, sick days or turnover risk',
-    'Significantly lower operational overhead'
+    'Predictable fixed cost saving up to K25,000+/month'
   ],
   conclusion: 'As your business grows, your AI Team scales with it, helping you serve more customers without continuously increasing your payroll.'
 };
@@ -340,11 +372,11 @@ export const PROCESS_STEPS: ProcessStep[] = [
   {
     stepNumber: '03',
     title: 'Setup & Digital Foundation',
-    timeline: 'Step 3 • ~2–4 Weeks Build',
+    timeline: 'Step 3 • 4–6 Weeks Build',
     summary: 'We build your digital storefront or connect directly to your existing Shopify/WooCommerce store and train your AI agents.',
     detailedPoints: [
-      'Path 1 (Physical Shop): Complete digital store build, catalogue upload, and payment rails (~4 weeks)',
-      'Path 2 (Already Online): Seamless Shopify / WooCommerce API integration and product sync (~2 weeks)',
+      'Path 1 (Physical Shop): Complete digital store build, catalogue upload, and payment rails (4–6 weeks go-live)',
+      'Path 2 (Already Online): Seamless Shopify / WooCommerce API integration and product sync (4–6 weeks go-live)',
       'Train AI Customer Support and Marketing agents on your exact products, sizes, prices, and FAQs'
     ],
     retailerAction: 'Test-drive your AI agents in a private staging preview and verify accuracy.',

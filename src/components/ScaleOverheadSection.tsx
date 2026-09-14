@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { GROWTH_COMPARISON } from '../data/websiteData';
 import { PageId } from '../types';
+import { EconomicComparisonTable } from './EconomicComparisonTable';
 
 interface ScaleOverheadSectionProps {
   onNavigate: (page: PageId) => void;
@@ -190,6 +191,11 @@ export const ScaleOverheadSection: React.FC<ScaleOverheadSectionProps> = ({ onNa
             </div>
           )}
 
+        </div>
+
+        {/* Economic Comparison Table */}
+        <div className="max-w-3xl mx-auto mb-6 sm:mb-8">
+          <EconomicComparisonTable compact showTitle />
         </div>
 
         {/* Anchor Conclusion Statement */}

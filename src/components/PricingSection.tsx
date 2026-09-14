@@ -14,6 +14,8 @@ import {
   Zap
 } from 'lucide-react';
 import { PageId } from '../types';
+import { EconomicComparisonTable } from './EconomicComparisonTable';
+import { MoneyBackGuaranteeBanner } from './MoneyBackGuaranteeBanner';
 
 interface PricingSectionProps {
   onNavigate: (page: PageId) => void;
@@ -113,6 +115,10 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
                   <Check className="w-3.5 h-3.5 text-[#D95A1A] mt-0.5 flex-shrink-0" />
                   <span>Instant stock verification and checkout links</span>
                 </li>
+                <li className="flex items-center gap-1.5 text-emerald-400 font-bold pt-1 border-t border-white/5">
+                  <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>30-Day 100% Money-Back Guarantee</span>
+                </li>
               </ul>
             </div>
 
@@ -171,6 +177,10 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
                 <li className="flex items-start gap-2">
                   <Check className="w-3.5 h-3.5 text-[#D95A1A] mt-0.5 flex-shrink-0" />
                   <span>Runs targeted ads with owner-approved budgets</span>
+                </li>
+                <li className="flex items-center gap-1.5 text-emerald-400 font-bold pt-1 border-t border-white/5">
+                  <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>30-Day 100% Money-Back Guarantee</span>
                 </li>
               </ul>
             </div>
@@ -238,6 +248,10 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
                   <Check className="w-3.5 h-3.5 text-emerald-400 mt-0.5 flex-shrink-0" />
                   <span>Monthly executive performance reviews</span>
                 </li>
+                <li className="flex items-center gap-1.5 text-emerald-400 font-bold pt-1 border-t border-white/5">
+                  <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
+                  <span>30-Day 100% Money-Back Guarantee</span>
+                </li>
               </ul>
             </div>
 
@@ -258,7 +272,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-[#170E08] via-[#1F120A] to-[#120B07] border border-[#D95A1A]/40 shadow-lg mb-8"
+          className="p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-[#170E08] via-[#1F120A] to-[#120B07] border border-[#D95A1A]/40 shadow-lg mb-6"
         >
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex items-center gap-3">
@@ -286,6 +300,17 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
               <span className="px-2.5 py-1 rounded-lg bg-[#0C0805] border border-white/5">✓ Rider Delivery Slips</span>
             </div>
           </div>
+        </motion.div>
+
+        {/* 30-Day Money-Back Guarantee Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="mb-8"
+        >
+          <MoneyBackGuaranteeBanner />
         </motion.div>
 
         {/* 3. One-Time Setup: 2-Column Comparison */}
@@ -317,7 +342,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
                       Path 1: Physical Store
                     </span>
                   </div>
-                  <span className="text-xs text-white/60 font-syne">~4 Weeks to Live</span>
+                  <span className="text-xs text-white/60 font-syne">4–6 Weeks to Live</span>
                 </div>
 
                 <div className="flex items-baseline gap-1.5">
@@ -360,7 +385,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
                       Path 2: Already Online
                     </span>
                   </div>
-                  <span className="text-xs text-white/60 font-syne">~2 Weeks to Live</span>
+                  <span className="text-xs text-white/60 font-syne">4–6 Weeks to Live</span>
                 </div>
 
                 <div className="flex items-baseline gap-1.5">
@@ -408,54 +433,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
           transition={{ duration: 0.5 }}
           className="mb-10 max-w-3xl mx-auto"
         >
-          <div className="overflow-hidden rounded-2xl border border-[#9B2208]/40 bg-[#0E0805] shadow-lg">
-            <div className="px-4 py-3 bg-gradient-to-r from-[#170B06] to-[#24110A] border-b border-white/10 flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-widest text-[#D95A1A] font-syne">
-                Economic Reality Check
-              </span>
-              <span className="text-[11px] font-semibold text-white/60">
-                Monthly Zambian Retail Cost
-              </span>
-            </div>
-
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="border-b border-white/10 text-xs font-syne text-[#FAFAF9]/70">
-                    <th className="py-2.5 px-4 font-semibold">Department Role</th>
-                    <th className="py-2.5 px-4 font-semibold text-white/50">Hiring 3 Human Staff</th>
-                    <th className="py-2.5 px-4 font-bold text-[#D95A1A] bg-[#180D08]/60">
-                      <span className="font-roboto font-bold">Mupezeni</span> AI Workforce
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-white/5 text-xs font-syne">
-                  <tr className="hover:bg-white/[0.02] transition-colors">
-                    <td className="py-2 px-4 font-medium text-white">Customer Support</td>
-                    <td className="py-2 px-4 text-white/60">~K3,300–K9,500/mo</td>
-                    <td className="py-2 px-4 font-bold text-emerald-400 bg-[#180D08]/60">AI Support: K2,000/mo (24/7)</td>
-                  </tr>
-                  <tr className="hover:bg-white/[0.02] transition-colors">
-                    <td className="py-2 px-4 font-medium text-white">Marketing & Content</td>
-                    <td className="py-2 px-4 text-white/60">~K3,600–K10,400/mo</td>
-                    <td className="py-2 px-4 font-bold text-emerald-400 bg-[#180D08]/60">AI Marketing: K2,500/mo (Creative)</td>
-                  </tr>
-                  <tr className="hover:bg-white/[0.02] transition-colors">
-                    <td className="py-2 px-4 font-medium text-white">Business Management & Ops</td>
-                    <td className="py-2 px-4 text-white/60">~K4,000–K14,500/mo</td>
-                    <td className="py-2 px-4 font-bold text-emerald-400 bg-[#180D08]/60">Insights Dashboard: FREE (Included)</td>
-                  </tr>
-                  <tr className="bg-[#1C0E08]/70 border-t border-[#9B2208]/60">
-                    <td className="py-3 px-4 font-black text-white text-xs sm:text-sm">Total Monthly Investment</td>
-                    <td className="py-3 px-4 font-bold text-white/60 text-xs sm:text-sm line-through decoration-red-500/80">K15,000–K30,000+/mo</td>
-                    <td className="py-3 px-4 font-black text-base sm:text-lg bg-[#25120A] text-[#D95A1A]">
-                      K5,000/mo <span className="text-xs font-normal text-white/60">(or from K2,000/mo)</span>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
+          <EconomicComparisonTable />
         </motion.div>
 
         {/* CTA Banner */}

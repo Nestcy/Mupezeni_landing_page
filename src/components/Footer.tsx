@@ -9,7 +9,8 @@ import {
   Bot,
   ArrowRight,
   Phone,
-  MessageSquare
+  MessageSquare,
+  ShieldCheck
 } from 'lucide-react';
 import { PageId } from '../types';
 
@@ -185,6 +186,11 @@ export const Footer: React.FC<FooterProps> = ({
               <span>Get Your AI Growth Team</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
+
+            <div className="flex items-center justify-center sm:justify-start gap-1.5 text-emerald-400 text-[11px] font-syne font-semibold pt-0.5">
+              <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
+              <span>30-Day 100% Money-Back Guarantee</span>
+            </div>
           </div>
         </div>
 
