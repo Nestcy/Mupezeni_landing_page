@@ -14,7 +14,6 @@ import { ChannelsMarquee } from '../components/ChannelsMarquee';
 import { SimulatedVideoDemo } from '../components/CinematicDemo/SimulatedVideoDemo';
 import { GrowthCrossroadsSection } from '../components/GrowthCrossroadsSection';
 import { AiTeamSection } from '../components/AiTeamSection';
-import { ImplementationPathsSection } from '../components/ImplementationPathsSection';
 import { PricingSection } from '../components/PricingSection';
 import { WhatWeBelieveSection } from '../components/WhatWeBelieveSection';
 import { ConsultationCtaSection } from '../components/ConsultationCtaSection';
@@ -114,10 +113,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       {/* 4. MEET YOUR AI TEAMS */}
       <AiTeamSection onNavigate={onNavigate} />
 
-      {/* 5. IMPLEMENTATION SOLUTIONS: Will Mupezeni Work With My Business? (Path 1 vs Path 2) */}
-      <ImplementationPathsSection onNavigate={onNavigate} />
-
-      {/* 6. ⭐ PRICING (Apple-style reveal: K5,000/month, horizontal feature rows, unboxed whitespace) */}
+      {/* 5. ⭐ PRICING (Apple-style reveal: K5,000/month, horizontal feature rows, unboxed whitespace) */}
       <PricingSection onNavigate={onNavigate} />
 
       {/* 8. BUSINESS PHILOSOPHY (What We Believe) */}
