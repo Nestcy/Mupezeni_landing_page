@@ -15,7 +15,6 @@ import { SimulatedVideoDemo } from '../components/CinematicDemo/SimulatedVideoDe
 import { GrowthCrossroadsSection } from '../components/GrowthCrossroadsSection';
 import { AiTeamSection } from '../components/AiTeamSection';
 import { ImplementationPathsSection } from '../components/ImplementationPathsSection';
-import { ScaleOverheadSection } from '../components/ScaleOverheadSection';
 import { PricingSection } from '../components/PricingSection';
 import { WhatWeBelieveSection } from '../components/WhatWeBelieveSection';
 import { ConsultationCtaSection } from '../components/ConsultationCtaSection';
@@ -101,18 +100,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 autoPlay={true}
               />
             </div>
-
-            {/* Video Sub-caption / Storyline chapters indicator */}
-            <div className="mt-4 flex flex-wrap items-center justify-center gap-2 text-[11px] sm:text-xs font-syne text-white/60">
-              <span className="text-[#D95A1A] font-bold">Walkthrough Storyline:</span>
-              <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10">01. Web Onboarding</span>
-              <span>→</span>
-              <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10">02. 24/7 WhatsApp & MoMo</span>
-              <span>→</span>
-              <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10">03. TikTok & FB Video Studio</span>
-              <span>→</span>
-              <span className="px-2 py-0.5 rounded bg-white/5 border border-white/10">04. Morning Operations Hub</span>
-            </div>
           </div>
 
         </div>
@@ -130,10 +117,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       {/* 5. IMPLEMENTATION SOLUTIONS: Will Mupezeni Work With My Business? (Path 1 vs Path 2) */}
       <ImplementationPathsSection onNavigate={onNavigate} />
 
-      {/* 6. WHY AI TEAMS: THE ECONOMIC COMPARISON (Scale Your Business, Not Your Overhead) */}
-      <ScaleOverheadSection onNavigate={onNavigate} />
-
-      {/* 7. ⭐ PRICING (Apple-style reveal: K5,000/month, horizontal feature rows, unboxed whitespace) */}
+      {/* 6. ⭐ PRICING (Apple-style reveal: K5,000/month, horizontal feature rows, unboxed whitespace) */}
       <PricingSection onNavigate={onNavigate} />
 
       {/* 8. BUSINESS PHILOSOPHY (What We Believe) */}

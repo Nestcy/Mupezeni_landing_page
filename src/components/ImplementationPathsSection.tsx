@@ -13,7 +13,8 @@ import {
   Sparkles,
   Zap,
   Globe,
-  Database
+  Database,
+  Clock
 } from 'lucide-react';
 import { PageId } from '../types';
 
@@ -169,8 +170,9 @@ export const ImplementationPathsSection: React.FC<ImplementationPathsSectionProp
 
               {/* Timeline & Action Footer */}
               <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-2">
-                <div className="text-xs font-syne text-[#FAFAF9]/80">
-                  Setup: <strong className="text-white font-black text-sm">K6,000</strong> <span className="text-[10px] text-[#FAFAF9]/60 block sm:inline">(4–6 Weeks to Live)</span>
+                <div className="text-xs font-syne text-[#FAFAF9]/80 flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-[#D95A1A]" />
+                  <span>Timeline: <strong className="text-white font-bold">4–6 Weeks to Live</strong></span>
                 </div>
                 <button
                   onClick={() => onNavigate('contact')}
@@ -240,8 +242,9 @@ export const ImplementationPathsSection: React.FC<ImplementationPathsSectionProp
 
               {/* Timeline & Action Footer */}
               <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-2">
-                <div className="text-xs font-syne text-[#FAFAF9]/80">
-                  Setup: <strong className="text-white font-black text-sm">K3,000</strong> <span className="text-[10px] text-[#FAFAF9]/60 block sm:inline">(4–6 Weeks to Live)</span>
+                <div className="text-xs font-syne text-[#FAFAF9]/80 flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-[#D95A1A]" />
+                  <span>Timeline: <strong className="text-white font-bold">4–6 Weeks to Live</strong></span>
                 </div>
                 <button
                   onClick={() => onNavigate('contact')}

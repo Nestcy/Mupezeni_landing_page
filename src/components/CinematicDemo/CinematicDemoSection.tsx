@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Film, Sparkles, ArrowRight, Play, ShieldCheck, Zap, Video, Monitor } from 'lucide-react';
-import { CinematicViewer } from './CinematicViewer';
+import React from 'react';
+import { Film } from 'lucide-react';
 import { SimulatedVideoDemo } from './SimulatedVideoDemo';
 
 interface CinematicDemoSectionProps {
@@ -10,8 +9,6 @@ interface CinematicDemoSectionProps {
 export const CinematicDemoSection: React.FC<CinematicDemoSectionProps> = ({
   onNavigateToContact
 }) => {
-  const [activeViewMode, setActiveViewMode] = useState<'video' | 'interactive'>('video');
-
   return (
     <section id="cinematic-demo-section" className="relative py-12 sm:py-20 bg-[#070402] overflow-hidden">
       {/* Background ambient lighting */}
@@ -40,50 +37,13 @@ export const CinematicDemoSection: React.FC<CinematicDemoSectionProps> = ({
             From the moment you click "Activate" in the merchant portal to autonomous midnight chats, instant Airtel/MTN MoMo payments, and one-click dispatch manifests.
           </p>
 
-          {/* Mode Switcher Pill Tabs */}
-          <div className="pt-2 flex flex-wrap items-center justify-center gap-2">
-            <div className="p-1 rounded-xl bg-[#140C07] border border-white/10 flex items-center gap-1 shadow-lg">
-              <button
-                onClick={() => setActiveViewMode('video')}
-                className={`px-3 sm:px-4 py-1.5 rounded-lg text-xs font-syne font-bold transition-all flex items-center gap-2 cursor-pointer ${
-                  activeViewMode === 'video'
-                    ? 'bg-gradient-to-r from-[#9B2208] to-[#D95A1A] text-white shadow-md'
-                    : 'text-white/60 hover:text-white'
-                }`}
-              >
-                <Video className="w-3.5 h-3.5" />
-                <span>Screen Studio Walkthrough (1080p)</span>
-              </button>
-
-              <button
-                onClick={() => setActiveViewMode('interactive')}
-                className={`px-3 sm:px-4 py-1.5 rounded-lg text-xs font-syne font-bold transition-all flex items-center gap-2 cursor-pointer ${
-                  activeViewMode === 'interactive'
-                    ? 'bg-gradient-to-r from-[#9B2208] to-[#D95A1A] text-white shadow-md'
-                    : 'text-white/60 hover:text-white'
-                }`}
-              >
-                <Monitor className="w-3.5 h-3.5" />
-                <span>Multi-Scene Agent Stream & Sandbox</span>
-              </button>
-            </div>
-          </div>
-
         </div>
 
-        {/* Embedded Player: Renders either Simulated Screen Studio Video or Interactive Stream */}
+        {/* Embedded Player: Exclusively MP4 Video Demo */}
         <div className="relative max-w-5xl mx-auto">
-          {activeViewMode === 'video' ? (
-            <SimulatedVideoDemo
-              onNavigateToContact={onNavigateToContact}
-            />
-          ) : (
-            <CinematicViewer
-              initialIndustryId="fashion"
-              isFullscreen={false}
-              onNavigateToContact={onNavigateToContact}
-            />
-          )}
+          <SimulatedVideoDemo
+            onNavigateToContact={onNavigateToContact}
+          />
         </div>
 
       </div>
@@ -91,3 +51,4 @@ export const CinematicDemoSection: React.FC<CinematicDemoSectionProps> = ({
     </section>
   );
 };
+

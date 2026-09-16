@@ -138,12 +138,6 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
                 </div>
               </div>
 
-              {/* Price tag */}
-              <div className="px-3 py-2 rounded-xl bg-[#20110A] border border-[#9B2208]/40 flex items-center justify-between">
-                <span className="text-xs text-white/70 font-syne">Monthly Service</span>
-                <span className="text-sm font-black text-white font-syne">K2,000 <span className="text-xs font-normal text-white/60">/mo</span></span>
-              </div>
-
               {/* Simulation preview */}
               <div className="p-3 rounded-xl bg-[#090604] border border-white/5 space-y-2 text-xs">
                 <div className="flex items-center gap-1">
@@ -237,12 +231,6 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
                 </div>
               </div>
 
-              {/* Price tag */}
-              <div className="px-3 py-2 rounded-xl bg-[#20110A] border border-[#9B2208]/40 flex items-center justify-between">
-                <span className="text-xs text-white/70 font-syne">Monthly Service</span>
-                <span className="text-sm font-black text-white font-syne">K2,500 <span className="text-xs font-normal text-white/60">/mo</span></span>
-              </div>
-
               {/* Simulation preview */}
               <div className="p-3 rounded-xl bg-[#090604] border border-white/5 space-y-2 text-xs">
                 <div className="flex items-center justify-between text-[10px] text-white/60">
@@ -328,12 +316,6 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
                     </p>
                   </div>
                 </div>
-              </div>
-
-              {/* Value badge */}
-              <div className="px-3 py-2 rounded-xl bg-[#20110A] border border-[#D95A1A]/40 flex items-center justify-between">
-                <span className="text-xs text-white/70 font-syne">Included with Every Plan</span>
-                <span className="text-xs font-black text-emerald-400 font-syne uppercase tracking-wider">FREE / INCLUDED</span>
               </div>
 
               {/* Live Metrics Simulation Preview */}

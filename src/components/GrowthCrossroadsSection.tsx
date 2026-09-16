@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { 
   GitFork, 
   Users, 
@@ -7,19 +7,7 @@ import {
   ArrowRight, 
   X, 
   Check, 
-  Clock, 
-  DollarSign, 
-  Zap, 
-  AlertTriangle,
-  MessageSquare,
-  Flame,
-  Layers,
-  Repeat,
-  ShieldCheck,
-  TrendingDown,
-  TrendingUp,
-  Activity,
-  ChevronRight
+  Activity
 } from 'lucide-react';
 import { PageId } from '../types';
 
@@ -27,52 +15,7 @@ interface GrowthCrossroadsSectionProps {
   onNavigate: (page: PageId) => void;
 }
 
-interface BottleneckStep {
-  number: string;
-  title: string;
-  shortDesc: string;
-  icon: React.ComponentType<{ className?: string }>;
-  traditionalPain: string;
-  aiSolution: string;
-}
-
-const BOTTLENECK_STEPS: BottleneckStep[] = [
-  {
-    number: '01',
-    title: 'More Enquiries Arrive',
-    shortDesc: 'Customers message on WhatsApp, Instagram, Facebook, and your store 24/7. Delayed replies mean lost sales to faster competitors.',
-    icon: MessageSquare,
-    traditionalPain: 'Overnight messages wait 12+ hours; buyers lose patience and buy elsewhere.',
-    aiSolution: 'Autonomous reply in < 2 seconds with live product lookup & checkout links.'
-  },
-  {
-    number: '02',
-    title: 'Demand for Marketing',
-    shortDesc: 'You need daily social media posts, product photography, video reels, and promotional broadcasts to keep customers buying.',
-    icon: Flame,
-    traditionalPain: 'Requires hiring graphic designers and copywriters with high recurring retainers.',
-    aiSolution: 'Daily automated social assets, promotional captions, and catalog updates on autopilot.'
-  },
-  {
-    number: '03',
-    title: 'Complex Operations',
-    shortDesc: 'Tracking customer orders across multiple chats, checking stock with suppliers, and arranging delivery riders eats away your time.',
-    icon: Layers,
-    traditionalPain: 'Manual copy-pasting between WhatsApp chats, notebooks, and delivery riders.',
-    aiSolution: 'Unified order sync, supplier product stock alerts, and automated customer delivery notes.'
-  },
-  {
-    number: '04',
-    title: 'The Hiring Spiral',
-    shortDesc: 'Payroll balloons, onboarding takes weeks, staff churn increases, and management becomes a full-time headache.',
-    icon: Repeat,
-    traditionalPain: 'Salaries spike to K15,000–K30,000+ with endless recruitment and turnover risk.',
-    aiSolution: 'Single flat rate from K5,000/mo. Zero turnover, instant scale, zero onboarding delay.'
-  }
-];
-
 export const GrowthCrossroadsSection: React.FC<GrowthCrossroadsSectionProps> = ({ onNavigate }) => {
-  const [activeStep, setActiveStep] = useState<number>(0);
   const [activeTab, setActiveTab] = useState<'both' | 'path1' | 'path2'>('both');
 
   return (
@@ -97,7 +40,7 @@ export const GrowthCrossroadsSection: React.FC<GrowthCrossroadsSectionProps> = (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header: The Core Problem Statement */}
-        <div className="max-w-3xl mx-auto text-center space-y-3 sm:space-y-5 mb-12 sm:mb-20">
+        <div className="max-w-3xl mx-auto text-center space-y-3 sm:space-y-5 mb-8 sm:mb-14">
           
           <motion.div 
             initial={{ opacity: 0, y: 10 }}
@@ -134,124 +77,9 @@ export const GrowthCrossroadsSection: React.FC<GrowthCrossroadsSectionProps> = (
         </div>
 
         {/* ====================================================================
-            PART 1: THE COMPOUNDING BOTTLENECK (MOTION GRAPHIC TIMELINE)
+            THE CROSSROADS DIVERGENCE (PATH 01 vs PATH 02)
             ==================================================================== */}
-        <div className="mb-14 sm:mb-20">
-          
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
-            <div className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full bg-[#D95A1A] animate-ping" />
-              <h3 className="text-xs sm:text-sm font-bold font-syne uppercase tracking-widest text-[#F5EDE4]">
-                The Compounding Growth Pressure
-              </h3>
-            </div>
-            <span className="text-[11px] font-semibold text-[#FAFAF9]/50">
-              Interactive Flow · Click any stage to inspect resolution
-            </span>
-          </div>
-
-          {/* 4-Step Interactive Motion Grid (2x2 on Mobile, 4x1 on Desktop) */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-4 relative">
-            
-            {BOTTLENECK_STEPS.map((step, idx) => {
-              const Icon = step.icon;
-              const isSelected = activeStep === idx;
-
-              return (
-                <motion.div
-                  key={step.number}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  onClick={() => setActiveStep(idx)}
-                  className={`p-3 sm:p-6 rounded-xl sm:rounded-3xl border transition-all duration-300 cursor-pointer relative overflow-hidden group flex flex-col justify-between ${
-                    isSelected
-                      ? 'bg-gradient-to-b from-[#1E0F09] to-[#140A06] border-[#9B2208] shadow-[0_0_20px_rgba(217,90,26,0.25)]'
-                      : 'bg-[#100B07]/80 hover:bg-[#150D09] border-white/5 hover:border-white/15'
-                  }`}
-                >
-                  {/* Glowing connector beam between cards on desktop */}
-                  {idx < BOTTLENECK_STEPS.length - 1 && (
-                    <div className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 w-4 h-[2px] bg-gradient-to-r from-[#D95A1A]/60 to-transparent z-10" />
-                  )}
-
-                  <div>
-                    <div className="flex items-center justify-between mb-2 sm:mb-4">
-                      <div className={`w-6 h-6 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center font-black font-syne text-[10px] sm:text-sm transition-all ${
-                        isSelected 
-                          ? 'bg-gradient-to-br from-[#9B2208] to-[#D95A1A] text-white shadow-md' 
-                          : 'bg-[#1A0E08] text-[#D95A1A] border border-[#9B2208]/30 group-hover:border-[#9B2208]'
-                      }`}>
-                        {step.number}
-                      </div>
-                      <div className={`p-1 rounded-md sm:rounded-lg ${isSelected ? 'text-[#D95A1A]' : 'text-white/40 group-hover:text-white/70'}`}>
-                        <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                      </div>
-                    </div>
-
-                    <h4 className="text-xs sm:text-lg font-bold sm:font-black font-syne text-white mb-1 sm:mb-2 group-hover:text-[#FAFAF9] leading-tight">
-                      {step.title}
-                    </h4>
-
-                    <p className="text-[10px] sm:text-xs text-[#FAFAF9]/70 leading-tight sm:leading-relaxed line-clamp-3 sm:line-clamp-none">
-                      {step.shortDesc}
-                    </p>
-                  </div>
-
-                  <div className="mt-2.5 sm:mt-4 pt-2 sm:pt-3 border-t border-white/5 flex items-center justify-between text-[9px] sm:text-[11px] font-syne">
-                    <span className={isSelected ? 'text-[#D95A1A] font-bold' : 'text-white/40'}>
-                      {isSelected ? 'Active Focus' : 'Inspect'}
-                    </span>
-                    <ChevronRight className={`w-3 h-3 sm:w-3.5 sm:h-3.5 transition-transform ${
-                      isSelected ? 'text-[#D95A1A] translate-x-0.5' : 'text-white/30 group-hover:translate-x-0.5'
-                    }`} />
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-
-          {/* Dynamic Motion Graphic Inspector Callout */}
-          <motion.div 
-            key={activeStep}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="mt-3 sm:mt-4 p-2.5 sm:p-5 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#170C07] via-[#120905] to-[#170C07] border border-[#9B2208]/40 shadow-xl flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5 sm:gap-4"
-          >
-            <div className="space-y-0.5 sm:space-y-1">
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <span className="text-[9px] sm:text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-[#9B2208]/30 text-[#D95A1A] font-syne">
-                  Stage {BOTTLENECK_STEPS[activeStep].number} Impact
-                </span>
-                <span className="text-xs sm:text-sm font-bold text-white font-syne">
-                  {BOTTLENECK_STEPS[activeStep].title}
-                </span>
-              </div>
-              <p className="text-[11px] sm:text-xs text-[#FAFAF9]/70">
-                <strong className="text-red-400 font-medium">Hiring Trap:</strong> {BOTTLENECK_STEPS[activeStep].traditionalPain}
-              </p>
-            </div>
-
-            <div className="p-2 sm:p-3 rounded-lg sm:rounded-xl bg-[#090604] border border-[#25D366]/30 text-[11px] sm:text-xs text-[#FAFAF9] flex items-center gap-2 flex-shrink-0 w-full md:w-auto">
-              <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#25D366] flex-shrink-0" />
-              <div>
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-wider text-[#25D366] font-bold font-syne block">
-                  <span className="font-roboto font-bold">Mupezeni</span> Resolution
-                </span>
-                <span className="text-[11px] sm:text-xs text-white/90">
-                  {BOTTLENECK_STEPS[activeStep].aiSolution}
-                </span>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* ====================================================================
-            PART 2: THE CROSSROADS DIVERGENCE (PATH 01 vs PATH 02)
-            ==================================================================== */}
-        <div className="relative pt-6">
+        <div className="relative pt-2 sm:pt-4">
           
           {/* Transition Divider with Motion Badge */}
           <div className="flex items-center justify-center gap-2 sm:gap-4 mb-5 sm:mb-12">

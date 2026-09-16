@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { X, Sparkles, Film, ArrowRight, Video, Monitor } from 'lucide-react';
-import { CinematicViewer } from './CinematicViewer';
+import React, { useEffect } from 'react';
+import { X, Film, ArrowRight } from 'lucide-react';
 import { SimulatedVideoDemo } from './SimulatedVideoDemo';
 
 interface CinematicDemoModalProps {
@@ -14,12 +13,8 @@ interface CinematicDemoModalProps {
 export const CinematicDemoModal: React.FC<CinematicDemoModalProps> = ({
   isOpen,
   onClose,
-  onNavigateToContact,
-  initialIndustryId = 'fashion',
-  defaultMode = 'video'
+  onNavigateToContact
 }) => {
-  const [activeTab, setActiveTab] = useState<'video' | 'interactive'>(defaultMode);
-
   // Close on Escape key
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -56,7 +51,7 @@ export const CinematicDemoModal: React.FC<CinematicDemoModalProps> = ({
               <h3 className="font-syne font-bold text-white text-sm sm:text-base flex items-center gap-2">
                 <span>Mupezeni Cinematic Retail Demo</span>
                 <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#20100A] text-[#D95A1A] border border-[#9B2208]/40 hidden sm:inline-block">
-                  1080p 60fps Walkthrough
+                  1080p Walkthrough Video
                 </span>
               </h3>
               <p className="text-[11px] text-[#FAFAF9]/60 hidden md:block">
@@ -65,33 +60,7 @@ export const CinematicDemoModal: React.FC<CinematicDemoModalProps> = ({
             </div>
           </div>
 
-          {/* Mode Switcher in Modal */}
           <div className="flex items-center gap-2">
-            <div className="hidden sm:flex items-center p-0.5 rounded-xl bg-[#090503] border border-white/10 text-xs font-syne">
-              <button
-                onClick={() => setActiveTab('video')}
-                className={`px-3 py-1 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
-                  activeTab === 'video'
-                    ? 'bg-gradient-to-r from-[#9B2208] to-[#D95A1A] text-white font-bold shadow'
-                    : 'text-white/60 hover:text-white'
-                }`}
-              >
-                <Video className="w-3 h-3" />
-                <span>Walkthrough Video</span>
-              </button>
-              <button
-                onClick={() => setActiveTab('interactive')}
-                className={`px-3 py-1 rounded-lg transition-all flex items-center gap-1.5 cursor-pointer ${
-                  activeTab === 'interactive'
-                    ? 'bg-gradient-to-r from-[#9B2208] to-[#D95A1A] text-white font-bold shadow'
-                    : 'text-white/60 hover:text-white'
-                }`}
-              >
-                <Monitor className="w-3 h-3" />
-                <span>Deep Stream</span>
-              </button>
-            </div>
-
             <button
               onClick={() => {
                 onClose();
@@ -113,26 +82,14 @@ export const CinematicDemoModal: React.FC<CinematicDemoModalProps> = ({
           </div>
         </div>
 
-        {/* Modal Content */}
+        {/* Modal Content - Exclusively MP4 Video Demo */}
         <div className="flex-1 overflow-y-auto p-2 sm:p-4 bg-[#080402]">
-          {activeTab === 'video' ? (
-            <SimulatedVideoDemo
-              onNavigateToContact={() => {
-                onClose();
-                onNavigateToContact();
-              }}
-            />
-          ) : (
-            <CinematicViewer
-              initialIndustryId={initialIndustryId}
-              isFullscreen={true}
-              onToggleFullscreen={onClose}
-              onNavigateToContact={() => {
-                onClose();
-                onNavigateToContact();
-              }}
-            />
-          )}
+          <SimulatedVideoDemo
+            onNavigateToContact={() => {
+              onClose();
+              onNavigateToContact();
+            }}
+          />
         </div>
 
       </div>
