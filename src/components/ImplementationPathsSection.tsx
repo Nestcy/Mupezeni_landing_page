@@ -261,21 +261,13 @@ export const ImplementationPathsSection: React.FC<ImplementationPathsSectionProp
 
         {/* Action Callout */}
         {showExploreButton && (
-          <div className="text-center pt-1 flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3">
+          <div className="text-center pt-1 flex items-center justify-center">
             <button
               onClick={() => onNavigate('solutions')}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-syne font-bold text-[11px] sm:text-xs text-white bg-[#170E09] hover:bg-[#22130B] border border-[#9B2208]/40 transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-5 py-2.5 rounded-xl font-syne font-bold text-xs text-white bg-[#170E09] hover:bg-[#22130B] border border-[#9B2208]/40 hover:border-[#D95A1A]/60 transition-all cursor-pointer shadow"
             >
               <span>Explore Full Architecture</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#D95A1A]" />
-            </button>
-            
-            <button
-              onClick={() => onNavigate('contact')}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl font-syne font-black text-[11px] sm:text-xs text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:opacity-95 transition-all cursor-pointer shadow whitespace-nowrap"
-            >
-              <span>Get Your AI Growth Team</span>
-              <ArrowRight className="w-3.5 h-3.5" />
             </button>
           </div>
         )}

@@ -189,13 +189,7 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
 
             <div className="px-4 sm:px-6 py-3 bg-[#090604] border-t border-white/5 flex items-center justify-between">
               <span className="text-[11px] text-white/50">Always Online</span>
-              <button
-                onClick={() => onNavigate('contact')}
-                className="inline-flex items-center gap-1 text-xs font-bold text-[#D95A1A] hover:text-white font-syne cursor-pointer"
-              >
-                <span>Get Your AI Growth Team</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              <span className="text-[11px] text-[#D95A1A] font-syne font-bold">24/7 Autonomous</span>
             </div>
           </div>
 
@@ -280,13 +274,7 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
 
             <div className="px-4 sm:px-6 py-3 bg-[#090604] border-t border-white/5 flex items-center justify-between">
               <span className="text-[11px] text-white/50">Add anytime</span>
-              <button
-                onClick={() => onNavigate('contact')}
-                className="inline-flex items-center gap-1 text-xs font-bold text-[#D95A1A] hover:text-white font-syne cursor-pointer"
-              >
-                <span>Get Your AI Growth Team</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              <span className="text-[11px] text-[#D95A1A] font-syne font-bold">Creative Autopilot</span>
             </div>
           </div>
 
@@ -371,13 +359,7 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
 
             <div className="px-4 sm:px-6 py-3 bg-[#090604] border-t border-white/5 flex items-center justify-between">
               <span className="text-[11px] text-emerald-400 font-bold">Always Included</span>
-              <button
-                onClick={() => onNavigate('contact')}
-                className="inline-flex items-center gap-1 text-xs font-bold text-[#D95A1A] hover:text-white font-syne cursor-pointer"
-              >
-                <span>Get Your AI Growth Team</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </button>
+              <span className="text-[11px] text-emerald-400 font-syne font-bold">Live Sync</span>
             </div>
           </div>
 
@@ -385,31 +367,17 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onNavigate }) => {
 
         {/* Bottom Banner: Collaboration Callout */}
         <div className="p-4 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl bg-gradient-to-br from-[#1A0E08] via-[#140C07] to-[#0A0705] border border-[#9B2208]/50 shadow-xl relative overflow-hidden">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-8 items-center">
-            
-            <div className="lg:col-span-8 space-y-2 sm:space-y-3">
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#20110A] border border-[#9B2208]/30 text-[10px] sm:text-xs font-bold text-[#D95A1A] font-syne">
-                <Zap className="w-3 h-3" />
-                <span>Seamless Collaboration</span>
-              </div>
-              <h3 className="text-lg sm:text-2xl lg:text-3xl font-black font-syne text-white tracking-tight">
-                AI Customer Support + AI Marketing + Insights Dashboard.
-              </h3>
-              <p className="text-xs sm:text-sm text-[#FAFAF9]/80 leading-relaxed max-w-2xl">
-                When your <strong>AI Customer Support Agent</strong> closes a sale on WhatsApp, your <strong>Insights Dashboard</strong> logs the order and prepares the delivery slip, while your <strong>AI Marketing Agent</strong> plans promotions for your fastest-moving products.
-              </p>
+          <div className="space-y-2 sm:space-y-3">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#20110A] border border-[#9B2208]/30 text-[10px] sm:text-xs font-bold text-[#D95A1A] font-syne">
+              <Zap className="w-3 h-3" />
+              <span>Seamless Collaboration</span>
             </div>
-
-            <div className="lg:col-span-4 flex justify-center lg:justify-end">
-              <button
-                onClick={() => onNavigate('contact')}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-syne font-black text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:opacity-95 shadow-md shadow-[#9B2208]/30 transition-all cursor-pointer whitespace-nowrap"
-              >
-                <span>Get Your AI Growth Team</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-
+            <h3 className="text-lg sm:text-2xl lg:text-3xl font-black font-syne text-white tracking-tight">
+              AI Customer Support + AI Marketing + Insights Dashboard.
+            </h3>
+            <p className="text-xs sm:text-sm text-[#FAFAF9]/80 leading-relaxed max-w-3xl">
+              When your <strong>AI Customer Support Agent</strong> closes a sale on WhatsApp, your <strong>Insights Dashboard</strong> logs the order and prepares the delivery slip, while your <strong>AI Marketing Agent</strong> plans promotions for your fastest-moving products.
+            </p>
           </div>
         </div>
 
