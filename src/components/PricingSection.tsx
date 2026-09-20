@@ -399,10 +399,10 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
         >
           <div className="text-center space-y-1 mb-3.5 sm:mb-5">
             <h3 className="text-base sm:text-2xl font-black font-syne text-white">
-              One-Time Setup & Foundation
+              Zero Setup Fees — 100% Risk-Free Foundation
             </h3>
             <p className="text-[11px] sm:text-xs text-[#FAFAF9]/70 font-syne">
-              Choose the implementation path suited to your current operational setup.
+              Both implementation paths come with zero setup fees — we engineer your digital foundation and AI at no upfront cost.
             </p>
           </div>
 
@@ -450,9 +450,11 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
                   <span className="text-[10px] sm:text-xs text-white/60 font-syne">4–6 Weeks to Live</span>
                 </div>
 
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-xl sm:text-3xl font-black font-syne text-white">K6,000</span>
-                  <span className="text-[10px] sm:text-xs text-[#FAFAF9]/60 font-syne">one-time setup</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-xl sm:text-3xl font-black font-syne text-emerald-400">K0</span>
+                  <span className="px-2 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-[10px] sm:text-xs font-bold text-emerald-300 font-syne uppercase tracking-wider">
+                    Free Setup · 100% Risk-Free
+                  </span>
                 </div>
 
                 <p className="text-[11px] sm:text-xs text-[#FAFAF9]/75 leading-relaxed">
@@ -493,9 +495,11 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
                   <span className="text-[10px] sm:text-xs text-white/60 font-syne">4–6 Weeks to Live</span>
                 </div>
 
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-xl sm:text-3xl font-black font-syne text-white">K3,000</span>
-                  <span className="text-[10px] sm:text-xs text-[#FAFAF9]/60 font-syne">one-time setup</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-xl sm:text-3xl font-black font-syne text-emerald-400">K0</span>
+                  <span className="px-2 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-[10px] sm:text-xs font-bold text-emerald-300 font-syne uppercase tracking-wider">
+                    Free Setup · 100% Risk-Free
+                  </span>
                 </div>
 
                 <p className="text-[11px] sm:text-xs text-[#FAFAF9]/75 leading-relaxed">
@@ -525,9 +529,11 @@ export const PricingSection: React.FC<PricingSectionProps> = ({ onNavigate }) =>
 
           </div>
 
-          <p className="text-center text-[10px] sm:text-xs text-[#FAFAF9]/60 font-syne mt-3 italic">
-            💡 Setup is a one-time investment in your digital foundation. Add the Marketing agent anytime afterward — no new setup fee.
-          </p>
+          <div className="text-center p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/20 max-w-2xl mx-auto mt-3">
+            <p className="text-[10px] sm:text-xs text-emerald-300 font-syne font-semibold flex items-center justify-center gap-1.5">
+              <span>🛡️ 100% Risk-Free: Zero setup fees, zero lock-in contracts. You only pay your monthly subscription after your system is ready, backed by our 30-Day Money-Back Guarantee.</span>
+            </p>
+          </div>
         </motion.div>
 
         {/* 4. Economic Reality Check Table Anchor */}

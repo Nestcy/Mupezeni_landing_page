@@ -372,7 +372,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
                 Starting from K2,000 /mo • Full AI Growth Team K5,000 /mo
               </h3>
               <p className="text-xs sm:text-sm text-[#FAFAF9]/75 max-w-xl">
-                24/7 AI Customer Support, AI Marketing, and the included Business Insights Dashboard. Setup is a one-time investment with zero hidden fees.
+                24/7 AI Customer Support, AI Marketing, and the included Business Insights Dashboard. Zero setup fees, 100% risk-free onboarding, and zero hidden costs.
               </p>
             </div>
 

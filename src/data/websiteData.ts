@@ -405,7 +405,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
     detailedPoints: [
       'Monthly business review: inquiry volume, conversion rates, and revenue trends',
       'Continuous prompt tuning and seasonal catalogue updates',
-      'Add the AI Marketing Agent anytime with zero additional setup fees'
+      'Add the AI Marketing Agent anytime with zero setup fees'
     ],
     retailerAction: 'Focus on sourcing great products from suppliers and delivering them to your customers.',
     mupezeniExecution: 'We provide ongoing technical maintenance, AI model enhancements, and growth strategies.',

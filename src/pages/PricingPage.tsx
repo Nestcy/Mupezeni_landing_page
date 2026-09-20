@@ -128,8 +128,8 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
     },
     {
       num: '02',
-      title: 'Setup & Digital Foundation',
-      desc: 'Whether building your store (Path 1: K6,000) or connecting Shopify/WooCommerce (Path 2: K3,000), our team handles the integration.'
+      title: 'Foundation & Integration (K0 Setup)',
+      desc: 'Whether building your store (Path 1) or connecting Shopify/WooCommerce (Path 2), our team handles the integration with zero setup fees.'
     },
     {
       num: '03',
@@ -145,15 +145,15 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
     },
     {
       q: 'Can I start with just AI Customer Support and add Marketing later?',
-      a: 'Absolutely. You can start with the AI Customer Support Agent at K2,000/month and add the AI Marketing Agent (K2,500/month) at any time. Adding Marketing requires no additional setup fee.'
+      a: 'Absolutely. You can start with the AI Customer Support Agent at K2,000/month and add the AI Marketing Agent (K2,500/month) at any time with zero setup fees.'
     },
     {
       q: 'What is the Business Insights Dashboard and is it really included free?',
       a: 'Yes. Every Mupezeni partner receives the Business Insights Dashboard at no extra cost. It provides live tracking of orders, sales trends, supplier restock signals, and one-click rider delivery slips.'
     },
     {
-      q: 'How does the one-time setup fee work?',
-      a: 'Setup is a one-time investment in your digital foundation. If you have no online store (Path 1), setup is K6,000 (4–6 weeks go-live) for complete store build, payments, inventory, and AI calibration. If you already have Shopify or WooCommerce (Path 2), setup is K3,000 (4–6 weeks go-live) for direct API sync and AI calibration.'
+      q: 'Are there any setup fees or upfront costs?',
+      a: 'Zero setup fees — it is 100% risk-free. Whether you need a complete digital store build (Path 1) or a direct Shopify/WooCommerce connection (Path 2), we handle setup, payment connections, and AI calibration at zero upfront cost. You only pay your monthly subscription (starting from K2,000/mo) once your AI workforce is ready to go live, backed by our 30-Day 100% Money-Back Guarantee.'
     },
     {
       q: 'How does this compare to hiring human employees in Zambia?',
@@ -379,10 +379,10 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
               </span>
             </div>
             <h2 className="text-xl sm:text-3xl font-black font-syne text-white tracking-tight">
-              One-Time Setup & Integration
+              Zero Setup Fees — 100% Risk-Free Integration
             </h2>
             <p className="text-xs sm:text-sm text-[#FAFAF9]/75 leading-relaxed">
-              Choose the setup path engineered for your current business model.
+              We engineer your store build or platform integration with zero upfront setup fees.
             </p>
           </div>
 
@@ -404,9 +404,11 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
                   <span className="text-xs text-white/60 font-syne">4–6 Weeks to Live</span>
                 </div>
 
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-2xl sm:text-3xl font-black font-syne text-white">K6,000</span>
-                  <span className="text-xs text-[#FAFAF9]/60 font-syne">one-time setup</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-2xl sm:text-3xl font-black font-syne text-emerald-400">K0</span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-xs font-bold text-emerald-300 font-syne uppercase tracking-wider">
+                    Free Setup · 100% Risk-Free
+                  </span>
                 </div>
 
                 <p className="text-xs text-[#FAFAF9]/70 leading-relaxed">
@@ -461,9 +463,11 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
                   <span className="text-xs text-white/60 font-syne">4–6 Weeks to Live</span>
                 </div>
 
-                <div className="flex items-baseline gap-1.5">
-                  <span className="text-2xl sm:text-3xl font-black font-syne text-white">K3,000</span>
-                  <span className="text-xs text-[#FAFAF9]/60 font-syne">one-time setup</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="text-2xl sm:text-3xl font-black font-syne text-emerald-400">K0</span>
+                  <span className="px-2.5 py-0.5 rounded-full bg-emerald-950/80 border border-emerald-500/30 text-xs font-bold text-emerald-300 font-syne uppercase tracking-wider">
+                    Free Setup · 100% Risk-Free
+                  </span>
                 </div>
 
                 <p className="text-xs text-[#FAFAF9]/70 leading-relaxed">
@@ -504,9 +508,11 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
 
           </div>
 
-          <p className="text-center text-xs text-[#FAFAF9]/60 font-syne mt-2 italic">
-            💡 Setup is a one-time investment in your digital foundation. Add the Marketing agent anytime afterward — no new setup fee.
-          </p>
+          <div className="text-center p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/20 max-w-2xl mx-auto mt-3">
+            <p className="text-xs text-emerald-300 font-syne font-semibold flex items-center justify-center gap-1.5">
+              <span>🛡️ 100% Risk-Free: Zero setup fees, zero lock-in contracts. You only pay your monthly subscription after your system is ready, backed by our 30-Day Money-Back Guarantee.</span>
+            </p>
+          </div>
 
         </div>
       </section>
@@ -635,7 +641,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
                     >
                       <div className="flex items-center gap-2 font-bold font-syne text-xs sm:text-sm text-white">
                         <Store className="w-4 h-4 text-[#D95A1A]" />
-                        <span>Path 1: Physical Store (K6,000 setup)</span>
+                        <span>Path 1: Physical Store (Zero Setup Fee)</span>
                       </div>
                       <p className="text-[11px] text-[#FAFAF9]/60 mt-1">
                         Starting from physical shop, showroom, or social media only (4–6 weeks go-live).
@@ -653,7 +659,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
                     >
                       <div className="flex items-center gap-2 font-bold font-syne text-xs sm:text-sm text-white">
                         <RefreshCw className="w-4 h-4 text-[#D95A1A]" />
-                        <span>Path 2: Already Online (K3,000 setup)</span>
+                        <span>Path 2: Already Online (Zero Setup Fee)</span>
                       </div>
                       <p className="text-[11px] text-[#FAFAF9]/60 mt-1">
                         Already have Shopify, WooCommerce, or custom website (4–6 weeks go-live).

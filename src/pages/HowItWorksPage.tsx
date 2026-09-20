@@ -416,7 +416,7 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
                 Everything in the Workflow for K5,000 /month
               </h3>
               <p className="text-xs sm:text-sm text-[#FAFAF9]/75 max-w-xl">
-                Whether you need Path 1 (complete digital store build) or Path 2 (Shopify/WooCommerce upgrade), your setup and 24/7 AI workforce are fully covered.
+                Whether you need Path 1 (complete digital store build) or Path 2 (Shopify/WooCommerce upgrade), your foundation and setup are 100% free with zero upfront fees.
               </p>
             </div>
 
