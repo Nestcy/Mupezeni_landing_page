@@ -29,8 +29,8 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
 
   const navItems: { id: PageId; label: string; badge?: string }[] = [
     { id: 'home', label: 'Home' },
-    { id: 'solutions', label: 'Solutions', badge: '2 Paths' },
-    { id: 'pricing', label: 'Pricing', badge: 'K5,000' },
+    { id: 'solutions', label: 'Solutions', badge: '2 Tracks' },
+    { id: 'pricing', label: 'Pricing', badge: 'K2,000' },
     { id: 'how-it-works', label: 'How It Works' },
     { id: 'industries', label: 'Industries', badge: '7 Sectors' },
     { id: 'about', label: 'About' },
@@ -161,7 +161,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentPage, onNavigate }) => {
               onClick={() => handleNavClick('contact')}
               className="w-full flex items-center justify-center gap-2 py-4 rounded-xl text-sm font-extrabold text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] font-syne shadow-lg shadow-[#9B2208]/40"
             >
-              <span>Get Your AI Growth Team</span>
+              <span>Get Your AI Team</span>
               <ArrowRight className="w-4 h-4" />
             </button>
           </div>

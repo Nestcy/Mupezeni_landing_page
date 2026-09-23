@@ -131,7 +131,7 @@ export const Footer: React.FC<FooterProps> = ({
                 >
                   <span>Pricing</span>
                   <span className="text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-[#1C0F0A] text-[#D95A1A] border border-[#9B2208]/30">
-                    From K2,000/mo
+                    K2,000/mo
                   </span>
                 </button>
               </li>
@@ -175,21 +175,21 @@ export const Footer: React.FC<FooterProps> = ({
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#D95A1A] font-syne">
               Transform Your Store
             </h4>
-            <p className="text-xs text-[#FAFAF9]/70 leading-relaxed">
-              Every retailer receives a personalized setup and rollout plan tailored to their store — no obligation, no upfront lock-in.
+            <p className="text-xs text-[#FAFAF9]/70 leading-relaxed font-syne">
+              Every retailer receives a personalized onboarding plan tailored to their store — no setup fee, month-to-month flexibility.
             </p>
 
             <button
               onClick={() => handleNav('contact')}
               className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-syne font-bold text-xs text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:opacity-95 shadow-md shadow-[#9B2208]/30 transition-all cursor-pointer whitespace-nowrap"
             >
-              <span>Get Your AI Growth Team</span>
+              <span>Get Your AI Team</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
 
             <div className="flex items-center justify-center sm:justify-start gap-1.5 text-emerald-400 text-[11px] font-syne font-semibold pt-0.5">
               <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
-              <span>30-Day 100% Money-Back Guarantee</span>
+              <span>30-Day Money-Back Guarantee</span>
             </div>
           </div>
         </div>

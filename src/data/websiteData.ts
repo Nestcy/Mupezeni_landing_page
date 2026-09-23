@@ -1,135 +1,132 @@
 import { IndustrySolution, PhilosophyPrinciple, ProcessStep, BusinessOutcome, AiTeamMember, EndToEndWorkflowStep, EconomicComparisonData, EconomicComparisonRow } from '../types';
 
 export const ECONOMIC_COMPARISON_TABLE: EconomicComparisonData = {
-  title: 'Economic Reality Check',
-  subtitle: 'Monthly Zambian Retail Cost',
+  title: 'Traditional Approach vs Mupezeni',
+  subtitle: 'The Digital Workload Problem',
   rows: [
     {
-      departmentRole: 'Customer Support',
-      humanStaffCost: '~K3,300–K9,500/mo',
-      mupezeniCost: 'AI Support: K2,000/mo',
-      mupezeniBadge: '24/7'
+      departmentRole: 'Customer Support & Inquiries',
+      humanStaffCost: 'Manual replies, missed evening messages & hiring staff',
+      mupezeniCost: 'AI Support Worker: 24/7 continuous response & lead capture',
+      mupezeniBadge: '24/7 Continuous'
     },
     {
-      departmentRole: 'Marketing & Content',
-      humanStaffCost: '~K3,600–K10,400/mo',
-      mupezeniCost: 'AI Marketing: K2,500/mo',
-      mupezeniBadge: 'Creative'
+      departmentRole: 'Marketing & Content Creation',
+      humanStaffCost: 'Freelance designers, agency fees & inconsistent posting',
+      mupezeniCost: 'AI Marketing Worker: Daily branded visuals, copy & promotions',
+      mupezeniBadge: 'Daily Content'
     },
     {
-      departmentRole: 'Business Management & Ops',
-      humanStaffCost: '~K4,000–K14,500/mo',
-      mupezeniCost: 'Insights Dashboard: FREE',
-      mupezeniBadge: 'Included'
+      departmentRole: 'Business Tracking & Visibility',
+      humanStaffCost: 'Manual spreadsheets, fragmented chats & disconnected tools',
+      mupezeniCost: 'Business Insights Dashboard: Centralized real-time visibility',
+      mupezeniBadge: 'Included Layer'
     }
   ],
   totalRow: {
-    label: 'Total Monthly Investment',
-    humanTotal: 'K15,000–K30,000+/mo',
-    mupezeniTotal: 'K5,000/mo',
-    mupezeniNote: '(or starting at K2,000/mo)',
-    savingsHighlight: 'Save up to K25,000+/mo'
+    label: 'Overall Approach',
+    humanTotal: 'Fragmented tools, multiple people & heavy coordination',
+    mupezeniTotal: 'K2,000 / month',
+    mupezeniNote: '2 AI Workers + 1 Business Insights Dashboard',
+    savingsHighlight: 'One AI team. One simple price.'
   }
 };
 
 export const AI_TEAM_MEMBERS: AiTeamMember[] = [
   {
     id: 'customer-support',
-    title: 'AI Customer Support Agent',
-    roleDescription: 'Your 24/7 digital sales and customer support agent.',
-    badge: 'Core AI Agent',
+    title: 'AI Customer Support Worker',
+    roleDescription: "Your customers don't have to wait.",
+    badge: 'AI Worker 01',
     avatarIcon: 'Headphones',
     avatarBg: 'from-[#9B2208] to-[#D95A1A]',
-    statusText: 'Always Online • 24/7 Omnichannel Agent',
+    statusText: 'Always Online • Continuous Operation',
     responsibilities: [
-      'Answer customer questions instantly across channels.',
-      'Recommend products tailored to customer preferences and sizing.',
-      'Handle conversations across WhatsApp, Facebook, Instagram and websites.',
-      'Follow up with leads and interested shoppers to close sales.',
-      'Convert casual enquiries into confirmed, paid orders.',
-      'Provide accurate real-time stock and delivery updates.'
+      'Answers customer questions and handles routine FAQs.',
+      'Provides accurate product information, sizing and stock status.',
+      'Captures leads and follows up with interested customers.',
+      'Helps move casual enquiries toward completed purchases.',
+      'Operates continuously around the clock without delays.',
+      'Works across existing digital channels where integrated (WhatsApp, Instagram, Facebook, Web).'
     ],
-    businessOutcome: 'Serve 10x more customers without hiring additional support staff.',
+    businessOutcome: 'Serve customer inquiries instantly around the clock while you focus on products and growth.',
     mockVisual: {
-      headline: 'Live Omnichannel Support & Sales',
-      subline: 'WhatsApp • Instagram • Facebook • Web',
-      badges: ['Instant Reply <2s', 'Stock Verified', 'Payment Link Sent'],
-      sampleSnippet: '"Yes! We have the Chelsea Boots in Size 42 in stock (K650). Delivery to Woodlands is K40 tomorrow morning. Would you like me to lock this in?"',
-      metricsTag: '100% Inquiries Handled'
+      headline: 'Live Customer Support & Sales Assistance',
+      subline: 'WhatsApp • Instagram • Facebook • Web (where integrated)',
+      badges: ['Instant Reply <2s', 'Stock Verified', 'Lead Follow-Up Active'],
+      sampleSnippet: '"Yes! We have the Chelsea Boots in Size 42 in stock (K650). Delivery to Woodlands is K40 tomorrow morning. Would you like me to lock this in for you?"',
+      metricsTag: 'Continuous 24/7 Coverage'
     }
   },
   {
     id: 'marketing-specialist',
-    title: 'AI Marketing Agent',
-    roleDescription: 'Your consistent creative content and campaigns agent.',
-    badge: 'Creative Engine',
-    avatarIcon: 'Sparkles',
+    title: 'AI Marketing Worker',
+    roleDescription: 'Your business stays visible every day.',
+    badge: 'AI Worker 02',
+    avatarIcon: 'Megaphone',
     avatarBg: 'from-[#B83A0A] to-[#F57C00]',
-    statusText: 'Creative Studio & Campaign Engine Active',
+    statusText: 'Active • Daily Marketing Output',
     responsibilities: [
-      'Create high-converting social media posts and captions.',
-      'Write engaging copy tailored to your product catalog.',
-      'Generate product images, reels and short-form marketing videos.',
-      'Produce promotional graphics for sales and seasonal drops.',
-      'Plan consistent weekly content and campaign calendars.',
-      'Run targeted advertising with owner-approved budgets and safeguards.'
+      'Creates daily social media content (approximately 1 post per day, up to 30 posts/month).',
+      'Generates branded marketing images and product visuals.',
+      'Writes engaging captions and persuasive promotional copy.',
+      'Promotes products, special offers and seasonal campaigns.',
+      'Maintains a structured content calendar.',
+      'Prepares all content for owner review and approval before publishing.'
     ],
-    businessOutcome: 'Consistent brand presence without hiring designers or copywriters.',
+    businessOutcome: 'Keep your business consistently visible every single day without having to personally create every post.',
     mockVisual: {
-      headline: 'In-House Creative & Content Engine',
-      subline: 'Weekly Calendar • Visual Drops • Ad Campaigns',
-      badges: ['Captions Ready', 'Asset Generated', 'Budget Safeguarded'],
-      sampleSnippet: '"Weekend Drop Promo generated with 3 carousel creatives + captions ready for your approval across Instagram & Facebook."',
-      metricsTag: 'Consistent 7-Day Presence'
+      headline: 'Daily Branded Content Studio',
+      subline: 'Images • Captions • Promotional Copy • Content Calendar',
+      badges: ['Daily Content (~1 Post/Day)', 'Owner Approval Flow', 'Branded Visuals'],
+      sampleSnippet: '"Weekend Special Drop: 3 branded promotional images with launch captions ready for your review in your content calendar."',
+      metricsTag: 'Up to 30 Posts / Month'
     }
   },
   {
-    id: 'business-manager',
+    id: 'business-dashboard',
     title: 'Business Insights Dashboard',
-    roleDescription: 'Live command center for orders, stock and sales.',
-    badge: 'Included at No Extra Cost',
+    roleDescription: "Know what's happening without digging through spreadsheets and messages.",
+    badge: 'Included Visibility Layer',
     avatarIcon: 'BarChart3',
     avatarBg: 'from-[#D95A1A] to-[#25D366]',
-    statusText: 'Live Dashboard • Included with Every Plan',
+    statusText: 'Real-Time Sync • Centralized Visibility',
     responsibilities: [
-      'Live tracking of incoming & completed orders across all channels.',
-      'Daily sales velocity and revenue executive summaries.',
-      'Automated restock alerts and supplier reorder signals.',
-      'Instant customer delivery slips formatted for riders.',
-      'Clear inventory levels and fast-moving product insights.',
-      'Actionable recommendations to restock high-demand items.'
+      'Tracks live order activity and daily customer purchases.',
+      'Monitors sales trends and revenue momentum over time.',
+      'Highlights product performance and identifies bestsellers.',
+      'Observes customer inquiry volumes and channel activity.',
+      'Delivers timely restock signals and low-inventory alerts.',
+      'Provides a clean, centralized visibility layer so you stay fully in control.'
     ],
-    businessOutcome: 'Full visibility into sales and stock without manual spreadsheet tracking.',
+    businessOutcome: 'Complete operational visibility into sales, orders and inventory without digging through messages.',
     mockVisual: {
-      headline: 'Live Order & Sales Command Center',
-      subline: 'Daily Sales • Stock Alerts • Delivery Notes',
-      badges: ['K4,850 Revenue Logged', '2 Restock Alerts', '14 Delivery Slips'],
-      sampleSnippet: '"Morning briefing: 14 weekend orders packed and ready for delivery riders. Beige Trench Coat needs reorder."',
-      metricsTag: 'Included Free'
+      headline: 'Centralized Business Visibility Layer',
+      subline: 'Orders • Sales Trends • Product Performance • Restock Signals',
+      badges: ['Live Order Feed', 'Sales Analytics', 'Restock Signals', 'Zero Extra Cost'],
+      sampleSnippet: '"Morning briefing: 14 weekend orders recorded. 2 products approaching low-stock threshold. Restock signal generated."',
+      metricsTag: 'Included with AI Workers'
     }
   }
 ];
-
 export const GROWTH_COMPARISON = {
   traditional: [
-    'Customer Support staff (~K3,300–K9,500/mo)',
-    'Marketing & Content staff (~K3,600–K10,400/mo)',
-    'Business Management & Ops (~K4,000–K14,500/mo)',
-    'Total Monthly Investment: K15,000–K30,000+/mo in salaries',
-    'Recruitment delays, training & turnover risk',
-    'Increasing management complexity and payroll taxes',
-    'High overhead eating retail profit margins'
+    'Assembling separate human staff for customer inquiries and social media',
+    'Multiple disconnected software subscriptions and manual tools',
+    'Manual customer follow-up and delayed replies after hours',
+    'Manual content creation consuming hours of the owner’s time',
+    'Time lost coordinating, managing, and troubleshooting fragmented workflows',
+    'Work that abruptly stops whenever people are busy or unavailable'
   ],
   mupezeni: [
-    'AI Support: K2,000/mo (24/7 instant omnichannel sales)',
-    'AI Marketing: K2,500/mo (Creative studio & ad campaigns)',
-    'Insights Dashboard: FREE (Included at no extra cost)',
-    'Total Monthly Investment: K5,000/mo all-inclusive',
-    'Live across your channels within 4–6 weeks',
-    'Zero recruitment delays, sick days or turnover risk',
-    'Predictable fixed cost saving up to K25,000+/month'
+    'AI Customer Support Worker: 24/7 continuous responses, FAQs & lead capture',
+    'AI Marketing Worker: Daily branded visuals, captions & content calendar',
+    'Business Insights Dashboard: Live centralized visibility into orders & stock',
+    'Total Monthly Investment: K2,000/month for your unified AI team',
+    'Continuous operation with human approval and escalation when required',
+    'Zero setup fees, month-to-month flexibility & 30-day money-back guarantee'
   ],
-  conclusion: 'As your business grows, your AI Team scales with it, helping you serve more customers without continuously increasing your payroll.'
+  conclusion: 'Instead of assembling separate people, tools and workflows for customer support and marketing, deploy one AI team for K2,000/month.'
 };
 
 export const END_TO_END_WORKFLOW: EndToEndWorkflowStep[] = [
@@ -200,7 +197,7 @@ export const END_TO_END_WORKFLOW: EndToEndWorkflowStep[] = [
     action: 'AI Marketing Agent creates campaigns and promotions',
     description: 'Your marketing agent creates tailored social posts, VIP restock drops, and targeted promotional campaigns to bring customers back.',
     details: [
-      'Generates social media posts, reels, and promotional graphics',
+      'Generates daily branded marketing visuals, captions, and promotional graphics',
       'Sends personalized WhatsApp broadcasts based on past purchase history',
       'Keeps your business top of mind without you having to plan posts'
     ],

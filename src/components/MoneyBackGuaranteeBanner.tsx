@@ -23,20 +23,20 @@ export const MoneyBackGuaranteeBanner: React.FC<MoneyBackGuaranteeBannerProps> =
           <div>
             <div className="flex items-center gap-2">
               <span className="text-xs sm:text-sm font-bold font-syne text-white">
-                30-Day 100% Money-Back Guarantee
+                30-Day Money-Back Guarantee
               </span>
               <span className="hidden sm:inline-block text-[10px] uppercase font-black px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 tracking-wider">
                 Risk-Free
               </span>
             </div>
             <p className="text-[11px] text-[#FAFAF9]/75 mt-0.5">
-              If you don’t see tangible value, saved hours, or revenue growth within 30 days, we’ll refund your subscription in full.
+              Try your Mupezeni AI Team for 30 days. If the service does not provide meaningful operational value to your business, you can request a refund according to the guarantee terms.
             </p>
           </div>
         </div>
         <div className="hidden md:flex items-center gap-1 text-[11px] font-semibold text-emerald-400 whitespace-nowrap">
           <RotateCcw className="w-3.5 h-3.5" />
-          <span>Zero Hassle</span>
+          <span>Risk-Free</span>
         </div>
       </div>
     );
@@ -62,19 +62,19 @@ export const MoneyBackGuaranteeBanner: React.FC<MoneyBackGuaranteeBannerProps> =
           <div className="space-y-1 sm:space-y-1.5">
             <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
               <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[9px] sm:text-xs font-black font-syne uppercase tracking-wider">
-                100% Risk-Free Trial
+                Risk-Free Evaluation
               </span>
               <span className="text-[10px] sm:text-[11px] font-semibold text-white/50">
-                Founder-Backed Guarantee
+                Operational Value Assurance
               </span>
             </div>
 
             <h3 className="text-sm sm:text-xl font-black font-syne text-white tracking-tight">
-              30-Day 100% Money-Back Guarantee
+              30-Day Money-Back Guarantee
             </h3>
 
             <p className="text-[11px] sm:text-sm text-[#FAFAF9]/80 leading-relaxed max-w-2xl">
-              We stand completely behind the financial and operational impact of <span className="text-white font-semibold">Mupezeni</span>. If within your first 30 days of active deployment you do not see tangible business value, saved hours, or improved customer conversions, simply let our team know. We will refund 100% of your monthly subscription fee — no awkward questions, no fine print.
+              Try your <span className="text-white font-semibold">Mupezeni AI Team</span> for 30 days. If the service does not provide meaningful operational value to your business, you can request a refund according to the guarantee terms — straightforward, transparent, and hassle-free.
             </p>
           </div>
         </div>
@@ -83,19 +83,19 @@ export const MoneyBackGuaranteeBanner: React.FC<MoneyBackGuaranteeBannerProps> =
         <div className="w-full md:w-auto md:min-w-[240px] pt-2.5 md:pt-0 border-t md:border-t-0 md:border-l border-white/10 md:pl-6 grid grid-cols-2 md:flex md:flex-col gap-1.5 md:gap-2 text-[11px] sm:text-xs font-syne">
           <div className="flex items-center gap-1.5 text-white/90">
             <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 flex-shrink-0" />
-            <span>Full 30 days live testing</span>
+            <span>Full 30-day live testing</span>
           </div>
           <div className="flex items-center gap-1.5 text-white/90">
             <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 flex-shrink-0" />
-            <span>Prompt MoMo & bank refund</span>
+            <span>Zero setup fees to start</span>
           </div>
           <div className="flex items-center gap-1.5 text-white/90">
             <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-400 flex-shrink-0" />
-            <span>Keep your digitized catalog data</span>
+            <span>Month-to-month commitment</span>
           </div>
           <div className="flex items-center gap-1.5 text-[#D95A1A] font-semibold">
             <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
-            <span>Processed in 24–48 hours</span>
+            <span>Processed promptly upon request</span>
           </div>
         </div>
 

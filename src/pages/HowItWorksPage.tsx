@@ -65,14 +65,14 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-black font-syne text-[#FAFAF9] tracking-tight leading-tight max-w-4xl mx-auto">
-            How AI Teams Collaborate Inside{' '}
+            How Your AI Team Operates Inside{' '}
             <span className="text-gradient-fire">
               Your Retail Business.
             </span>
           </h1>
 
           <p className="text-base sm:text-lg text-[#FAFAF9]/80 font-normal max-w-2xl mx-auto leading-relaxed">
-            Discover how your AI Customer Support, Marketing, and Business Management teams work together seamlessly across every stage of the customer lifecycle—from first message to repeat purchase.
+            Discover how your AI Customer Support Worker, AI Marketing Worker, and Business Insights Dashboard work together seamlessly across every stage of the customer lifecycle—from first message to repeat purchase.
           </p>
 
           <div className="pt-2 flex flex-col items-center justify-center gap-3">
@@ -80,7 +80,7 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
               onClick={() => onNavigate('contact')}
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-syne font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:shadow-lg hover:shadow-[#9B2208]/30 transition-all cursor-pointer whitespace-nowrap"
             >
-              <span>Book My AI Growth Consultation</span>
+              <span>Get Your AI Team</span>
               <ArrowRight className="w-4 h-4" />
             </button>
             <p className="text-[11px] sm:text-xs text-[#FAFAF9]/60 font-syne flex items-center justify-center gap-1.5">
@@ -343,17 +343,17 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
                   <Headphones className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-[#D95A1A] uppercase font-syne block">Frontline</span>
-                  <h4 className="text-base font-black font-syne text-white">Support & Sales Team</h4>
+                  <span className="text-[10px] font-bold text-[#D95A1A] uppercase font-syne block">AI Worker 01</span>
+                  <h4 className="text-base font-black font-syne text-white">AI Customer Support Worker</h4>
                 </div>
               </div>
-              <p className="text-xs text-[#FAFAF9]/75 leading-relaxed">
-                Interacts directly with shoppers, captures buying intent, answers product queries, and locks in orders.
+              <p className="text-xs text-[#FAFAF9]/75 leading-relaxed font-syne">
+                Interacts directly with shoppers, captures buying intent, answers product queries and FAQs, and follows up to help move enquiries toward purchases.
               </p>
-              <div className="p-3 rounded-xl bg-[#090604] border border-white/5 text-xs text-white/80 space-y-1">
+              <div className="p-3 rounded-xl bg-[#090604] border border-white/5 text-xs text-white/80 space-y-1 font-syne">
                 <span className="text-[10px] font-bold uppercase text-[#D95A1A] block">Feeds Data To:</span>
-                <p>• Management (New order & address details)</p>
-                <p>• Marketing (Shopper preferences & sizes)</p>
+                <p>• Dashboard (Order inquiries & lead activity)</p>
+                <p>• Marketing (Shopper preferences & frequently asked items)</p>
               </div>
             </div>
 
@@ -364,17 +364,17 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
                   <Sparkles className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-[#D95A1A] uppercase font-syne block">Growth</span>
-                  <h4 className="text-base font-black font-syne text-white">Marketing Team</h4>
+                  <span className="text-[10px] font-bold text-[#D95A1A] uppercase font-syne block">AI Worker 02</span>
+                  <h4 className="text-base font-black font-syne text-white">AI Marketing Worker</h4>
                 </div>
               </div>
-              <p className="text-xs text-[#FAFAF9]/75 leading-relaxed">
-                Generates promotional content, creates reels and posts, and delivers targeted broadcasts to prior shoppers.
+              <p className="text-xs text-[#FAFAF9]/75 leading-relaxed font-syne">
+                Produces daily branded marketing images, promotional captions, and campaign plans (~1 post/day, up to 30 posts/month) prepared for owner approval.
               </p>
-              <div className="p-3 rounded-xl bg-[#090604] border border-white/5 text-xs text-white/80 space-y-1">
+              <div className="p-3 rounded-xl bg-[#090604] border border-white/5 text-xs text-white/80 space-y-1 font-syne">
                 <span className="text-[10px] font-bold uppercase text-[#D95A1A] block">Receives Signals From:</span>
-                <p>• Management (Fast-selling products & supplier stock alerts)</p>
-                <p>• Support (Common questions to answer in ads)</p>
+                <p>• Dashboard (Fast-selling products & restock alerts)</p>
+                <p>• Support (Common questions to address in product copy)</p>
               </div>
             </div>
 
@@ -385,17 +385,17 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
                   <BarChart3 className="w-5 h-5" />
                 </div>
                 <div>
-                  <span className="text-[10px] font-bold text-[#D95A1A] uppercase font-syne block">Operations</span>
-                  <h4 className="text-base font-black font-syne text-white">Business Management</h4>
+                  <span className="text-[10px] font-bold text-emerald-400 uppercase font-syne block">Included Visibility Layer</span>
+                  <h4 className="text-base font-black font-syne text-white">Business Insights Dashboard</h4>
                 </div>
               </div>
-              <p className="text-xs text-[#FAFAF9]/75 leading-relaxed">
-                Keeps stock balances accurate, logs financial performance, and prepares customer delivery slips for riders.
+              <p className="text-xs text-[#FAFAF9]/75 leading-relaxed font-syne">
+                Provides the retailer with real-time visibility into order activity, sales velocity, product performance, and supplier restock signals without digging through messages.
               </p>
-              <div className="p-3 rounded-xl bg-[#090604] border border-white/5 text-xs text-white/80 space-y-1">
-                <span className="text-[10px] font-bold uppercase text-[#D95A1A] block">Coordinates For:</span>
-                <p>• Retailer (Daily briefing & supplier reorder alerts)</p>
-                <p>• Support (Real-time stock validation)</p>
+              <div className="p-3 rounded-xl bg-[#090604] border border-white/5 text-xs text-white/80 space-y-1 font-syne">
+                <span className="text-[10px] font-bold uppercase text-[#D95A1A] block">Visibility Output:</span>
+                <p>• Retailer (Live sales activity & restock signals)</p>
+                <p>• Workers (Shared business context & catalog sync)</p>
               </div>
             </div>
 
@@ -410,13 +410,13 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
           <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-[#140A06] to-[#1D0E07] border border-[#9B2208]/40 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
               <span className="text-xs font-bold uppercase tracking-widest text-[#D95A1A] font-syne">
-                Predictable Fixed Investment
+                One AI Team · One Simple Price
               </span>
               <h3 className="text-xl sm:text-2xl font-black font-syne text-white">
-                Everything in the Workflow for K5,000 /month
+                Your AI Team for Retail: <span className="text-gradient-fire">K2,000 /month</span>
               </h3>
               <p className="text-xs sm:text-sm text-[#FAFAF9]/75 max-w-xl">
-                Whether you need Path 1 (complete digital store build) or Path 2 (Shopify/WooCommerce upgrade), your foundation and setup are 100% free with zero upfront fees.
+                2 dedicated AI workers (Customer Support + Marketing) plus the Business Insights Dashboard. Month-to-month, zero setup fees, and backed by our 30-day money-back guarantee.
               </p>
             </div>
 
@@ -432,22 +432,22 @@ export const HowItWorksPage: React.FC<HowItWorksProps> = ({ onNavigate }) => {
                 onClick={() => onNavigate('solutions')}
                 className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-syne font-bold text-xs sm:text-sm text-[#FAFAF9]/80 hover:text-white bg-white/5 hover:bg-white/10 transition-all cursor-pointer flex items-center justify-center gap-2"
               >
-                <span>Compare 2 Solutions</span>
+                <span>Compare 2 Tracks</span>
               </button>
             </div>
           </div>
 
-          {/* Detailed Role-by-Role Economic Comparison */}
+          {/* Detailed Economic Comparison */}
           <div className="space-y-4">
             <div className="text-center space-y-1.5 max-w-2xl mx-auto">
               <span className="text-xs font-bold uppercase tracking-widest text-[#D95A1A] font-syne">
-                Workflow Economics
+                Economic Comparison
               </span>
               <h4 className="text-xl sm:text-2xl font-black font-syne text-white">
-                Save K10,000–K25,000+/mo vs Human Staff
+                Traditional Approach vs Mupezeni
               </h4>
               <p className="text-xs text-[#FAFAF9]/70">
-                Replace 3 high-overhead roles with always-on AI Support, Marketing, and Operations.
+                Instead of assembling separate people, software tools, and manual workflows... deploy one AI team for K2,000/month.
               </p>
             </div>
 

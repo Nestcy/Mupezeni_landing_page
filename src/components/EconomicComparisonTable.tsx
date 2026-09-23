@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, TrendingDown, Check, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Sparkles, Check, ArrowRight, ShieldCheck } from 'lucide-react';
 import { ECONOMIC_COMPARISON_TABLE } from '../data/websiteData';
 import { PageId } from '../types';
 
@@ -55,18 +55,18 @@ export const EconomicComparisonTable: React.FC<EconomicComparisonTableProps> = (
             <div className="grid grid-cols-2 gap-2 text-xs">
               <div className="p-2 rounded-lg bg-[#140A06] border border-white/5">
                 <span className="text-[9px] uppercase font-bold text-white/50 block mb-0.5">
-                  3 Human Staff
+                  Traditional Approach
                 </span>
-                <span className="text-white/70 font-medium text-[11px]">
+                <span className="text-white/70 font-medium text-[11px] leading-snug block">
                   {row.humanStaffCost}
                 </span>
               </div>
 
               <div className="p-2 rounded-lg bg-[#1A0E08] border border-[#9B2208]/40">
                 <span className="text-[9px] uppercase font-bold text-[#D95A1A] block mb-0.5">
-                  Mupezeni AI
+                  Mupezeni AI Team
                 </span>
-                <span className="text-emerald-400 font-bold text-[11px]">
+                <span className="text-emerald-400 font-bold text-[11px] leading-snug block">
                   {row.mupezeniCost}
                 </span>
               </div>
@@ -89,13 +89,10 @@ export const EconomicComparisonTable: React.FC<EconomicComparisonTableProps> = (
           <div className="grid grid-cols-2 gap-2 text-xs">
             <div className="p-2.5 rounded-lg bg-[#120804] border border-white/5">
               <span className="text-[9px] uppercase font-bold text-white/50 block mb-0.5">
-                Hiring 3 Staff
+                Traditional Approach
               </span>
-              <span className="text-white/50 font-bold text-xs line-through decoration-red-500/80">
+              <span className="text-white/70 font-medium text-xs block leading-tight">
                 {data.totalRow.humanTotal}
-              </span>
-              <span className="block text-[9px] text-red-400/80 mt-0.5">
-                + training & churn
               </span>
             </div>
 
@@ -119,10 +116,10 @@ export const EconomicComparisonTable: React.FC<EconomicComparisonTableProps> = (
         <table className="w-full text-left border-collapse min-w-[500px]">
           <thead>
             <tr className="border-b border-white/10 text-[11px] sm:text-xs font-syne text-[#FAFAF9]/75 bg-[#120A06]">
-              <th className="py-3 px-3.5 sm:px-4 font-bold">Department Role</th>
-              <th className="py-3 px-3.5 sm:px-4 font-semibold text-white/50">Hiring 3 Human Staff</th>
+              <th className="py-3 px-3.5 sm:px-4 font-bold">Operational Area</th>
+              <th className="py-3 px-3.5 sm:px-4 font-semibold text-white/60">Traditional Approach</th>
               <th className="py-3 px-3.5 sm:px-4 font-black text-[#D95A1A] bg-[#1C0E08]">
-                <span className="font-roboto font-bold">Mupezeni</span> AI Workforce
+                <span className="font-roboto font-bold">Mupezeni</span> AI Team
               </th>
             </tr>
           </thead>
@@ -137,7 +134,7 @@ export const EconomicComparisonTable: React.FC<EconomicComparisonTableProps> = (
                     <span>{row.departmentRole}</span>
                   </div>
                 </td>
-                <td className="py-2.5 sm:py-3 px-3.5 sm:px-4 text-white/60 font-normal">
+                <td className="py-2.5 sm:py-3 px-3.5 sm:px-4 text-white/70 font-normal">
                   {row.humanStaffCost}
                 </td>
                 <td className="py-2.5 sm:py-3 px-3.5 sm:px-4 font-bold text-emerald-400 bg-[#160D08]/80">
@@ -158,13 +155,8 @@ export const EconomicComparisonTable: React.FC<EconomicComparisonTableProps> = (
                   <span>{data.totalRow.label}</span>
                 </div>
               </td>
-              <td className="py-3.5 px-3.5 sm:px-4 font-bold text-white/50 text-xs sm:text-sm">
-                <span className="line-through decoration-red-500/80">
-                  {data.totalRow.humanTotal}
-                </span>
-                <span className="block text-[10px] text-red-400/80 font-normal mt-0.5">
-                  + NAPSA, recruitment & training
-                </span>
+              <td className="py-3.5 px-3.5 sm:px-4 font-medium text-white/70 text-xs sm:text-sm">
+                <span>{data.totalRow.humanTotal}</span>
               </td>
               <td className="py-3.5 px-3.5 sm:px-4 font-black text-sm sm:text-base bg-[#24110A] text-[#D95A1A]">
                 <div className="flex items-baseline gap-1.5 flex-wrap">
@@ -187,10 +179,10 @@ export const EconomicComparisonTable: React.FC<EconomicComparisonTableProps> = (
       <div className="px-4 py-2.5 bg-[#080503] border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] font-syne text-[#FAFAF9]/75">
         <div className="flex items-center gap-1.5 text-emerald-400 font-semibold">
           <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
-          <span>30-Day 100% Money-Back Guarantee — Zero risk, test value for 30 days</span>
+          <span>30-Day Money-Back Guarantee — Risk-free trial for operational value</span>
         </div>
         <span className="text-white/50 text-[10px]">
-          Month-to-month commitment • No long-term lock-in
+          Month-to-month • Zero setup fees • No lock-in
         </span>
       </div>
 
@@ -198,13 +190,13 @@ export const EconomicComparisonTable: React.FC<EconomicComparisonTableProps> = (
       {showCta && onNavigate && (
         <div className="px-4 py-3 bg-[#0B0604] border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
           <p className="text-[#FAFAF9]/70 text-[11px] text-center sm:text-left">
-            Lock in your fixed monthly AI team without payroll inflation.
+            Two AI workers + business insights dashboard for K2,000/month.
           </p>
           <button
             onClick={() => onNavigate('contact')}
             className="w-full sm:w-auto px-4 py-2 rounded-xl font-syne font-bold text-xs text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:opacity-95 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
           >
-            <span>Get Your AI Growth Team</span>
+            <span>Get Your AI Team</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>

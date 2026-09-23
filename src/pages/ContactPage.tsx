@@ -243,8 +243,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                 </p>
                 <div className="pt-3 border-t border-white/10 space-y-2">
                   <div className="flex items-center justify-between text-xs font-syne">
-                    <span className="font-bold text-white">Transparent Pricing:</span>
-                    <span className="text-[#D95A1A] font-bold">K5,000 /mo</span>
+                    <span className="font-bold text-white">One Simple Price:</span>
+                    <span className="text-[#D95A1A] font-black text-sm">K2,000 /mo</span>
                   </div>
 
                   {/* 30-Day Money-Back Guarantee Box */}
@@ -252,39 +252,41 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                     <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
                     <div className="space-y-0.5">
                       <div className="text-[11px] font-bold text-emerald-300 font-syne flex items-center gap-1.5">
-                        <span>30-Day 100% Money-Back Guarantee</span>
+                        <span>30-Day Money-Back Guarantee</span>
                       </div>
                       <p className="text-[10px] text-[#FAFAF9]/80 leading-snug">
-                        If you don't see measurable value, saved hours, or sales growth in your first 30 days of launch, we refund 100% of your investment.
+                        Try your Mupezeni AI Team for 30 days. If it does not provide meaningful operational value to your business, request a refund under the guarantee terms.
                       </p>
                     </div>
                   </div>
 
-                  {/* Economic Reality Check Quick Comparison */}
+                  {/* Proposition Summary */}
                   <div className="p-2.5 rounded-xl bg-[#090604] border border-white/5 space-y-1.5 text-[11px] font-syne">
                     <div className="text-[10px] uppercase font-bold text-[#D95A1A] tracking-wider">
-                      Economic Reality Check:
+                      Included in Your Plan:
                     </div>
-                    <div className="flex justify-between text-white/70">
-                      <span>Support:</span>
-                      <span>~K3,300–K9,500 vs <strong className="text-white">K2,000</strong></span>
-                    </div>
-                    <div className="flex justify-between text-white/70">
-                      <span>Marketing:</span>
-                      <span>~K3,600–K10,400 vs <strong className="text-white">K2,500</strong></span>
-                    </div>
-                    <div className="flex justify-between text-white/70">
-                      <span>Ops & Mgmt:</span>
-                      <span>~K4,000–K14,500 vs <strong className="text-emerald-400 font-bold">FREE</strong></span>
+                    <div className="space-y-1 text-white/80">
+                      <div className="flex items-center justify-between">
+                        <span>AI Customer Support Worker:</span>
+                        <span className="text-emerald-400 font-semibold">24/7 Active</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span>AI Marketing Worker:</span>
+                        <span className="text-emerald-400 font-semibold">Daily Content</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span>Business Insights Dashboard:</span>
+                        <span className="text-emerald-400 font-semibold">Included</span>
+                      </div>
                     </div>
                     <div className="pt-1 border-t border-white/10 flex justify-between font-bold text-white">
-                      <span>Total Investment:</span>
-                      <span className="text-emerald-400">K5,000/mo <span className="text-[9px] text-white/50 line-through">(vs K15k–K30k+)</span></span>
+                      <span>Total Subscription:</span>
+                      <span className="text-emerald-400">K2,000/month</span>
                     </div>
                   </div>
 
                   <p className="text-[11px] text-[#FAFAF9]/60 leading-tight">
-                    All-inclusive AI Support, Marketing, and Operations. Zero per-message license fees.
+                    Month-to-month flexibility. Zero setup fees. No per-message extra charges.
                   </p>
                   <button
                     type="button"
@@ -401,7 +403,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
                         Retail Diagnostic Form
                       </h3>
                       <span className="text-[11px] font-bold font-syne px-2.5 py-0.5 rounded-full bg-[#1C0F0A] text-[#D95A1A] border border-[#9B2208]/30 self-start sm:self-auto">
-                        Pricing: K5,000/mo
+                        Pricing: K2,000/mo
                       </span>
                     </div>
                     <p className="text-xs sm:text-sm text-[#FAFAF9]/75">

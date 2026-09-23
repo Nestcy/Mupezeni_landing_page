@@ -72,7 +72,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
       title: '7. AI Workforce Deployment',
       badge: 'Autonomous Workforce',
       description: 'Deploy your Mupezeni AI workforce to serve customers, publish marketing materials, and track store performance 24 hours a day, 7 days a week.',
-      deliverables: ['24/7 AI Customer Support Agent', 'AI Marketing Creative Studio', 'Business Insights Dashboard Included']
+      deliverables: ['24/7 AI Customer Support Worker', 'AI Marketing Worker', 'Business Insights Dashboard Included']
     }
   ];
 
@@ -366,13 +366,13 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
           <div className="p-6 sm:p-8 rounded-3xl bg-[#0F0805]/90 border border-[#9B2208]/40 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#20110A] border border-[#9B2208]/50 text-[#D95A1A] text-xs font-bold font-syne">
-                <span>Predictable Transparent Pricing</span>
+                <span>One AI Team · One Simple Price</span>
               </div>
               <h3 className="text-xl sm:text-2xl font-black font-syne text-white">
-                Starting from K2,000 /mo • Full AI Growth Team K5,000 /mo
+                Your AI Team for Retail: <span className="text-gradient-fire">K2,000 /month</span>
               </h3>
               <p className="text-xs sm:text-sm text-[#FAFAF9]/75 max-w-xl">
-                24/7 AI Customer Support, AI Marketing, and the included Business Insights Dashboard. Zero setup fees, 100% risk-free onboarding, and zero hidden costs.
+                AI Customer Support Worker, AI Marketing Worker, and the Business Insights Dashboard. Zero setup fees, 100% risk-free onboarding, and month-to-month flexibility.
               </p>
             </div>
 
@@ -388,7 +388,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
                 onClick={() => onNavigate('contact')}
                 className="w-full sm:w-auto px-6 py-3.5 rounded-xl font-syne font-bold text-xs sm:text-sm text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:shadow-lg hover:shadow-[#9B2208]/30 transition-all cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap"
               >
-                <span>Get Your AI Growth Team</span>
+                <span>Get Your AI Team</span>
               </button>
             </div>
           </div>
@@ -397,13 +397,13 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate }) => {
           <div className="space-y-4">
             <div className="text-center space-y-1.5 max-w-2xl mx-auto">
               <span className="text-xs font-bold uppercase tracking-widest text-[#D95A1A] font-syne">
-                Investment Comparison
+                The Economic Comparison
               </span>
               <h4 className="text-xl sm:text-2xl font-black font-syne text-white">
-                The Economic Advantage for Retailers
+                Traditional Approach vs Mupezeni
               </h4>
               <p className="text-xs text-[#FAFAF9]/70">
-                See how hiring three separate staff members compares against deploying Mupezeni's coordinated AI workforce.
+                Instead of assembling separate people, tools, and workflows... deploy one coordinated AI team for K2,000/month.
               </p>
             </div>
 

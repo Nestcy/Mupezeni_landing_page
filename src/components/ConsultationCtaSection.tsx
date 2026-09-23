@@ -57,7 +57,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaProps> = ({
               </div>
               <div>
                 <h4 className="text-xs font-bold text-white font-syne">2. Setup & Foundation</h4>
-                <p className="text-[10px] sm:text-[11px] text-[#FAFAF9]/70 mt-0.5">Mobile store build or Shopify upgrade (4–6 weeks go-live).</p>
+                <p className="text-[10px] sm:text-[11px] text-[#FAFAF9]/70 mt-0.5">Physical store cataloging or online stack integration (Zero setup fees).</p>
               </div>
             </div>
 
@@ -67,7 +67,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaProps> = ({
               </div>
               <div>
                 <h4 className="text-xs font-bold text-white font-syne">3. Autonomous Go-Live</h4>
-                <p className="text-[10px] sm:text-[11px] text-[#FAFAF9]/70 mt-0.5">AI Agents active 24/7 with monthly strategy reviews.</p>
+                <p className="text-[10px] sm:text-[11px] text-[#FAFAF9]/70 mt-0.5">2 AI Workers active 24/7 with human escalation and owner control.</p>
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaProps> = ({
               onClick={onNavigateToContact}
               className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 sm:gap-3 px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl font-syne font-black text-xs sm:text-base text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-2xl hover:shadow-[#9B2208]/40 transition-all duration-300 transform hover:-translate-y-0.5 active:scale-98 cursor-pointer"
             >
-              <span>Get Your AI Growth Team</span>
+              <span>Get Your AI Team</span>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" />
             </button>
           </div>
@@ -87,7 +87,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaProps> = ({
           <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-2.5 sm:gap-8 text-[11px] sm:text-xs text-[#FAFAF9]/75 pt-2 font-syne">
             <div className="flex items-center gap-1.5 text-emerald-400 font-bold">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 flex-shrink-0" />
-              <span>30-Day 100% Money-Back Guarantee</span>
+              <span>30-Day Money-Back Guarantee</span>
             </div>
             <div className="flex items-center gap-1.5">
               <ShieldCheck className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />

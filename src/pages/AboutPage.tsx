@@ -327,7 +327,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
               The Reality Behind Retail Scaling
             </h2>
             <p className="text-xs sm:text-sm text-[#FAFAF9]/80 leading-relaxed">
-              Why we engineered Mupezeni: hiring human staff for 3 distinct roles costs K15,000–K30,000+/mo in salaries alone. Our AI workforce delivers 24/7 consistency for a predictable K5,000/mo.
+              Instead of assembling separate people, software tools, and fragmented workflows for customer support and marketing... deploy one coordinated AI team for K2,000/month.
             </p>
           </div>
 
