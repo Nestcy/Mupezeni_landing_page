@@ -3,7 +3,7 @@ import { db } from '../lib/firebase';
 import { collection, addDoc, getDocs, updateDoc, doc, query, orderBy } from 'firebase/firestore';
 
 const WHATSAPP_PHONE = '260970000000'; // Default booking WhatsApp number
-const NOTIFICATION_EMAIL = 'consultations@mupezeni.com';
+const NOTIFICATION_EMAIL = 'hello.mupezeni@gmail.com';
 
 export const generateWhatsAppBookingUrl = (data: ConsultationBookingData): string => {
   const text = `*New Retail Strategy Consultation Booking*

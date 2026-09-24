@@ -8,28 +8,28 @@ interface AiTeamSectionProps {
 
 export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onGetStarted }) => {
   return (
-    <section className="py-16 sm:py-24 bg-[#030202] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <section className="py-8 sm:py-12 lg:py-14 bg-[#030202] relative overflow-hidden border-t border-white/5">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E58330]/10 border border-[#E58330]/20 text-[#E58330] text-xs font-mono">
-            <Zap className="w-3.5 h-3.5" />
+        <div className="text-center max-w-2xl mx-auto space-y-2.5 sm:space-y-3">
+          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#E58330]/10 border border-[#E58330]/20 text-[#E58330] text-[10.5px] sm:text-[11px] font-mono">
+            <Zap className="w-3 h-3" />
             <span>Dedicated Retail Workforce</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-black font-syne text-white tracking-tight leading-tight">
             Two AI Workers. One Dashboard. <br className="hidden sm:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E58330] via-[#FF9F4A] to-[#F5B26B]">
               Your Entire Digital Frontline Handled.
             </span>
           </h2>
-          <p className="text-base text-[#A8A099] max-w-2xl mx-auto">
+          <p className="text-xs sm:text-[13px] text-[#A8A099] max-w-xl mx-auto leading-relaxed">
             Not passive software tools or empty templates. These are autonomous AI workers executing daily retail tasks in customer conversations and social marketing.
           </p>
         </div>
 
         {/* 2 AI Workers Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5">
           {AI_TEAM_MEMBERS.map((worker) => {
             const isSupport = worker.id === 'customer-support';
             const Icon = isSupport ? MessageSquareText : Sparkles;
@@ -37,39 +37,39 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onGetStarted }) =>
             return (
               <div
                 key={worker.id}
-                className="relative rounded-2xl bg-[#0A0604] border border-[#26150C] p-6 sm:p-8 flex flex-col justify-between hover:border-[#E58330]/40 transition-all shadow-xl space-y-6"
+                className="relative rounded-xl sm:rounded-2xl bg-[#0A0604] border border-[#26150C] p-4 sm:p-5 lg:p-6 flex flex-col justify-between hover:border-[#E58330]/40 transition-all shadow-lg space-y-4"
               >
-                <div className="space-y-6">
+                <div className="space-y-3.5 sm:space-y-4">
                   {/* Top Badge & Header */}
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="flex items-center gap-4">
-                      <div className={`w-12 h-12 rounded-xl flex items-center justify-center border ${worker.avatarBg}`}>
-                        <Icon className="w-6 h-6" />
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center border ${worker.avatarBg}`}>
+                        <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
                       <div>
-                        <span className="text-[11px] font-mono text-[#E58330] font-semibold tracking-wider uppercase block">
+                        <span className="text-[9.5px] sm:text-[10px] font-mono text-[#E58330] font-semibold tracking-wider uppercase block">
                           {worker.badge}
                         </span>
-                        <h3 className="text-xl sm:text-2xl font-bold text-white">
+                        <h3 className="text-base sm:text-lg font-bold font-syne text-white">
                           {worker.title}
                         </h3>
                       </div>
                     </div>
                   </div>
 
-                  <p className="text-sm text-[#C4BCB3] leading-relaxed">
+                  <p className="text-xs text-[#C4BCB3] leading-relaxed">
                     {worker.roleDescription}
                   </p>
 
                   {/* Responsibilities */}
-                  <div className="space-y-2.5">
-                    <span className="text-xs font-mono uppercase tracking-wider text-[#A8A099] block font-semibold">
+                  <div className="space-y-1.5">
+                    <span className="text-[10.5px] sm:text-[11px] font-mono uppercase tracking-wider text-[#A8A099] block font-semibold">
                       Core Daily Responsibilities:
                     </span>
-                    <ul className="space-y-2 text-xs sm:text-sm text-[#E0D8D0]">
+                    <ul className="space-y-1 text-[11px] sm:text-xs text-[#E0D8D0]">
                       {worker.responsibilities.map((resp, i) => (
-                        <li key={i} className="flex items-start gap-2.5">
-                          <Check className="w-4 h-4 text-[#E58330] shrink-0 mt-0.5" />
+                        <li key={i} className="flex items-start gap-2">
+                          <Check className="w-3.5 h-3.5 text-[#E58330] shrink-0 mt-0.5" />
                           <span>{resp}</span>
                         </li>
                       ))}
@@ -77,22 +77,22 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onGetStarted }) =>
                   </div>
 
                   {/* Mock Visual Preview */}
-                  <div className="rounded-xl bg-[#120B07] border border-[#2A160D] p-4 space-y-2">
+                  <div className="rounded-lg bg-[#120B07] border border-[#2A160D] p-2.5 sm:p-3 space-y-1.5">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-white">{worker.mockVisual.headline}</span>
-                      <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                      <span className="text-[11px] sm:text-xs font-bold text-white font-syne">{worker.mockVisual.headline}</span>
+                      <span className="text-[9px] font-mono text-emerald-400 bg-emerald-500/10 px-1.5 py-0.5 rounded border border-emerald-500/20">
                         {worker.mockVisual.metricsTag}
                       </span>
                     </div>
-                    <p className="text-xs font-mono text-[#A8A099] bg-[#070402] p-3 rounded-lg border border-[#1F1008] whitespace-pre-line leading-relaxed">
+                    <p className="text-[10.5px] sm:text-[11px] font-mono text-[#A8A099] bg-[#070402] p-2 sm:p-2.5 rounded-md border border-[#1F1008] whitespace-pre-line leading-relaxed">
                       {worker.mockVisual.sampleSnippet}
                     </p>
                   </div>
                 </div>
 
                 {/* Business Outcome Footer */}
-                <div className="pt-4 border-t border-[#1C1008] flex items-center gap-3 text-xs text-[#A8A099]">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <div className="pt-2.5 border-t border-[#1C1008] flex items-center gap-2 text-[11px] sm:text-xs text-[#A8A099]">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                   <span><strong>Business Outcome:</strong> {worker.businessOutcome}</span>
                 </div>
               </div>
@@ -101,17 +101,17 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onGetStarted }) =>
         </div>
 
         {/* Business Insights Dashboard Section (Included Visibility Layer) */}
-        <div className="rounded-2xl sm:rounded-3xl bg-gradient-to-r from-[#140C07] via-[#0E0805] to-[#140C07] border border-[#E58330]/30 p-6 sm:p-10 shadow-2xl space-y-8">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E58330]/10 border border-[#E58330]/20 text-[#E58330] text-xs font-mono">
-                <BarChart3 className="w-3.5 h-3.5" />
+        <div className="rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#140C07] via-[#0E0805] to-[#140C07] border border-[#E58330]/30 p-4 sm:p-6 lg:p-7 shadow-xl space-y-4 sm:space-y-5">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="space-y-1.5">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#E58330]/10 border border-[#E58330]/20 text-[#E58330] text-[10.5px] sm:text-[11px] font-mono">
+                <BarChart3 className="w-3 h-3" />
                 <span>{BUSINESS_INSIGHTS_DASHBOARD_DATA.badge}</span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-black font-syne text-white">
                 {BUSINESS_INSIGHTS_DASHBOARD_DATA.title}
               </h3>
-              <p className="text-sm text-[#A8A099] max-w-xl">
+              <p className="text-xs text-[#A8A099] max-w-xl leading-relaxed">
                 {BUSINESS_INSIGHTS_DASHBOARD_DATA.subtitle}
               </p>
             </div>
@@ -119,24 +119,24 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onGetStarted }) =>
             <div className="shrink-0">
               <button
                 onClick={onGetStarted}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#E58330] hover:bg-[#FFA959] text-[#0A0604] font-bold text-sm shadow-lg shadow-[#E58330]/20 transition-colors"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-bold text-xs font-syne shadow-md shadow-[#9B2208]/35 hover:scale-105 transition-all cursor-pointer"
               >
-                <span>Deploy Full AI Team • K2,000/mo</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Deploy Full AI Team • $100/mo</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-3">
             {BUSINESS_INSIGHTS_DASHBOARD_DATA.features.map((feat, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-[#090503] border border-[#26150C] space-y-2"
+                className="p-2.5 sm:p-3 rounded-lg bg-[#090503] border border-[#26150C] space-y-1"
               >
-                <div className="text-xs font-bold text-white font-['Space_Grotesk']">
+                <div className="text-[11px] sm:text-xs font-bold text-white font-syne">
                   {feat.title}
                 </div>
-                <p className="text-xs text-[#9E958C] leading-relaxed">
+                <p className="text-[10px] sm:text-[11px] text-[#9E958C] leading-relaxed">
                   {feat.description}
                 </p>
               </div>

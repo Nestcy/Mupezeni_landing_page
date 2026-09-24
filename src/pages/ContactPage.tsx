@@ -55,10 +55,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
               For custom merchant partnerships, enterprise stores, and supplier integration.
             </p>
             <a
-              href="mailto:hello@mupezeni.com"
+              href="mailto:hello.mupezeni@gmail.com"
               className="inline-block text-xs font-mono text-[#E58330] hover:underline pt-1"
             >
-              hello@mupezeni.com &rarr;
+              hello.mupezeni@gmail.com &rarr;
             </a>
           </div>
 

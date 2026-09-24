@@ -27,9 +27,9 @@ export const CinematicDemoSection: React.FC<CinematicDemoSectionProps> = ({ onOp
           <div className="pt-2">
             <button
               onClick={onOpenDemo}
-              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#E58330] to-[#FF9F4A] text-[#0A0604] font-extrabold text-sm shadow-xl shadow-[#E58330]/25 hover:scale-105 active:scale-95 transition-all"
+              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-extrabold text-sm shadow-xl shadow-[#9B2208]/40 hover:scale-105 active:scale-95 transition-all cursor-pointer"
             >
-              <div className="w-6 h-6 rounded-full bg-black/20 flex items-center justify-center">
+              <div className="w-6 h-6 rounded-full bg-black/30 flex items-center justify-center text-white">
                 <Play className="w-3.5 h-3.5 fill-current" />
               </div>
               <span>Watch Interactive Demo</span>

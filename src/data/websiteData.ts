@@ -48,7 +48,7 @@ export const AI_TEAM_MEMBERS: AiTeamMember[] = [
       'Develops weekly promotional themes (Weekend Flash Sale, Payday Deals)',
       'Prepares copy and images ready for one-click approval or auto-posting'
     ],
-    businessOutcome: 'Consistent social media presence without spending K6,000+ on marketing agencies or hours brainstorming captions.',
+    businessOutcome: 'Consistent social media presence without spending $300+ on marketing agencies or hours brainstorming captions.',
     mockVisual: {
       headline: 'Daily Retail Campaign Production',
       subline: 'Branded visuals & persuasive copy created everyday',
@@ -89,20 +89,20 @@ export const ECONOMIC_COMPARISON: EconomicComparisonData = {
   rows: [
     {
       departmentRole: 'Frontline Customer Support (24/7 DMs & WhatsApp)',
-      humanStaffCost: 'K4,500 – K7,000 / mo (Salaries for 2 shifts or missed after-hour sales)',
-      mupezeniCost: 'Included in K2,000 / mo',
+      humanStaffCost: '$250 – $400 / mo (Salaries for 2 shifts or missed after-hour sales)',
+      mupezeniCost: 'Included in $100 / mo',
       mupezeniBadge: 'AI Customer Support Worker'
     },
     {
       departmentRole: 'Social Media Marketing & Daily Content Creation',
-      humanStaffCost: 'K3,500 – K6,000 / mo (Freelance designer or agency retainer)',
-      mupezeniCost: 'Included in K2,000 / mo',
+      humanStaffCost: '$200 – $350 / mo (Freelance designer or agency retainer)',
+      mupezeniCost: 'Included in $100 / mo',
       mupezeniBadge: 'AI Marketing Worker (~1 post/day)'
     },
     {
       departmentRole: 'Software Tools & Analytics Subscriptions',
-      humanStaffCost: 'K1,500 – K2,500 / mo (Multiple disconnected SaaS tools & apps)',
-      mupezeniCost: 'Included in K2,000 / mo',
+      humanStaffCost: '$100 – $150 / mo (Multiple disconnected SaaS tools & apps)',
+      mupezeniCost: 'Included in $100 / mo',
       mupezeniBadge: 'Business Insights Dashboard'
     },
     {
@@ -114,10 +114,10 @@ export const ECONOMIC_COMPARISON: EconomicComparisonData = {
   ],
   totalRow: {
     label: 'Total Monthly Operating Commitment',
-    humanTotal: 'K9,500 – K15,500+ / month',
-    mupezeniTotal: 'K2,000 / month flat',
+    humanTotal: '$550 – $900+ / month',
+    mupezeniTotal: '$100 / month flat',
     mupezeniNote: 'No setup fee • Month-to-month • 30-day money-back guarantee',
-    savingsHighlight: 'Save K7,500 – K13,500+ every month while operating 24/7'
+    savingsHighlight: 'Save $450 – $800+ every month while operating 24/7'
   }
 };
 
@@ -266,7 +266,7 @@ export const PHILOSOPHY_PRINCIPLES: PhilosophyPrinciple[] = [
     id: 'zero-bloat',
     title: 'One Fixed Price. Zero Surprises.',
     quote: 'No hiring fees, no PAYE, no sick days, no hidden percentages.',
-    explanation: 'At K2,000/month flat, you get a dedicated AI Customer Support Worker, an AI Marketing Worker, and a real-time Business Insights Dashboard with no setup fee and month-to-month freedom.',
+    explanation: 'At $100/month flat, you get a dedicated AI Customer Support Worker, an AI Marketing Worker, and a real-time Business Insights Dashboard with no setup fee and month-to-month freedom.',
     iconName: 'CheckCircle2'
   }
 ];
@@ -274,44 +274,44 @@ export const PHILOSOPHY_PRINCIPLES: PhilosophyPrinciple[] = [
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     stepNumber: '01',
-    title: 'Strategy & Knowledge Ingestion',
-    timeline: 'Day 1 – 2',
-    summary: 'We connect your store catalogue, pricing list, FAQ guide, and brand guidelines into your AI system.',
+    title: 'Sign Agreement & Knowledge Ingestion',
+    timeline: 'Weeks 1 – 2',
+    summary: 'Sign a low-risk agreement to secure your slot, then share your product catalog, pricing rules, and brand policies.',
     detailedPoints: [
-      'Inventory catalogue, prices, and sizes ingested into the system',
-      'Store tone of voice, greeting style, and branding colors customized',
-      'Payment methods configured (Airtel Money, MTN MoMo, Zamtel, Card)'
+      'Simple, low-risk merchant onboarding agreement signed',
+      'Inventory catalogue, prices, sizes, and stock rules ingested',
+      'Store tone of voice, greeting style, and payment channels customized'
     ],
-    retailerAction: 'Share your product catalog or price sheet with our implementation team.',
-    mupezeniExecution: 'We train your custom AI workers on your specific inventory and business policies.',
+    retailerAction: 'Sign agreement and share product catalog or price sheet.',
+    mupezeniExecution: 'We audit your customer inflow and architect your dedicated AI knowledge base.',
     iconName: 'Database'
   },
   {
     stepNumber: '02',
-    title: 'Channel Connection & Safe Testing',
-    timeline: 'Day 3 – 4',
-    summary: 'We link your WhatsApp Business, Instagram, and Facebook channels and run test simulations.',
+    title: 'Build & Hands-on Implementation',
+    timeline: 'Weeks 3 – 4',
+    summary: 'We build your custom AI workers and work closely with your team to connect messaging channels and test edge cases.',
     detailedPoints: [
-      'WhatsApp API and Instagram Direct Message webhooks connected',
-      'Test conversations with edge-case scenarios (out of stock, returns, discounts)',
-      'Escalation notifications routed to your phone via WhatsApp/SMS'
+      'Custom build of AI Customer Support and AI Marketing Worker models',
+      'WhatsApp Business API and Instagram Direct Message integrations linked',
+      'Collaborative testing on live order flows and dispute escalations'
     ],
-    retailerAction: 'Review sample customer dialogues and approve the tone.',
-    mupezeniExecution: 'Rigorous testing to guarantee accurate prices and professional customer interactions.',
+    retailerAction: 'Review sample customer dialogues and approve marketing graphics.',
+    mupezeniExecution: 'We work side-by-side with you to ensure high accuracy and smooth staff coordination.',
     iconName: 'Sliders'
   },
   {
     stepNumber: '03',
-    title: 'Go Live & Ongoing Optimization',
-    timeline: 'Day 5 – 7',
-    summary: 'Your AI Team goes live. Customer inquiries are handled 24/7 and daily marketing content begins rolling out.',
+    title: 'Go Live, Installment & 30-Day Guarantee',
+    timeline: 'Weeks 5 – 6',
+    summary: 'Deploy live to customers. Pay in flexible installments with a 30-day money-back guarantee for complete peace of mind.',
     detailedPoints: [
-      '24/7 frontline support activates immediately',
-      'Daily branded graphics and promotional captions generated',
-      'Access to your real-time Business Insights Dashboard'
+      '24/7 customer support and daily promotional marketing go live',
+      'Flexible installment payment schedule ($100/mo) activated',
+      '100% 30-Day Money-Back Guarantee from launch day'
     ],
-    retailerAction: 'Pack and dispatch the orders your AI workers bring in.',
-    mupezeniExecution: 'Weekly performance reviews, prompt tuning, and continuous intelligence updates.',
+    retailerAction: 'Pack and dispatch incoming orders captured by your AI team.',
+    mupezeniExecution: 'Continuous weekly prompt tuning, revenue tracking, and proactive optimization.',
     iconName: 'Rocket'
   }
 ];

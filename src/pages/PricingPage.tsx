@@ -80,24 +80,24 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
   const steps = [
     {
       num: '01',
-      title: 'Consultation & Retail Audit',
-      desc: 'We review your catalog, customer touchpoints, and digital setup to prepare your AI workers.'
+      title: 'Sign Agreement & Retail Audit',
+      desc: 'Sign a low-risk onboarding agreement. We review your catalog, customer touchpoints, and digital rules (Weeks 1–2).'
     },
     {
       num: '02',
-      title: 'Onboarding & Channel Connection',
-      desc: 'Whether starting from a physical shop or connecting an existing store, we set up your channels at zero setup cost.'
+      title: 'Build & Collaborative Implementation',
+      desc: 'We build your custom AI workers and work hands-on with your team to connect messaging channels and test edge cases (Weeks 3–4).'
     },
     {
       num: '03',
-      title: 'AI Calibration & Live Activation',
-      desc: 'We calibrate the AI Customer Support and Marketing workers with your products, rules, and brand voice.'
+      title: 'Go Live, Installment & 30-Day Guarantee',
+      desc: 'Deploy live to customers. Pay in flexible installments backed by our 100% 30-day money-back guarantee (Weeks 5–6).'
     }
   ];
 
   const faqs = [
     {
-      q: 'What is included in the K2,000/month subscription?',
+      q: 'What is included in the $100/month subscription?',
       a: 'Everything. You receive the AI Customer Support Worker (handles routine customer conversations, FAQs, product info, and lead follow-up 24/7), the AI Marketing Worker (creates daily social media content, branded images, and promotional copy), and the Business Insights Dashboard (live visibility into orders, sales trends, and restock signals).'
     },
     {
@@ -118,7 +118,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
     },
     {
       q: 'How does this compare to the traditional approach?',
-      a: 'Traditionally, keeping support and marketing running requires assembling separate people, freelance help, multiple software tools, and continuous manual oversight. Mupezeni deploys two specialized AI workers and a centralized dashboard for one predictable subscription of K2,000/month.'
+      a: 'Traditionally, keeping support and marketing running requires assembling separate people, freelance help, multiple software tools, and continuous manual oversight. Mupezeni deploys two specialized AI workers and a centralized dashboard for one predictable subscription of $100/month.'
     }
   ];
 
@@ -329,11 +329,11 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
             </div>
 
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black font-syne text-white tracking-tight">
-              Your AI Team for Retail. <span className="text-gradient-fire">K2,000/month.</span>
+              Your AI Team for Retail. <span className="text-gradient-fire">$100/month.</span>
             </h2>
 
             <p className="text-xs sm:text-sm md:text-base text-[#FAFAF9]/80 font-normal max-w-2xl mx-auto leading-relaxed">
-              Instead of assembling separate people, tools and workflows for customer support and marketing... deploy one AI team for K2,000/month.
+              Instead of assembling separate people, tools and workflows for customer support and marketing... deploy one AI team for $100/month.
             </p>
           </div>
 
@@ -363,7 +363,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
 
                 <div>
                   <h3 className="text-2xl sm:text-3xl font-black font-syne text-white">
-                    <span className="font-roboto font-semibold">Mupezeni</span> AI Team
+                    <span className="font-brand font-light tracking-[0.2em]">MUPEZENI</span> AI Team
                   </h3>
                   <p className="text-xs sm:text-sm text-[#FAFAF9]/80 font-syne mt-1">
                     Customer support. Marketing. Business insights.
@@ -373,7 +373,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
                 {/* Price display */}
                 <div className="pt-3 pb-2 border-y border-white/10 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-4xl sm:text-6xl font-black font-syne text-white tracking-tight">K2,000</span>
+                    <span className="text-4xl sm:text-6xl font-black font-syne text-white tracking-tight">$100</span>
                     <span className="text-sm sm:text-base text-[#FAFAF9]/70 font-syne">/ month</span>
                   </div>
                   <span className="text-xs text-[#FAFAF9]/60 font-syne">
@@ -411,7 +411,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
               <div className="space-y-2 pt-2">
                 <button
                   onClick={scrollToBooking}
-                  className="w-full py-4 rounded-2xl font-syne font-black text-sm sm:text-base text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:opacity-95 shadow-xl shadow-[#9B2208]/30 transition-all cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full py-4 rounded-2xl font-syne font-black text-sm sm:text-base text-white bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] hover:shadow-xl hover:shadow-[#9B2208]/40 transition-all cursor-pointer flex items-center justify-center gap-2"
                 >
                   <span>Get Your AI Team</span>
                   <ArrowRight className="w-4 h-4 text-white" />
@@ -452,13 +452,13 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
           
           <div className="text-center space-y-2">
             <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#D95A1A] font-syne">
-              The Implementation Roadmap
+              Low-Risk Implementation Roadmap
             </span>
             <h2 className="text-xl sm:text-3xl font-black font-syne text-white">
-              From Consultation to Active AI Team in 3 Steps
+              From Agreement to Active AI Team in 4–6 Weeks
             </h2>
             <p className="text-[11px] sm:text-xs text-[#FAFAF9]/70 max-w-lg mx-auto">
-              We handle the configuration and calibration end-to-end so you never deal with technical bottlenecks.
+              A transparent, low-risk process: sign an agreement, we build and work with you on implementation, then launch on an installment backed by a 30-day money-back guarantee.
             </p>
           </div>
 
@@ -694,7 +694,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 rounded-xl font-syne font-black text-sm sm:text-base text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-xl hover:shadow-[#9B2208]/30 transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full py-4 rounded-xl font-syne font-black text-sm sm:text-base text-white bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] hover:shadow-xl hover:shadow-[#9B2208]/40 transition-all active:scale-98 cursor-pointer flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
                     <span>Submitting Request...</span>

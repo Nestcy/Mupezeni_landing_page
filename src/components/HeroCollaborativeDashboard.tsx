@@ -54,7 +54,7 @@ export const HeroCollaborativeDashboard: React.FC<HeroCollaborativeDashboardProp
               onClick={() => setActiveTab('command')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-xs transition-all whitespace-nowrap ${
                 activeTab === 'command'
-                  ? 'bg-[#E58330] text-[#0A0604] font-bold shadow-md'
+                  ? 'bg-gradient-to-r from-[#B83A0A] to-[#D95A1A] text-white font-bold shadow-md'
                   : 'text-[#A8A099] hover:text-white'
               }`}
             >
@@ -66,7 +66,7 @@ export const HeroCollaborativeDashboard: React.FC<HeroCollaborativeDashboardProp
               onClick={() => setActiveTab('support')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-xs transition-all whitespace-nowrap ${
                 activeTab === 'support'
-                  ? 'bg-[#E58330] text-[#0A0604] font-bold shadow-md'
+                  ? 'bg-gradient-to-r from-[#B83A0A] to-[#D95A1A] text-white font-bold shadow-md'
                   : 'text-[#A8A099] hover:text-white'
               }`}
             >
@@ -78,7 +78,7 @@ export const HeroCollaborativeDashboard: React.FC<HeroCollaborativeDashboardProp
               onClick={() => setActiveTab('marketing')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-xs transition-all whitespace-nowrap ${
                 activeTab === 'marketing'
-                  ? 'bg-[#E58330] text-[#0A0604] font-bold shadow-md'
+                  ? 'bg-gradient-to-r from-[#B83A0A] to-[#D95A1A] text-white font-bold shadow-md'
                   : 'text-[#A8A099] hover:text-white'
               }`}
             >
@@ -90,7 +90,7 @@ export const HeroCollaborativeDashboard: React.FC<HeroCollaborativeDashboardProp
               onClick={() => setActiveTab('insights')}
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg font-medium text-xs transition-all whitespace-nowrap ${
                 activeTab === 'insights'
-                  ? 'bg-[#E58330] text-[#0A0604] font-bold shadow-md'
+                  ? 'bg-gradient-to-r from-[#B83A0A] to-[#D95A1A] text-white font-bold shadow-md'
                   : 'text-[#A8A099] hover:text-white'
               }`}
             >
@@ -423,13 +423,13 @@ export const HeroCollaborativeDashboard: React.FC<HeroCollaborativeDashboardProp
           <div className="flex items-center gap-2 text-[#A8A099] text-center sm:text-left">
             <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
             <span>
-              Both AI workers + dashboard included for <strong>K2,000 / month flat</strong>. No setup fee.
+              Both AI workers + dashboard included for <strong>$100 / month flat</strong>. No setup fee.
             </span>
           </div>
 
           <button
             onClick={onCtaClick}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-[#E58330] hover:bg-[#FFA959] text-black font-bold transition-colors shadow-md shadow-[#E58330]/20"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-bold transition-all shadow-md shadow-[#9B2208]/35 hover:scale-105 cursor-pointer"
           >
             <span>Deploy This AI Team</span>
             <ArrowRight className="w-3.5 h-3.5" />

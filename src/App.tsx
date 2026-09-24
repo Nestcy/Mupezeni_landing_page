@@ -44,7 +44,7 @@ export const App: React.FC = () => {
             onNavigate={handleNavigate}
             onOpenBookingModal={handleOpenBookingModal}
             onOpenCinematicDemo={() => setIsDemoModalOpen(true)}
-            onOpenPolicy={(type) => setPolicyModal({ isOpen: true, type })}
+            onOpenPolicy={(type: 'terms' | 'privacy' | 'guarantee') => setPolicyModal({ isOpen: true, type })}
           />
         );
       case 'solutions':
@@ -99,7 +99,7 @@ export const App: React.FC = () => {
             onNavigate={handleNavigate}
             onOpenBookingModal={handleOpenBookingModal}
             onOpenCinematicDemo={() => setIsDemoModalOpen(true)}
-            onOpenPolicy={(type) => setPolicyModal({ isOpen: true, type })}
+            onOpenPolicy={(type: 'terms' | 'privacy' | 'guarantee') => setPolicyModal({ isOpen: true, type })}
           />
         );
     }
@@ -122,16 +122,8 @@ export const App: React.FC = () => {
       {/* Global Footer */}
       <Footer
         onNavigate={handleNavigate}
-        onOpenPolicy={(type) => setPolicyModal({ isOpen: true, type })}
+        onOpenPolicy={(type: 'terms' | 'privacy' | 'guarantee') => setPolicyModal({ isOpen: true, type })}
       />
-
-      {/* Floating Call to Action */}
-      {currentPage !== 'pricing' && currentPage !== 'admin' && (
-        <FloatingCta
-          onNavigate={handleNavigate}
-          onOpenBookingModal={handleOpenBookingModal}
-        />
-      )}
 
       {/* Policy and Guarantee Modal */}
       <PolicyModal

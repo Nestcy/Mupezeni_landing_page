@@ -105,7 +105,7 @@ export const EmblemMotionSequence: React.FC<EmblemMotionSequenceProps> = ({
                   AI Swallow
                 </span>
                 <span className="text-xs font-bold text-white font-syne">
-                  <span className="font-roboto font-bold">Mupezeni</span> Emblem
+                  <span className="font-brand font-light tracking-[0.2em]">MUPEZENI</span> Emblem
                 </span>
               </div>
             </div>
@@ -151,7 +151,7 @@ export const EmblemMotionSequence: React.FC<EmblemMotionSequenceProps> = ({
             <button
               onClick={() => startMotionSequence('scroll')}
               disabled={isPlaying}
-              className="inline-flex items-center justify-center gap-1 sm:gap-2 px-2.5 py-2 sm:px-6 sm:py-3 rounded-lg sm:rounded-xl font-syne font-black text-[11px] sm:text-sm text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:shadow-xl hover:shadow-[#D95A1A]/30 transition-all transform active:scale-95 cursor-pointer disabled:opacity-50 whitespace-nowrap"
+              className="inline-flex items-center justify-center gap-1 sm:gap-2 px-2.5 py-2 sm:px-6 sm:py-3 rounded-lg sm:rounded-xl font-syne font-black text-[11px] sm:text-sm text-white bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] hover:shadow-xl hover:shadow-[#9B2208]/40 transition-all transform active:scale-95 cursor-pointer disabled:opacity-50 whitespace-nowrap"
             >
               <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-amber-300 animate-spin" style={{ animationDuration: '4s' }} />
               <span className="sm:hidden">{isPlaying ? 'Swallowing...' : 'Fast-Forward'}</span>
@@ -298,7 +298,7 @@ export const EmblemMotionSequence: React.FC<EmblemMotionSequenceProps> = ({
                 className="text-sm sm:text-base font-black font-syne uppercase tracking-widest text-[#FFD700] flex items-center justify-center gap-2"
               >
                 <Flame className="w-5 h-5 text-[#D95A1A] animate-pulse" />
-                <span><span className="font-roboto font-bold">Mupezeni</span> Swallow Absorbing Guiding Star</span>
+                <span><span className="font-brand font-light tracking-[0.2em] text-white">MUPEZENI</span> Swallow Absorbing Guiding Star</span>
               </motion.p>
               <p className="text-xs text-white/70 font-syne">
                 Directing to The Retail Growth Crossroads...

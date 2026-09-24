@@ -16,14 +16,16 @@ import { PageId } from '../types';
 
 interface FooterProps {
   onNavigate: (page: PageId) => void;
-  onOpenPrivacy: () => void;
-  onOpenTerms: () => void;
+  onOpenPrivacy?: () => void;
+  onOpenTerms?: () => void;
+  onOpenPolicy?: (type: 'terms' | 'privacy' | 'guarantee') => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   onNavigate,
   onOpenPrivacy,
   onOpenTerms,
+  onOpenPolicy,
 }) => {
   const [secretClicks, setSecretClicks] = useState(0);
 
@@ -68,7 +70,7 @@ export const Footer: React.FC<FooterProps> = ({
             </p>
 
             <p className="text-xs sm:text-sm text-[#FAFAF9]/75 max-w-md leading-relaxed">
-              Whether you sell from your shop, WhatsApp, social media, or an online store, <span className="font-roboto font-semibold text-white">Mupezeni</span> helps you handle customer support and marketing with AI, so your business can keep serving customers while you focus on sourcing great products, running your operations, and growing.
+              Whether you sell from your shop, WhatsApp, social media, or an online store, <span className="font-brand font-light text-white tracking-[0.18em]">MUPEZENI</span> helps you handle customer support and marketing with AI, so your business can keep serving customers while you focus on sourcing great products, running your operations, and growing.
             </p>
 
             {/* Location & Contact Details */}
@@ -80,10 +82,10 @@ export const Footer: React.FC<FooterProps> = ({
               <div className="flex items-center gap-2.5">
                 <Mail className="w-4 h-4 text-[#D95A1A] flex-shrink-0" />
                 <a 
-                  href="mailto:nestcy770@gmail.com" 
+                  href="mailto:hello.mupezeni@gmail.com" 
                   className="hover:text-[#D95A1A] transition-colors font-mono"
                 >
-                  nestcy770@gmail.com
+                  hello.mupezeni@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
@@ -113,7 +115,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Quick Pages Navigation (Span 3) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#D95A1A] font-syne">
-              Explore <span className="font-roboto font-bold">Mupezeni</span>
+              Explore <span className="font-brand font-light text-white tracking-[0.2em]">MUPEZENI</span>
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-[#FAFAF9]/75">
               <li>
@@ -131,7 +133,7 @@ export const Footer: React.FC<FooterProps> = ({
                 >
                   <span>Pricing</span>
                   <span className="text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-[#1C0F0A] text-[#D95A1A] border border-[#9B2208]/30">
-                    K2,000/mo
+                    $100/mo
                   </span>
                 </button>
               </li>
@@ -181,7 +183,7 @@ export const Footer: React.FC<FooterProps> = ({
 
             <button
               onClick={() => handleNav('contact')}
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-syne font-bold text-xs text-white bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:opacity-95 shadow-md shadow-[#9B2208]/30 transition-all cursor-pointer whitespace-nowrap"
+              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-syne font-bold text-xs text-white bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] hover:shadow-lg hover:shadow-[#9B2208]/35 transition-all cursor-pointer whitespace-nowrap"
             >
               <span>Get Your AI Team</span>
               <ArrowRight className="w-3.5 h-3.5" />
@@ -202,7 +204,7 @@ export const Footer: React.FC<FooterProps> = ({
               className="cursor-default select-none transition-colors active:text-white"
               title="© Mupezeni Technologies"
             >
-              © {new Date().getFullYear()} <span className="font-roboto font-medium">Mupezeni</span> Technologies. Founder-led AI transformation for retail.
+              © {new Date().getFullYear()} <span className="font-brand font-light text-white tracking-[0.2em]">MUPEZENI</span> Technologies. Founder-led AI transformation for retail.
             </span>
           </div>
 

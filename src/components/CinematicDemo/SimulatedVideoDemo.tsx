@@ -188,31 +188,14 @@ export const SimulatedVideoDemo: React.FC<SimulatedVideoDemoProps> = ({
       )}
 
       {/* Video Controls Overlay */}
-      <div className={`absolute inset-0 pointer-events-none flex flex-col justify-between transition-opacity duration-300 ${
+      <div className={`absolute inset-0 pointer-events-none flex flex-col justify-end transition-opacity duration-300 ${
         showControls || !isPlaying ? 'opacity-100' : 'opacity-0'
       }`}>
-        
-        {/* Top Header HUD */}
-        <div className="p-2 sm:p-4 bg-gradient-to-b from-black/90 via-black/50 to-transparent flex items-center justify-between pointer-events-auto">
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-            <h4 className="font-syne font-bold text-white text-[10px] sm:text-sm tracking-wide truncate max-w-[200px] sm:max-w-md">
-              Mupezeni AI Workforce · Product Walkthrough
-            </h4>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded bg-black/70 border border-white/10 text-[9px] sm:text-[10px] font-mono text-white/90">
-              demo.mp4 · 1080p
-            </span>
-          </div>
-        </div>
-
         {/* Center Big Play Button (when paused) */}
         {!isPlaying && !isLoading && (
           <div 
             onClick={togglePlay}
-            className="self-center cursor-pointer pointer-events-auto p-4 sm:p-5 rounded-full bg-[#9B2208]/80 hover:bg-[#9B2208] text-white shadow-2xl transition-all transform hover:scale-110 active:scale-95 border border-white/20"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 cursor-pointer pointer-events-auto p-4 sm:p-5 rounded-full bg-[#9B2208]/80 hover:bg-[#9B2208] text-white shadow-2xl transition-all transform hover:scale-110 active:scale-95 border border-white/20"
             title="Play Video"
           >
             <Play className="w-7 h-7 sm:w-9 sm:h-9 fill-current translate-x-0.5" />

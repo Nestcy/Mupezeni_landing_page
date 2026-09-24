@@ -2,6 +2,7 @@ import React from 'react';
 import { PageId } from '../types';
 import { ConsultationCtaSection } from '../components/ConsultationCtaSection';
 import { WhatWeBelieveSection } from '../components/WhatWeBelieveSection';
+import { LeadershipTeamSection } from '../components/LeadershipTeamSection';
 import { ShieldCheck, HeartHandshake, Zap, Target, ArrowRight } from 'lucide-react';
 
 interface AboutPageProps {
@@ -51,22 +52,25 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenBookingM
             </div>
 
             <p>
-              If the owner takes an hour to have dinner with family, those customers move on to another store. If they hire social media assistants, they deal with missed shifts, grammatical errors, and a K10,000+ monthly overhead they cannot sustain.
+              If the owner takes an hour to have dinner with family, those customers move on to another store. If they hire social media assistants, they deal with missed shifts, grammatical errors, and a $500+ monthly overhead they cannot sustain.
             </p>
 
             <p className="text-white font-semibold text-base sm:text-lg">
-              "We didn't want to build another complicated software tool that gives owners more homework. We built an autonomous AI workforce that takes over the daily digital execution for just K2,000 a month."
+              "We didn't want to build another complicated software tool that gives owners more homework. We built an autonomous AI workforce that takes over the daily digital execution for just $100 a month."
             </p>
 
             <div className="pt-4 border-t border-[#1F120A] flex items-center justify-between">
               <div>
                 <div className="font-bold text-white text-base">Ernest Zimba</div>
-                <div className="text-xs font-mono text-[#E58330]">Founder, Mupezeni AI Technologies</div>
+                <div className="text-xs font-mono text-[#E58330]">Founder & Certified AI & Agentic Engineer, Mupezeni Technologies</div>
               </div>
               <span className="text-xs font-mono text-[#8C827A]">Lusaka, Zambia</span>
             </div>
           </div>
         </div>
+
+        {/* Meet The Team / Leadership Section */}
+        <LeadershipTeamSection />
 
         {/* What We Believe Section */}
         <WhatWeBelieveSection />
@@ -81,9 +85,9 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenBookingM
           </p>
           <button
             onClick={onOpenBookingModal}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#E58330] to-[#FF9F4A] text-black font-bold text-sm shadow-xl shadow-[#E58330]/20 hover:scale-105 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-bold text-sm shadow-xl shadow-[#9B2208]/40 hover:scale-105 transition-all cursor-pointer"
           >
-            <span>Get Your AI Team • K2,000/mo</span>
+            <span>Get Your AI Team • $100/mo</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>

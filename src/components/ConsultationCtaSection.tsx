@@ -10,9 +10,13 @@ import { Send, CheckCircle2, MessageSquare, Phone, Mail, ShieldCheck, Sparkles, 
 
 interface ConsultationCtaSectionProps {
   id?: string;
+  onNavigateToContact?: () => void;
 }
 
-export const ConsultationCtaSection: React.FC<ConsultationCtaSectionProps> = ({ id = 'consultation' }) => {
+export const ConsultationCtaSection: React.FC<ConsultationCtaSectionProps> = ({ 
+  id = 'consultation',
+  onNavigateToContact
+}) => {
   const [formData, setFormData] = useState<ConsultationBookingData>({
     businessName: '',
     ownerName: '',
@@ -216,7 +220,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaSectionProps> = ({ 
                         onClick={() => toggleChannel(ch)}
                         className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                           active
-                            ? 'bg-[#E58330] text-[#0A0604] font-bold shadow'
+                            ? 'bg-gradient-to-r from-[#9B2208] to-[#B83010] text-white font-bold shadow-md'
                             : 'bg-[#140C07] text-[#A8A099] border border-[#2D1B0F] hover:text-white'
                         }`}
                       >
@@ -237,7 +241,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaSectionProps> = ({ 
                   value={formData.biggestChallenge}
                   onChange={e => setFormData({ ...formData, biggestChallenge: e.target.value })}
                   placeholder="e.g. We get 80 DMs a day and miss orders while we are packaging."
-                  className="w-full px-4 py-3 rounded-xl bg-[#140C07] border border-[#2D1B0F] text-white text-sm focus:outline-none focus:border-[#E58330]"
+                  className="w-full px-4 py-3 rounded-xl bg-[#140C07] border border-[#2D1B0F] text-white text-sm focus:outline-none focus:border-[#D95A1A]"
                 />
               </div>
 
@@ -251,7 +255,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaSectionProps> = ({ 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#E58330] to-[#FF9F4A] text-[#0A0604] font-extrabold text-sm shadow-xl shadow-[#E58330]/20 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-extrabold text-sm shadow-xl shadow-[#9B2208]/40 hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 cursor-pointer"
                 >
                   {isSubmitting ? (
                     <span>Scheduling Session...</span>

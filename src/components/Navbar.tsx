@@ -21,7 +21,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     { label: 'AI Workers', id: 'solutions', badge: '2 Workers' },
     { label: 'How It Works', id: 'how-it-works' },
     { label: 'Industries', id: 'industries' },
-    { label: 'Pricing', id: 'pricing', badge: 'K2,000/mo' },
+    { label: 'Pricing', id: 'pricing', badge: '$100/mo' },
     { label: 'About', id: 'about' },
     { label: 'Contact', id: 'contact' }
   ];
@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#030202]/85 backdrop-blur-md border-b border-[#261810]/70">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between">
         {/* Logo */}
         <div 
           onClick={() => handleNavClick('home')}
@@ -82,7 +82,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 handleNavClick('pricing');
               }
             }}
-            className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#E58330] to-[#FF9F4A] text-[#0A0604] font-semibold text-sm shadow-md shadow-[#E58330]/20 hover:shadow-lg hover:shadow-[#E58330]/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+            className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-bold text-sm shadow-md shadow-[#9B2208]/35 hover:shadow-lg hover:shadow-[#9B2208]/50 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
             <span>Get Your AI Team</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
@@ -138,10 +138,10 @@ export const Navbar: React.FC<NavbarProps> = ({
                 }
                 setMobileMenuOpen(false);
               }}
-              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#E58330] to-[#FF9F4A] text-[#0A0604] font-bold text-sm shadow-md"
+              className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-bold text-sm shadow-md shadow-[#9B2208]/35"
             >
-              <Sparkles className="w-4 h-4 text-[#0A0604]" />
-              <span>Get Your AI Team • K2,000/mo</span>
+              <Sparkles className="w-4 h-4 text-white" />
+              <span>Get Your AI Team • $100/mo</span>
             </button>
           </div>
         </div>

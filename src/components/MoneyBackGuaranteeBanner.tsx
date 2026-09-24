@@ -25,7 +25,7 @@ export const MoneyBackGuaranteeBanner: React.FC<MoneyBackGuaranteeBannerProps> =
               Try Your AI Team for 30 Days. 100% Guaranteed.
             </h3>
             <p className="text-xs sm:text-sm text-[#A8A099] max-w-xl">
-              If your AI workers do not save you hours of manual work and improve customer response speed within the first month, we will refund 100% of your K2,000 fee. No hassles, no questions asked.
+              If your AI workers do not save you hours of manual work and improve customer response speed within the first month, we will refund 100% of your $100 fee. No hassles, no questions asked.
             </p>
           </div>
         </div>

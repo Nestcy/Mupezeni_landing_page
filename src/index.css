@@ -2,7 +2,10 @@
 
 @layer base {
   :root {
-    --brand-primary: #E58330;
+    --brand-primary: #B83010;
+    --brand-terracotta: #B83010;
+    --brand-terracotta-dark: #9B2208;
+    --brand-terracotta-light: #CD481B;
     --brand-secondary: #0A0604;
     --brand-dark: #030202;
     --brand-light: #F7F5F0;
@@ -28,8 +31,69 @@
     border-radius: 3px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #E58330;
+    background: #B83010;
   }
+}
+
+/* MUPEZENI Brand Typography: Wide, extended geometric sans-serif wordmark */
+.brand-name {
+  font-family: 'Michroma', 'Syncopate', 'Montserrat', sans-serif !important;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: #FFFFFF;
+}
+
+.font-brand {
+  font-family: 'Michroma', 'Syncopate', 'Montserrat', sans-serif !important;
+  text-transform: uppercase;
+}
+
+/* Explicit Roboto Font */
+.font-roboto {
+  font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+/* Terracotta Red Gradients & Action Button Utilities */
+.bg-gradient-terracotta {
+  background: linear-gradient(135deg, #9B2208 0%, #B83010 50%, #CD481B 100%) !important;
+}
+
+.btn-terracotta {
+  background: linear-gradient(135deg, #9B2208 0%, #B83010 50%, #CD481B 100%) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 4px 20px -2px rgba(184, 48, 16, 0.45);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-terracotta:hover {
+  background: linear-gradient(135deg, #AC280B 0%, #C43613 50%, #DC5322 100%) !important;
+  box-shadow: 0 6px 25px -2px rgba(184, 48, 16, 0.6);
+  transform: translateY(-1px);
+}
+
+.btn-terracotta:active {
+  transform: translateY(0px) scale(0.98);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
 }
 
 @keyframes pulse-subtle {

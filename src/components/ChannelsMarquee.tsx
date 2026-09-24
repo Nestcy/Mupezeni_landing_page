@@ -101,7 +101,8 @@ const CHANNELS: ChannelItem[] = [
 ];
 
 export const ChannelsMarquee: React.FC = () => {
-  const marqueeItems = [...CHANNELS, ...CHANNELS, ...CHANNELS];
+  // Two identical arrays for seamless infinite loop (translateX: 0 -> -50%)
+  const marqueeItems = [...CHANNELS, ...CHANNELS];
 
   return (
     <section 

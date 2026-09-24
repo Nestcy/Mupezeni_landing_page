@@ -2,6 +2,7 @@ import React from 'react';
 import { PageId } from '../types';
 import { PROCESS_STEPS, END_TO_END_WORKFLOW } from '../data/websiteData';
 import { ConsultationCtaSection } from '../components/ConsultationCtaSection';
+import { InteractiveAgentDemo } from '../components/InteractiveAgentDemo';
 import { Database, Sliders, Rocket, Check, ArrowRight, Clock, ShieldCheck, Zap } from 'lucide-react';
 
 interface HowItWorksPageProps {
@@ -20,15 +21,18 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onNavigate, onOp
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E58330]/10 border border-[#E58330]/20 text-[#E58330] text-xs font-mono">
             <Clock className="w-3.5 h-3.5" />
-            <span>5–7 Day Deployment</span>
+            <span>4–6 Week Implementation · Low Risk</span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-extrabold text-white">
-            From Catalogue to Live AI in Under 7 Days
+            From Catalogue to Live AI in 4–6 Weeks
           </h1>
           <p className="text-base text-[#A8A099]">
-            We handle 100% of the technical heavy lifting—knowledge ingestion, channel connection, prompt tuning, and safety testing.
+            A transparent, low-risk process: sign an agreement, we build and work hands-on with you through implementation, then go live on an installment backed by our 30-day money-back guarantee.
           </p>
         </div>
+
+        {/* Live Interactive Mobile Phone Demo */}
+        <InteractiveAgentDemo onNavigateToContact={onNavigate} className="rounded-3xl border border-[#26150C]" />
 
         {/* 3 Step Deployment Timeline */}
         <div className="space-y-8">

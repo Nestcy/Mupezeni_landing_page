@@ -55,7 +55,7 @@ export const CinematicDemoModal: React.FC<CinematicDemoModalProps> = ({ isOpen, 
 
           <div className="flex items-center justify-between text-xs text-[#A8A099] border-t border-[#1F120A] pt-4">
             <span>Duration: Continuous Real-Time Operation</span>
-            <span className="text-emerald-400 font-mono">Cost: K2,000 / month flat</span>
+            <span className="text-emerald-400 font-mono">Cost: $100 / month flat</span>
           </div>
         </div>
 
@@ -76,7 +76,7 @@ export const CinematicDemoModal: React.FC<CinematicDemoModalProps> = ({ isOpen, 
                 onClose();
                 if (onBookStrategy) onBookStrategy();
               }}
-              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#E58330] to-[#FF9F4A] text-black text-xs font-bold shadow-md transition-all"
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white text-xs font-bold shadow-md shadow-[#9B2208]/35 hover:scale-105 transition-all cursor-pointer"
             >
               Book 30-Min Strategy Demo
             </button>

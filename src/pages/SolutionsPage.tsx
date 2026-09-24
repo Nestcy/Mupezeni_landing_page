@@ -100,7 +100,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate, onOpen
               <div className="text-white">• ~1 Post Generated Daily</div>
               <div className="text-white">• Up to 30 Posts / Month</div>
               <div className="text-white">• Formatted for IG & FB</div>
-              <div className="text-amber-400 pt-1">Agency Quality at K2,000/mo</div>
+              <div className="text-amber-400 pt-1">Agency Quality at $100/mo</div>
             </div>
           </div>
 
@@ -158,11 +158,11 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate, onOpen
         {/* CTA Banner */}
         <div className="text-center py-8 space-y-4">
           <h3 className="text-2xl font-bold text-white">
-            Ready to deploy your AI Team for K2,000/month?
+            Ready to deploy your AI Team for $100/month?
           </h3>
           <button
             onClick={onOpenBookingModal}
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#E58330] to-[#FF9F4A] text-black font-extrabold text-sm shadow-xl shadow-[#E58330]/20"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-extrabold text-sm shadow-xl shadow-[#9B2208]/40 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
           >
             <span>Get Your AI Team</span>
             <ArrowRight className="w-4 h-4" />
