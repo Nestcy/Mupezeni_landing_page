@@ -106,39 +106,47 @@ export const ChannelsMarquee: React.FC = () => {
   return (
     <section 
       aria-label="Supported Sales Channels"
-      className="py-6 sm:py-16 relative bg-[#0A0705] overflow-hidden border-b border-white/5"
+      className="py-2.5 sm:py-3.5 relative bg-[#090604] overflow-hidden border-y border-white/5"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-3.5 sm:mb-6 text-center">
-        <h3 className="text-xs sm:text-base font-bold tracking-wider text-[#FAFAF9]/80 uppercase font-syne mb-1 sm:mb-2">
-          Built for retailers selling everywhere.
-        </h3>
-        <p className="text-[11px] sm:text-xs text-[#FAFAF9]/50 max-w-xl mx-auto">
-          Seamlessly compatible with the channels and sales platforms you already use to serve customers every day.
-        </p>
-      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row lg:items-center gap-2.5 lg:gap-6">
+          
+          {/* Header block: compact without summarizing any text */}
+          <div className="flex-shrink-0 lg:w-72 xl:w-80 text-left space-y-0.5">
+            <h3 className="text-[11px] sm:text-xs font-bold tracking-wider text-[#FAFAF9] uppercase font-syne flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D95A1A] animate-pulse flex-shrink-0" />
+              <span>Built for retailers selling everywhere.</span>
+            </h3>
+            <p className="text-[10px] sm:text-[11px] text-[#FAFAF9]/60 leading-snug">
+              Seamlessly compatible with the channels and sales platforms you already use to serve customers every day.
+            </p>
+          </div>
 
-      {/* Marquee Track */}
-      <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <div className="flex w-max items-center gap-2.5 sm:gap-4 animate-marquee group-hover:[animation-play-state:paused] hover:[animation-play-state:paused] py-1.5 sm:py-2 cursor-default">
-          {marqueeItems.map((channel, index) => (
-            <div
-              key={`${channel.name}-${index}`}
-              className="flex items-center gap-2 sm:gap-3 px-3 sm:px-5 py-2 sm:py-3 rounded-xl sm:rounded-2xl bg-[#130C08]/90 border border-white/5 hover:border-[#9B2208]/40 hover:bg-[#1A0E08] transition-all duration-300 group/item flex-shrink-0 shadow-sm shadow-black/40"
-            >
-              <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#20110A] border border-[#9B2208]/30 flex items-center justify-center text-[#FAFAF9]/70 group-hover/item:text-[#D95A1A] group-hover/item:border-[#D95A1A]/50 transition-colors flex-shrink-0 [&>svg]:w-3.5 [&>svg]:h-3.5 sm:[&>svg]:w-5 sm:[&>svg]:h-5">
-                {channel.iconNode}
-              </div>
+          {/* Marquee Track: Smooth scroll & transition banner */}
+          <div className="flex-1 min-w-0 relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+            <div className="flex w-max items-center gap-2 sm:gap-2.5 animate-marquee group-hover:[animation-play-state:paused] hover:[animation-play-state:paused] py-1 cursor-default">
+              {marqueeItems.map((channel, index) => (
+                <div
+                  key={`${channel.name}-${index}`}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#140C07] border border-white/10 hover:border-[#D95A1A]/60 hover:bg-[#1C1009] transition-all duration-200 group/item flex-shrink-0 shadow-sm"
+                >
+                  <div className="w-6 h-6 rounded-md bg-[#22120A] border border-[#9B2208]/30 flex items-center justify-center text-[#FAFAF9]/75 group-hover/item:text-[#D95A1A] group-hover/item:border-[#D95A1A]/50 transition-colors flex-shrink-0 [&>svg]:w-3.5 [&>svg]:h-3.5">
+                    {channel.iconNode}
+                  </div>
 
-              <div className="flex flex-col text-left">
-                <span className="text-[11px] sm:text-sm font-bold font-syne text-[#FAFAF9]/90 group-hover/item:text-white transition-colors tracking-tight">
-                  {channel.name}
-                </span>
-                <span className="text-[9px] sm:text-[11px] font-medium text-[#FAFAF9]/60 font-body">
-                  {channel.category}
-                </span>
-              </div>
+                  <div className="flex flex-col text-left">
+                    <span className="text-[11px] font-bold font-syne text-[#FAFAF9]/90 group-hover/item:text-white transition-colors tracking-tight whitespace-nowrap">
+                      {channel.name}
+                    </span>
+                    <span className="text-[9px] font-medium text-[#FAFAF9]/50 font-body whitespace-nowrap">
+                      {channel.category}
+                    </span>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
         </div>
       </div>
     </section>

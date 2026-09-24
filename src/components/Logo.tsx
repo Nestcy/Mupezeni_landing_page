@@ -2,77 +2,36 @@ import React from 'react';
 
 interface LogoProps {
   className?: string;
-  size?: 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'sm' | 'md' | 'lg';
   showTagline?: boolean;
-  onClick?: () => void;
-  /** Optional background badge if needed, defaults to clean transparent 'none' */
-  badgeStyle?: 'none' | 'white' | 'dark' | 'glass';
-  /** Optional override class name for the emblem wrapper */
-  emblemClassName?: string;
 }
 
-export const Logo: React.FC<LogoProps> = ({
-  className = '',
-  size = 'md',
-  showTagline = false,
-  onClick,
-  badgeStyle = 'none',
-  emblemClassName,
-}) => {
-  const emblemSizes = {
-    sm: 'w-12 h-9 sm:w-14 sm:h-10',
-    md: 'w-18 h-13 sm:w-22 sm:h-16 md:w-28 md:h-20',
-    lg: 'w-24 h-18 sm:w-30 sm:h-22 md:w-36 md:h-26',
-    xl: 'w-36 h-26 sm:w-48 sm:h-34 md:w-60 md:h-42',
+export const Logo: React.FC<LogoProps> = ({ className = '', size = 'md', showTagline = false }) => {
+  const sizeClasses = {
+    sm: { icon: 'w-6 h-6', text: 'text-lg', subtext: 'text-[9px]' },
+    md: { icon: 'w-8 h-8', text: 'text-xl', subtext: 'text-[10px]' },
+    lg: { icon: 'w-10 h-10', text: 'text-2xl', subtext: 'text-xs' }
   };
 
-  const textSizes = {
-    sm: 'text-base sm:text-lg',
-    md: 'text-2xl sm:text-3xl',
-    lg: 'text-3xl sm:text-4xl',
-    xl: 'text-4xl sm:text-5xl',
-  };
-
-  const badgeStyles = {
-    none: 'bg-transparent',
-    white: 'bg-white p-1.5 rounded-2xl shadow-md border border-white/80',
-    glass: 'bg-white/95 p-1.5 rounded-2xl backdrop-blur-md shadow-md border border-white/80',
-    dark: 'bg-[#1C0E07] p-1.5 rounded-2xl border border-[#9B2208]/40 shadow-inner',
-  };
+  const current = sizeClasses[size];
 
   return (
-    <div 
-      onClick={onClick}
-      className={`group flex items-center gap-3 sm:gap-4 cursor-pointer select-none ${className}`}
-      id="mupezeni-brand-logo"
-    >
-      {/* Exact uploaded logo image */}
-      <div 
-        className={`relative ${emblemClassName || emblemSizes[size]} flex-shrink-0 flex items-center justify-center overflow-hidden rounded-lg ${badgeStyles[badgeStyle]} transition-all duration-300`}
-      >
-        <img
-          src="/logo.png"
-          alt="Mupezeni Soaring Swallow and Guiding Star"
-          referrerPolicy="no-referrer"
-          className="w-full h-full object-cover scale-150 filter drop-shadow-[0_4px_14px_rgba(217,90,26,0.45)] transition-transform duration-300 group-hover:scale-165"
-        />
+    <div className={`flex items-center gap-2.5 select-none ${className}`}>
+      <div className={`relative ${current.icon} rounded-lg bg-gradient-to-br from-[#1E110A] to-[#0A0604] border border-[#E58330]/40 flex items-center justify-center shadow-lg shadow-[#E58330]/10 overflow-hidden`}>
+        <div className="absolute inset-0 bg-gradient-to-tr from-[#E58330]/20 to-transparent opacity-60 pointer-events-none" />
+        <svg viewBox="0 0 24 24" className="w-5/6 h-5/6 text-[#E58330]" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4 20V6L12 14L20 6V20" />
+          <circle cx="12" cy="4" r="1.5" fill="currentColor" />
+        </svg>
       </div>
 
-      {/* Brand Typography */}
-      <div className="flex flex-col justify-center">
-        <div className="flex items-center gap-1.5">
-          <span className={`font-roboto font-bold tracking-tight text-[#FAFAF9] ${textSizes[size]} leading-none`}>
-            Mupezeni
-          </span>
-          <span className="inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-[#D95A1A] animate-pulse"></span>
-        </div>
-        {showTagline ? (
-          <span className="text-[11px] sm:text-xs font-medium text-[#F5EDE4]/80 tracking-wider uppercase mt-1.5 font-syne">
-            AI Workforce · Retail
-          </span>
-        ) : (
-          <span className="text-[10px] sm:text-xs font-semibold text-[#D95A1A] tracking-widest uppercase mt-0.5 font-syne">
-            AI for Retail
+      <div className="flex flex-col">
+        <span className={`font-extrabold tracking-tight text-white font-['Space_Grotesk'] ${current.text}`}>
+          MUPEZENI<span className="text-[#E58330]">.</span>
+        </span>
+        {showTagline && (
+          <span className={`font-mono text-[#A8A29E] tracking-wider uppercase ${current.subtext}`}>
+            AI Retail Workforce
           </span>
         )}
       </div>

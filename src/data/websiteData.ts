@@ -1,573 +1,402 @@
-import { IndustrySolution, PhilosophyPrinciple, ProcessStep, BusinessOutcome, AiTeamMember, EndToEndWorkflowStep, EconomicComparisonData, EconomicComparisonRow } from '../types';
-
-export const ECONOMIC_COMPARISON_TABLE: EconomicComparisonData = {
-  title: 'Traditional Approach vs Mupezeni',
-  subtitle: 'The Digital Workload Problem',
-  rows: [
-    {
-      departmentRole: 'Customer Support & Inquiries',
-      humanStaffCost: 'Manual replies, missed evening messages & hiring staff',
-      mupezeniCost: 'AI Support Worker: 24/7 continuous response & lead capture',
-      mupezeniBadge: '24/7 Continuous'
-    },
-    {
-      departmentRole: 'Marketing & Content Creation',
-      humanStaffCost: 'Freelance designers, agency fees & inconsistent posting',
-      mupezeniCost: 'AI Marketing Worker: Daily branded visuals, copy & promotions',
-      mupezeniBadge: 'Daily Content'
-    },
-    {
-      departmentRole: 'Business Tracking & Visibility',
-      humanStaffCost: 'Manual spreadsheets, fragmented chats & disconnected tools',
-      mupezeniCost: 'Business Insights Dashboard: Centralized real-time visibility',
-      mupezeniBadge: 'Included Layer'
-    }
-  ],
-  totalRow: {
-    label: 'Overall Approach',
-    humanTotal: 'Fragmented tools, multiple people & heavy coordination',
-    mupezeniTotal: 'K2,000 / month',
-    mupezeniNote: '2 AI Workers + 1 Business Insights Dashboard',
-    savingsHighlight: 'One AI team. One simple price.'
-  }
-};
+import {
+  AiTeamMember,
+  IndustrySolution,
+  PhilosophyPrinciple,
+  ProcessStep,
+  BusinessOutcome,
+  EndToEndWorkflowStep,
+  EconomicComparisonData
+} from '../types';
 
 export const AI_TEAM_MEMBERS: AiTeamMember[] = [
   {
     id: 'customer-support',
     title: 'AI Customer Support Worker',
-    roleDescription: "Your customers don't have to wait.",
-    badge: 'AI Worker 01',
-    avatarIcon: 'Headphones',
-    avatarBg: 'from-[#9B2208] to-[#D95A1A]',
-    statusText: 'Always Online • Continuous Operation',
+    roleDescription: 'Frontline 24/7 conversational operator answering stock questions, sizing, pricing, capturing qualified leads, and sending payment prompts on WhatsApp, Instagram & Web.',
+    badge: 'Frontline AI Worker',
+    avatarIcon: 'MessageSquareText',
+    avatarBg: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
+    statusText: 'Active 24/7 • <3s response time',
     responsibilities: [
-      'Answers customer questions and handles routine FAQs.',
-      'Provides accurate product information, sizing and stock status.',
-      'Captures leads and follows up with interested customers.',
-      'Helps move casual enquiries toward completed purchases.',
-      'Operates continuously around the clock without delays.',
-      'Works across existing digital channels where integrated (WhatsApp, Instagram, Facebook, Web).'
+      'Answers repetitive product, sizing, and pricing questions instantly',
+      'Follows up with warm leads who inquired but haven’t placed an order',
+      'Collects customer delivery addresses and formats orders for dispatch',
+      'Provides mobile money instructions (Airtel Money, MTN MoMo, Zamtel)',
+      'Escalates complex requests or dispute inquiries to human staff'
     ],
-    businessOutcome: 'Serve customer inquiries instantly around the clock while you focus on products and growth.',
+    businessOutcome: 'Zero missed sales after hours. Reclaim 3+ hours every single day from answering repetitive DMs.',
     mockVisual: {
-      headline: 'Live Customer Support & Sales Assistance',
-      subline: 'WhatsApp • Instagram • Facebook • Web (where integrated)',
-      badges: ['Instant Reply <2s', 'Stock Verified', 'Lead Follow-Up Active'],
-      sampleSnippet: '"Yes! We have the Chelsea Boots in Size 42 in stock (K650). Delivery to Woodlands is K40 tomorrow morning. Would you like me to lock this in for you?"',
-      metricsTag: 'Continuous 24/7 Coverage'
+      headline: 'WhatsApp & Instagram Live Chat',
+      subline: 'Real-time retail inquiry handling & order conversion',
+      badges: ['WhatsApp Business', 'Instagram DM', 'Web LiveChat'],
+      sampleSnippet: 'Customer: "Is the leather boot available in size 42?"\nAI Support Worker: "Yes, 3 pairs left in size 42 at K850! We offer same-day delivery across Lusaka. Would you like me to reserve a pair for you?"',
+      metricsTag: '94% inquiries resolved autonomously'
     }
   },
   {
-    id: 'marketing-specialist',
+    id: 'marketing-worker',
     title: 'AI Marketing Worker',
-    roleDescription: 'Your business stays visible every day.',
-    badge: 'AI Worker 02',
-    avatarIcon: 'Megaphone',
-    avatarBg: 'from-[#B83A0A] to-[#F57C00]',
-    statusText: 'Active • Daily Marketing Output',
+    roleDescription: 'Dedicated creative engine producing 1 high-converting branded image and promotional caption daily (~30 posts/month) across Instagram and Facebook.',
+    badge: 'Creative AI Worker',
+    avatarIcon: 'Sparkles',
+    avatarBg: 'bg-amber-500/10 text-amber-400 border-amber-500/20',
+    statusText: 'Daily Content Generator • ~1 post/day',
     responsibilities: [
-      'Creates daily social media content (approximately 1 post per day, up to 30 posts/month).',
-      'Generates branded marketing images and product visuals.',
-      'Writes engaging captions and persuasive promotional copy.',
-      'Promotes products, special offers and seasonal campaigns.',
-      'Maintains a structured content calendar.',
-      'Prepares all content for owner review and approval before publishing.'
+      'Generates branded product spotlight graphics tailored to your store colors',
+      'Writes compelling, persuasive promotional copy with calls-to-action',
+      'Suggests relevant hashtags and optimal posting schedules for Zambia',
+      'Develops weekly promotional themes (Weekend Flash Sale, Payday Deals)',
+      'Prepares copy and images ready for one-click approval or auto-posting'
     ],
-    businessOutcome: 'Keep your business consistently visible every single day without having to personally create every post.',
+    businessOutcome: 'Consistent social media presence without spending K6,000+ on marketing agencies or hours brainstorming captions.',
     mockVisual: {
-      headline: 'Daily Branded Content Studio',
-      subline: 'Images • Captions • Promotional Copy • Content Calendar',
-      badges: ['Daily Content (~1 Post/Day)', 'Owner Approval Flow', 'Branded Visuals'],
-      sampleSnippet: '"Weekend Special Drop: 3 branded promotional images with launch captions ready for your review in your content calendar."',
-      metricsTag: 'Up to 30 Posts / Month'
-    }
-  },
-  {
-    id: 'business-dashboard',
-    title: 'Business Insights Dashboard',
-    roleDescription: "Know what's happening without digging through spreadsheets and messages.",
-    badge: 'Included Visibility Layer',
-    avatarIcon: 'BarChart3',
-    avatarBg: 'from-[#D95A1A] to-[#25D366]',
-    statusText: 'Real-Time Sync • Centralized Visibility',
-    responsibilities: [
-      'Tracks live order activity and daily customer purchases.',
-      'Monitors sales trends and revenue momentum over time.',
-      'Highlights product performance and identifies bestsellers.',
-      'Observes customer inquiry volumes and channel activity.',
-      'Delivers timely restock signals and low-inventory alerts.',
-      'Provides a clean, centralized visibility layer so you stay fully in control.'
-    ],
-    businessOutcome: 'Complete operational visibility into sales, orders and inventory without digging through messages.',
-    mockVisual: {
-      headline: 'Centralized Business Visibility Layer',
-      subline: 'Orders • Sales Trends • Product Performance • Restock Signals',
-      badges: ['Live Order Feed', 'Sales Analytics', 'Restock Signals', 'Zero Extra Cost'],
-      sampleSnippet: '"Morning briefing: 14 weekend orders recorded. 2 products approaching low-stock threshold. Restock signal generated."',
-      metricsTag: 'Included with AI Workers'
+      headline: 'Daily Retail Campaign Production',
+      subline: 'Branded visuals & persuasive copy created everyday',
+      badges: ['Instagram Feed', 'Facebook Posts', 'Promo Banners'],
+      sampleSnippet: '"Elevate your weekend style with our signature Oxford Brogues. Handcrafted for comfort and distinction. Order today for free Lusaka delivery. Link in bio!"',
+      metricsTag: '30 custom posts created monthly'
     }
   }
 ];
-export const GROWTH_COMPARISON = {
-  traditional: [
-    'Assembling separate human staff for customer inquiries and social media',
-    'Multiple disconnected software subscriptions and manual tools',
-    'Manual customer follow-up and delayed replies after hours',
-    'Manual content creation consuming hours of the owner’s time',
-    'Time lost coordinating, managing, and troubleshooting fragmented workflows',
-    'Work that abruptly stops whenever people are busy or unavailable'
-  ],
-  mupezeni: [
-    'AI Customer Support Worker: 24/7 continuous responses, FAQs & lead capture',
-    'AI Marketing Worker: Daily branded visuals, captions & content calendar',
-    'Business Insights Dashboard: Live centralized visibility into orders & stock',
-    'Total Monthly Investment: K2,000/month for your unified AI team',
-    'Continuous operation with human approval and escalation when required',
-    'Zero setup fees, month-to-month flexibility & 30-day money-back guarantee'
-  ],
-  conclusion: 'Instead of assembling separate people, tools and workflows for customer support and marketing, deploy one AI team for K2,000/month.'
+
+export const BUSINESS_INSIGHTS_DASHBOARD_DATA = {
+  title: 'Business Insights Dashboard',
+  badge: 'Included Visibility Layer',
+  subtitle: 'A single unified dashboard that keeps you in complete control while your AI workers run the daily grind.',
+  features: [
+    {
+      title: 'Real-time Order & Revenue Feed',
+      description: 'See every order initiated, confirmed, and paid across all your digital channels in real time.'
+    },
+    {
+      title: 'Product Velocity & Popularity Index',
+      description: 'Understand which items attract the most inquiries and which convert the highest.'
+    },
+    {
+      title: 'Restock & Low-Inventory Signals',
+      description: 'Get automated proactive warnings before top-selling items run out of stock.'
+    },
+    {
+      title: 'Lead Conversion Analytics',
+      description: 'Track how many DMs turned into paying customers and identify channel ROI.'
+    }
+  ]
 };
 
-export const END_TO_END_WORKFLOW: EndToEndWorkflowStep[] = [
-  {
-    stepNumber: '01',
-    stageTitle: 'Customer Enquiry',
-    actor: 'Customer',
-    action: 'Customer sends an enquiry',
-    description: 'A prospective customer reaches out across WhatsApp, Instagram DM, Facebook, or your online store asking about products, sizing, or delivery.',
-    details: [
-      'Messages arrive at all hours—even late nights and weekends',
-      'Customer seeks immediate answers before considering a competitor',
-      'No customer is left waiting in an unread queue'
-    ],
-    businessImpact: 'Capture every inbound opportunity the moment intent is highest.',
-    iconName: 'MessageSquare',
-    accentColor: 'from-[#9B2208] to-[#D95A1A]'
-  },
-  {
-    stepNumber: '02',
-    stageTitle: 'Instant Response',
-    actor: 'AI Customer Support Agent',
-    action: 'AI Customer Support Agent responds instantly',
-    description: 'Your digital support and sales agent answers questions in under two seconds, recommends matching products, and guides the customer toward checkout.',
-    details: [
-      'Verifies available stock and sizing in real time',
-      'Answers policy, delivery, and pricing questions with human-like warmth',
-      'Recommends complementary items to increase order value'
-    ],
-    businessImpact: 'Instant consultation converts curious browsers into committed buyers.',
-    iconName: 'Headphones',
-    accentColor: 'from-[#D95A1A] to-[#F57C00]'
-  },
-  {
-    stepNumber: '03',
-    stageTitle: 'Order Placed',
-    actor: 'Customer',
-    action: 'Customer places an order',
-    description: 'The customer confirms their purchase via mobile money, payment card, or store collection reservation with zero friction.',
-    details: [
-      'Payment details verified and confirmed instantly',
-      'Delivery address and customer contact saved accurately',
-      'Customer receives instant order verification and delivery schedule'
-    ],
-    businessImpact: 'Fast, frictionless closing without requiring the owner to pick up the phone.',
-    iconName: 'ShoppingBag',
-    accentColor: 'from-[#7A1804] to-[#9B2208]'
-  },
-  {
-    stepNumber: '04',
-    stageTitle: 'Operations & Tracking',
-    actor: 'Business Insights Dashboard',
-    action: 'Dashboard records activity & generates delivery slips',
-    description: 'Your included command dashboard logs the transaction, updates available stock, prepares delivery notes for riders, and alerts you on low stock.',
-    details: [
-      'Creates clean packing lists and delivery notes for riders',
-      'Alerts the owner when popular products run low',
-      'Maintains clean sales logs and daily performance summaries'
-    ],
-    businessImpact: 'Complete digital order while you focus on finding great products from suppliers and delivering them to your customers.',
-    iconName: 'BarChart3',
-    accentColor: 'from-[#B83A0A] to-[#D95A1A]'
-  },
-  {
-    stepNumber: '05',
-    stageTitle: 'Marketing Follow-Up',
-    actor: 'AI Marketing Agent',
-    action: 'AI Marketing Agent creates campaigns and promotions',
-    description: 'Your marketing agent creates tailored social posts, VIP restock drops, and targeted promotional campaigns to bring customers back.',
-    details: [
-      'Generates daily branded marketing visuals, captions, and promotional graphics',
-      'Sends personalized WhatsApp broadcasts based on past purchase history',
-      'Keeps your business top of mind without you having to plan posts'
-    ],
-    businessImpact: 'Consistent, professional marketing running continuously in the background.',
-    iconName: 'Sparkles',
-    accentColor: 'from-[#D95A1A] to-[#F57C00]'
-  },
-  {
-    stepNumber: '06',
-    stageTitle: 'Customer Returns',
-    actor: 'Customer',
-    action: 'Customer returns for repeat purchases',
-    description: 'Delighted by exceptional service speed, accurate deliveries, and timely marketing drops, the customer becomes a loyal repeat buyer.',
-    details: [
-      'Higher customer lifetime value and retention',
-      'Positive word-of-mouth recommendations across social networks',
-      'Repeat orders flow through existing automated channels'
-    ],
-    businessImpact: 'Compounding revenue growth with decreasing customer acquisition costs.',
-    iconName: 'RotateCcw',
-    accentColor: 'from-[#9B2208] to-[#B83A0A]'
-  },
-  {
-    stepNumber: '07',
-    stageTitle: 'Business Growth',
-    actor: 'Retailer & AI Team',
-    action: 'Business grows without expanding payroll',
-    description: 'The retailer scales sales volume, expands product lines, and serves thousands of customers while digital operating costs remain lean and predictable.',
-    details: [
-      'AI Team scales effortlessly with spikes in demand',
-      'The business owner focuses on sourcing great products and delivering them to customers',
-      'Profit margins expand as overhead remains controlled'
-    ],
-    businessImpact: 'Scale your business, not your overhead.',
-    iconName: 'TrendingUp',
-    accentColor: 'from-[#B83A0A] to-[#E65100]'
+export const ECONOMIC_COMPARISON: EconomicComparisonData = {
+  title: 'The Real Cost of Retail Operations',
+  subtitle: 'Traditional Approach vs. Mupezeni AI Team',
+  rows: [
+    {
+      departmentRole: 'Frontline Customer Support (24/7 DMs & WhatsApp)',
+      humanStaffCost: 'K4,500 – K7,000 / mo (Salaries for 2 shifts or missed after-hour sales)',
+      mupezeniCost: 'Included in K2,000 / mo',
+      mupezeniBadge: 'AI Customer Support Worker'
+    },
+    {
+      departmentRole: 'Social Media Marketing & Daily Content Creation',
+      humanStaffCost: 'K3,500 – K6,000 / mo (Freelance designer or agency retainer)',
+      mupezeniCost: 'Included in K2,000 / mo',
+      mupezeniBadge: 'AI Marketing Worker (~1 post/day)'
+    },
+    {
+      departmentRole: 'Software Tools & Analytics Subscriptions',
+      humanStaffCost: 'K1,500 – K2,500 / mo (Multiple disconnected SaaS tools & apps)',
+      mupezeniCost: 'Included in K2,000 / mo',
+      mupezeniBadge: 'Business Insights Dashboard'
+    },
+    {
+      departmentRole: 'Management, Supervision & Sick Leave Coverage',
+      humanStaffCost: '15+ hours/week of owner time spent micro-managing staff',
+      mupezeniCost: '0 management overhead',
+      mupezeniBadge: 'Always on, zero downtime'
+    }
+  ],
+  totalRow: {
+    label: 'Total Monthly Operating Commitment',
+    humanTotal: 'K9,500 – K15,500+ / month',
+    mupezeniTotal: 'K2,000 / month flat',
+    mupezeniNote: 'No setup fee • Month-to-month • 30-day money-back guarantee',
+    savingsHighlight: 'Save K7,500 – K13,500+ every month while operating 24/7'
   }
-];
+};
 
-export const PHILOSOPHY_PRINCIPLES: PhilosophyPrinciple[] = [
+export const AGENTIC_FRAMEWORK_STEPS = [
   {
-    id: 'scale-not-payroll',
-    title: 'Scale Without Payroll Bloat',
-    quote: 'Businesses shouldn\'t have to increase payroll every time demand increases.',
-    explanation: 'Growth naturally creates more enquiries, support requests, and marketing tasks. Traditionally this required hiring and managing more staff. Mupezeni lets you scale digital operations with intelligent AI Teams instead.',
-    iconName: 'TrendingUp'
+    step: '01',
+    name: 'OBSERVE',
+    action: 'Watches all retail touchpoints',
+    description: 'Monitors incoming WhatsApp messages, Instagram DMs, order events, and inventory counts in real time.'
   },
   {
-    id: 'level-playing-field',
-    title: 'Democratic Leverage',
-    quote: 'Technology should help retailers compete with much larger businesses.',
-    explanation: 'Large corporate retail chains maintain massive call centres and marketing departments. Mupezeni gives independent retailers scalable AI Teams with equivalent digital firepower.',
-    iconName: 'Zap'
+    step: '02',
+    name: 'DECIDE',
+    action: 'Evaluates context against store policies',
+    description: 'Determines the right response, checks stock availability, calculates delivery costs, and assesses urgency.'
   },
   {
-    id: 'amplify-not-replace',
-    title: 'Amplify the Business Owner',
-    quote: 'AI should amplify business owners instead of replacing them.',
-    explanation: 'Retailers are masters of finding great products from suppliers and serving their customers. Our AI Teams lift the heavy digital burden so owners can lead with greater focus and freedom.',
-    iconName: 'Sparkles'
+    step: '03',
+    name: 'ACT',
+    action: 'Executes the work immediately',
+    description: 'Replies to customer inquiries, generates branded daily social graphics, sends payment details, and logs orders.'
   },
   {
-    id: 'human-ai-harmony',
-    title: 'Human Judgment + AI Teams',
-    quote: 'The future belongs to retailers combining human judgement with intelligent AI Teams.',
-    explanation: 'AI Teams provide relentless speed, memory, and 24/7 consistency. The retailer provides vision, curation, and relationship building. Together, they create an unbeatable retail enterprise.',
-    iconName: 'Users'
-  }
-];
-
-
-export const BUSINESS_OUTCOMES: BusinessOutcome[] = [
-  {
-    id: 'increase-sales',
-    title: 'Increase Sales',
-    tagline: 'Never lose a customer to slow replies',
-    description: 'Convert high-intent browsers into confirmed paying customers immediately, even at 11:00 PM or during peak in-store hours.',
-    bulletPoints: [
-      'Instant product recommendations & pricing lookups',
-      'Automated checkout links & mobile money/card guidance',
-      'Proactive re-engagement with abandoned carts & idle chats'
-    ],
-    iconName: 'TrendingUp',
-    accentBadge: 'Revenue Engine'
-  },
-  {
-    id: 'respond-every-customer',
-    title: 'Respond to Every Customer',
-    tagline: 'Zero unread messages, zero lost opportunities',
-    description: 'Every WhatsApp message, Instagram DM, and website inquiry is acknowledged in seconds with human-like warmth and context.',
-    bulletPoints: [
-      'Sub-5 second response time 24 hours a day, 7 days a week',
-      'Accurate answers on stock levels, colors, sizes, and store hours',
-      'Seamless escalation to you only when human approval is needed'
-    ],
-    iconName: 'MessageSquareCheck',
-    accentBadge: 'Instant Response'
-  },
-  {
-    id: 'market-consistently',
-    title: 'Market Consistently',
-    tagline: 'Promotions, drops, and broadcasts that never stop',
-    description: 'Keep your customer list engaged with targeted product spotlights, VIP restock alerts, and seasonal campaigns generated by AI.',
-    bulletPoints: [
-      'Tailored WhatsApp broadcast copywriting based on purchase history',
-      'Social post copy and promo campaigns planned in minutes',
-      'Automated reactivation of dormant customers after 30 days'
-    ],
-    iconName: 'Sparkles',
-    accentBadge: 'Growth Marketing'
-  },
-  {
-    id: 'reduce-repetitive-work',
-    title: 'Reduce Repetitive Work',
-    tagline: 'Automate admin so you can focus on high-value retail',
-    description: 'Stop spending hours copying customer delivery addresses, re-explaining sizing charts, or manually checking what is in stock.',
-    bulletPoints: [
-      'Automated capture of customer delivery addresses and rider slips',
-      'Structured FAQs for sizing, delivery rates, and return policies',
-      'Daily summaries of top-selling items and low-stock reminders'
-    ],
-    iconName: 'Layers',
-    accentBadge: 'Operational Freedom'
-  },
-  {
-    id: 'grow-beyond-hours',
-    title: 'Grow Beyond Business Hours',
-    tagline: 'Your shop stays open around the clock',
-    description: 'Nighttime, weekends, and public holidays turn into peak sales windows while you and your staff rest peacefully.',
-    bulletPoints: [
-      'Capture late-night shoppers when physical counters are closed',
-      'Wake up to paid orders and customer inquiries neatly organized',
-      'Maintain continuous customer rapport across all digital timezones'
-    ],
-    iconName: 'Moon',
-    accentBadge: '24/7 Operations'
-  }
-];
-
-export const PROCESS_STEPS: ProcessStep[] = [
-  {
-    stepNumber: '01',
-    title: 'Get Your AI Growth Team',
-    timeline: 'Step 1 • Initial Connection',
-    summary: 'Click the button, message us on WhatsApp or submit your store details to begin your AI transformation.',
-    detailedPoints: [
-      'Reach out directly via WhatsApp (+260 973 732 409) or our simple booking form',
-      'Share your retail category, current channels (shop, WhatsApp, social, web), and top bottlenecks',
-      'Receive instant confirmation and consultation schedule'
-    ],
-    retailerAction: 'Click Get Your AI Growth Team and tell us about your retail shop.',
-    mupezeniExecution: 'We review your business profile and prepare a custom audit ahead of our discussion.',
-    iconName: 'Sparkles'
-  },
-  {
-    stepNumber: '02',
-    title: 'Consultation & Strategic Audit',
-    timeline: 'Step 2 • Real Conversation',
-    summary: 'A direct, hands-on conversation about your specific store, sales channels, customer volume, and operational bottlenecks.',
-    detailedPoints: [
-      'Review your current sales channels (Physical shop, WhatsApp, Instagram, Facebook, Web)',
-      'Analyze inquiry volume, peak customer shopping hours, and average order values',
-      'Map catalogue complexity, payment preferences, and delivery rider logistics'
-    ],
-    retailerAction: 'Share your retail workflow, product catalogue, and everyday operational challenges.',
-    mupezeniExecution: 'We determine feasibility, map your multi-channel customer journey, and outline tailored AI architecture.',
-    iconName: 'CalendarCheck'
-  },
-  {
-    stepNumber: '03',
-    title: 'Setup & Digital Foundation',
-    timeline: 'Step 3 • 4–6 Weeks Build',
-    summary: 'We build your digital storefront or connect directly to your existing Shopify/WooCommerce store and train your AI agents.',
-    detailedPoints: [
-      'Path 1 (Physical Shop): Complete digital store build, catalogue upload, and payment rails (4–6 weeks go-live)',
-      'Path 2 (Already Online): Seamless Shopify / WooCommerce API integration and product sync (4–6 weeks go-live)',
-      'Train AI Customer Support and Marketing agents on your exact products, sizes, prices, and FAQs'
-    ],
-    retailerAction: 'Test-drive your AI agents in a private staging preview and verify accuracy.',
-    mupezeniExecution: 'We calibrate system guardrails, payment webhooks, and human-in-the-loop escalation safeguards.',
-    iconName: 'Cpu'
-  },
-  {
-    stepNumber: '04',
-    title: 'Go-Live & First Orders Handled',
-    timeline: 'Step 4 • Official Launch',
-    summary: 'Your AI agents go live across your channels, instantly answering customer messages and securing confirmed sales.',
-    detailedPoints: [
-      'Active 24/7 across WhatsApp, Instagram, Facebook, and Web storefronts',
-      'Instant sub-second replies, live stock lookups, and frictionless checkout links',
-      'Real-time delivery slip preparation and customer notifications'
-    ],
-    retailerAction: 'Fulfill customer orders and watch enquiries convert without being glued to your phone.',
-    mupezeniExecution: 'We monitor live interactions, fine-tune accuracy, and ensure 100% operational uptime.',
-    iconName: 'Zap'
-  },
-  {
-    stepNumber: '05',
-    title: 'Ongoing Optimization & Growth',
-    timeline: 'Step 5 • Monthly Reviews & Scale',
-    summary: 'Dedicated monthly performance reviews, continuous prompt tuning, and option to add the Marketing agent anytime.',
-    detailedPoints: [
-      'Monthly business review: inquiry volume, conversion rates, and revenue trends',
-      'Continuous prompt tuning and seasonal catalogue updates',
-      'Add the AI Marketing Agent anytime with zero setup fees'
-    ],
-    retailerAction: 'Focus on sourcing great products from suppliers and delivering them to your customers.',
-    mupezeniExecution: 'We provide ongoing technical maintenance, AI model enhancements, and growth strategies.',
-    iconName: 'TrendingUp'
+    step: '04',
+    name: 'ESCALATE',
+    action: 'Alerts human team when judgment is needed',
+    description: 'Seamlessly hands over high-value deals, unique custom requests, or sensitive customer complaints to the owner.'
   }
 ];
 
 export const INDUSTRY_SOLUTIONS: IndustrySolution[] = [
   {
     id: 'fashion',
-    name: 'Fashion & Apparel',
-    tagline: '24/7 Personal Stylist, Sizing Advisor & Flash Drop Assistant',
-    badge: 'Apparel & Boutiques',
+    name: 'Fashion & Boutiques',
+    tagline: 'Never lose a dress or shoe sale when a customer browses at 11 PM.',
+    badge: 'High Inquiries • Fast Fashion',
     iconName: 'Shirt',
-    challenge: 'Customers ask endless sizing questions ("Will size M fit a 38-inch bust?"), request photos from different angles, and inquiries drop off when replies take longer than 5 minutes.',
-    howMupezeniHelps: 'Our AI Sales & Styling Worker matches measurements with your size charts, sends matching accessory recommendations, and secures order deposits directly in WhatsApp.',
-    keyFeatures: [
-      'Accurate fit guidance based on garment elasticity & sizing charts',
-      'Outfit coordination & lookbook recommendations',
-      'Instant VIP restock notifications & flash drop broadcasts',
-      'Multi-colorway stock verification in milliseconds'
-    ],
+    challenge: 'Customers flood DMs asking for size charts, available colors, and fit comparisons. Staff take hours to reply, by which time the buyer moves on.',
+    howMupezeniHelps: 'AI Support Worker instantly verifies stock by size and color, recommends matching items, and takes delivery details. AI Marketing Worker generates daily lookbook visuals.',
+    keyFeatures: ['Automated size & fit advisor', 'Instant color variation previews', 'Daily outfit-of-the-day posts', 'Mobile money order confirmation'],
     sampleInteraction: {
-      customerQuery: 'Hey! I love the burgundy linen dress. Do you have it in size Medium, and can I get it delivered to Woodlands by tomorrow morning?',
-      aiResponse: 'Hi Chileshe! Yes, we have 3 pieces of the Burgundy Linen Dress in Medium ready in-store. If you confirm your order before 6:00 PM today, our rider will deliver to Woodlands tomorrow between 9:00 AM and 11:00 AM for K40 delivery fee. Would you like me to reserve it and send the Airtel Money / MTN prompt?',
-      outcomeNote: 'Order secured in 45 seconds with delivery window and payment ready.'
+      customerQuery: 'Do you have the emerald satin gown in size Medium, and can I get it delivered to Woodlands today?',
+      aiResponse: 'Yes! We have 2 emerald satin gowns left in Medium. We can dispatch to Woodlands via Yango delivery in under 45 minutes for K650 total. Would you like our Airtel or MTN payment number to confirm?',
+      outcomeNote: 'Order secured in 40 seconds before customer closed Instagram.'
     },
-    metricsHighlight: '3.4x faster order closure on late-night Instagram & WhatsApp inquiries.'
+    metricsHighlight: '+38% increase in after-hours checkout completion'
   },
   {
     id: 'electronics',
     name: 'Electronics & Gadgets',
-    tagline: 'Technical Spec Advisor, Warranty Guide & Accessory Cross-Sell Engine',
-    badge: 'Tech & Devices',
+    tagline: 'Technical specs explained clearly, stock checked instantly.',
+    badge: 'Spec-Heavy • High Ticket',
     iconName: 'Smartphone',
-    challenge: 'Customers ask highly detailed technical questions regarding compatibility, battery health, processor specs, warranty, and authentic origin before making high-ticket commitments.',
-    howMupezeniHelps: 'The AI Electronics Worker possesses instant recall of all device specifications, compares models side-by-side, and offers appropriate screen protectors and chargers.',
-    keyFeatures: [
-      'Detailed spec comparisons (e.g. iPhone 13 vs 14 battery and camera specs)',
-      'Clear explanation of warranty terms, repair policies, and receipts',
-      'Automatic accessory bundling (cases, fast chargers, power banks)',
-      'Serial number and IMEI verification workflows'
-    ],
+    challenge: 'Shoppers ask about warranty terms, RAM/storage differences, compatibility with other devices, and whether accessories are genuine.',
+    howMupezeniHelps: 'AI Support Worker provides accurate spec comparisons, warranty guarantees, and accessories upselling. Generates daily tech highlight graphics.',
+    keyFeatures: ['Accurate specification lookup', 'Bundle upselling (screen guards, cases)', 'Warranty documentation dispatch', 'Store pickup coordination'],
     sampleInteraction: {
-      customerQuery: 'Is this Samsung Galaxy S23 Ultra original with dual SIM, and does it come with a local warranty?',
-      aiResponse: 'Yes! All our Samsung Galaxy S23 Ultra units are brand new, 100% original dual-SIM models, backed by our 12-Month Official Store Warranty. We also include a free 45W fast-charging adapter this week. We have Phantom Black and Green in stock at our Kamwala branch. Would you like to pick it up or arrange rider delivery?',
-      outcomeNote: 'Instant reassurance on authenticity and warranty converted a high-ticket sale.'
+      customerQuery: 'Is this iPhone 14 Pro brand new with 1-year warranty? Can I trade in my iPhone 11?',
+      aiResponse: 'Yes, it is 100% factory sealed with an official 12-month warranty! For trade-ins, please share your iPhone 11 battery health and storage size so our manager can give you an instant valuation.',
+      outcomeNote: 'High-ticket inquiry captured with immediate trade-in qualification.'
     },
-    metricsHighlight: 'Zero missed evening inquiries for high-ticket flagship gadgets.'
+    metricsHighlight: '2.4x faster response time on high-margin devices'
+  },
+  {
+    id: 'beauty',
+    name: 'Beauty, Skincare & Cosmetics',
+    tagline: 'Personalized product matching that turns browsing into repeat orders.',
+    badge: 'High Repeat Orders',
+    iconName: 'Sparkles',
+    challenge: 'Skincare routines require guidance on skin types, ingredients, and usage. Generic answers result in abandoned carts.',
+    howMupezeniHelps: 'AI Support Worker conducts a quick skin-type consultation, suggests a complete 3-step routine, and alerts you when customer is due for a refill.',
+    keyFeatures: ['Skin-type quiz logic', 'Routine bundle suggestions', 'Refill reminder automations', 'Ingredient safety checks'],
+    sampleInteraction: {
+      customerQuery: 'I have oily, acne-prone skin. Which cleanser and sunscreen should I use?',
+      aiResponse: 'For oily and acne-prone skin, our Salicylic Acid Cleansing Gel paired with the Ultra-Light Oil-Free SPF 50 is the top-rated combo. Both are in stock for K520 as a bundle.',
+      outcomeNote: 'Upsold single cleanser to complete 2-step bundle.'
+    },
+    metricsHighlight: '+42% higher average order value with bundle recommendations'
   },
   {
     id: 'furniture',
     name: 'Furniture & Home Decor',
-    tagline: 'Custom Dimensions Advisor, Fabric Selector & Showroom Scheduler',
-    badge: 'Home & Living',
+    tagline: 'Showcase dimensions, materials, and delivery timelines effortlessly.',
+    badge: 'Custom Orders • High Value',
     iconName: 'Armchair',
-    challenge: 'High-ticket pieces require measuring room clearances, selecting wood/fabric swatches, calculating custom delivery logistics, and booking in-person showroom viewings.',
-    howMupezeniHelps: 'Your AI Furniture Worker assists with custom dimensions, explains upholstery fabrics, calculates furniture transport rates, and schedules showroom appointments.',
-    keyFeatures: [
-      'Room clearance & dimension checking for L-shape sofas and dining sets',
-      'Fabric & wood finish recommendations (velvet, genuine leather, mahogany)',
-      'Accurate truck transport & assembly fee estimations',
-      'Automated showroom VIP viewing appointments'
-    ],
+    challenge: 'Buyers need exact room measurements, fabric swatches, custom color availability, and bulky delivery cost calculations.',
+    howMupezeniHelps: 'AI provides precise dimensions, explains wood/fabric care, estimates delivery based on Lusaka neighborhood, and schedules showroom visits.',
+    keyFeatures: ['Dimension & space clearance guides', 'Neighborhood-based delivery fees', 'Showroom appointment scheduling', 'Custom carpentry lead capture'],
     sampleInteraction: {
-      customerQuery: 'Can the 6-seater Nordic dining table fit in a 3.5m dining room? And can you customize the wood finish in dark walnut?',
-      aiResponse: 'Absolutely! The Nordic 6-Seater is 1.8m in length, leaving over 0.85m on all sides in a 3.5m room—providing comfortable chair clearance. We can finish it in our signature Dark Walnut within 5 working days. Would you like to see photos of our recent walnut finishes or book a showroom visit?',
-      outcomeNote: 'Customer educated on spatial fit and invited to showroom with high intent.'
+      customerQuery: 'Can the 6-seater oak dining set fit in a 3.5m by 3m dining room? How much is delivery to Silverest?',
+      aiResponse: 'The 6-seater requires 2.8m by 2.2m including chair pull-out space, so it will fit comfortably in your 3.5m x 3m dining area! Delivery and setup to Silverest is K250.',
+      outcomeNote: 'Customer booked showroom viewing and placed deposit next morning.'
     },
-    metricsHighlight: '65% higher showroom consultation show-up rate with automated reminders.'
+    metricsHighlight: 'Zero hesitation on bulky furniture inquiries'
+  },
+  {
+    id: 'groceries',
+    name: 'Supermarkets & Specialty Foods',
+    tagline: 'Manage daily fresh stock alerts, bulk discounts, and rapid delivery.',
+    badge: 'High Frequency • Fast Inventory Turn',
+    iconName: 'ShoppingBag',
+    challenge: 'Daily price changes, fresh produce availability, and quick WhatsApp order lists take up immense time for store clerks.',
+    howMupezeniHelps: 'AI parses raw customer shopping lists, checks product availability, sums the total with delivery fee, and generates a mobile money payment link.',
+    keyFeatures: ['Bulk shopping list parser', 'Fresh stock alerts to VIP customers', 'Automated packing slips for store crew', 'Daily grocery deal broadcasts'],
+    sampleInteraction: {
+      customerQuery: 'I need: 10kg breakfast mealie meal, 2L cooking oil, 1 tray of eggs, and 1kg beef stew. How much total?',
+      aiResponse: 'Your order total is K385: Breakfast Mealie Meal (K210) + Cooking Oil (K95) + Tray Eggs (K60) + 1kg Beef Stew (K110) with special combo discount! Delivery to Kabulonga is K30.',
+      outcomeNote: 'Complex multi-item shopping list processed in 5 seconds.'
+    },
+    metricsHighlight: '35 minutes saved per grocery order processing'
   },
   {
     id: 'hardware',
     name: 'Hardware & Building Supplies',
-    tagline: 'Part Number Matching, Contractor Bulk Orders & Delivery Logistics',
-    badge: 'Hardware & Materials',
+    tagline: 'Empower contractors and homeowners with instant quote generation.',
+    badge: 'B2B & Trade • Bulk Purchasing',
     iconName: 'Wrench',
-    challenge: 'Builders and technicians send messy lists of technical part numbers, paint codes, pipe gauges, and cement quantities that overwhelm counter staff during morning rushes.',
-    howMupezeniHelps: 'The AI Hardware Worker instantly digests handwritten or bulleted material lists, checks stock availability, calculates tonnage/bulk discounts, and creates ready-to-deliver quotes.',
-    keyFeatures: [
-      'Rapid bulk quote generation from contractor material lists',
-      'Part number cross-referencing and substitute recommendations',
-      'Tonnage calculation & flatbed truck logistics coordination',
-      'Tiered contractor pricing management'
-    ],
+    challenge: 'Contractors send long lists of cement bags, rebar steel, roofing sheets, and paint cans demanding rapid quotes before choosing a supplier.',
+    howMupezeniHelps: 'AI instantly quotes standard building materials, calculates volume discounts, confirms warehouse location for pickup, and forwards large BOQs to the owner.',
+    keyFeatures: ['Bill of quantities (BOQ) parser', 'Truck dispatch coordination', 'Tiered bulk pricing calculations', 'VAT invoice data collection'],
     sampleInteraction: {
-      customerQuery: 'Need a quote for 50 bags 42.5R Dangote cement, 20 lengths 12mm rebar, and 4 rolls binding wire to Silverest site.',
-      aiResponse: 'Hello Mr. Banda! Here is your instant quotation: 50x Dangote 42.5R @ K165 = K8,250; 20x 12mm High-Tensile Rebar @ K195 = K3,900; 4x Binding Wire @ K120 = K480. Total Materials: K12,630. Site delivery to Silverest by 2-ton truck: K450. Total: K13,080. Shall I lock in this quote and send payment details for delivery to your site?',
-      outcomeNote: 'Contractor quotation generated in under 10 seconds before counter opens.'
+      customerQuery: 'Quote for 150 bags of Dangote 42.5 cement and 20 sheets of IBR iron roofing to Roma site.',
+      aiResponse: 'Dangote 42.5 Cement: 150 bags @ K162/bag = K24,300. IBR 0.4mm (20 sheets @ K190) = K3,800. Offloading truck delivery to Roma: K600. Total: K28,700. Shall I hold this allocation for today’s dispatch?',
+      outcomeNote: 'Contractor selected store due to instant formal quote turnaround.'
     },
-    metricsHighlight: 'Under 1-minute quote turnaround for complex contractor orders.'
-  },
-  {
-    id: 'pharmacy',
-    name: 'Pharmacy & Wellness',
-    tagline: 'OTC Availability Checker, Refill Reminders & Store Policy Navigator',
-    badge: 'Health & Pharmacy',
-    iconName: 'HeartPulse',
-    challenge: 'Customers desperately need to know if emergency OTC medicines, baby wellness formulas, or specific supplements are in stock without driving across town.',
-    howMupezeniHelps: 'The AI Pharmacy Assistant confirms OTC medicine and vitamin availability, shares branch locations/hours, explains prescription collection guidelines, and sets refill alerts.',
-    keyFeatures: [
-      'Instant OTC stock availability & pricing lookups across branches',
-      'Automated recurring monthly vitamin & wellness refill reminders',
-      'Clear guidance on prescription upload & pharmacist verification',
-      'First-aid supplies & pediatric supplement categorization'
-    ],
-    sampleInteraction: {
-      customerQuery: 'Do you have Aptamil Stage 2 baby formula in stock at your Woodlands branch, and what is the price?',
-      aiResponse: 'Hi there! Yes, we have Aptamil Stage 2 (800g) in stock at Woodlands branch for K380. Our pharmacy counter is open until 9:30 PM tonight. We can also send a rider directly to your home within 45 minutes. Would you like to place a delivery order or reserve a tin for pickup?',
-      outcomeNote: 'Immediate relief for parents looking for urgent baby supplies.'
-    },
-    metricsHighlight: '100% responsiveness to late-evening health and OTC inquiries.'
-  },
-  {
-    id: 'beauty',
-    name: 'Beauty & Cosmetics',
-    tagline: 'Skin Routine Guide, Shade Matcher & Repeat Bundle Marketer',
-    badge: 'Cosmetics & Skincare',
-    iconName: 'Sparkle',
-    challenge: 'Shoppers need shade-matching assistance for foundations, skincare regimen advice for oily/dry skin, and ingredient checks for sensitive skin.',
-    howMupezeniHelps: 'The AI Beauty Worker consults customers on their skin type, matches undertones with matching foundation codes, builds personalized routines, and sends automated 60-day restock reminders.',
-    keyFeatures: [
-      'Personalized skincare routine builder (Cleanse $\\rightarrow$ Tone $\\rightarrow$ Hydrate $\\rightarrow$ Protect)',
-      'Foundation shade cross-referencing across global beauty brands',
-      'Cruelty-free, vegan, and active ingredient (Niacinamide, Retinol) guides',
-      'Automated 60-day refill reminders when serums typically run low'
-    ],
-    sampleInteraction: {
-      customerQuery: 'I have hyperpigmentation and oily skin. What routine do you recommend from the Ordinary or CeraVe products you sell?',
-      aiResponse: 'Hello gorgeous! For oily skin with hyperpigmentation, here is the proven 3-step routine we have in stock: 1. CeraVe Foaming Cleanser (K320), 2. The Ordinary Niacinamide 10% + Zinc 1% to regulate oil & fade dark spots (K280), 3. Biore UV Aqua Rich SPF 50 (K310). When bundled together, we offer free delivery across Lusaka. Shall I set up your beauty parcel?',
-      outcomeNote: 'Single product query transformed into a 3-item K910 bundle order.'
-    },
-    metricsHighlight: '2.8x higher average order value through personalized skincare bundles.'
-  },
-  {
-    id: 'grocery',
-    name: 'Grocery & Supermarkets',
-    tagline: 'Weekly Specials Broadcast, Bulk Pantry Builder & Quick Re-order',
-    badge: 'Supermarkets & Food',
-    iconName: 'ShoppingBag',
-    challenge: 'High transaction frequency, fast-moving items requiring daily clearance, and customers who want to send a quick bulleted grocery list on WhatsApp.',
-    howMupezeniHelps: 'The AI Grocery Worker digests bulleted shopping lists, calculates cart totals, broadcasts weekly fresh produce specials, and coordinates pickup or express delivery.',
-    keyFeatures: [
-      'Rapid conversion of casual text lists into itemized digital carts',
-      'Automated Tuesday/Friday fresh produce & butcher specials broadcasts',
-      'Repeat "1-Tap" monthly pantry replenishment orders',
-      'Express same-day customer delivery rider integration'
-    ],
-    sampleInteraction: {
-      customerQuery: 'Hey! Here is my weekly list: 10kg Pembe mealie meal, 2 trays eggs, 5L cooking oil, 2kg sugar, and 1kg chicken breasts. How much is everything and can I get it today?',
-      aiResponse: 'Good morning! Here is your itemized grocery basket: 1. Pembe 10kg: K185, 2. 2x Farm Fresh Egg Trays: K130, 3. 5L D\'lite Oil: K260, 4. 2kg White Sugar: K58, 5. 1kg Fresh Chicken Breasts: K95. Subtotal: K728. Delivery to your address: K30. Total: K758. Our next delivery van departs at 1:30 PM. Would you like to confirm?',
-      outcomeNote: '12-minute WhatsApp interaction compressed into a 15-second completed order.'
-    },
-    metricsHighlight: '4x faster customer checkout for weekly repeat grocery runs.'
+    metricsHighlight: 'K180,000+ in contractor quotes processed monthly'
   }
 ];
 
-export const MARQUEE_CHANNELS = [
-  { name: 'Physical Shop', type: 'In-Store Counter', icon: 'Store' },
-  { name: 'WhatsApp', type: 'Direct Messaging', icon: 'MessageCircle' },
-  { name: 'Facebook', type: 'Pages & Messenger', icon: 'Share2' },
-  { name: 'Instagram', type: 'DMs & Stories', icon: 'Instagram' },
-  { name: 'Shopify', type: 'eCommerce Store', icon: 'ShoppingBag' },
-  { name: 'WooCommerce', type: 'WordPress Store', icon: 'Globe' },
-  { name: 'TikTok Shop', type: 'Social Commerce', icon: 'Video' },
-  { name: 'Amazon', type: 'Marketplace', icon: 'Box' },
-  { name: 'eBay', type: 'Marketplace', icon: 'Layers' }
+export const PHILOSOPHY_PRINCIPLES: PhilosophyPrinciple[] = [
+  {
+    id: 'agentic-work',
+    title: 'AI Workers, Not Just Chatbots',
+    quote: 'Software shouldn’t just chat. It should do the work.',
+    explanation: 'Traditional chatbots regurgitate canned answers. Mupezeni AI workers take actions: they check stock, capture addresses, create social content, calculate delivery costs, and follow up with leads.',
+    iconName: 'Zap'
+  },
+  {
+    id: 'owner-liberation',
+    title: 'Free the Retail Owner',
+    quote: 'Your job is inventory, sourcing, and growth — not replying to "How much?" 40 times a day.',
+    explanation: 'Retail business owners in Zambia are overworked. When your AI workers manage digital operations, you get your evenings back and can focus on supplier relations and expansion.',
+    iconName: 'ShieldCheck'
+  },
+  {
+    id: 'zero-bloat',
+    title: 'One Fixed Price. Zero Surprises.',
+    quote: 'No hiring fees, no PAYE, no sick days, no hidden percentages.',
+    explanation: 'At K2,000/month flat, you get a dedicated AI Customer Support Worker, an AI Marketing Worker, and a real-time Business Insights Dashboard with no setup fee and month-to-month freedom.',
+    iconName: 'CheckCircle2'
+  }
+];
+
+export const PROCESS_STEPS: ProcessStep[] = [
+  {
+    stepNumber: '01',
+    title: 'Strategy & Knowledge Ingestion',
+    timeline: 'Day 1 – 2',
+    summary: 'We connect your store catalogue, pricing list, FAQ guide, and brand guidelines into your AI system.',
+    detailedPoints: [
+      'Inventory catalogue, prices, and sizes ingested into the system',
+      'Store tone of voice, greeting style, and branding colors customized',
+      'Payment methods configured (Airtel Money, MTN MoMo, Zamtel, Card)'
+    ],
+    retailerAction: 'Share your product catalog or price sheet with our implementation team.',
+    mupezeniExecution: 'We train your custom AI workers on your specific inventory and business policies.',
+    iconName: 'Database'
+  },
+  {
+    stepNumber: '02',
+    title: 'Channel Connection & Safe Testing',
+    timeline: 'Day 3 – 4',
+    summary: 'We link your WhatsApp Business, Instagram, and Facebook channels and run test simulations.',
+    detailedPoints: [
+      'WhatsApp API and Instagram Direct Message webhooks connected',
+      'Test conversations with edge-case scenarios (out of stock, returns, discounts)',
+      'Escalation notifications routed to your phone via WhatsApp/SMS'
+    ],
+    retailerAction: 'Review sample customer dialogues and approve the tone.',
+    mupezeniExecution: 'Rigorous testing to guarantee accurate prices and professional customer interactions.',
+    iconName: 'Sliders'
+  },
+  {
+    stepNumber: '03',
+    title: 'Go Live & Ongoing Optimization',
+    timeline: 'Day 5 – 7',
+    summary: 'Your AI Team goes live. Customer inquiries are handled 24/7 and daily marketing content begins rolling out.',
+    detailedPoints: [
+      '24/7 frontline support activates immediately',
+      'Daily branded graphics and promotional captions generated',
+      'Access to your real-time Business Insights Dashboard'
+    ],
+    retailerAction: 'Pack and dispatch the orders your AI workers bring in.',
+    mupezeniExecution: 'Weekly performance reviews, prompt tuning, and continuous intelligence updates.',
+    iconName: 'Rocket'
+  }
+];
+
+export const BUSINESS_OUTCOMES: BusinessOutcome[] = [
+  {
+    id: 'revenue-recovery',
+    title: 'Zero Missed Sales After Hours',
+    tagline: 'Turn late-night Instagram scrollers into paid morning orders.',
+    description: 'Over 40% of retail inquiries in Zambia happen between 7 PM and 11 PM when physical stores are closed. Your AI Support Worker replies in seconds, shares payment instructions, and locks in orders before morning.',
+    bulletPoints: [
+      'Immediate responses to night-time shoppers',
+      'Automated mobile money payment details provided',
+      'Delivery details gathered ready for first-wave morning dispatch'
+    ],
+    iconName: 'Moon',
+    accentBadge: '+30-45% Captured Revenue'
+  },
+  {
+    id: 'consistent-marketing',
+    title: 'Daily Marketing on Autopilot',
+    tagline: 'Stay top-of-mind without spending hours staring at a blank screen.',
+    description: 'Your AI Marketing Worker crafts ~1 post every single day (up to 30 posts/month) complete with branded graphics, persuasive copy, and clear call-to-actions tailored to your Zambian audience.',
+    bulletPoints: [
+      'Consistent daily social presence on Instagram and Facebook',
+      'Custom branded product spotlight visuals',
+      'Persuasive captions and hashtags that drive direct messages'
+    ],
+    iconName: 'Sparkles',
+    accentBadge: '30 Posts Every Month'
+  },
+  {
+    id: 'owner-freedom',
+    title: '15+ Hours Saved Every Week',
+    tagline: 'Stop typing the same product details 50 times every day.',
+    description: 'Reclaim your focus. Stop acting as a full-time messaging operator. Focus your energy where human intellect matters most: finding hot inventory, negotiating supplier deals, and expanding your footprint.',
+    bulletPoints: [
+      'Eliminate repetitive DM answering',
+      'Automatic lead qualification and address formatting',
+      'Peace of mind knowing your digital store is fully covered'
+    ],
+    iconName: 'Clock',
+    accentBadge: '15+ Hours Weekly Back'
+  }
+];
+
+export const END_TO_END_WORKFLOW: EndToEndWorkflowStep[] = [
+  {
+    stepNumber: '01',
+    stageTitle: 'Customer Inquires',
+    actor: 'Shopper on WhatsApp / Instagram',
+    action: 'Sends message asking about product or price',
+    description: 'A shopper spots your item on social media and messages: "Is this dress in stock and how much is delivery to Kabwata?"',
+    details: ['Triggered instantly on any incoming message', 'No waiting in queue'],
+    businessImpact: 'Zero friction first contact',
+    iconName: 'MessageCircle'
+  },
+  {
+    stepNumber: '02',
+    stageTitle: 'AI Support Worker Engages',
+    actor: 'AI Customer Support Worker',
+    action: 'Checks inventory, confirms details, asks for order',
+    description: 'Within 3 seconds, AI confirms stock in real-time, quotes accurate delivery cost to Kabwata (K30), and provides mobile money payment details.',
+    details: ['Under 3 seconds response', 'Accurate stock and delivery verification'],
+    businessImpact: 'Captures intent while interest is at its peak',
+    iconName: 'Zap'
+  },
+  {
+    stepNumber: '03',
+    stageTitle: 'Order Secured & Formatted',
+    actor: 'AI Worker + Payment System',
+    action: 'Collects customer address, phone & payment proof',
+    description: 'Shopper sends payment reference. AI logs the customer details, delivery location, and alerts the store dispatch team via WhatsApp notification.',
+    details: ['Automated delivery slip creation', 'Payment receipt verification'],
+    businessImpact: 'Zero manual order entry',
+    iconName: 'CheckCircle2'
+  },
+  {
+    stepNumber: '04',
+    stageTitle: 'Daily Marketing & Re-engagement',
+    actor: 'AI Marketing Worker',
+    action: 'Posts daily content and re-engages past buyers',
+    description: 'Meanwhile, the Marketing Worker publishes today’s product highlight and pings customers who inquired 3 days ago with a limited-time stock alert.',
+    details: ['Daily fresh creative', 'Automated follow-up sequences'],
+    businessImpact: 'Compound repeat sales and brand visibility',
+    iconName: 'TrendingUp'
+  }
 ];

@@ -1,35 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import React from 'react';
+import { Sparkles, ArrowRight } from 'lucide-react';
+import { PageId } from '../types';
 
 interface FloatingCtaProps {
-  onNavigateToContact: () => void;
-  currentPage: string;
+  onNavigate: (page: PageId) => void;
+  onOpenBookingModal: () => void;
 }
 
-export const FloatingCta: React.FC<FloatingCtaProps> = ({ onNavigateToContact, currentPage }) => {
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setVisible(window.scrollY > 400);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Don't show floating button on the contact page itself
-  if (!visible || currentPage === 'contact') return null;
-
+export const FloatingCta: React.FC<FloatingCtaProps> = ({ onNavigate, onOpenBookingModal }) => {
   return (
-    <div className="fixed bottom-6 right-6 z-40 hidden sm:flex items-center p-1.5 rounded-2xl bg-[#0A0705]/95 backdrop-blur-xl border border-[#9B2208]/50 shadow-2xl animate-fadeIn">
+    <div className="fixed bottom-5 right-5 z-40">
       <button
-        id="floating-cta-btn"
-        onClick={onNavigateToContact}
-        className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-black text-white bg-gradient-to-r from-[#9B2208] via-[#B83A0A] to-[#D95A1A] hover:opacity-95 shadow-md shadow-[#9B2208]/30 transition-all active:scale-95 font-syne cursor-pointer"
+        onClick={onOpenBookingModal}
+        className="group relative flex items-center gap-2.5 px-4 py-3 sm:px-5 sm:py-3.5 rounded-full bg-gradient-to-r from-[#E58330] to-[#FF9F4A] text-[#0A0604] font-bold text-xs sm:text-sm shadow-2xl shadow-[#E58330]/40 hover:scale-105 active:scale-95 transition-all"
       >
-        <Sparkles className="w-3.5 h-3.5 text-white" />
-        <span>Get Your AI Growth Team</span>
-        <ArrowRight className="w-3.5 h-3.5 text-white" />
+        <span className="relative flex h-2.5 w-2.5">
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-black"></span>
+        </span>
+        <span>Get Your AI Team • K2,000/mo</span>
+        <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
       </button>
     </div>
   );

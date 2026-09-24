@@ -165,15 +165,14 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
   return (
     <div className="pt-20 pb-16 bg-[#050302] min-h-screen text-[#FAFAF9]">
       
-      {/* 1. PRICING HERO & SINGLE PLAN CARD */}
+      {/* 1. ONBOARDING & SETUP: TWO TRACKS (ZERO SETUP FEES) */}
       <section className="relative py-10 sm:py-16 overflow-hidden">
         {/* Ambient glow */}
         <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[650px] h-[250px] sm:h-[400px] bg-gradient-to-b from-[#D95A1A]/15 via-[#9B2208]/10 to-transparent rounded-full blur-[120px] pointer-events-none -z-10" />
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          {/* Header */}
-          <div className="text-center space-y-2.5 sm:space-y-4 mb-8 sm:mb-12">
+          <div className="text-center max-w-2xl mx-auto space-y-2.5 sm:space-y-4 mb-8 sm:mb-12">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -181,7 +180,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
             >
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A0E08] border border-[#9B2208]/40 text-[10px] sm:text-xs font-bold tracking-widest uppercase text-[#D95A1A] font-syne">
                 <Sparkles className="w-3 h-3 text-[#D95A1A]" />
-                <span>One AI Team · One Simple Price</span>
+                <span>Zero Setup Fees · Onboarding Tracks</span>
               </span>
             </motion.div>
 
@@ -191,7 +190,7 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
               transition={{ duration: 0.5 }}
               className="text-2xl sm:text-4xl lg:text-5xl font-black font-syne text-white tracking-tight"
             >
-              Your AI Team for Retail. <span className="text-gradient-fire">K2,000/month.</span>
+              Two Implementation Tracks. <span className="text-gradient-fire">Zero Setup Fees.</span>
             </motion.h1>
 
             <motion.p 
@@ -200,8 +199,142 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-xs sm:text-sm md:text-base text-[#FAFAF9]/80 font-normal max-w-2xl mx-auto leading-relaxed"
             >
-              Instead of assembling separate people, tools and workflows for customer support and marketing... deploy one AI team for K2,000/month.
+              We connect Mupezeni to your business with zero setup fees, whether you operate from a physical shop or already sell online.
             </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
+            
+            {/* Track 1 Card */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#110A07] border border-[#9B2208]/40 hover:border-[#9B2208] transition-all space-y-3 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#9B2208] to-[#D95A1A] flex items-center justify-center text-white">
+                      <Store className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-[#D95A1A] font-syne block">Track 1</span>
+                      <h3 className="text-sm sm:text-base font-bold font-syne text-white">Starting From a Physical Store</h3>
+                    </div>
+                  </div>
+                  <span className="text-xs text-emerald-400 font-bold font-syne">Zero Setup Fee</span>
+                </div>
+
+                <p className="text-xs text-[#FAFAF9]/70 leading-relaxed font-syne">
+                  For walk-in boutiques, showrooms, or physical counters. We help establish the digital foundation required for your AI team: structuring your catalog, preparing messaging channels, and calibrating your AI workers.
+                </p>
+
+                <div className="space-y-1.5 pt-2 border-t border-white/5 text-xs text-[#FAFAF9]/85 font-syne">
+                  <div className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />
+                    <span>Product catalog & pricing structuring</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />
+                    <span>WhatsApp & digital inquiry setup where supported</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />
+                    <span>AI knowledge base & FAQ calibration</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                <span className="text-xs text-[#FAFAF9]/60 font-syne">Digital Foundation Setup</span>
+                <button
+                  onClick={() => onNavigate('solutions')}
+                  className="text-xs font-bold font-syne text-[#D95A1A] hover:text-white inline-flex items-center gap-1 cursor-pointer"
+                >
+                  <span>Explore Track 1</span>
+                  <ArrowRight className="w-3 h-3" />
+                </button>
+              </div>
+            </div>
+
+            {/* Track 2 Card */}
+            <div className="p-5 sm:p-6 rounded-2xl bg-[#110A07] border border-[#9B2208]/40 hover:border-[#9B2208] transition-all space-y-3 flex flex-col justify-between">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-lg bg-[#24110A] border border-[#9B2208]/50 flex items-center justify-center text-[#D95A1A]">
+                      <RefreshCw className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="text-[9px] font-bold uppercase tracking-wider text-[#D95A1A] font-syne block">Track 2</span>
+                      <h3 className="text-sm sm:text-base font-bold font-syne text-white">Already Selling Online</h3>
+                    </div>
+                  </div>
+                  <span className="text-xs text-emerald-400 font-bold font-syne">Zero Setup Fee</span>
+                </div>
+
+                <p className="text-xs text-[#FAFAF9]/70 leading-relaxed font-syne">
+                  For stores already on Shopify, WooCommerce, or website platforms. We connect Mupezeni directly to your existing digital stack where supported with zero interruption to active sales.
+                </p>
+
+                <div className="space-y-1.5 pt-2 border-t border-white/5 text-xs text-[#FAFAF9]/85 font-syne">
+                  <div className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />
+                    <span>Existing catalog & platform connector setup</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />
+                    <span>Live social DM & customer messaging sync</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />
+                    <span>Brand voice, tone, and FAQ calibration</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-white/10 flex items-center justify-between">
+                <span className="text-xs text-[#FAFAF9]/60 font-syne">Direct Stack Integration</span>
+                <button
+                  onClick={() => onNavigate('solutions')}
+                  className="text-xs font-bold font-syne text-[#D95A1A] hover:text-white inline-flex items-center gap-1 cursor-pointer"
+                >
+                  <span>Explore Track 2</span>
+                  <ArrowRight className="w-3 h-3" />
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+          <div className="text-center p-3.5 rounded-xl bg-emerald-950/40 border border-emerald-500/20 max-w-2xl mx-auto">
+            <p className="text-xs text-emerald-300 font-syne font-semibold flex items-center justify-center gap-1.5">
+              <span>🛡️ Zero setup fees, month-to-month flexibility. Try your Mupezeni AI Team for 30 days backed by our money-back guarantee.</span>
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 2. PRICING HERO & SINGLE PLAN CARD */}
+      <section className="py-12 sm:py-18 border-t border-white/5 bg-[#090604] relative overflow-hidden">
+        {/* Ambient glow */}
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[650px] h-[250px] sm:h-[400px] bg-gradient-to-b from-[#D95A1A]/10 via-[#9B2208]/10 to-transparent rounded-full blur-[120px] pointer-events-none -z-10" />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Header */}
+          <div className="text-center space-y-2.5 sm:space-y-4 mb-8 sm:mb-12">
+            <div>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A0E08] border border-[#9B2208]/40 text-[10px] sm:text-xs font-bold tracking-widest uppercase text-[#D95A1A] font-syne">
+                <Sparkles className="w-3 h-3 text-[#D95A1A]" />
+                <span>One AI Team · One Simple Price</span>
+              </span>
+            </div>
+
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black font-syne text-white tracking-tight">
+              Your AI Team for Retail. <span className="text-gradient-fire">K2,000/month.</span>
+            </h2>
+
+            <p className="text-xs sm:text-sm md:text-base text-[#FAFAF9]/80 font-normal max-w-2xl mx-auto leading-relaxed">
+              Instead of assembling separate people, tools and workflows for customer support and marketing... deploy one AI team for K2,000/month.
+            </p>
           </div>
 
           {/* ONE CLEAR PRICING CARD */}
@@ -309,134 +442,6 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
           >
             <EconomicComparisonTable />
           </motion.div>
-
-        </div>
-      </section>
-
-      {/* 2. ONBOARDING & SETUP: TWO TRACKS (ZERO SETUP FEES) */}
-      <section className="py-10 sm:py-14 border-t border-white/5 bg-[#090604] relative">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="text-center max-w-2xl mx-auto space-y-2 mb-6 sm:mb-8">
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#1A0E08] border border-[#9B2208]/40">
-              <Sparkles className="w-3 h-3 text-[#D95A1A]" />
-              <span className="text-[10px] sm:text-xs font-bold font-syne uppercase tracking-wider text-[#F5EDE4]">
-                Digital Foundation
-              </span>
-            </div>
-            <h2 className="text-xl sm:text-3xl font-black font-syne text-white tracking-tight">
-              Zero Setup Fees · Onboarding Tracks
-            </h2>
-            <p className="text-xs sm:text-sm text-[#FAFAF9]/75 leading-relaxed">
-              We connect Mupezeni to your business with zero setup fees, whether you operate from a physical shop or already sell online.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4">
-            
-            {/* Track 1 Card */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-[#110A07] border border-[#9B2208]/40 hover:border-[#9B2208] transition-all space-y-3 flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#9B2208] to-[#D95A1A] flex items-center justify-center text-white">
-                      <Store className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-[#D95A1A] font-syne block">Track 1</span>
-                      <h3 className="text-sm sm:text-base font-bold font-syne text-white">Starting From a Physical Store</h3>
-                    </div>
-                  </div>
-                  <span className="text-xs text-emerald-400 font-bold font-syne">Zero Setup Fee</span>
-                </div>
-
-                <p className="text-xs text-[#FAFAF9]/70 leading-relaxed font-syne">
-                  For walk-in boutiques, showrooms, or physical counters. We help establish the digital foundation required for your AI team: structuring your catalog, preparing messaging channels, and calibrating your AI workers.
-                </p>
-
-                <div className="space-y-1.5 pt-2 border-t border-white/5 text-xs text-[#FAFAF9]/85 font-syne">
-                  <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />
-                    <span>Product catalog & pricing structuring</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />
-                    <span>WhatsApp & digital inquiry setup where supported</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />
-                    <span>AI knowledge base & FAQ calibration</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-3 border-t border-white/10 flex items-center justify-between">
-                <span className="text-xs text-[#FAFAF9]/60 font-syne">Digital Foundation Setup</span>
-                <button
-                  onClick={() => onNavigate('solutions')}
-                  className="text-xs font-bold font-syne text-[#D95A1A] hover:text-white inline-flex items-center gap-1 cursor-pointer"
-                >
-                  <span>Explore Track 1</span>
-                  <ArrowRight className="w-3 h-3" />
-                </button>
-              </div>
-            </div>
-
-            {/* Track 2 Card */}
-            <div className="p-5 sm:p-6 rounded-2xl bg-[#110A07] border border-[#9B2208]/40 hover:border-[#9B2208] transition-all space-y-3 flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-[#24110A] border border-[#9B2208]/50 flex items-center justify-center text-[#D95A1A]">
-                      <RefreshCw className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <span className="text-[9px] font-bold uppercase tracking-wider text-[#D95A1A] font-syne block">Track 2</span>
-                      <h3 className="text-sm sm:text-base font-bold font-syne text-white">Already Selling Online</h3>
-                    </div>
-                  </div>
-                  <span className="text-xs text-emerald-400 font-bold font-syne">Zero Setup Fee</span>
-                </div>
-
-                <p className="text-xs text-[#FAFAF9]/70 leading-relaxed font-syne">
-                  For stores already on Shopify, WooCommerce, or website platforms. We connect Mupezeni directly to your existing digital stack where supported with zero interruption to active sales.
-                </p>
-
-                <div className="space-y-1.5 pt-2 border-t border-white/5 text-xs text-[#FAFAF9]/85 font-syne">
-                  <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />
-                    <span>Existing catalog & platform connector setup</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />
-                    <span>Live social DM & customer messaging sync</span>
-                  </div>
-                  <div className="flex items-center gap-1.5">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A] flex-shrink-0" />
-                    <span>Brand voice, tone, and FAQ calibration</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="pt-3 border-t border-white/10 flex items-center justify-between">
-                <span className="text-xs text-[#FAFAF9]/60 font-syne">Direct Stack Integration</span>
-                <button
-                  onClick={() => onNavigate('solutions')}
-                  className="text-xs font-bold font-syne text-[#D95A1A] hover:text-white inline-flex items-center gap-1 cursor-pointer"
-                >
-                  <span>Explore Track 2</span>
-                  <ArrowRight className="w-3 h-3" />
-                </button>
-              </div>
-            </div>
-
-          </div>
-
-          <div className="text-center p-3 rounded-xl bg-emerald-950/40 border border-emerald-500/20 max-w-2xl mx-auto mt-3">
-            <p className="text-xs text-emerald-300 font-syne font-semibold flex items-center justify-center gap-1.5">
-              <span>🛡️ Zero setup fees, month-to-month flexibility. Try your Mupezeni AI Team for 30 days backed by our money-back guarantee.</span>
-            </p>
-          </div>
 
         </div>
       </section>

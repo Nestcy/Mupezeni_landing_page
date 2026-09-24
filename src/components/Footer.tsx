@@ -64,11 +64,11 @@ export const Footer: React.FC<FooterProps> = ({
             />
 
             <p className="text-base font-semibold text-[#F5EDE4] mt-3 font-syne">
-              "Grow your retail business while you sleep."
+              "Your business shouldn’t stop when you do."
             </p>
 
-            <p className="text-xs sm:text-sm text-[#FAFAF9]/70 max-w-sm leading-relaxed">
-              <span className="font-roboto font-semibold text-white">Mupezeni</span> is an AI Business Growth Company. We deploy dedicated AI Teams for retailers—operating your digital channels around the clock while you focus on inventory, sourcing, and dispatch.
+            <p className="text-xs sm:text-sm text-[#FAFAF9]/75 max-w-md leading-relaxed">
+              Whether you sell from your shop, WhatsApp, social media, or an online store, <span className="font-roboto font-semibold text-white">Mupezeni</span> helps you handle customer support and marketing with AI, so your business can keep serving customers while you focus on sourcing great products, running your operations, and growing.
             </p>
 
             {/* Location & Contact Details */}

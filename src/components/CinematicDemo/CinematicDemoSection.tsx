@@ -1,54 +1,43 @@
 import React from 'react';
-import { Film } from 'lucide-react';
-import { SimulatedVideoDemo } from './SimulatedVideoDemo';
+import { Play, Sparkles, Bot, CheckCircle2 } from 'lucide-react';
 
 interface CinematicDemoSectionProps {
-  onNavigateToContact: () => void;
+  onOpenDemo: () => void;
 }
 
-export const CinematicDemoSection: React.FC<CinematicDemoSectionProps> = ({
-  onNavigateToContact
-}) => {
+export const CinematicDemoSection: React.FC<CinematicDemoSectionProps> = ({ onOpenDemo }) => {
   return (
-    <section id="cinematic-demo-section" className="relative py-12 sm:py-20 bg-[#070402] overflow-hidden">
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-b from-[#9B2208]/15 via-[#D95A1A]/10 to-transparent rounded-full blur-[160px] pointer-events-none -z-10" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-20 bg-[#070402] relative overflow-hidden border-t border-[#1C1008]">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-3 sm:space-y-4 mb-6 sm:mb-10">
-          
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#180E08] border border-[#9B2208]/40 shadow-sm">
-            <Film className="w-3.5 h-3.5 text-[#D95A1A] animate-pulse" />
-            <span className="text-[11px] sm:text-xs font-bold text-[#F5EDE4] font-syne uppercase tracking-wider">
-              Product Walkthrough & Demonstration
-            </span>
+        <div className="relative rounded-3xl overflow-hidden border border-[#2B180D] bg-gradient-to-r from-[#140C07] via-[#1E110A] to-[#140C07] p-8 sm:p-12 text-center space-y-6 shadow-2xl">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#E58330]/10 border border-[#E58330]/20 text-[#E58330] text-xs font-mono">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>Interactive Visual Walkthrough</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-black font-syne text-[#FAFAF9] tracking-tight">
-            See your AI Growth Team{' '}
-            <span className="text-gradient-fire block sm:inline">
-              in live action.
-            </span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-white max-w-2xl mx-auto">
+            Experience Your Future AI Retail Team in Action
           </h2>
 
-          <p className="text-xs sm:text-base text-[#FAFAF9]/80 leading-relaxed font-syne">
-            From the moment you click "Activate" in the merchant portal to autonomous midnight chats, instant Airtel/MTN MoMo payments, and one-click dispatch manifests.
+          <p className="text-sm text-[#A8A099] max-w-xl mx-auto leading-relaxed">
+            Watch how a customer inquiry on WhatsApp flows seamlessly into inventory reservation, mobile money payment, and next-day social marketing.
           </p>
 
-        </div>
-
-        {/* Embedded Player: Exclusively MP4 Video Demo */}
-        <div className="relative max-w-5xl mx-auto">
-          <SimulatedVideoDemo
-            onNavigateToContact={onNavigateToContact}
-          />
+          <div className="pt-2">
+            <button
+              onClick={onOpenDemo}
+              className="inline-flex items-center gap-3 px-6 py-3.5 rounded-xl bg-gradient-to-r from-[#E58330] to-[#FF9F4A] text-[#0A0604] font-extrabold text-sm shadow-xl shadow-[#E58330]/25 hover:scale-105 active:scale-95 transition-all"
+            >
+              <div className="w-6 h-6 rounded-full bg-black/20 flex items-center justify-center">
+                <Play className="w-3.5 h-3.5 fill-current" />
+              </div>
+              <span>Watch Interactive Demo</span>
+            </button>
+          </div>
         </div>
 
       </div>
-
     </section>
   );
 };
-

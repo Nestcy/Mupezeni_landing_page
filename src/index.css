@@ -1,143 +1,51 @@
 @import "tailwindcss";
 
-@theme {
-  --font-syne: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-  --font-display: 'Syne', sans-serif;
-  --font-roboto: 'Roboto', sans-serif;
-
-  --color-terracotta: #9B2208;
-  --color-terracotta-light: #C76B4F;
-  --color-burnt-amber: #B83A0A;
-  --color-hot-amber: #D95A1A;
-  --color-near-black: #0A0705;
-  --color-rich-dark: #130C08;
-  --color-deep-brown: #2C1008;
-  --color-warm-cream: #F5EDE4;
-  --color-off-white: #FAFAF9;
-}
-
-:root {
-  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color-scheme: dark;
-}
-
-h1, h2, h3, h4, .font-syne {
-  font-family: 'Syne', sans-serif;
-}
-
-.font-roboto {
-  font-family: 'Roboto', sans-serif;
-}
-
-/* Custom background patterns */
-.bg-grid-pattern {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(199, 107, 79, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(199, 107, 79, 0.05) 1px, transparent 1px);
-}
-
-.bg-dots-pattern {
-  background-image: radial-gradient(rgba(199, 107, 79, 0.12) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-
-/* Glassmorphism */
-.glass-panel {
-  background: rgba(19, 12, 8, 0.75);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(199, 107, 79, 0.15);
-}
-
-.glass-panel-subtle {
-  background: rgba(19, 12, 8, 0.5);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-}
-
-.glass-panel-hover:hover {
-  border-color: rgba(199, 107, 79, 0.35);
-  box-shadow: 0 0 25px -5px rgba(155, 34, 8, 0.25);
-}
-
-/* Terracotta Glows */
-.glow-terracotta {
-  box-shadow: 0 0 50px -10px rgba(155, 34, 8, 0.35);
-}
-
-.glow-terracotta-sm {
-  box-shadow: 0 0 20px -3px rgba(217, 90, 26, 0.3);
-}
-
-.text-gradient-terracotta {
-  background: linear-gradient(135deg, #FAFAF9 0%, #F5EDE4 30%, #D95A1A 70%, #C76B4F 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.text-gradient-fire {
-  background: linear-gradient(135deg, #FAFAF9 10%, #D95A1A 60%, #9B2208 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* Custom scrollbars */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #0A0705;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #2C1008;
-  border-radius: 4px;
-  border: 1px solid rgba(199, 107, 79, 0.2);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #9B2208;
-}
-
-/* Continuous Marquee Animation */
-@keyframes marquee-scroll {
-  0% {
-    transform: translateX(0%);
+@layer base {
+  :root {
+    --brand-primary: #E58330;
+    --brand-secondary: #0A0604;
+    --brand-dark: #030202;
+    --brand-light: #F7F5F0;
   }
-  100% {
-    transform: translateX(-33.333333%);
+
+  body {
+    background-color: #030202;
+    color: #F7F5F0;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbars */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #080605;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #2D1E15;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #E58330;
   }
 }
 
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee-scroll 32s linear infinite;
-  will-change: transform;
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
 }
 
-.animate-marquee:hover {
-  animation-play-state: paused;
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.22s ease-out forwards;
+.animate-float {
+  animation: float 5s ease-in-out infinite;
 }
-
-

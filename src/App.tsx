@@ -1,13 +1,12 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { PageId } from './types';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
-import { PolicyModal } from './components/PolicyModal';
 import { FloatingCta } from './components/FloatingCta';
+import { PolicyModal } from './components/PolicyModal';
+import { CinematicDemoModal } from './components/CinematicDemo/CinematicDemoModal';
+
+// Pages
 import { HomePage } from './pages/HomePage';
 import { SolutionsPage } from './pages/SolutionsPage';
 import { PricingPage } from './pages/PricingPage';
@@ -16,115 +15,139 @@ import { IndustriesPage } from './pages/IndustriesPage';
 import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { AdminPage } from './pages/AdminPage';
-import { PageId } from './types';
 
-export default function App() {
+export const App: React.FC = () => {
   const [currentPage, setCurrentPage] = useState<PageId>('home');
-  const [policyType, setPolicyType] = useState<'privacy' | 'terms' | null>(null);
+  const [policyModal, setPolicyModal] = useState<{ isOpen: boolean; type: 'terms' | 'privacy' | 'guarantee' }>({
+    isOpen: false,
+    type: 'guarantee'
+  });
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
 
-  const navigateTo = (page: PageId) => {
+  const handleNavigate = (page: PageId) => {
     setCurrentPage(page);
-    window.location.hash = page === 'home' ? '' : page;
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Sync URL hash with page
-  useEffect(() => {
-    const handleHashChange = () => {
-      const rawHash = window.location.hash.replace('#', '');
-      if (rawHash === 'admin' || rawHash === 'leads' || rawHash === 'portal') {
-        setCurrentPage('admin');
-        return;
-      }
-      if (['home', 'solutions', 'pricing', 'how-it-works', 'industries', 'about', 'contact', 'admin'].includes(rawHash)) {
-        setCurrentPage(rawHash as PageId);
-      }
-    };
+  const handleOpenBookingModal = () => {
+    handleNavigate('pricing');
+    setTimeout(() => {
+      document.getElementById('booking-form')?.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  };
 
-    if (window.location.hash) {
-      handleHashChange();
+  const renderPage = () => {
+    switch (currentPage) {
+      case 'home':
+        return (
+          <HomePage
+            onNavigate={handleNavigate}
+            onOpenBookingModal={handleOpenBookingModal}
+            onOpenCinematicDemo={() => setIsDemoModalOpen(true)}
+            onOpenPolicy={(type) => setPolicyModal({ isOpen: true, type })}
+          />
+        );
+      case 'solutions':
+        return (
+          <SolutionsPage
+            onNavigate={handleNavigate}
+            onOpenBookingModal={handleOpenBookingModal}
+          />
+        );
+      case 'pricing':
+        return (
+          <PricingPage
+            onNavigate={handleNavigate}
+          />
+        );
+      case 'how-it-works':
+        return (
+          <HowItWorksPage
+            onNavigate={handleNavigate}
+            onOpenBookingModal={handleOpenBookingModal}
+          />
+        );
+      case 'industries':
+        return (
+          <IndustriesPage
+            onNavigate={handleNavigate}
+            onOpenBookingModal={handleOpenBookingModal}
+          />
+        );
+      case 'about':
+        return (
+          <AboutPage
+            onNavigate={handleNavigate}
+            onOpenBookingModal={handleOpenBookingModal}
+          />
+        );
+      case 'contact':
+        return (
+          <ContactPage
+            onNavigate={handleNavigate}
+          />
+        );
+      case 'admin':
+        return (
+          <AdminPage
+            onNavigate={handleNavigate}
+          />
+        );
+      default:
+        return (
+          <HomePage
+            onNavigate={handleNavigate}
+            onOpenBookingModal={handleOpenBookingModal}
+            onOpenCinematicDemo={() => setIsDemoModalOpen(true)}
+            onOpenPolicy={(type) => setPolicyModal({ isOpen: true, type })}
+          />
+        );
     }
-
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
-  // Global Keyboard Command Listener: Ctrl + Shift + A (or Cmd + Shift + A on Mac)
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      // Check for Ctrl+Shift+A or Cmd+Shift+A
-      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
-        e.preventDefault();
-        navigateTo('admin');
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  const isAdminView = currentPage === 'admin';
+  };
 
   return (
-    <div className="min-h-screen bg-[#0A0705] text-[#FAFAF9] font-body selection:bg-[#9B2208] selection:text-white relative flex flex-col justify-between">
-      {/* Top Sticky Navigation (Rendered on public pages) */}
-      {!isAdminView && (
-        <Navbar
-          currentPage={currentPage}
-          onNavigate={navigateTo}
-        />
-      )}
+    <div className="min-h-screen bg-[#030202] text-[#F7F5F0] flex flex-col justify-between">
+      {/* Fixed Navbar */}
+      <Navbar
+        currentPage={currentPage}
+        onNavigate={handleNavigate}
+        onOpenBookingModal={handleOpenBookingModal}
+      />
 
-      {/* Main Multi-Page Content */}
-      <main className="flex-grow">
-        {currentPage === 'home' && (
-          <HomePage onNavigate={navigateTo} />
-        )}
-        {currentPage === 'solutions' && (
-          <SolutionsPage onNavigate={navigateTo} />
-        )}
-        {currentPage === 'pricing' && (
-          <PricingPage onNavigate={navigateTo} />
-        )}
-        {currentPage === 'how-it-works' && (
-          <HowItWorksPage onNavigate={navigateTo} />
-        )}
-        {currentPage === 'industries' && (
-          <IndustriesPage onNavigate={navigateTo} />
-        )}
-        {currentPage === 'about' && (
-          <AboutPage onNavigate={navigateTo} />
-        )}
-        {currentPage === 'contact' && (
-          <ContactPage onNavigate={navigateTo} />
-        )}
-        {currentPage === 'admin' && (
-          <AdminPage onNavigate={navigateTo} />
-        )}
+      {/* Main Content */}
+      <main className="flex-1">
+        {renderPage()}
       </main>
 
-      {/* Footer (Rendered on public pages) */}
-      {!isAdminView && (
-        <Footer
-          onNavigate={navigateTo}
-          onOpenPrivacy={() => setPolicyType('privacy')}
-          onOpenTerms={() => setPolicyType('terms')}
-        />
-      )}
+      {/* Global Footer */}
+      <Footer
+        onNavigate={handleNavigate}
+        onOpenPolicy={(type) => setPolicyModal({ isOpen: true, type })}
+      />
 
-      {/* Persistent Floating Consultation CTA (Rendered on public pages) */}
-      {!isAdminView && (
+      {/* Floating Call to Action */}
+      {currentPage !== 'pricing' && currentPage !== 'admin' && (
         <FloatingCta
-          currentPage={currentPage}
-          onNavigateToContact={() => navigateTo('contact')}
+          onNavigate={handleNavigate}
+          onOpenBookingModal={handleOpenBookingModal}
         />
       )}
 
-      {/* Privacy Policy & Terms Modal */}
+      {/* Policy and Guarantee Modal */}
       <PolicyModal
-        type={policyType}
-        onClose={() => setPolicyType(null)}
+        isOpen={policyModal.isOpen}
+        type={policyModal.type}
+        onClose={() => setPolicyModal({ ...policyModal, isOpen: false })}
+      />
+
+      {/* Interactive Cinematic Demo Modal */}
+      <CinematicDemoModal
+        isOpen={isDemoModalOpen}
+        onClose={() => setIsDemoModalOpen(false)}
+        onBookStrategy={handleOpenBookingModal}
       />
     </div>
   );
-}
+};
+
+export default App;

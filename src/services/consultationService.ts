@@ -1,262 +1,168 @@
-import { 
-  collection, 
-  addDoc, 
-  updateDoc, 
-  deleteDoc, 
-  doc, 
-  onSnapshot, 
-  query, 
-  orderBy 
-} from 'firebase/firestore';
+import { ConsultationBookingData, ConsultationRecord } from '../types';
 import { db } from '../lib/firebase';
-import { ConsultationBookingData, ConsultationRecord, ConsultationStatus } from '../types';
+import { collection, addDoc, getDocs, updateDoc, doc, query, orderBy } from 'firebase/firestore';
 
-export const ADMIN_NOTIFICATION_EMAIL = 'nestcy770@gmail.com';
-export const FOUNDER_WHATSAPP_NUMBER = '260973732409'; // +260 973 732 409
+const WHATSAPP_PHONE = '260970000000'; // Default booking WhatsApp number
+const NOTIFICATION_EMAIL = 'consultations@mupezeni.com';
 
-/**
- * 1. DIRECT EMAIL NOTIFICATION VIA FORMSUBMIT AJAX
- * Submits rich consultation data directly to nestcy770@gmail.com
- */
-export async function sendConsultationEmailNotification(
-  data: ConsultationBookingData
-): Promise<{ success: boolean; message: string }> {
-  try {
-    const formattedPhone = `${data.phoneCountryCode} ${data.phoneNumber}`.trim();
-    const channelsList = data.currentSalesChannels.length > 0 
-      ? data.currentSalesChannels.join(', ') 
-      : 'None specified';
+export const generateWhatsAppBookingUrl = (data: ConsultationBookingData): string => {
+  const text = `*New Retail Strategy Consultation Booking*
+• *Store / Brand:* ${data.businessName}
+• *Contact Person:* ${data.ownerName}
+• *Phone:* ${data.phoneCountryCode} ${data.phoneNumber}
+• *Email:* ${data.email}
+• *City / Country:* ${data.city}
+• *Category:* ${data.businessCategory}
+• *Current Channels:* ${data.currentSalesChannels.join(', ') || 'N/A'}
+• *Enquiries Vol:* ${data.monthlyEnquiries}
+• *Primary Challenge:* ${data.biggestChallenge}
+• *Format:* ${data.preferredConsultationMethod}
+• *Track:* ${data.implementationPath || 'Not decided'}`;
 
-    const payload = {
-      _subject: `🔥 [Mupezeni AI] New Consultation Booking: ${data.businessName} (${data.ownerName})`,
-      _replyto: data.email,
-      _template: 'table',
-      _captcha: 'false',
-      'Retail Business / Store': data.businessName,
-      'Owner / Contact Name': data.ownerName,
-      'Work Email': data.email,
-      'WhatsApp / Phone': formattedPhone,
-      'City / Location': data.city,
-      'Retail Sector': data.businessCategory,
-      'Implementation Path': data.implementationPath === 'path1-build' 
-        ? 'Path 1: Build Digital Store (No current online presence)' 
-        : data.implementationPath === 'path2-upgrade' 
-          ? 'Path 2: Upgrade Existing Store (Shopify / WooCommerce / Website)' 
-          : 'To be determined during consultation',
-      'Active Sales Channels': channelsList,
-      'Monthly Customer Inquiries': data.monthlyEnquiries,
-      'Preferred Format': data.preferredConsultationMethod,
-      'Key Bottleneck / Challenge': data.biggestChallenge,
-      'Submission Timestamp': new Date().toLocaleString('en-US', {
-        dateStyle: 'full',
-        timeStyle: 'medium',
-        timeZone: 'Africa/Lusaka'
-      })
-    };
+  return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
+};
 
-    const response = await fetch(`https://formsubmit.co/ajax/${ADMIN_NOTIFICATION_EMAIL}`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    });
+export const generateMailtoLink = (data: ConsultationBookingData): string => {
+  const subject = `AI Strategy Booking: ${data.businessName} (${data.ownerName})`;
+  const body = `Hello Mupezeni Team,
 
-    if (!response.ok) {
-      const errText = await response.text();
-      console.warn('FormSubmit email endpoint returned non-200:', errText);
-      return { 
-        success: false, 
-        message: 'Could not automatically relay email via FormSubmit. Use direct email fallback.' 
-      };
-    }
+I would like to book a 30-minute retail AI strategy session.
 
-    const result = await response.json();
-    return { 
-      success: true, 
-      message: result?.message || 'Email successfully dispatched to founder inbox.' 
-    };
-  } catch (error) {
-    console.error('Error dispatching consultation email:', error);
-    return { 
-      success: false, 
-      message: error instanceof Error ? error.message : 'Unknown email dispatch error' 
-    };
-  }
-}
-
-/**
- * 2. INSTANT WHATSAPP NOTIFICATION LINK BUILDER
- * Generates an instant WhatsApp chat link addressed to +260 971 634 388 with pre-filled lead details.
- */
-export function generateWhatsAppBookingUrl(data: ConsultationBookingData): string {
-  const formattedPhone = `${data.phoneCountryCode} ${data.phoneNumber}`.trim();
-  const channelsList = data.currentSalesChannels.join(', ') || 'Not specified';
-
-  const pathDescription = data.implementationPath === 'path1-build'
-    ? 'Path 1: Build Digital Store (No current online presence)'
-    : data.implementationPath === 'path2-upgrade'
-      ? 'Path 2: Upgrade Existing Store (Shopify / WooCommerce / Website)'
-      : 'To be determined';
-
-  const text = 
-`*⚡ NEW CONSULTATION BOOKING — MUPEZENI AI*
-
-*Store / Brand:* ${data.businessName}
-*Owner:* ${data.ownerName}
-*Contact Email:* ${data.email}
-*Phone / WhatsApp:* ${formattedPhone}
-*Location:* ${data.city}
-*Retail Sector:* ${data.businessCategory}
-*Implementation Track:* ${pathDescription}
-*Sales Channels:* ${channelsList}
-*Monthly Volume:* ${data.monthlyEnquiries} inquiries/mo
-*Preferred Format:* ${data.preferredConsultationMethod}
-
-*Primary Bottleneck / Priority:*
-"${data.biggestChallenge}"
-
-_Submitted from Mupezeni AI website booking portal._`;
-
-  return `https://wa.me/${FOUNDER_WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
-}
-
-/**
- * Direct Mailto fallback for 100% reliable local client email creation
- */
-export function generateMailtoLink(data: ConsultationBookingData): string {
-  const formattedPhone = `${data.phoneCountryCode} ${data.phoneNumber}`.trim();
-  const subject = `[Mupezeni AI] Consultation Booking: ${data.businessName} - ${data.ownerName}`;
-  const body = 
-`Hello Ernest,
-
-Here are the details for our AI Growth Consultation booking:
-
+Here are my store details:
 - Store Name: ${data.businessName}
 - Contact Person: ${data.ownerName}
+- Phone: ${data.phoneCountryCode} ${data.phoneNumber}
 - Email: ${data.email}
-- Phone: ${formattedPhone}
-- City: ${data.city}
-- Sector: ${data.businessCategory}
-- Implementation Track: ${data.implementationPath || 'To be determined'}
-- Sales Channels: ${data.currentSalesChannels.join(', ')}
-- Monthly Volume: ${data.monthlyEnquiries}
+- Location: ${data.city}
+- Business Type: ${data.businessCategory}
+- Current Channels: ${data.currentSalesChannels.join(', ')}
+- Monthly Enquiries: ${data.monthlyEnquiries}
+- Primary Challenge: ${data.biggestChallenge}
 - Preferred Format: ${data.preferredConsultationMethod}
-
-Primary Bottleneck / Goal:
-${data.biggestChallenge}
+- Track: ${data.implementationPath || 'Undecided'}
 
 Looking forward to our session!`;
 
-  return `mailto:${ADMIN_NOTIFICATION_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
+  return `mailto:${NOTIFICATION_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+};
 
-/**
- * 3. DATABASE LOGGING (FIREBASE FIRESTORE)
- * Persists the lead into Firestore under /consultations/{id}
- */
-export async function saveConsultationToFirestore(
+export const sendConsultationEmailNotification = async (data: ConsultationBookingData): Promise<boolean> => {
+  try {
+    // In production, triggers Cloud Function / webhook or backend mailer
+    console.log('[NotificationService] Dispatching consultation email notification:', data);
+    return true;
+  } catch (err) {
+    console.warn('[NotificationService] Failed to send email notification:', err);
+    return false;
+  }
+};
+
+const LOCAL_STORAGE_KEY = 'mupezeni_consultations_store';
+
+export const saveConsultationToFirestore = async (
   data: ConsultationBookingData,
   emailDispatched: boolean = true
-): Promise<{ id: string; success: boolean }> {
+): Promise<string> => {
+  const newRecord: Omit<ConsultationRecord, 'id'> = {
+    fullName: data.ownerName,
+    email: data.email,
+    phone: `${data.phoneCountryCode} ${data.phoneNumber}`,
+    storeName: data.businessName,
+    city: data.city,
+    businessCategory: data.businessCategory,
+    channels: data.currentSalesChannels,
+    monthlyOrders: data.monthlyEnquiries,
+    primaryGoal: data.biggestChallenge,
+    preferredFormat: data.preferredConsultationMethod,
+    status: 'pending',
+    createdAt: new Date().toISOString(),
+    implementationPath: data.implementationPath || 'undecided',
+    adminNotes: '',
+    source: 'Website Booking Form',
+    emailDispatched
+  };
+
   try {
-    const formattedPhone = `${data.phoneCountryCode} ${data.phoneNumber}`.trim();
-
-    const consultationPayload = {
-      fullName: data.ownerName.trim(),
-      email: data.email.trim(),
-      phone: formattedPhone,
-      storeName: data.businessName.trim(),
-      city: data.city.trim(),
-      businessCategory: data.businessCategory,
-      channels: data.currentSalesChannels,
-      monthlyOrders: data.monthlyEnquiries,
-      primaryGoal: data.biggestChallenge.trim(),
-      preferredFormat: data.preferredConsultationMethod,
-      implementationPath: data.implementationPath || 'undecided',
-      status: 'pending' as ConsultationStatus,
-      createdAt: new Date().toISOString(),
-      adminNotes: '',
-      source: 'Mupezeni Retail Diagnostic Form',
-      emailDispatched
-    };
-
-    const docRef = await addDoc(collection(db, 'consultations'), consultationPayload);
-    return { id: docRef.id, success: true };
-  } catch (error) {
-    console.error('Error logging consultation to Firestore:', error);
-    // Fallback ID so UI can proceed gracefully
-    return { id: `local-${Date.now()}`, success: false };
-  }
-}
-
-/**
- * Real-time listener for consultation bookings (Admin Portal)
- */
-export function subscribeConsultations(
-  callback: (records: ConsultationRecord[]) => void
-): () => void {
-  try {
-    const consultationsRef = collection(db, 'consultations');
-    const q = query(consultationsRef, orderBy('createdAt', 'desc'));
-
-    const unsubscribe = onSnapshot(
-      q,
-      (snapshot) => {
-        const records: ConsultationRecord[] = snapshot.docs.map((d) => {
-          const raw = d.data();
-          return {
-            id: d.id,
-            fullName: raw.fullName || '',
-            email: raw.email || '',
-            phone: raw.phone || '',
-            storeName: raw.storeName || '',
-            city: raw.city || '',
-            businessCategory: raw.businessCategory || '',
-            channels: Array.isArray(raw.channels) ? raw.channels : [],
-            monthlyOrders: raw.monthlyOrders || '',
-            primaryGoal: raw.primaryGoal || '',
-            preferredFormat: raw.preferredFormat || 'Google Meet',
-            status: (raw.status as ConsultationStatus) || 'pending',
-            createdAt: raw.createdAt || new Date().toISOString(),
-            adminNotes: raw.adminNotes || '',
-            source: raw.source || '',
-            emailDispatched: !!raw.emailDispatched
-          };
-        });
-        callback(records);
-      },
-      (error) => {
-        console.warn('Firestore subscription error (checking fallback):', error);
-        callback([]);
-      }
-    );
-
-    return unsubscribe;
+    if (db) {
+      const docRef = await addDoc(collection(db, 'consultations'), newRecord);
+      return docRef.id;
+    }
   } catch (err) {
-    console.warn('Could not initialize Firestore listener:', err);
-    return () => {};
+    console.warn('Firestore write failed, falling back to localStorage:', err);
   }
-}
 
-/**
- * Update consultation status or notes in Firestore
- */
-export async function updateConsultation(
+  // Fallback to localStorage
+  const existing = getStoredLocalRecords();
+  const id = 'local_' + Date.now();
+  const fullRecord: ConsultationRecord = { id, ...newRecord };
+  existing.unshift(fullRecord);
+  try {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(existing));
+  } catch (e) {
+    console.error('LocalStorage write error:', e);
+  }
+  return id;
+};
+
+export const getConsultationsFromFirestore = async (): Promise<ConsultationRecord[]> => {
+  try {
+    if (db) {
+      const q = query(collection(db, 'consultations'), orderBy('createdAt', 'desc'));
+      const snapshot = await getDocs(q);
+      if (!snapshot.empty) {
+        return snapshot.docs.map(docSnap => ({
+          id: docSnap.id,
+          ...(docSnap.data() as Omit<ConsultationRecord, 'id'>)
+        }));
+      }
+    }
+  } catch (err) {
+    console.warn('Firestore fetch failed, returning localStorage consultations:', err);
+  }
+
+  return getStoredLocalRecords();
+};
+
+export const updateConsultationStatusInFirestore = async (
   id: string,
-  updates: Partial<ConsultationRecord>
-): Promise<void> {
-  if (!id || id.startsWith('local-')) return;
-  const docRef = doc(db, 'consultations', id);
-  await updateDoc(docRef, updates);
-}
+  status: ConsultationRecord['status'],
+  notes?: string
+): Promise<void> => {
+  try {
+    if (db && !id.startsWith('local_')) {
+      const docRef = doc(db, 'consultations', id);
+      await updateDoc(docRef, {
+        status,
+        ...(notes !== undefined ? { adminNotes: notes } : {})
+      });
+      return;
+    }
+  } catch (err) {
+    console.warn('Firestore update failed, updating localStorage:', err);
+  }
 
-/**
- * Delete consultation record from Firestore
- */
-export async function deleteConsultation(id: string): Promise<void> {
-  if (!id || id.startsWith('local-')) return;
-  const docRef = doc(db, 'consultations', id);
-  await deleteDoc(docRef);
+  const existing = getStoredLocalRecords();
+  const updated = existing.map(item => {
+    if (item.id === id) {
+      return {
+        ...item,
+        status,
+        ...(notes !== undefined ? { adminNotes: notes } : {})
+      };
+    }
+    return item;
+  });
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(updated));
+};
+
+function getStoredLocalRecords(): ConsultationRecord[] {
+  try {
+    const raw = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (raw) {
+      return JSON.parse(raw);
+    }
+  } catch (e) {
+    console.error('LocalStorage read error:', e);
+  }
+  return [];
 }

@@ -100,27 +100,6 @@ export const GrowthCrossroadsSection: React.FC<GrowthCrossroadsSectionProps> = (
           </motion.div>
         </div>
 
-        {/* Core Economic Anchor Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.45 }}
-          className="p-3.5 sm:p-5 rounded-2xl bg-gradient-to-r from-[#170C07] via-[#20100A] to-[#170C07] border border-[#9B2208]/50 shadow-lg text-center max-w-3xl mx-auto mb-6 sm:mb-10 space-y-1.5"
-        >
-          <span className="text-[10px] sm:text-xs uppercase font-bold text-[#D95A1A] tracking-wider font-syne">
-            The Mupezeni Proposition
-          </span>
-          <p className="text-xs sm:text-base text-[#FAFAF9]/90 font-medium">
-            Instead of assembling separate people, tools and workflows for customer support and marketing...
-          </p>
-          <div className="pt-0.5">
-            <span className="text-lg sm:text-2xl font-black font-syne text-white">
-              Deploy one AI team for <span className="text-[#D95A1A]">K2,000/month.</span>
-            </span>
-          </div>
-        </motion.div>
-
         {/* View Switcher: Mobile First Segmented Control */}
         <div className="space-y-4 sm:space-y-6">
           <div className="flex justify-center">
@@ -280,7 +259,7 @@ export const GrowthCrossroadsSection: React.FC<GrowthCrossroadsSectionProps> = (
                       </div>
                     </div>
                     <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-[#24110A] text-[#D95A1A] text-[10px] sm:text-xs font-bold font-syne border border-[#9B2208]/50">
-                      K2,000/mo
+                      Integrated
                     </span>
                   </div>
 
@@ -325,7 +304,7 @@ export const GrowthCrossroadsSection: React.FC<GrowthCrossroadsSectionProps> = (
                       </div>
                       <div className="flex items-start gap-2.5">
                         <Check className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                        <span><strong className="text-white">Transparent economics:</strong> One fixed subscription of K2,000/month. No setup fee. Month-to-month.</span>
+                        <span><strong className="text-white">Predictable economics:</strong> One simple monthly subscription with zero setup fees. Month-to-month.</span>
                       </div>
                     </div>
                   </div>

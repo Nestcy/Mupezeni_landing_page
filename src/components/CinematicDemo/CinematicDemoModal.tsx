@@ -1,99 +1,89 @@
-import React, { useEffect } from 'react';
-import { X, Film, ArrowRight } from 'lucide-react';
-import { SimulatedVideoDemo } from './SimulatedVideoDemo';
+import React from 'react';
+import { X, Play, Bot, Sparkles, CheckCircle2 } from 'lucide-react';
 
 interface CinematicDemoModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onNavigateToContact: () => void;
-  initialIndustryId?: string;
-  defaultMode?: 'video' | 'interactive';
+  onBookStrategy?: () => void;
 }
 
-export const CinematicDemoModal: React.FC<CinematicDemoModalProps> = ({
-  isOpen,
-  onClose,
-  onNavigateToContact
-}) => {
-  // Close on Escape key
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
-    };
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-      window.addEventListener('keydown', handleKeyDown);
-    }
-    return () => {
-      document.body.style.overflow = 'auto';
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isOpen, onClose]);
-
+export const CinematicDemoModal: React.FC<CinematicDemoModalProps> = ({ isOpen, onClose, onBookStrategy }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 md:p-6 bg-[#040201]/95 backdrop-blur-2xl animate-fadeIn">
-      
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-[#9B2208]/30 via-[#D95A1A]/15 to-transparent rounded-full blur-[180px] pointer-events-none -z-10" />
-
-      {/* Modal Container */}
-      <div className="relative w-full max-w-6xl max-h-[96vh] flex flex-col bg-[#0A0604] border border-[#9B2208]/50 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-200">
+      <div className="relative w-full max-w-3xl rounded-2xl bg-[#0D0805] border border-[#2D1B0F] p-6 shadow-2xl space-y-6">
         
-        {/* Modal Top Header */}
-        <div className="px-4 sm:px-6 py-3 bg-[#130B07] border-b border-white/10 flex items-center justify-between gap-3 flex-shrink-0">
-          <div className="flex items-center gap-2">
-            <div className="p-1.5 rounded-lg bg-gradient-to-r from-[#9B2208] to-[#D95A1A] text-white">
-              <Film className="w-4 h-4" />
+        {/* Header */}
+        <div className="flex items-center justify-between border-b border-[#1F140D] pb-4">
+          <div className="flex items-center gap-3">
+            <div className="p-2 rounded-lg bg-[#E58330]/10 text-[#E58330]">
+              <Play className="w-5 h-5 fill-current" />
             </div>
             <div>
-              <h3 className="font-syne font-bold text-white text-sm sm:text-base flex items-center gap-2">
-                <span>Mupezeni Cinematic Retail Demo</span>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#20100A] text-[#D95A1A] border border-[#9B2208]/40 hidden sm:inline-block">
-                  1080p Walkthrough Video
-                </span>
-              </h3>
-              <p className="text-[11px] text-[#FAFAF9]/60 hidden md:block">
-                Watch how our 3 AI teams operate a Zambian retail business autonomously 24/7.
-              </p>
+              <h3 className="font-bold text-white text-base">Interactive AI Retail Walkthrough</h3>
+              <p className="text-xs text-[#A8A099]">See how the Support & Marketing workers collaborate in real-time</p>
             </div>
           </div>
+          <button
+            onClick={onClose}
+            className="p-1.5 rounded-lg text-[#8C827A] hover:text-white hover:bg-white/5 transition-colors"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        </div>
 
-          <div className="flex items-center gap-2">
+        {/* Video / Interactive Simulation Container */}
+        <div className="rounded-xl overflow-hidden bg-black border border-[#24130A] aspect-video relative flex flex-col justify-between p-6">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Simulated Retail Cycle</span>
+            </div>
+            <span className="text-xs font-mono text-[#A8A099]">Mupezeni Retail Engine v2.4</span>
+          </div>
+
+          <div className="space-y-4 max-w-lg mx-auto text-center py-6">
+            <div className="w-16 h-16 rounded-2xl bg-[#E58330]/10 border border-[#E58330]/30 text-[#E58330] flex items-center justify-center mx-auto">
+              <Bot className="w-8 h-8" />
+            </div>
+            <h4 className="text-xl font-bold text-white">Full Retail Automation Cycle</h4>
+            <p className="text-xs text-[#A8A099] leading-relaxed">
+              Customer inquires on WhatsApp &rarr; AI Support Worker checks stock & sends payment details &rarr; Order confirmed &rarr; AI Marketing Worker analyzes purchase trend & prepares tomorrow's promotional graphic.
+            </p>
+          </div>
+
+          <div className="flex items-center justify-between text-xs text-[#A8A099] border-t border-[#1F120A] pt-4">
+            <span>Duration: Continuous Real-Time Operation</span>
+            <span className="text-emerald-400 font-mono">Cost: K2,000 / month flat</span>
+          </div>
+        </div>
+
+        {/* Modal Actions */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2 border-t border-[#1F140D]">
+          <div className="text-xs text-[#A8A099]">
+            Want to see how this works with your exact product inventory?
+          </div>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={onClose}
+              className="px-4 py-2.5 rounded-xl bg-[#140B06] hover:bg-[#201109] text-[#A8A099] hover:text-white text-xs font-medium transition-colors"
+            >
+              Close
+            </button>
             <button
               onClick={() => {
                 onClose();
-                onNavigateToContact();
+                if (onBookStrategy) onBookStrategy();
               }}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#9B2208] to-[#D95A1A] text-white font-syne font-bold text-xs hover:shadow-lg hover:shadow-[#9B2208]/30 transition-all cursor-pointer whitespace-nowrap"
+              className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#E58330] to-[#FF9F4A] text-black text-xs font-bold shadow-md transition-all"
             >
-              <span>Get Your Team</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-
-            <button
-              onClick={onClose}
-              className="p-2 rounded-xl bg-[#1C100A] border border-white/10 hover:border-white/20 text-white/80 hover:text-white transition-all cursor-pointer"
-              aria-label="Close Cinema Demo"
-            >
-              <X className="w-5 h-5" />
+              Book 30-Min Strategy Demo
             </button>
           </div>
         </div>
 
-        {/* Modal Content - Exclusively MP4 Video Demo */}
-        <div className="flex-1 overflow-y-auto p-2 sm:p-4 bg-[#080402]">
-          <SimulatedVideoDemo
-            onNavigateToContact={() => {
-              onClose();
-              onNavigateToContact();
-            }}
-          />
-        </div>
-
       </div>
-
     </div>
   );
 };
