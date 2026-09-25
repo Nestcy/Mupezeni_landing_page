@@ -121,7 +121,7 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({ onGetStarted }) =>
                 onClick={onGetStarted}
                 className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-bold text-xs font-syne shadow-md shadow-[#9B2208]/35 hover:scale-105 transition-all cursor-pointer"
               >
-                <span>Deploy Full AI Team • $100/mo</span>
+                <span>Deploy Full AI Team</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>

@@ -58,22 +58,16 @@ export const FounderTrustSection: React.FC<FounderTrustSectionProps> = ({
                 <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border-2 border-[#E58330]/40 shadow-2xl shadow-[#9B2208]/30 group-hover:border-[#E58330] transition-all duration-300">
                   <img
                     src="/founder.png"
-                    alt="Ernest Zimba - Founder & Certified AI & Agentic Engineer"
+                    alt="Ernest Zimba - Founder"
                     className="w-full h-full object-cover object-top filter brightness-95 contrast-105 group-hover:scale-105 transition-transform duration-500"
                   />
-                </div>
-                
-                {/* Verified Founder Badge */}
-                <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#180D07] border border-[#E58330]/70 text-[#E58330] text-[11px] font-mono shadow-xl whitespace-nowrap">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>Verified AI Engineer</span>
                 </div>
               </div>
 
               <div className="pt-2">
                 <h3 className="text-xl font-bold text-white">Ernest Zimba</h3>
                 <p className="text-xs font-mono text-[#E58330] mt-0.5">
-                  Founder & Certified AI & Agentic Engineer
+                  Founder & Chief Architect
                 </p>
                 <p className="text-[11px] text-[#8C827A] mt-0.5">
                   Lusaka, Zambia
