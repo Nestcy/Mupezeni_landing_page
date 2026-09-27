@@ -129,7 +129,7 @@ export const HeroCollaborativeDashboard: React.FC<HeroCollaborativeDashboardProp
                     </p>
                     <div className="pt-1 flex items-center gap-1.5 text-emerald-400 text-[11px]">
                       <CheckCircle2 className="w-3 h-3" />
-                      <span>Order secured • MTN MoMo K850</span>
+                      <span>Order secured • Paid K850</span>
                     </div>
                   </div>
 
@@ -272,7 +272,7 @@ export const HeroCollaborativeDashboard: React.FC<HeroCollaborativeDashboardProp
                       Delivery to Avondale is <strong>K40</strong> via our express rider and can arrive tomorrow morning before 10:00 AM.
                     </p>
                     <p className="text-[#D1C6BB] text-[11px]">
-                      Would you like to reserve them now? We accept Airtel Money, MTN MoMo, or Card on delivery.
+                      Would you like to reserve them now? We accept instant digital payment or cash on delivery.
                     </p>
                     <span className="text-[9px] text-[#8A8178] block font-mono">20:41 PM • Autonomous</span>
                   </div>
@@ -281,7 +281,7 @@ export const HeroCollaborativeDashboard: React.FC<HeroCollaborativeDashboardProp
                 {/* Customer replies */}
                 <div className="flex justify-end">
                   <div className="max-w-xs bg-[#1F140D] border border-[#3A2214] p-3 rounded-2xl rounded-tr-none text-white space-y-1">
-                    <p>Yes please! Send me the MTN MoMo merchant code.</p>
+                    <p>Yes please! Send me the payment details.</p>
                     <span className="text-[9px] text-[#8A8178] block text-right font-mono">20:42 PM</span>
                   </div>
                 </div>
@@ -294,7 +294,7 @@ export const HeroCollaborativeDashboard: React.FC<HeroCollaborativeDashboardProp
                       <span>Payment Prompt & Order Registered</span>
                     </div>
                     <p className="leading-relaxed">
-                      Merchant Code: <strong>MTN MoMo: 096 000 0000 (Mupezeni Footwear)</strong>. Total: <strong>K890</strong> (including Avondale delivery).
+                      Payment Account: <strong>Account # 096 000 0000 (Mupezeni Footwear)</strong>. Total: <strong>K890</strong> (including Avondale delivery).
                     </p>
                     <p className="text-[11px] text-[#A8A099]">
                       Please share your delivery address and recipient name once paid, and your dispatch slip will be generated automatically!

@@ -89,14 +89,14 @@ export const FounderTrustSection: React.FC<FounderTrustSectionProps> = ({
                 </a>
 
                 <a
-                  href="https://wa.me/260973732409"
+                  href="https://wa.me/260776091393"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#25D366]/10 border border-[#25D366]/30 text-[#4ADE80] hover:bg-[#25D366]/20 text-xs font-medium transition-all"
-                  title="Direct WhatsApp with Founder"
+                  title="Direct WhatsApp: 0776091393"
                 >
                   <MessageSquare className="w-3.5 h-3.5 text-[#25D366]" />
-                  <span>WhatsApp</span>
+                  <span>WhatsApp (0776091393)</span>
                 </a>
               </div>
             </div>
@@ -112,7 +112,7 @@ export const FounderTrustSection: React.FC<FounderTrustSectionProps> = ({
                 </div>
                 
                 <blockquote className="text-base sm:text-lg text-[#F7F5F0] font-medium leading-relaxed border-l-2 border-[#E58330]/60 pl-4 py-1 italic">
-                  "I started Mupezeni after watching hardworking retail owners in Lusaka spend until 1:00 AM replying to WhatsApp DMs, quoting prices, and verifying mobile money transfers by hand. You shouldn't have to hire a pricey social team or lose customers when you step away. We give you a fully operational AI workforce for $100/month, and we stand behind every implementation."
+                  "I started Mupezeni after watching hardworking retail owners in Lusaka spend until 1:00 AM replying to WhatsApp DMs, quoting prices, and verifying payments by hand. You shouldn't have to hire a pricey social team or lose customers when you step away. We give you a fully operational AI workforce, and we stand behind every implementation."
                 </blockquote>
               </div>
 
@@ -141,7 +141,7 @@ export const FounderTrustSection: React.FC<FounderTrustSectionProps> = ({
                 <div className="p-3.5 rounded-xl bg-[#140C07] border border-[#26140A] space-y-1">
                   <div className="flex items-center gap-1.5 text-[#E58330] text-xs font-bold">
                     <Cpu className="w-4 h-4 shrink-0" />
-                    <span>$100/mo Flat</span>
+                    <span>Predictable Pricing</span>
                   </div>
                   <p className="text-[11px] text-[#A8A099] leading-tight">
                     Zero hidden fees, zero surprise per-message charges, cancel anytime.

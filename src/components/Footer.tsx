@@ -91,13 +91,13 @@ export const Footer: React.FC<FooterProps> = ({
               <div className="flex items-center gap-2.5">
                 <Phone className="w-4 h-4 text-[#D95A1A] flex-shrink-0" />
                 <a 
-                  href="https://wa.me/260973732409"
+                  href="https://wa.me/260776091393"
                   target="_blank"
                   rel="noopener noreferrer" 
                   className="hover:text-[#D95A1A] transition-colors font-mono"
-                  title="Chat directly with Ernest Zimba on WhatsApp"
+                  title="Chat directly with Mupezeni on WhatsApp: 0776091393"
                 >
-                  +260 973 732 409 (WhatsApp)
+                  0776091393 / +260 776 091 393 (WhatsApp)
                 </a>
               </div>
               <div className="flex items-center gap-2.5">

@@ -58,7 +58,7 @@ export const ImplementationPathsSection: React.FC<ImplementationPathsSectionProp
                   </li>
                   <li className="flex items-start gap-2">
                     <Check className="w-4 h-4 text-[#E58330] shrink-0 mt-0.5" />
-                    <span>Configure mobile money payment prompts (Airtel, MTN, Zamtel)</span>
+                    <span>Configure instant digital payment and checkout prompts</span>
                   </li>
                 </ul>
               </div>

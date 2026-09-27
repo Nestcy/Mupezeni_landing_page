@@ -36,13 +36,16 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
             <p className="text-xs text-[#A8A099]">
               Instant text replies for retailers wanting a rapid quotation or onboarding timeline.
             </p>
+            <div className="text-sm font-mono text-[#FAFAF9] font-bold">
+              0776091393
+            </div>
             <a
-              href="https://wa.me/260970000000"
+              href="https://wa.me/260776091393"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block text-xs font-mono text-[#E58330] hover:underline pt-1"
             >
-              Chat on WhatsApp &rarr;
+              Chat on WhatsApp (0776091393) &rarr;
             </a>
           </div>
 

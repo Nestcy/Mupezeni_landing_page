@@ -134,3 +134,33 @@ export interface EconomicComparisonData {
     savingsHighlight: string;
   };
 }
+
+export interface PricingCategoryGroup {
+  categoryName: string;
+  items: string[];
+}
+
+export type CurrencyMode = 'ZMW' | 'USD';
+
+export interface PricingTier {
+  id: 'start' | 'grow' | 'scale';
+  name: string;
+  emoji: string;
+  price: string;
+  period: string;
+  priceUsd: string;
+  priceZmw: string;
+  periodUsd: string;
+  periodZmw: string;
+  roleTitle: string;
+  tagline: string;
+  isPopular?: boolean;
+  accentBadge?: string;
+  accentColor: string;
+  worksAcross: string[];
+  handles: string[];
+  categories?: PricingCategoryGroup[];
+  limitations?: string[];
+  customFeatures?: string[];
+}
+

@@ -34,7 +34,7 @@ export const SimulatedVideoDemo: React.FC<SimulatedVideoDemoProps> = ({
   // Chapters for the 43-second MP4 demo video
   const chapters = [
     { startMs: 0, title: '01. Web Onboarding' },
-    { startMs: 8000, title: '02. 24/7 WhatsApp & MoMo' },
+    { startMs: 8000, title: '02. 24/7 WhatsApp & Checkout' },
     { startMs: 17000, title: '03. TikTok & FB Creative Studio' },
     { startMs: 26000, title: '04. Operations Hub & Manifest' },
     { startMs: 35000, title: '05. Deploy AI Team' }

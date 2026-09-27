@@ -35,7 +35,15 @@
   }
 }
 
-/* MUPEZENI Brand Typography: Wide, extended geometric sans-serif wordmark */
+/* Brand Typography */
+.font-syne {
+  font-family: 'Syne', system-ui, -apple-system, sans-serif !important;
+}
+
+.font-dm {
+  font-family: 'DM Sans', 'Plus Jakarta Sans', system-ui, sans-serif !important;
+}
+
 .brand-name {
   font-family: 'Michroma', 'Syncopate', 'Montserrat', sans-serif !important;
   font-weight: 300;
@@ -93,6 +101,26 @@
 }
 
 .animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-ltr {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-ltr {
+  display: flex;
+  width: max-content;
+  animation: marquee-ltr 26s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-ltr:hover {
   animation-play-state: paused;
 }
 

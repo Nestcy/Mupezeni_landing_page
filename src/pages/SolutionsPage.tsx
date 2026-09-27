@@ -40,7 +40,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate, onOpen
                 AI Customer Support Worker
               </h2>
               <p className="text-sm text-[#C4BCB3] leading-relaxed">
-                Operating 24 hours a day, 7 days a week. Connects directly to your WhatsApp Business API, Instagram Direct Messages, and Website LiveChat. It instantly answers pricing inquiries, verifies stock levels, calculates delivery fees, and sends mobile money payment instructions.
+                Operating 24 hours a day, 7 days a week. Connects directly to your WhatsApp Business API, Instagram Direct Messages, and Website LiveChat. It instantly answers pricing inquiries, verifies stock levels, calculates delivery fees, and sends secure payment instructions.
               </p>
             </div>
 

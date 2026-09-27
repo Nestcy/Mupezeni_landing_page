@@ -50,7 +50,7 @@ export const Logo: React.FC<LogoProps> = ({
           src="/logo.png"
           alt="Mupezeni Logo"
           referrerPolicy="no-referrer"
-          className="w-full h-full object-contain filter drop-shadow-[0_0_14px_rgba(217,90,26,0.85)]"
+          className="w-full h-full object-contain"
         />
       </div>
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Logo } from './Logo';
 import { PageId } from '../types';
-import { Menu, X, ArrowRight, PhoneCall, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 interface NavbarProps {
   currentPage: PageId;
@@ -16,12 +16,12 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navLinks: { label: string; id: PageId; badge?: string }[] = [
+  const navLinks: { label: string; id: PageId }[] = [
     { label: 'Overview', id: 'home' },
-    { label: 'AI Workers', id: 'solutions', badge: '2 Workers' },
+    { label: 'AI Workers', id: 'solutions' },
     { label: 'How It Works', id: 'how-it-works' },
     { label: 'Industries', id: 'industries' },
-    { label: 'Pricing', id: 'pricing', badge: '$100/mo' },
+    { label: 'Pricing', id: 'pricing' },
     { label: 'About', id: 'about' },
     { label: 'Contact', id: 'contact' }
   ];
@@ -33,46 +33,41 @@ export const Navbar: React.FC<NavbarProps> = ({
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#030202]/85 backdrop-blur-md border-b border-[#261810]/70">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between">
-        {/* Logo */}
+    <header className="fixed top-0 left-0 right-0 z-50 bg-[#060403]/90 backdrop-blur-xl border-b border-white/[0.08] transition-all duration-300">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between">
+        
+        {/* Zone 1: Single Clean Wordmark / Brand Logo */}
         <div 
           onClick={() => handleNavClick('home')}
-          className="cursor-pointer transition-transform hover:scale-[1.01]"
+          className="cursor-pointer transition-opacity hover:opacity-90 flex items-center"
         >
-          <Logo size="md" showTagline={true} />
+          <Logo size="md" showTagline={false} />
         </div>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+        {/* Zone 2: 4-6 Pure Text Navigation Links (Zero-Pill Discipline) */}
+        <nav className="hidden lg:flex items-center gap-7 xl:gap-8">
           {navLinks.map(link => {
             const isActive = currentPage === link.id;
             return (
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.id)}
-                className={`relative px-3.5 py-2 text-sm font-medium rounded-lg transition-all flex items-center gap-1.5 ${
+                className={`text-sm font-medium tracking-wide transition-all duration-200 cursor-pointer relative py-1 ${
                   isActive
-                    ? 'text-white bg-[#1A1009] border border-[#E58330]/30 shadow-sm'
-                    : 'text-[#B8B2AA] hover:text-white hover:bg-white/5'
+                    ? 'text-[#FAFAF9] font-semibold'
+                    : 'text-[#A8A099] hover:text-[#FAFAF9]'
                 }`}
               >
-                {link.label}
-                {link.badge && (
-                  <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded ${
-                    isActive
-                      ? 'bg-[#E58330] text-black font-semibold'
-                      : 'bg-[#1C120B] text-[#E58330] border border-[#E58330]/20'
-                  }`}>
-                    {link.badge}
-                  </span>
+                <span>{link.label}</span>
+                {isActive && (
+                  <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-[#D95A1A] to-[#E58330] rounded-full" />
                 )}
               </button>
             );
           })}
         </nav>
 
-        {/* Action Button */}
+        {/* Zone 3: Single Primary Action */}
         <div className="hidden sm:flex items-center gap-3">
           <button
             onClick={() => {
@@ -82,53 +77,48 @@ export const Navbar: React.FC<NavbarProps> = ({
                 handleNavClick('pricing');
               }
             }}
-            className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-bold text-sm shadow-md shadow-[#9B2208]/35 hover:shadow-lg hover:shadow-[#9B2208]/50 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-bold text-xs sm:text-sm shadow-lg shadow-[#9B2208]/25 hover:shadow-xl hover:shadow-[#9B2208]/40 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
-            <span>Get Your AI Team</span>
-            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            <span>Deploy AI Team</span>
+            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
           </button>
         </div>
 
-        {/* Mobile menu trigger */}
+        {/* Mobile Menu Trigger */}
         <div className="lg:hidden flex items-center gap-2">
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2.5 rounded-lg bg-[#140C07] text-[#D4CDC5] hover:text-white border border-[#2D1B0F]"
-            aria-label="Toggle menu"
+            className="p-2.5 rounded-xl bg-[#140C07] text-[#D4CDC5] hover:text-white border border-white/10"
+            aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer with Minimal Luxury Aesthetics */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0A0604] border-b border-[#2D1B0F] px-4 pt-3 pb-6 space-y-2 shadow-2xl">
-          <div className="grid grid-cols-1 gap-1 pb-3">
+        <div className="lg:hidden bg-[#0A0604] border-b border-white/10 px-5 pt-3 pb-6 space-y-3 shadow-2xl">
+          <div className="flex flex-col space-y-1 pb-2">
             {navLinks.map(link => {
               const isActive = currentPage === link.id;
               return (
                 <button
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}
-                  className={`flex items-center justify-between w-full px-4 py-3 rounded-lg text-base font-medium transition-all ${
+                  className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                     isActive
-                      ? 'bg-[#1C120B] text-[#E58330] border border-[#E58330]/30 font-semibold'
-                      : 'text-[#D4CDC5] hover:bg-white/5'
+                      ? 'bg-[#1C120B] text-[#E58330] font-semibold border-l-2 border-[#E58330]'
+                      : 'text-[#D4CDC5] hover:bg-white/5 hover:text-white'
                   }`}
                 >
                   <span>{link.label}</span>
-                  {link.badge && (
-                    <span className="text-xs font-mono px-2 py-0.5 rounded bg-[#E58330]/10 text-[#E58330] border border-[#E58330]/20">
-                      {link.badge}
-                    </span>
-                  )}
                 </button>
               );
             })}
           </div>
 
-          <div className="pt-2 border-t border-[#261810]/80">
+          <div className="pt-2 border-t border-white/10">
             <button
               onClick={() => {
                 if (onOpenBookingModal) {
@@ -140,8 +130,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               }}
               className="w-full flex items-center justify-center gap-2 py-3.5 px-4 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-bold text-sm shadow-md shadow-[#9B2208]/35"
             >
-              <Sparkles className="w-4 h-4 text-white" />
-              <span>Get Your AI Team • $100/mo</span>
+              <span>Deploy AI Team</span>
+              <ArrowRight className="w-4 h-4 text-white" />
             </button>
           </div>
         </div>

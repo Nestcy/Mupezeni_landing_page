@@ -21,7 +21,7 @@ export const CinematicDemoSection: React.FC<CinematicDemoSectionProps> = ({ onOp
           </h2>
 
           <p className="text-sm text-[#A8A099] max-w-xl mx-auto leading-relaxed">
-            Watch how a customer inquiry on WhatsApp flows seamlessly into inventory reservation, mobile money payment, and next-day social marketing.
+            Watch how a customer inquiry on WhatsApp flows seamlessly into inventory reservation, digital payment confirmation, and next-day social marketing.
           </p>
 
           <div className="pt-2">

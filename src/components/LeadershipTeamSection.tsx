@@ -125,7 +125,7 @@ export const LeadershipTeamSection: React.FC = () => {
                 Ernest Zimba is a <strong className="text-white">Certified AI & Agentic Engineer</strong> specializing in autonomous multi-agent architectures, conversational retail workflows, and localized fintech integration.
               </p>
               <p>
-                Recognizing the unique operational bottlenecks faced by retailers in Lusaka and across Africa — high message volumes on WhatsApp/Instagram, inventory discrepancies, and manual mobile money verifications — Ernest founded <span className="font-brand text-white tracking-widest font-light">MUPEZENI</span> to deliver an accessible, enterprise-grade AI workforce for just <strong>$100/month</strong>.
+                Recognizing the unique operational bottlenecks faced by retailers in Lusaka and across Africa — high message volumes on WhatsApp/Instagram, inventory discrepancies, and manual order verifications — Ernest founded <span className="font-brand text-white tracking-widest font-light">MUPEZENI</span> to deliver an accessible, enterprise-grade AI workforce for just <strong>$100/month</strong>.
               </p>
             </div>
 
@@ -143,7 +143,7 @@ export const LeadershipTeamSection: React.FC = () => {
                 <Workflow className="w-4 h-4 text-[#E58330] shrink-0 mt-0.5" />
                 <div>
                   <h5 className="text-xs font-bold text-white">African Retail Integrations</h5>
-                  <p className="text-[11px] text-[#A8A099]">Airtel Money, MTN MoMo, WhatsApp Cloud API, Instagram DMs, POS sync.</p>
+                  <p className="text-[11px] text-[#A8A099]">Digital checkout, WhatsApp Cloud API, Instagram DMs, POS sync.</p>
                 </div>
               </div>
             </div>

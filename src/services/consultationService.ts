@@ -2,7 +2,7 @@ import { ConsultationBookingData, ConsultationRecord } from '../types';
 import { db } from '../lib/firebase';
 import { collection, addDoc, getDocs, updateDoc, doc, query, orderBy } from 'firebase/firestore';
 
-const WHATSAPP_PHONE = '260970000000'; // Default booking WhatsApp number
+const WHATSAPP_PHONE = '260776091393'; // Official WhatsApp Contact: 0776091393
 const NOTIFICATION_EMAIL = 'hello.mupezeni@gmail.com';
 
 export const generateWhatsAppBookingUrl = (data: ConsultationBookingData): string => {

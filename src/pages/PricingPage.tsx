@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { 
   Check, 
+  X,
   ArrowRight, 
   Sparkles, 
   ShieldCheck, 
@@ -13,11 +14,16 @@ import {
   BarChart3,
   CheckCircle2,
   Zap,
-  RotateCcw
+  RotateCcw,
+  TrendingUp,
+  Share2,
+  Coins
 } from 'lucide-react';
-import { PageId, ConsultationBookingData } from '../types';
+import { PageId, ConsultationBookingData, CurrencyMode } from '../types';
+import { PRICING_TIERS } from '../data/websiteData';
 import { EconomicComparisonTable } from '../components/EconomicComparisonTable';
 import { MoneyBackGuaranteeBanner } from '../components/MoneyBackGuaranteeBanner';
+import { AnimatedPriceTicker } from '../components/AnimatedPriceTicker';
 import { 
   generateWhatsAppBookingUrl, 
   generateMailtoLink,
@@ -42,6 +48,8 @@ interface PricingPageProps {
 }
 
 export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
+  const [currency, setCurrency] = useState<CurrencyMode>('ZMW');
+  const [selectedPlanId, setSelectedPlanId] = useState<'start' | 'grow' | 'scale'>('grow');
   const [formData, setFormData] = useState<ConsultationFormData>({
     businessName: '',
     ownerName: '',
@@ -97,28 +105,32 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
 
   const faqs = [
     {
-      q: 'What is included in the $100/month subscription?',
-      a: 'Everything. You receive the AI Customer Support Worker (handles routine customer conversations, FAQs, product info, and lead follow-up 24/7), the AI Marketing Worker (creates daily social media content, branded images, and promotional copy), and the Business Insights Dashboard (live visibility into orders, sales trends, and restock signals).'
+      q: 'What are the differences between START, GROW, and SCALE?',
+      a: 'START (K500/mo or $25/mo) provides an AI Customer Support Employee across WhatsApp, Facebook, Instagram, TikTok, and Web for routine customer questions, FAQs, and lead follow-up with up to 5 social posts/mo. GROW (K2,000/mo or $100/mo) is our complete workforce plan with 24/7 support plus full marketing strategy, consistent social content, and real-time business intelligence. SCALE (from K4,000/mo or $200+/mo) delivers custom AI solutions, custom integrations, and specialized business processes.'
+    },
+    {
+      q: 'Can I start with START (K500/mo or $25/mo) and upgrade to GROW later?',
+      a: 'Absolutely. You can upgrade, downgrade, or pause anytime. Your AI employee will smoothly take on additional marketing and business intelligence workflows as your sales grow.'
+    },
+    {
+      q: 'Can I pay in Zambian Kwacha (ZMW)?',
+      a: 'Yes! We support local Zambian Kwacha payments via Airtel Money, MTN Mobile Money, Zamtel, and local bank transfers: K500/month for START, K2,000/month for GROW, and from K4,000/month for custom SCALE solutions, as well as international cards in USD ($25, $100, $200+/mo).'
     },
     {
       q: 'How does the 30-day money-back guarantee work?',
-      a: 'Try your Mupezeni AI Team for 30 days. If the service does not provide meaningful operational value to your business, you can request a refund according to our guarantee terms. It is straightforward and risk-free.'
+      a: 'Try your AI employee for 30 days. If the service does not provide meaningful operational value to your business, you can request a 100% refund. It is straightforward, zero-risk, and backed in both Kwacha and USD.'
     },
     {
       q: 'Are there any setup fees or upfront charges?',
-      a: 'No. Setup is zero fee. Whether you need your digital catalog structured from a physical store or integrated with an existing online setup, there are no upfront engineering or setup fees.'
+      a: 'No. Setup is zero fee across all plans. Whether you need your digital catalog structured from a physical store or integrated with an existing online setup, there are no upfront engineering or setup fees.'
     },
     {
-      q: 'Is the Business Insights Dashboard a third AI worker?',
-      a: 'No. It is the visibility layer included alongside your two AI workers. It centralizes order activity, sales velocity, product performance, and restock signals so you stay informed without digging through chats.'
+      q: 'Is the Business Insights Dashboard included in START?',
+      a: 'No. START is focused strictly on frontline customer support. The Business Insights Dashboard, campaign reporting, and sales analytics are included in the GROW (K2,000/mo or $100/mo) and SCALE tiers.'
     },
     {
       q: 'Can I cancel or pause my subscription?',
       a: 'Yes. Mupezeni operates on a month-to-month basis with no long-term contracts or lock-ins. You remain in control at all times.'
-    },
-    {
-      q: 'How does this compare to the traditional approach?',
-      a: 'Traditionally, keeping support and marketing running requires assembling separate people, freelance help, multiple software tools, and continuous manual oversight. Mupezeni deploys two specialized AI workers and a centralized dashboard for one predictable subscription of $100/month.'
     }
   ];
 
@@ -312,115 +324,410 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* 2. PRICING HERO & SINGLE PLAN CARD */}
+      {/* 2. PRICING HERO & 3-TIER PLAN CARDS */}
       <section className="py-12 sm:py-18 border-t border-white/5 bg-[#090604] relative overflow-hidden">
         {/* Ambient glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[650px] h-[250px] sm:h-[400px] bg-gradient-to-b from-[#D95A1A]/10 via-[#9B2208]/10 to-transparent rounded-full blur-[120px] pointer-events-none -z-10" />
+        <div className="absolute top-1/3 left-1/4 w-[450px] h-[450px] bg-emerald-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[550px] h-[450px] bg-sky-500/10 rounded-full blur-[160px] pointer-events-none -z-10" />
+        <div className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-purple-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* CONTINUOUS PRICES TICKER MOVING LEFT TO RIGHT */}
+        <div className="mb-10 sm:mb-12">
+          <AnimatedPriceTicker 
+            currency={currency} 
+            onSelectPlan={(id) => {
+              setSelectedPlanId(id as any);
+              scrollToBooking();
+            }} 
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Header */}
-          <div className="text-center space-y-2.5 sm:space-y-4 mb-8 sm:mb-12">
+          <div className="text-center space-y-2.5 sm:space-y-4 mb-10 sm:mb-14 max-w-3xl mx-auto">
             <div>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A0E08] border border-[#9B2208]/40 text-[10px] sm:text-xs font-bold tracking-widest uppercase text-[#D95A1A] font-syne">
-                <Sparkles className="w-3 h-3 text-[#D95A1A]" />
-                <span>One AI Team · One Simple Price</span>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1A0E08] border border-[#E58330]/40 text-[10px] sm:text-xs font-bold tracking-widest uppercase text-[#E58330] font-syne">
+                <Sparkles className="w-3 h-3 text-[#E58330]" />
+                <span>Transparent Pricing Tiers</span>
               </span>
             </div>
 
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black font-syne text-white tracking-tight">
-              Your AI Team for Retail. <span className="text-gradient-fire">$100/month.</span>
+              Choose the AI Employee Plan <br className="hidden sm:inline" />
+              <span className="text-gradient-fire">Built for Your Growth Stage</span>
             </h2>
 
             <p className="text-xs sm:text-sm md:text-base text-[#FAFAF9]/80 font-normal max-w-2xl mx-auto leading-relaxed">
-              Instead of assembling separate people, tools and workflows for customer support and marketing... deploy one AI team for $100/month.
+              Deploy dedicated AI employees across WhatsApp, Facebook, Instagram, TikTok, and Web. Zero setup fees, cancel anytime, and 30-day money-back guarantee.
             </p>
+
+            {/* CURRENCY TOGGLE BUTTONS: Zambia Kwacha vs International USD */}
+            <div className="pt-3 flex flex-col sm:flex-row items-center justify-center gap-3">
+              <div className="inline-flex items-center gap-1.5 text-xs text-[#A8A099] font-mono">
+                <Coins className="w-3.5 h-3.5 text-[#E58330]" />
+                <span>Select Currency:</span>
+              </div>
+
+              <div className="inline-flex p-1 rounded-2xl bg-[#140C07] border border-white/10 shadow-xl backdrop-blur-sm">
+                {/* Zambia Kwacha Button */}
+                <button
+                  type="button"
+                  onClick={() => setCurrency('ZMW')}
+                  className={`flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-syne font-bold transition-all duration-200 cursor-pointer ${
+                    currency === 'ZMW'
+                      ? 'bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white shadow-lg shadow-[#9B2208]/40 scale-100 ring-1 ring-white/20'
+                      : 'text-[#A8A099] hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  <span>🇿🇲 Zambia Kwacha (ZMW)</span>
+                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-black/30 font-medium">
+                    K500 · K2000 · K 4000/mo
+                  </span>
+                </button>
+
+                {/* International USD Button */}
+                <button
+                  type="button"
+                  onClick={() => setCurrency('USD')}
+                  className={`flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-xl text-xs font-syne font-bold transition-all duration-200 cursor-pointer ${
+                    currency === 'USD'
+                      ? 'bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 text-white shadow-lg shadow-sky-600/40 scale-100 ring-1 ring-white/20'
+                      : 'text-[#A8A099] hover:text-white hover:bg-white/5'
+                  }`}
+                >
+                  <span>🌐 International USD ($)</span>
+                  <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-black/30 font-medium">
+                    $25 · $100 · $200+/mo
+                  </span>
+                </button>
+              </div>
+            </div>
           </div>
 
-          {/* ONE CLEAR PRICING CARD */}
-          <div className="max-w-2xl mx-auto mb-10 sm:mb-14">
+          {/* 3-TIER CARDS GRID */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch mb-12 sm:mb-16">
+            
+            {/* TIER 1: 🟢 START */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="rounded-3xl bg-gradient-to-b from-[#221008] via-[#180C07] to-[#0D0805] border-2 border-[#D95A1A] shadow-2xl p-6 sm:p-10 relative overflow-hidden space-y-6 sm:space-y-8"
+              transition={{ duration: 0.4 }}
+              className={`rounded-3xl bg-[#080E0B] border p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 shadow-xl ${
+                selectedPlanId === 'start' ? 'border-emerald-400 ring-2 ring-emerald-500/30' : 'border-emerald-500/30 hover:border-emerald-500/60'
+              }`}
             >
-              {/* Top highlight banner */}
-              <div className="absolute top-0 right-0 bg-gradient-to-l from-[#D95A1A] to-[#9B2208] text-white text-[10px] sm:text-xs font-black uppercase font-syne px-4 py-1 rounded-bl-xl tracking-wider shadow">
-                Complete AI Workforce Plan
-              </div>
-
-              <div className="space-y-3 pt-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#D95A1A]/20 text-[#D95A1A] border border-[#D95A1A]/50 font-syne">
-                    2 AI Workers + 1 Business Insights Dashboard
-                  </span>
-                  <span className="text-xs text-emerald-400 font-bold font-syne flex items-center gap-1">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                    Always Active
-                  </span>
-                </div>
-
-                <div>
-                  <h3 className="text-2xl sm:text-3xl font-black font-syne text-white">
-                    <span className="font-brand font-light tracking-[0.2em]">MUPEZENI</span> AI Team
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#FAFAF9]/80 font-syne mt-1">
-                    Customer support. Marketing. Business insights.
-                  </p>
-                </div>
-
-                {/* Price display */}
-                <div className="pt-3 pb-2 border-y border-white/10 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
-                  <div className="flex items-baseline gap-2">
-                    <span className="text-4xl sm:text-6xl font-black font-syne text-white tracking-tight">$100</span>
-                    <span className="text-sm sm:text-base text-[#FAFAF9]/70 font-syne">/ month</span>
+              <div className="space-y-5">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">
+                    <span>🟢 START</span>
                   </div>
-                  <span className="text-xs text-[#FAFAF9]/60 font-syne">
-                    Zero setup fee • Month-to-month
-                  </span>
-                </div>
-              </div>
 
-              {/* Inclusions List */}
-              <div className="space-y-3">
-                <span className="text-xs font-bold uppercase tracking-wider text-white/90 font-syne block">
-                  Includes:
-                </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-[13px] text-[#FAFAF9]/90 font-syne">
-                  {planFeatures.map((feature, i) => (
-                    <div key={i} className="flex items-start gap-2">
-                      <Check className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                      <span>{feature}</span>
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold font-syne text-white">
+                      AI Customer Support Employee
+                    </h3>
+                    <p className="text-xs text-[#A8A099] mt-1 leading-snug">
+                      Your AI employee for customer support.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-2 pb-3 border-y border-white/10">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white font-syne">
+                      {currency === 'ZMW' ? 'K500' : '$25'}
+                    </span>
+                    <span className="text-xs text-[#A8A099] font-mono">/ month</span>
+                  </div>
+                  <div className="flex items-center justify-between mt-1">
+                    <span className="text-[11px] text-emerald-400 font-mono">
+                      Single employee · Support focused
+                    </span>
+                    <span className="text-[10px] text-white/40 font-mono">
+                      {currency === 'ZMW' ? '≈ $25 / mo USD' : '≈ K500 / mo ZMW'}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#A8A099] font-bold block">
+                    Works across:
+                  </span>
+                  <div className="flex flex-wrap gap-1.5">
+                    {['WhatsApp', 'Facebook', 'Instagram', 'TikTok', 'Website / E-commerce'].map((channel) => (
+                      <span 
+                        key={channel}
+                        className="px-2 py-0.5 rounded-md bg-[#111F18] border border-emerald-500/20 text-[10px] font-mono text-emerald-300"
+                      >
+                        {channel}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#A8A099] font-bold block">
+                    Handles:
+                  </span>
+                  <div className="space-y-1.5 text-xs text-[#D4CDC5]">
+                    {[
+                      'Customer questions',
+                      'FAQs',
+                      'Product & service information',
+                      'Basic enquiries',
+                      'Lead capture',
+                      'Basic follow-up',
+                      '24/7 customer responses',
+                      'Marketing assistance',
+                      'Up to 5 social posts/month'
+                    ].map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <div className="w-3.5 h-3.5 rounded bg-emerald-500/15 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-2.5 h-2.5" />
+                        </div>
+                        <span className="leading-snug text-[11.5px]">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-white/5 space-y-1.5">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#6B635B] font-semibold block">
+                    Not included:
+                  </span>
+                  {[
+                    'No ongoing marketing consistency',
+                    'No marketing strategy',
+                    'No reporting',
+                    'No business insights'
+                  ].map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-[11px] text-[#6B635B]">
+                      <X className="w-3 h-3 text-red-400/60 shrink-0 mt-0.5" />
+                      <span>{item}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Terms Strip */}
-              <div className="p-3.5 rounded-2xl bg-[#120804] border border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs font-syne">
-                {planTerms.map((term, i) => (
-                  <div key={i} className="flex items-center gap-1.5 text-white/90 font-bold">
-                    <CheckCircle2 className="w-4 h-4 text-[#D95A1A] flex-shrink-0" />
-                    <span>{term}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Primary CTA */}
-              <div className="space-y-2 pt-2">
+              <div className="pt-6">
                 <button
-                  onClick={scrollToBooking}
-                  className="w-full py-4 rounded-2xl font-syne font-black text-sm sm:text-base text-white bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] hover:shadow-xl hover:shadow-[#9B2208]/40 transition-all cursor-pointer flex items-center justify-center gap-2"
+                  onClick={() => {
+                    setSelectedPlanId('start');
+                    scrollToBooking();
+                  }}
+                  className="w-full py-3 px-4 rounded-xl bg-[#111F18] hover:bg-[#162920] border border-emerald-500/40 hover:border-emerald-500 text-emerald-300 font-syne font-bold text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-lg active:scale-98"
                 >
-                  <span>Get Your AI Team</span>
-                  <ArrowRight className="w-4 h-4 text-white" />
+                  <span>Select START ({currency === 'ZMW' ? 'K500/mo' : '$25/mo'})</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </button>
-                <p className="text-[11px] text-center text-[#FAFAF9]/60 font-syne">
-                  No setup fee. 30-day money-back guarantee based on operational value.
-                </p>
               </div>
             </motion.div>
+
+            {/* TIER 2: 🔵 GROW (MOST POPULAR) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+              className="relative rounded-3xl bg-gradient-to-b from-[#0F172A] via-[#0B1324] to-[#070D18] border-2 border-sky-400 shadow-2xl p-6 sm:p-7 flex flex-col justify-between hover:border-sky-300 transition-all duration-300 lg:-translate-y-2"
+            >
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-sky-500 to-blue-600 text-white text-[10px] font-bold font-mono px-3.5 py-0.5 rounded-full uppercase tracking-wider shadow-lg flex items-center gap-1">
+                <Sparkles className="w-3 h-3" />
+                <span>MOST POPULAR · RECOMMENDED</span>
+              </div>
+
+              <div className="space-y-5">
+                <div className="space-y-2 pt-1">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-sky-500/10 border border-sky-400/40 text-sky-300 text-xs font-mono font-bold">
+                    <span>🔵 GROW</span>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold font-syne text-white">
+                      AI Business Growth Employee
+                    </h3>
+                    <p className="text-xs text-sky-200/90 mt-1 leading-snug">
+                      Your AI employee for customer support, marketing & growth.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-2 pb-3 border-y border-sky-500/20">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white font-syne">
+                      {currency === 'ZMW' ? 'K2,000' : '$100'}
+                    </span>
+                    <span className="text-xs text-[#A8A099] font-mono">/ month</span>
+                  </div>
+                  <div className="flex items-center justify-between mt-1">
+                    <span className="text-[11px] text-sky-400 font-mono font-semibold">
+                      Complete workforce · Support + Marketing + Insights
+                    </span>
+                    <span className="text-[10px] text-white/40 font-mono">
+                      {currency === 'ZMW' ? '≈ $100 / mo USD' : '≈ K2,000 / mo ZMW'}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="p-2 rounded-lg bg-sky-500/10 border border-sky-500/20 text-xs font-mono text-sky-300 font-medium">
+                  ✓ Everything in START, plus:
+                </div>
+
+                <div className="space-y-3.5 text-xs">
+                  <div className="space-y-1.5">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-sky-300 font-bold flex items-center gap-1">
+                      <TrendingUp className="w-3 h-3 text-sky-400" />
+                      <span>Customer Growth</span>
+                    </span>
+                    <div className="grid grid-cols-2 gap-1.5 text-[11px] text-[#D4CDC5]">
+                      {['Lead qualification', 'Advanced follow-up', 'Customer re-engagement', 'Sales assistance'].map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-1.5">
+                          <Check className="w-3 h-3 text-sky-400 shrink-0" />
+                          <span className="truncate">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-1.5 pt-1.5 border-t border-white/5">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-sky-300 font-bold flex items-center gap-1">
+                      <Share2 className="w-3 h-3 text-sky-400" />
+                      <span>Marketing</span>
+                    </span>
+                    <div className="grid grid-cols-2 gap-1.5 text-[11px] text-[#D4CDC5]">
+                      {[
+                        'Consistent social content',
+                        'Content planning',
+                        'Ongoing marketing',
+                        'Promotional content',
+                        'Marketing strategy',
+                        'Campaign optimization'
+                      ].map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-1.5">
+                          <Check className="w-3 h-3 text-sky-400 shrink-0" />
+                          <span className="truncate">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="space-y-1.5 pt-1.5 border-t border-white/5">
+                    <span className="text-[10px] font-mono uppercase tracking-wider text-sky-300 font-bold flex items-center gap-1">
+                      <BarChart3 className="w-3 h-3 text-sky-400" />
+                      <span>Business Intelligence</span>
+                    </span>
+                    <div className="grid grid-cols-2 gap-1.5 text-[11px] text-[#D4CDC5]">
+                      {['Reporting', 'Business insights', 'Growth opportunities', 'AI recommendations'].map((item, idx) => (
+                        <div key={idx} className="flex items-center gap-1.5">
+                          <Check className="w-3 h-3 text-sky-400 shrink-0" />
+                          <span className="truncate">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="pt-6">
+                <button
+                  onClick={() => {
+                    setSelectedPlanId('grow');
+                    scrollToBooking();
+                  }}
+                  className="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-sky-500 via-blue-600 to-indigo-600 hover:brightness-110 text-white font-syne font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 transition-all cursor-pointer shadow-xl shadow-sky-500/25 active:scale-98"
+                >
+                  <span>Select GROW ({currency === 'ZMW' ? 'K2,000/mo' : '$100/mo'})</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </motion.div>
+
+            {/* TIER 3: 🟣 SCALE */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+              className={`rounded-3xl bg-[#0E0814] border p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 shadow-xl ${
+                selectedPlanId === 'scale' ? 'border-purple-400 ring-2 ring-purple-500/30' : 'border-purple-500/30 hover:border-purple-500/60'
+              }`}
+            >
+              <div className="space-y-5">
+                <div className="space-y-2">
+                  <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-300 text-xs font-mono font-bold">
+                    <span>🟣 SCALE</span>
+                  </div>
+
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold font-syne text-white">
+                      Custom AI Employees
+                    </h3>
+                    <p className="text-xs text-[#A8A099] mt-1 leading-snug">
+                      AI employees built around your business.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="pt-2 pb-3 border-y border-white/10">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="text-3xl sm:text-4xl font-black text-white font-syne">
+                      {currency === 'ZMW' ? 'K4,000+' : '$200+'}
+                    </span>
+                    <span className="text-xs text-[#A8A099] font-mono">/ month</span>
+                  </div>
+                  <div className="flex items-center justify-between mt-1">
+                    <span className="text-[11px] text-purple-400 font-mono">
+                      Custom pricing based on requirements
+                    </span>
+                    <span className="text-[10px] text-white/40 font-mono">
+                      {currency === 'ZMW' ? '≈ $200+/mo USD' : '≈ K4,000+/mo ZMW'}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-[#A8A099] font-bold block">
+                    Custom Capabilities:
+                  </span>
+                  <div className="space-y-2 text-xs text-[#D4CDC5]">
+                    {[
+                      'Custom AI solutions',
+                      'Custom AI employees',
+                      'Custom integrations',
+                      'Specialized business processes',
+                      'Advanced reporting',
+                      'Higher-volume requirements',
+                      'Business-specific requirements',
+                      'Custom pricing based on requirements'
+                    ].map((item, idx) => (
+                      <div key={idx} className="flex items-start gap-2">
+                        <div className="w-3.5 h-3.5 rounded bg-purple-500/15 text-purple-400 flex items-center justify-center shrink-0 mt-0.5">
+                          <Check className="w-2.5 h-2.5" />
+                        </div>
+                        <span className="leading-snug text-[11.5px]">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="p-3 rounded-xl bg-purple-950/20 border border-purple-500/20 text-xs text-purple-200/90 leading-relaxed font-mono text-[11px]">
+                  Tailored for multi-branch retail, distributors, and custom workflows.
+                </div>
+              </div>
+
+              <div className="pt-6">
+                <button
+                  onClick={() => {
+                    setSelectedPlanId('scale');
+                    scrollToBooking();
+                  }}
+                  className="w-full py-3 px-4 rounded-xl bg-[#1C102A] hover:bg-[#251538] border border-purple-500/40 hover:border-purple-500 text-purple-200 font-syne font-bold text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer shadow-lg active:scale-98"
+                >
+                  <span>Select SCALE ({currency === 'ZMW' ? 'from K4,000/mo' : 'from $200+/mo'})</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </motion.div>
+
           </div>
 
           {/* 30-Day Money-Back Guarantee Banner */}

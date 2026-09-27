@@ -5,7 +5,8 @@ import {
   ProcessStep,
   BusinessOutcome,
   EndToEndWorkflowStep,
-  EconomicComparisonData
+  EconomicComparisonData,
+  PricingTier
 } from '../types';
 
 export const AI_TEAM_MEMBERS: AiTeamMember[] = [
@@ -21,7 +22,7 @@ export const AI_TEAM_MEMBERS: AiTeamMember[] = [
       'Answers repetitive product, sizing, and pricing questions instantly',
       'Follows up with warm leads who inquired but haven’t placed an order',
       'Collects customer delivery addresses and formats orders for dispatch',
-      'Provides mobile money instructions (Airtel Money, MTN MoMo, Zamtel)',
+      'Provides instant payment instructions & account details',
       'Escalates complex requests or dispute inquiries to human staff'
     ],
     businessOutcome: 'Zero missed sales after hours. Reclaim 3+ hours every single day from answering repetitive DMs.',
@@ -157,10 +158,10 @@ export const INDUSTRY_SOLUTIONS: IndustrySolution[] = [
     iconName: 'Shirt',
     challenge: 'Customers flood DMs asking for size charts, available colors, and fit comparisons. Staff take hours to reply, by which time the buyer moves on.',
     howMupezeniHelps: 'AI Support Worker instantly verifies stock by size and color, recommends matching items, and takes delivery details. AI Marketing Worker generates daily lookbook visuals.',
-    keyFeatures: ['Automated size & fit advisor', 'Instant color variation previews', 'Daily outfit-of-the-day posts', 'Mobile money order confirmation'],
+    keyFeatures: ['Automated size & fit advisor', 'Instant color variation previews', 'Daily outfit-of-the-day posts', 'Instant payment & order confirmation'],
     sampleInteraction: {
       customerQuery: 'Do you have the emerald satin gown in size Medium, and can I get it delivered to Woodlands today?',
-      aiResponse: 'Yes! We have 2 emerald satin gowns left in Medium. We can dispatch to Woodlands via Yango delivery in under 45 minutes for K650 total. Would you like our Airtel or MTN payment number to confirm?',
+      aiResponse: 'Yes! We have 2 emerald satin gowns left in Medium. We can dispatch to Woodlands via Yango delivery in under 45 minutes for K650 total. Would you like our payment details to confirm?',
       outcomeNote: 'Order secured in 40 seconds before customer closed Instagram.'
     },
     metricsHighlight: '+38% increase in after-hours checkout completion'
@@ -220,7 +221,7 @@ export const INDUSTRY_SOLUTIONS: IndustrySolution[] = [
     badge: 'High Frequency • Fast Inventory Turn',
     iconName: 'ShoppingBag',
     challenge: 'Daily price changes, fresh produce availability, and quick WhatsApp order lists take up immense time for store clerks.',
-    howMupezeniHelps: 'AI parses raw customer shopping lists, checks product availability, sums the total with delivery fee, and generates a mobile money payment link.',
+    howMupezeniHelps: 'AI parses raw customer shopping lists, checks product availability, sums the total with delivery fee, and generates an instant payment link.',
     keyFeatures: ['Bulk shopping list parser', 'Fresh stock alerts to VIP customers', 'Automated packing slips for store crew', 'Daily grocery deal broadcasts'],
     sampleInteraction: {
       customerQuery: 'I need: 10kg breakfast mealie meal, 2L cooking oil, 1 tray of eggs, and 1kg beef stew. How much total?',
@@ -324,7 +325,7 @@ export const BUSINESS_OUTCOMES: BusinessOutcome[] = [
     description: 'Over 40% of retail inquiries in Zambia happen between 7 PM and 11 PM when physical stores are closed. Your AI Support Worker replies in seconds, shares payment instructions, and locks in orders before morning.',
     bulletPoints: [
       'Immediate responses to night-time shoppers',
-      'Automated mobile money payment details provided',
+      'Automated payment details & order reservation provided',
       'Delivery details gathered ready for first-wave morning dispatch'
     ],
     iconName: 'Moon',
@@ -374,7 +375,7 @@ export const END_TO_END_WORKFLOW: EndToEndWorkflowStep[] = [
     stageTitle: 'AI Support Worker Engages',
     actor: 'AI Customer Support Worker',
     action: 'Checks inventory, confirms details, asks for order',
-    description: 'Within 3 seconds, AI confirms stock in real-time, quotes accurate delivery cost to Kabwata (K30), and provides mobile money payment details.',
+    description: 'Within 3 seconds, AI confirms stock in real-time, quotes accurate delivery cost to Kabwata (K30), and provides instant payment details.',
     details: ['Under 3 seconds response', 'Accurate stock and delivery verification'],
     businessImpact: 'Captures intent while interest is at its peak',
     iconName: 'Zap'
@@ -400,3 +401,137 @@ export const END_TO_END_WORKFLOW: EndToEndWorkflowStep[] = [
     iconName: 'TrendingUp'
   }
 ];
+
+export const PRICING_TIERS: PricingTier[] = [
+  {
+    id: 'start',
+    name: 'START',
+    emoji: '🟢',
+    price: '$25',
+    period: '/ month',
+    priceUsd: '$25',
+    priceZmw: 'K500',
+    periodUsd: '/ month',
+    periodZmw: '/ month',
+    roleTitle: 'AI Customer Support Employee',
+    tagline: 'Your AI employee for customer support.',
+    accentColor: 'emerald',
+    worksAcross: [
+      'WhatsApp',
+      'Facebook',
+      'Instagram',
+      'TikTok',
+      'Website / E-commerce'
+    ],
+    handles: [
+      'Customer questions',
+      'FAQs',
+      'Product & service information',
+      'Basic enquiries',
+      'Lead capture',
+      'Basic follow-up',
+      '24/7 customer responses',
+      'Marketing assistance',
+      'Up to 5 social posts/month'
+    ],
+    limitations: [
+      'No ongoing marketing consistency',
+      'No marketing strategy',
+      'No reporting',
+      'No business insights'
+    ]
+  },
+  {
+    id: 'grow',
+    name: 'GROW',
+    emoji: '🔵',
+    price: '$100',
+    period: '/ month',
+    priceUsd: '$100',
+    priceZmw: 'K2,000',
+    periodUsd: '/ month',
+    periodZmw: '/ month',
+    roleTitle: 'AI Business Growth Employee',
+    tagline: 'Your AI employee for customer support, marketing & growth.',
+    isPopular: true,
+    accentBadge: 'MOST POPULAR · RECOMMENDED',
+    accentColor: 'sky',
+    worksAcross: [
+      'WhatsApp',
+      'Facebook',
+      'Instagram',
+      'TikTok',
+      'Website / E-commerce'
+    ],
+    handles: [
+      'Everything in START, plus:'
+    ],
+    categories: [
+      {
+        categoryName: 'Customer Growth',
+        items: [
+          'Lead qualification',
+          'Advanced follow-up',
+          'Customer re-engagement',
+          'Sales assistance'
+        ]
+      },
+      {
+        categoryName: 'Marketing',
+        items: [
+          'Consistent social content',
+          'Content planning',
+          'Ongoing marketing',
+          'Promotional content',
+          'Marketing strategy',
+          'Campaign optimization'
+        ]
+      },
+      {
+        categoryName: 'Business Intelligence',
+        items: [
+          'Reporting',
+          'Business insights',
+          'Growth opportunities',
+          'AI recommendations'
+        ]
+      }
+    ]
+  },
+  {
+    id: 'scale',
+    name: 'SCALE',
+    emoji: '🟣',
+    price: '$200+',
+    period: '/ month',
+    priceUsd: '$200+',
+    priceZmw: 'K4,000+',
+    periodUsd: '/ month',
+    periodZmw: '/ month',
+    roleTitle: 'Custom AI Employees',
+    tagline: 'AI employees built around your business.',
+    accentBadge: 'BESPOKE · HIGH-VOLUME',
+    accentColor: 'purple',
+    worksAcross: [
+      'WhatsApp',
+      'Facebook',
+      'Instagram',
+      'TikTok',
+      'Website, ERP & Custom APIs'
+    ],
+    handles: [
+      'Custom pricing based on requirements'
+    ],
+    customFeatures: [
+      'Custom AI solutions',
+      'Custom AI employees',
+      'Custom integrations',
+      'Specialized business processes',
+      'Advanced reporting',
+      'Higher-volume requirements',
+      'Business-specific requirements',
+      'Custom pricing based on requirements'
+    ]
+  }
+];
+

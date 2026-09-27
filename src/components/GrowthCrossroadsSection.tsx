@@ -1,336 +1,236 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { 
-  Users, 
-  Sparkles, 
-  ArrowRight, 
-  Check, 
-  Layers,
-  Clock, 
+  ArrowDown, 
+  AlertTriangle,
   MessageSquare, 
-  ShoppingBag, 
-  TrendingUp, 
-  BarChart3, 
-  ShieldCheck,
-  Split,
-  Workflow
+  Megaphone, 
+  TrendingDown,
+  Sparkles,
+  ChevronDown,
+  Clock,
+  DollarSign,
+  UserX
 } from 'lucide-react';
 import { PageId } from '../types';
+import enquiryFatigueImg from '../assets/images/problem_enquiry_fatigue_1790425892923.jpg';
+import marketingDelayImg from '../assets/images/problem_marketing_delay_1790425907228.jpg';
+import overheadChurnImg from '../assets/images/problem_overhead_churn_1790425920818.jpg';
 
 interface GrowthCrossroadsSectionProps {
-  onNavigate: (page: PageId) => void;
+  onNavigate?: (page: PageId) => void;
+  onOpenBookingModal?: () => void;
 }
 
-export const GrowthCrossroadsSection: React.FC<GrowthCrossroadsSectionProps> = ({ onNavigate }) => {
-  const [activeTab, setActiveTab] = useState<'both' | 'traditional' | 'mupezeni'>('both');
+export const GrowthCrossroadsSection: React.FC<GrowthCrossroadsSectionProps> = () => {
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
-  const retailWorkloads = [
-    { label: 'Customer enquiries', icon: MessageSquare },
-    { label: 'Social media', icon: Sparkles },
-    { label: 'Product promotion', icon: ShoppingBag },
-    { label: 'Customer follow-ups', icon: Clock },
-    { label: 'Orders & checkout', icon: Workflow },
-    { label: 'Business information', icon: BarChart3 }
+  const scrollToAiWorkers = () => {
+    const el = document.getElementById('ai-workers-section');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const stories = [
+    {
+      id: 'enquiries',
+      step: '01',
+      tag: 'Customer Enquiries',
+      title: 'The Endless WhatsApp DM Grind',
+      subtitle: 'Repetitive sizing, prices & missed late-night buyers.',
+      image: enquiryFatigueImg,
+      badge: '15m – 8h Reply Delay',
+      icon: MessageSquare,
+      quickStat: '$350–$600/mo or 15h founder time',
+      hiddenDetails: [
+        'Answering the exact same 5 questions hundreds of times every week.',
+        'High-intent customers message past 8 PM and buy from competitors when no one replies.',
+        'Hiring support staff means recurring payroll, training churn, and constant supervision.'
+      ]
+    },
+    {
+      id: 'marketing',
+      step: '02',
+      tag: 'Social Marketing',
+      title: 'Slow Agencies & Midnight Flyers',
+      subtitle: 'Waiting days for promo drafts or drafting posts at 1 AM.',
+      image: marketingDelayImg,
+      badge: '3 – 7 Day Turnaround',
+      icon: Megaphone,
+      quickStat: '$400–$800/mo retainer',
+      hiddenDetails: [
+        'Agencies take days to deliver generic flyers disconnected from live store inventory.',
+        'Founders stay up until 1 AM drafting captions instead of focusing on sourcing and operations.',
+        'Marketing stops the moment you get busy running the physical shop.'
+      ]
+    },
+    {
+      id: 'overhead',
+      step: '03',
+      tag: 'Founder Drain',
+      title: 'High Payroll, Zero Freedom',
+      subtitle: 'Paying for fragmented roles, yet growth stays bottlenecked.',
+      image: overheadChurnImg,
+      badge: '25+ Hours Lost Weekly',
+      icon: TrendingDown,
+      quickStat: '$750–$1,400+/mo combined cost',
+      hiddenDetails: [
+        'Heavy fixed monthly overhead across wages, airtime, and outside agency retainers.',
+        'Staff turnover repeatedly resets your operational workflow back to square one.',
+        'The founder remains trapped in manual firefighting with zero time to scale.'
+      ]
+    }
   ];
 
   return (
     <section 
       id="growth-crossroads" 
-      className="relative py-6 sm:py-12 lg:py-14 bg-[#080503] overflow-hidden border-t border-white/5"
+      className="relative py-14 sm:py-18 lg:py-22 bg-[#060403] overflow-hidden border-t border-white/[0.08]"
     >
-      {/* Decorative ambient gradient backdrop */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[250px] sm:h-[350px] bg-gradient-to-r from-[#9B2208]/15 via-[#D95A1A]/10 to-[#9B2208]/10 rounded-full blur-[130px] pointer-events-none -z-10" />
+      {/* Subtle ambient lighting */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[650px] h-[350px] bg-[#9B2208]/12 rounded-full blur-[160px] pointer-events-none -z-10" />
 
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
         
-        {/* Section Header */}
-        <div className="text-center space-y-2 sm:space-y-3 mb-5 sm:mb-8">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
+        {/* Streamlined Header */}
+        <div className="text-center space-y-3 max-w-2xl mx-auto">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#180A05] border border-red-500/30 text-xs font-mono tracking-widest text-red-400 uppercase">
+            <AlertTriangle className="w-3.5 h-3.5 text-red-400" />
+            <span>The Traditional Bottleneck</span>
+          </div>
+
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-syne text-[#FAFAF9] tracking-tight leading-tight">
+            Two Heavy Roles. <span className="text-gradient-fire">Endless Friction.</span>
+          </h2>
+
+          <p className="text-xs sm:text-sm text-[#A8A099] max-w-xl mx-auto leading-relaxed">
+            Managing customer chat enquiries and continuous social marketing manually limits your revenue and drains your time.
+          </p>
+        </div>
+
+        {/* 3 Visual Storytelling Cards (Image-First, Minimal Copy) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          {stories.map((story, idx) => {
+            const isExpanded = expandedCard === story.id;
+            const Icon = story.icon;
+
+            return (
+              <motion.div
+                key={story.id}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                className="group relative rounded-2xl bg-[#0D0704] border border-red-500/20 overflow-hidden shadow-xl hover:border-red-500/40 transition-all flex flex-col justify-between"
+              >
+                {/* Visual Stock Image Container with Cinematic Scrim */}
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#160B06]">
+                  <img
+                    src={story.image}
+                    alt={story.title}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover object-center filter contrast-105 group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0D0704] via-[#0D0704]/40 to-transparent" />
+
+                  {/* Top Badges */}
+                  <div className="absolute top-3 left-3 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/85 backdrop-blur-md border border-white/15 text-[11px] font-mono text-white font-medium">
+                    <span className="text-red-400 font-bold">{story.step}</span>
+                    <span className="text-white/40">·</span>
+                    <span>{story.tag}</span>
+                  </div>
+
+                  <div className="absolute top-3 right-3 px-2.5 py-0.5 rounded-full bg-red-950/90 border border-red-500/30 text-red-300 text-[10px] font-mono font-bold shadow">
+                    {story.badge}
+                  </div>
+                </div>
+
+                {/* Minimal Card Body */}
+                <div className="p-5 sm:p-6 space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="space-y-1.5">
+                    <div className="flex items-center gap-2">
+                      <div className="p-1.5 rounded-lg bg-red-500/10 text-red-400">
+                        <Icon className="w-3.5 h-3.5" />
+                      </div>
+                      <h3 className="text-base sm:text-lg font-bold font-syne text-white leading-snug">
+                        {story.title}
+                      </h3>
+                    </div>
+
+                    <p className="text-xs text-[#A8A099] leading-relaxed">
+                      {story.subtitle}
+                    </p>
+                  </div>
+
+                  {/* Expandable / Collapsible Hidden Detail via Tailwind & State */}
+                  <div className="pt-2 border-t border-white/5 space-y-2">
+                    <div className="flex items-center justify-between text-[11px] font-mono text-[#D4CDC5]">
+                      <span className="text-red-400 font-semibold">{story.quickStat}</span>
+                      <button
+                        onClick={() => setExpandedCard(isExpanded ? null : story.id)}
+                        className="inline-flex items-center gap-1 text-[11px] text-[#A8A099] hover:text-white transition-colors cursor-pointer py-1"
+                      >
+                        <span>{isExpanded ? 'Less' : 'Details'}</span>
+                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
+                      </button>
+                    </div>
+
+                    <AnimatePresence>
+                      {isExpanded && (
+                        <motion.ul
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="space-y-1.5 pt-2 overflow-hidden text-[11px] text-[#8C827A]"
+                        >
+                          {story.hiddenDetails.map((detail, i) => (
+                            <li key={i} className="flex items-start gap-1.5">
+                              <span className="text-red-400 font-bold shrink-0">✕</span>
+                              <span>{detail}</span>
+                            </li>
+                          ))}
+                        </motion.ul>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Clean, High-Impact Transition Bridge to the Next Component */}
+        <div className="pt-2">
+          <motion.div 
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4 }}
+            className="relative rounded-2xl p-6 sm:p-8 bg-gradient-to-r from-[#180C07] via-[#221008] to-[#180C07] border border-[#D95A1A]/40 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-5 text-center sm:text-left"
           >
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#1A0E08] border border-[#9B2208]/40 text-[10px] sm:text-[11px] font-bold tracking-widest uppercase text-[#D95A1A] font-syne">
-              <Split className="w-3 h-3 text-[#D95A1A]" />
-              <span>Operational Comparison</span>
-            </span>
-          </motion.div>
-
-          <motion.h2 
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="text-xl sm:text-2xl lg:text-3xl font-black font-syne text-white tracking-tight"
-          >
-            The Digital <span className="text-gradient-fire">Workload Problem</span>
-          </motion.h2>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-xs sm:text-[13px] text-[#FAFAF9]/80 font-normal max-w-xl mx-auto leading-relaxed"
-          >
-            Retail businesses increasingly have to manage continuous customer demand across digital touchpoints:
-          </motion.p>
-
-          {/* Workload Chips */}
-          <motion.div 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.15 }}
-            className="flex flex-wrap items-center justify-center gap-1.5 max-w-2xl mx-auto pt-0.5"
-          >
-            {retailWorkloads.map((item, i) => {
-              const Icon = item.icon;
-              return (
-                <span 
-                  key={i}
-                  className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-[#140C07] border border-white/10 text-[10.5px] sm:text-[11px] text-white/90 font-syne"
-                >
-                  <Icon className="w-2.5 h-2.5 text-[#D95A1A]" />
-                  <span>{item.label}</span>
-                </span>
-              );
-            })}
-          </motion.div>
-        </div>
-
-        {/* View Switcher: Mobile First Segmented Control */}
-        <div className="space-y-3 sm:space-y-4">
-          <div className="flex justify-center">
-            <div className="inline-flex items-center p-0.5 sm:p-1 rounded-xl bg-[#120905] border border-white/10 text-[11px] sm:text-xs font-syne">
-              <button
-                id="crossroads-tab-traditional"
-                onClick={() => setActiveTab('traditional')}
-                className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer font-bold ${
-                  activeTab === 'traditional'
-                    ? 'bg-[#2A1208] text-white shadow'
-                    : 'text-white/60 hover:text-white'
-                }`}
-              >
-                Traditional Approach
-              </button>
-              <button
-                id="crossroads-tab-both"
-                onClick={() => setActiveTab('both')}
-                className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer font-bold hidden md:inline-block ${
-                  activeTab === 'both'
-                    ? 'bg-[#9B2208] text-white shadow'
-                    : 'text-white/60 hover:text-white'
-                }`}
-              >
-                Side-by-Side Comparison
-              </button>
-              <button
-                id="crossroads-tab-mupezeni"
-                onClick={() => setActiveTab('mupezeni')}
-                className={`px-2.5 py-1 rounded-lg transition-all cursor-pointer font-bold ${
-                  activeTab === 'mupezeni'
-                    ? 'bg-gradient-to-r from-[#9B2208] to-[#D95A1A] text-white shadow'
-                    : 'text-white/60 hover:text-white'
-                }`}
-              >
-                Mupezeni AI Team ★
-              </button>
+            <div className="space-y-1.5 max-w-xl">
+              <div className="inline-flex items-center gap-1.5 text-[11px] font-mono text-[#E58330] uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>The Solution</span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-bold font-syne text-white">
+                Replace this friction with autonomous AI workers.
+              </h3>
+              <p className="text-xs text-[#A8A099]">
+                See how two dedicated workers manage your frontline support and daily campaigns for $100/mo.
+              </p>
             </div>
-          </div>
 
-          {/* Cards Grid */}
-          <div className={`grid gap-3 sm:gap-5 ${
-            activeTab === 'both' ? 'grid-cols-1 lg:grid-cols-2' : 'grid-cols-1 max-w-2xl mx-auto'
-          }`}>
-            
-            {/* TRADITIONAL APPROACH */}
-            {(activeTab === 'both' || activeTab === 'traditional') && (
-              <motion.div 
-                initial={{ opacity: 0, x: -15 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="p-3.5 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#110A07] via-[#0E0805] to-[#0A0604] border border-white/10 relative flex flex-col justify-between space-y-3 sm:space-y-4 shadow-lg"
-              >
-                <div className="space-y-2.5 sm:space-y-3">
-                  
-                  {/* Header Badge */}
-                  <div className="flex items-center justify-between pb-2.5 border-b border-white/5">
-                    <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/70 flex-shrink-0">
-                        <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                      </div>
-                      <div>
-                        <span className="text-[8.5px] sm:text-[9px] uppercase font-bold tracking-widest text-white/50 font-syne block">
-                          Current Retail Method
-                        </span>
-                        <h3 className="text-sm sm:text-base lg:text-lg font-black font-syne text-white">
-                          Traditional Approach
-                        </h3>
-                      </div>
-                    </div>
-                    <span className="px-2 py-0.5 rounded-full bg-white/5 text-white/70 text-[9.5px] sm:text-[10.5px] font-bold font-syne border border-white/10">
-                      Fragmented
-                    </span>
-                  </div>
-
-                  <p className="text-[11px] sm:text-xs text-[#FAFAF9]/75 leading-relaxed">
-                    To keep customer support and marketing running consistently, a retailer may need to combine human staff, social media assistance, multiple software subscriptions, manual customer follow-up, and manual content creation.
-                  </p>
-
-                  {/* Drawbacks Breakdown */}
-                  <div className="space-y-1.5 pt-0.5 text-[11px] sm:text-xs text-[#FAFAF9]/80 font-syne">
-                    <div className="p-2 sm:p-2.5 rounded-lg bg-[#140A06] border border-white/5 space-y-0.5">
-                      <span className="text-[9px] font-bold text-white/50 uppercase tracking-wider block">
-                        What It Requires Assembling:
-                      </span>
-                      <ul className="space-y-0.5 text-[10.5px] sm:text-[11px] text-white/70 list-disc list-inside">
-                        <li>Human staff or part-time helpers</li>
-                        <li>Social media and marketing assistance</li>
-                        <li>Multiple software subscriptions and messaging tools</li>
-                        <li>Manual customer follow-up and DM checking</li>
-                        <li>Time spent coordinating and managing all of the above</li>
-                      </ul>
-                    </div>
-
-                    <div className="space-y-1.5 pt-0.5">
-                      <div className="flex items-start gap-2">
-                        <span className="text-red-400 font-bold mt-0.5">•</span>
-                        <span><strong className="text-white">More coordination:</strong> The owner spends valuable hours aligning tools, schedules, and deliverables.</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <span className="text-red-400 font-bold mt-0.5">•</span>
-                        <span><strong className="text-white">Multiple recurring costs:</strong> Disconnected tools and freelance help add up unpredictably.</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <span className="text-red-400 font-bold mt-0.5">•</span>
-                        <span><strong className="text-white">Work stops when people are away:</strong> Evening queries, Sunday messages, and holiday inquiries sit waiting.</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <span className="text-red-400 font-bold mt-0.5">•</span>
-                        <span><strong className="text-white">Fragmented information:</strong> Customer chats, stock queries, and promotion records stay scattered across personal phones.</span>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-                {/* Bottom Summary */}
-                <div className="pt-2 border-t border-white/5">
-                  <div className="p-2 rounded-lg bg-[#0B0604] border border-white/10 text-[10px] sm:text-[11px] text-white/70 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white/40 flex-shrink-0" />
-                    <span>Result: Heavy management overhead and disconnected customer touchpoints.</span>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-
-            {/* MUPEZENI APPROACH */}
-            {(activeTab === 'both' || activeTab === 'mupezeni') && (
-              <motion.div 
-                initial={{ opacity: 0, x: 15 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="p-3.5 sm:p-5 lg:p-6 rounded-xl sm:rounded-2xl bg-gradient-to-br from-[#1E0F09] via-[#140C07] to-[#0A0704] border-2 border-[#9B2208] shadow-xl shadow-[#9B2208]/20 relative flex flex-col justify-between space-y-3 sm:space-y-4"
-              >
-                {/* Floating Top Pill */}
-                <div className="absolute -top-2.5 right-3 sm:right-6 px-2 py-0.5 rounded-full bg-gradient-to-r from-[#9B2208] to-[#D95A1A] text-white text-[8.5px] sm:text-[9.5px] font-black uppercase tracking-wider font-syne shadow-md">
-                  Unified AI Workforce
-                </div>
-
-                <div className="space-y-2.5 sm:space-y-3">
-                  
-                  {/* Header Badge */}
-                  <div className="flex items-center justify-between pb-2.5 border-b border-white/10">
-                    <div className="flex items-center gap-2">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-gradient-to-br from-[#9B2208] to-[#D95A1A] flex items-center justify-center text-white shadow-md shadow-[#9B2208]/30 flex-shrink-0">
-                        <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                      </div>
-                      <div>
-                        <span className="text-[8.5px] sm:text-[9px] uppercase font-bold tracking-widest text-[#D95A1A] font-syne block">
-                          The Mupezeni Approach
-                        </span>
-                        <h3 className="text-sm sm:text-base lg:text-lg font-black font-syne text-white">
-                          Two AI Workers. One System.
-                        </h3>
-                      </div>
-                    </div>
-                    <span className="px-2 py-0.5 rounded-full bg-[#24110A] text-[#D95A1A] text-[9.5px] sm:text-[10.5px] font-bold font-syne border border-[#9B2208]/50">
-                      Integrated
-                    </span>
-                  </div>
-
-                  <p className="text-[11px] sm:text-xs text-[#FAFAF9]/90 leading-relaxed">
-                    Mupezeni gives retail businesses two dedicated AI workers that handle repetitive digital work around the clock, with an included visibility dashboard to keep you in control.
-                  </p>
-
-                  {/* Components Breakdown */}
-                  <div className="space-y-1.5 pt-0.5 text-[11px] sm:text-xs text-[#FAFAF9]/90 font-syne">
-                    <div className="p-2 sm:p-2.5 rounded-lg bg-[#1A0E08] border border-[#9B2208]/40 space-y-0.5">
-                      <span className="text-[9px] font-bold text-[#D95A1A] uppercase tracking-wider block">
-                        Included in One Simple Subscription:
-                      </span>
-                      <ul className="space-y-0.5 text-[10.5px] sm:text-[11px] text-white/90">
-                        <li className="flex items-center gap-1.5">
-                          <Check className="w-3 h-3 text-[#D95A1A] flex-shrink-0" />
-                          <span><strong className="text-white">AI Customer Support Worker:</strong> Answers inquiries, handles FAQs & follows up leads 24/7</span>
-                        </li>
-                        <li className="flex items-center gap-1.5">
-                          <Check className="w-3 h-3 text-[#D95A1A] flex-shrink-0" />
-                          <span><strong className="text-white">AI Marketing Worker:</strong> Daily social content, branded visuals & promotional copy</span>
-                        </li>
-                        <li className="flex items-center gap-1.5">
-                          <Check className="w-3 h-3 text-[#D95A1A] flex-shrink-0" />
-                          <span><strong className="text-white">Business Insights Dashboard:</strong> Orders, sales velocity & restock visibility</span>
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div className="space-y-1.5 pt-0.5">
-                      <div className="flex items-start gap-2">
-                        <Check className="w-3.5 h-3.5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                        <span><strong className="text-white">Continuous operation:</strong> Digital inquiries and product questions are answered immediately without delay.</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <Check className="w-3.5 h-3.5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                        <span><strong className="text-white">Automated workflows:</strong> Coordinated handoffs between customer support, lead follow-up, and marketing promotions.</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <Check className="w-3.5 h-3.5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                        <span><strong className="text-white">Human judgment & escalation:</strong> Sensitive decisions and complex inquiries escalate gracefully to you.</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <Check className="w-3.5 h-3.5 text-emerald-400 mt-0.5 flex-shrink-0" />
-                        <span><strong className="text-white">Predictable economics:</strong> One simple monthly subscription with zero setup fees. Month-to-month.</span>
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-
-                {/* Bottom Action */}
-                <div className="pt-2.5 border-t border-white/10 space-y-2">
-                  <div className="p-1.5 sm:p-2 rounded-lg bg-[#170E08] border border-[#9B2208]/40 text-[9.5px] sm:text-[10.5px] text-[#FAFAF9] flex items-center gap-1.5 font-medium">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 flex-shrink-0 animate-pulse" />
-                    <span>Result: Digital consistency, continuous customer responsiveness, and peace of mind.</span>
-                  </div>
-
-                  <button
-                    onClick={() => onNavigate('contact')}
-                    className="w-full py-2 sm:py-2.5 px-3.5 rounded-lg font-syne font-bold text-xs text-white bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] hover:shadow-md hover:shadow-[#9B2208]/35 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-                  >
-                    <span>Get Your AI Team</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-              </motion.div>
-            )}
-
-          </div>
-
+            <button
+              onClick={scrollToAiWorkers}
+              className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-[#9B2208] to-[#D95A1A] hover:brightness-110 text-white font-syne font-bold text-xs shadow-lg transition-all transform hover:-translate-y-0.5 active:scale-98 cursor-pointer whitespace-nowrap group shrink-0"
+            >
+              <span>See the 2 AI Workers Below</span>
+              <ArrowDown className="w-4 h-4 text-white group-hover:translate-y-0.5 transition-transform" />
+            </button>
+          </motion.div>
         </div>
 
       </div>
