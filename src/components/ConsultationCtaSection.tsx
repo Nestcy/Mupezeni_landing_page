@@ -72,6 +72,22 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaSectionProps> = ({
     });
   };
 
+  const handleContactClick = () => {
+    if (onNavigateToContact) {
+      onNavigateToContact();
+    } else {
+      window.location.hash = '#contact';
+    }
+  };
+
+  const handleHowItWorksClick = () => {
+    if (onNavigateToHowItWorks) {
+      onNavigateToHowItWorks();
+    } else {
+      window.location.hash = '#how-it-works';
+    }
+  };
+
   return (
     <section id={id} className="py-20 sm:py-28 bg-[#0A0705] text-[#FAFAF9] relative overflow-hidden border-t border-b border-white/[0.06]">
       {/* Background ambient lighting */}
@@ -105,7 +121,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaSectionProps> = ({
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3.5">
               <button
                 type="button"
-                onClick={onNavigateToContact}
+                onClick={handleContactClick}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-syne font-bold text-sm shadow-xl shadow-[#9B2208]/40 hover:shadow-[#9B2208]/60 hover:scale-105 active:scale-98 transition-all cursor-pointer"
               >
                 <span>Get Your AI Team</span>
@@ -114,7 +130,7 @@ export const ConsultationCtaSection: React.FC<ConsultationCtaSectionProps> = ({
 
               <button
                 type="button"
-                onClick={onNavigateToHowItWorks}
+                onClick={handleHowItWorksClick}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-xl bg-[#0A0705] border border-white/15 hover:border-white/30 text-[#FAFAF9] font-syne font-bold text-sm transition-all cursor-pointer"
               >
                 <span>See How It Works</span>

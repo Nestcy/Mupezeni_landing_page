@@ -287,7 +287,10 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate, onOp
         </div>
 
         {/* Consultation Callout */}
-        <ConsultationCtaSection />
+        <ConsultationCtaSection 
+          onNavigateToContact={() => onNavigate('contact')}
+          onNavigateToHowItWorks={() => onNavigate('how-it-works')}
+        />
 
       </div>
     </div>

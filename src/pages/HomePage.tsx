@@ -75,6 +75,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* 10. FINAL CTA SECTION */}
       <ConsultationCtaSection
         onNavigateToContact={() => onNavigate('contact')}
+        onNavigateToHowItWorks={() => onNavigate('how-it-works')}
       />
 
     </div>

@@ -118,7 +118,12 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onNavigate, onOp
         </div>
 
         {/* Consultation Callout */}
-        <ConsultationCtaSection />
+        <ConsultationCtaSection 
+          onNavigateToContact={() => onNavigate('contact')}
+          onNavigateToHowItWorks={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+        />
 
       </div>
     </div>

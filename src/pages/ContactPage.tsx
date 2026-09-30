@@ -80,7 +80,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({ onNavigate }) => {
         </div>
 
         {/* Consultation Form */}
-        <ConsultationCtaSection />
+        <ConsultationCtaSection 
+          onNavigateToContact={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
+          onNavigateToHowItWorks={() => onNavigate('how-it-works')}
+        />
 
       </div>
     </div>
