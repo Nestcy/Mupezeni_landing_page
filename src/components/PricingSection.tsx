@@ -17,11 +17,13 @@ import { CurrencyMode } from '../types';
 
 interface PricingSectionProps {
   onSelectPlan?: (planId?: string) => void;
+  onNavigateToHowItWorks?: () => void;
   initialCurrency?: CurrencyMode;
 }
 
 export const PricingSection: React.FC<PricingSectionProps> = ({ 
   onSelectPlan,
+  onNavigateToHowItWorks,
   initialCurrency = 'ZMW'
 }) => {
   const [currency, setCurrency] = useState<CurrencyMode>(initialCurrency);
@@ -588,10 +590,16 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             </span>
           </div>
           <button
-            onClick={() => onSelectPlan && onSelectPlan('grow')}
+            onClick={() => {
+              if (onNavigateToHowItWorks) {
+                onNavigateToHowItWorks();
+              } else if (onSelectPlan) {
+                onSelectPlan('how-it-works');
+              }
+            }}
             className="text-[#E58330] hover:text-white font-mono text-xs underline underline-offset-4 cursor-pointer whitespace-nowrap"
           >
-            Compare Full Breakdown →
+            See How It Works →
           </button>
         </div>
 

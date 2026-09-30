@@ -44,6 +44,12 @@
   font-family: 'DM Sans', 'Plus Jakarta Sans', system-ui, sans-serif !important;
 }
 
+.font-editorial {
+  font-family: 'Cormorant Garamond', Garamond, Georgia, serif !important;
+  font-style: italic;
+  font-weight: 400;
+}
+
 .brand-name {
   font-family: 'Michroma', 'Syncopate', 'Montserrat', sans-serif !important;
   font-weight: 300;
@@ -102,6 +108,14 @@
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .animate-marquee-ltr {
+    animation: none !important;
+    transform: none !important;
+  }
 }
 
 @keyframes marquee-ltr {

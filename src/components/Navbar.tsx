@@ -17,10 +17,8 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks: { label: string; id: PageId }[] = [
-    { label: 'Overview', id: 'home' },
-    { label: 'AI Workers', id: 'solutions' },
     { label: 'How It Works', id: 'how-it-works' },
-    { label: 'Industries', id: 'industries' },
+    { label: 'AI Workforce', id: 'solutions' },
     { label: 'Pricing', id: 'pricing' },
     { label: 'About', id: 'about' },
     { label: 'Contact', id: 'contact' }
@@ -79,7 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }}
             className="group relative inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-bold text-xs sm:text-sm shadow-lg shadow-[#9B2208]/25 hover:shadow-xl hover:shadow-[#9B2208]/40 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
-            <span>Deploy AI Team</span>
+            <span>Get Your AI Team</span>
             <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
           </button>
         </div>

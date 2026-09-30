@@ -13,9 +13,10 @@ import {
   X,
   ShieldCheck
 } from 'lucide-react';
-import supportWorkerImg from '../assets/images/ai_support_worker_action_1790420094582.jpg';
-import marketingWorkerImg from '../assets/images/ai_marketing_worker_action_1790420107022.jpg';
-import dashboardPreviewImg from '../assets/images/ai_insights_dashboard_preview_1790420118811.jpg';
+import supportWorkerImg from '../assets/images/ai_worker_01_customer_support_sales_1790759123892.png';
+import marketingWorkerImg from '../assets/images/ai_worker_02_marketing_growth_1790759546208.png';
+import dashboardPreviewImg from '../assets/images/ai_insights_dashboard_preview_1790420118811.png';
+import { MupezeniBirdIcon, SignalStar } from './MupezeniBrandMetaphor';
 
 interface AiTeamSectionProps {
   onGetStarted?: () => void;
@@ -128,6 +129,16 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({
                 </div>
               </div>
 
+              {/* DISCOVERY METAPHOR BANNER */}
+              <div className="p-2.5 rounded-xl bg-[#0A0705] border border-white/[0.08] flex items-center justify-between text-xs font-dm">
+                <div className="flex items-center gap-2 text-[#FAFAF9]">
+                  <MupezeniBirdIcon size={18} />
+                  <span className="text-[#E58330] font-bold">✦</span>
+                  <span className="text-[11px] text-[#F5EDE4]/80">Discovers customer ready to buy</span>
+                </div>
+                <span className="text-emerald-400 font-syne font-bold text-[10.5px]">AI Worker Responds →</span>
+              </div>
+
               {/* RESPONSIBILITIES: Compact Labels (Not a Feature Grid) */}
               <div className="space-y-2 pt-1">
                 <span className="text-[10px] font-syne font-bold uppercase tracking-wider text-[#B83A0A] block">
@@ -225,6 +236,16 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({
                 <div className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-lg bg-[#0A0705]/85 backdrop-blur-md border border-white/[0.08] text-[10px] font-mono text-[#F5EDE4]/60">
                   Worker 02 Product View
                 </div>
+              </div>
+
+              {/* DISCOVERY METAPHOR BANNER */}
+              <div className="p-2.5 rounded-xl bg-[#0A0705] border border-white/[0.08] flex items-center justify-between text-xs font-dm">
+                <div className="flex items-center gap-2 text-[#FAFAF9]">
+                  <MupezeniBirdIcon size={18} />
+                  <span className="text-[#E58330] font-bold">✦</span>
+                  <span className="text-[11px] text-[#F5EDE4]/80">Discovers product interest increasing</span>
+                </div>
+                <span className="text-[#D95A1A] font-syne font-bold text-[10.5px]">Marketing Acts →</span>
               </div>
 
               {/* RESPONSIBILITIES: Compact Labels (Not a Feature Grid) */}
@@ -328,14 +349,16 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({
 
             {/* Subtle Overlay Strip with Product Context */}
             <div className="p-3 sm:p-4 bg-[#0A0705]/95 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-dm text-[#F5EDE4]/70">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span className="font-syne font-bold text-[#FAFAF9]">Mupezeni Central Intelligence</span>
-                <span aria-hidden="true">·</span>
-                <span>Unified real-time visibility across all digital channels</span>
+              <div className="flex items-center gap-2.5">
+                <MupezeniBirdIcon size={18} />
+                <span className="text-[#E58330] font-bold">✦</span>
+                <span className="font-syne font-bold text-[#FAFAF9]">Discovers repeated demand signals</span>
+                <span aria-hidden="true" className="text-white/20">·</span>
+                <span className="text-[#F5EDE4]/80">Central visibility reveals the full pattern</span>
               </div>
-              <div className="text-[11px] font-mono text-[#F5EDE4]/50">
-                Single Owner View
+              <div className="text-[11px] font-mono text-emerald-400 font-semibold flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>INTELLIGENCE LAYER ACTIVE</span>
               </div>
             </div>
           </div>

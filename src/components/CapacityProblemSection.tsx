@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { 
   MessageSquare, 
   HelpCircle, 
   Clock, 
   Megaphone, 
   ShoppingCart, 
-  FileText, 
   Sliders, 
   AlertCircle,
   TrendingUp,
-  ArrowRight
+  Activity
 } from 'lucide-react';
+
+import { MupezeniBirdIcon, SignalStar } from './MupezeniBrandMetaphor';
 
 interface ActivityItem {
   id: string;
   category: string;
   title: string;
   meta: string;
-  loadWeight: number; // 1 to 3
+  loadWeight: number;
   icon: React.ComponentType<{ className?: string }>;
   accentColor: string;
-  position: { desktop: string; mobile: string };
   time: string;
 }
 
@@ -29,23 +29,21 @@ const ACTIVITY_STREAMS: ActivityItem[] = [
   {
     id: 'convos',
     category: 'Customer conversations',
-    title: '8 unread inquiries across channels',
-    meta: '"Is this available in black? How fast can it ship?"',
+    title: '8 unread enquiries across channels',
+    meta: '"Do you have this in black? How fast can it ship?"',
     loadWeight: 3,
     icon: MessageSquare,
     accentColor: '#B83A0A',
-    position: { desktop: 'top-3 left-4', mobile: 'relative' },
     time: '2m ago'
   },
   {
     id: 'enquiries',
     category: 'Sales enquiries',
     title: 'Custom quote request awaiting response',
-    meta: 'High-intent client asking for bulk pricing options',
+    meta: 'High-intent buyer asking for bulk pricing options',
     loadWeight: 3,
     icon: HelpCircle,
     accentColor: '#9B2208',
-    position: { desktop: 'top-3 right-4', mobile: 'relative' },
     time: '8m ago'
   },
   {
@@ -56,76 +54,80 @@ const ACTIVITY_STREAMS: ActivityItem[] = [
     loadWeight: 2,
     icon: Clock,
     accentColor: '#B83A0A',
-    position: { desktop: 'top-36 left-2', mobile: 'relative' },
     time: '18m ago'
   },
   {
     id: 'marketing',
     category: 'Marketing tasks',
-    title: 'Weekly campaign draft delayed by 3 days',
-    meta: 'Social promo, product copy, and newsletter pending review',
+    title: 'Weekly campaign content due for launch',
+    meta: 'Daily social posts, product visual assets & captions needed',
     loadWeight: 2,
     icon: Megaphone,
     accentColor: '#D95A1A',
-    position: { desktop: 'top-36 right-2', mobile: 'relative' },
     time: '34m ago'
   },
   {
     id: 'orders',
-    category: 'Orders',
-    title: '27 orders queued for payment confirmation & dispatch',
-    meta: 'Address verification, receipt checking, delivery coordination',
+    category: 'Orders & questions',
+    title: '6 orders pending payment verification',
+    meta: 'Customers asking for bank references & delivery timing',
     loadWeight: 3,
     icon: ShoppingCart,
     accentColor: '#9B2208',
-    position: { desktop: 'bottom-20 left-6', mobile: 'relative' },
-    time: '45m ago'
-  },
-  {
-    id: 'reports',
-    category: 'Reports',
-    title: 'End-of-week performance reconciliation unbuilt',
-    meta: 'Channel revenue, ad spend, inventory turnover missing review',
-    loadWeight: 1,
-    icon: FileText,
-    accentColor: '#B83A0A',
-    position: { desktop: 'bottom-20 right-6', mobile: 'relative' },
     time: '1h ago'
   },
   {
     id: 'decisions',
     category: 'Operational decisions',
-    title: 'Supplier pricing shift, restock priorities & staffing',
-    meta: 'Critical bottleneck: 11 decisions waiting on owner sign-off',
+    title: 'Supplier restock allocations & pricing adjustments',
+    meta: 'Critical founder-level operational decisions awaiting review',
     loadWeight: 3,
     icon: Sliders,
-    accentColor: '#9B2208',
-    position: { desktop: 'bottom-2 left-1/2 -translate-x-1/2', mobile: 'relative' },
-    time: 'Just now'
+    accentColor: '#B83A0A',
+    time: '2h ago'
   }
 ];
 
 export const CapacityProblemSection: React.FC = () => {
-  const [scaleLevel, setScaleLevel] = useState<'moderate' | 'expanding' | 'high'>('high');
+  const [scaleLevel, setScaleLevel] = useState<'moderate' | 'expanding' | 'high'>('expanding');
   const [activeItemHover, setActiveItemHover] = useState<string | null>(null);
-
-  // Subtle counter animation simulating growing activity
-  const [inflowCount, setInflowCount] = useState(148);
+  const [inflowCount, setInflowCount] = useState(48);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setInflowCount(prev => (prev > 210 ? 148 : prev + 1));
-    }, 4500);
-    return () => clearInterval(timer);
+    const interval = setInterval(() => {
+      setInflowCount(prev => (prev > 120 ? 45 : prev + 1));
+    }, 4000);
+    return () => clearInterval(interval);
   }, []);
 
-  const scaleMultipliers = {
-    moderate: { label: 'Initial Traction', multiplier: 1, loadPct: '78%', bottleneckWarning: 'Capacity Approaching Limit' },
-    expanding: { label: 'Fast Growth', multiplier: 2.2, loadPct: '135%', bottleneckWarning: 'Bottleneck Active — Owner Trapped in Ops' },
-    high: { label: 'High Growth', multiplier: 4.5, loadPct: '240%', bottleneckWarning: 'Work Growth Outpaces Human Hours' }
+  const scaleConfig = {
+    moderate: {
+      multiplier: 1,
+      loadPct: '100%',
+      loadLabel: 'Standard Load',
+      activeItemsCount: 4,
+      desc: 'Base operational cadence. Manageable during standard hours, but vulnerable to after-hour delays.',
+      label: '1× Business Activity'
+    },
+    expanding: {
+      multiplier: 3,
+      loadPct: '240%',
+      loadLabel: 'High Pressure Capacity',
+      activeItemsCount: 6,
+      desc: 'Rapidly compounding volume. Unanswered messages accumulate, follow-ups slip, and founder time gets consumed.',
+      label: '3× Business Activity'
+    },
+    high: {
+      multiplier: 5,
+      loadPct: '420%',
+      loadLabel: 'Critical Capacity Deficit',
+      activeItemsCount: 6,
+      desc: 'Continuous operational friction. Customer demand outpaces available human hours, causing valuable opportunities to slip.',
+      label: '5× Business Activity'
+    }
   };
 
-  const currentScale = scaleMultipliers[scaleLevel];
+  const currentScale = scaleConfig[scaleLevel];
 
   return (
     <section 
@@ -133,71 +135,49 @@ export const CapacityProblemSection: React.FC = () => {
       className="relative py-20 sm:py-28 lg:py-32 bg-[#0A0705] text-[#FAFAF9] overflow-hidden border-t border-b border-white/[0.06]"
     >
       {/* Background ambient light fields */}
-      <div className="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-[#9B2208]/10 rounded-full blur-[140px] pointer-events-none -z-10" />
-      <div className="absolute bottom-1/4 right-1/4 w-[450px] h-[450px] bg-[#B83A0A]/10 rounded-full blur-[130px] pointer-events-none -z-10" />
+      <div className="absolute top-1/3 left-1/4 w-[600px] h-[400px] bg-[#9B2208]/10 rounded-full blur-[160px] pointer-events-none -z-10" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#B83A0A]/8 rounded-full blur-[140px] pointer-events-none -z-10" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_40%,rgba(19,12,8,0.7),#0A0705_100%)] pointer-events-none -z-10" />
 
-      {/* Container restricted to 1200px–1280px standard */}
-      <div className="max-w-[1240px] mx-auto px-5 sm:px-8 lg:px-10">
+      {/* Main Container */}
+      <div className="max-w-[1240px] mx-auto px-5 sm:px-8 lg:px-10 space-y-20 sm:space-y-24">
         
-        {/* Editorial Grid: Narrative Left, Abstract Visual Workload Right */}
+        {/* ================= TOP PART: THE REAL COST OF GROWTH ================= */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
-          {/* ================= LEFT COLUMN: EDITORIAL STATEMENT ================= */}
-          <div className="lg:col-span-5 space-y-8">
+          {/* Narrative Column */}
+          <div className="lg:col-span-5 space-y-6">
             
             {/* Eyebrow */}
-            <div className="space-y-3">
+            <div className="space-y-2">
               <span className="text-[11px] font-syne font-bold uppercase tracking-[0.25em] text-[#B83A0A] block">
-                The Capacity Problem
+                The Real Cost of Growth
               </span>
               <div className="h-[1px] w-12 bg-[#9B2208]/50" />
             </div>
 
-            {/* Main Headline */}
+            {/* Headline with Editorial Italic accent */}
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold font-syne text-[#FAFAF9] tracking-tight leading-[1.12] text-balance">
-              Your business shouldn’t need more of your time to grow.
+              Growth creates more chances to sell. <span className="font-editorial text-[#F5EDE4]/90 block pt-1">It also creates more work.</span>
             </h2>
 
-            {/* Supporting Copy */}
-            <div className="space-y-4 text-base sm:text-lg font-dm text-[#F5EDE4]/80 leading-relaxed font-normal">
+            {/* Body Copy */}
+            <div className="space-y-4 text-base font-dm text-[#F5EDE4]/80 leading-relaxed font-normal">
               <p>
-                As your business grows, everything around it grows too. More customers. More conversations. More follow-ups. More marketing. More operations. More decisions.
+                More customers mean more conversations. More conversations mean more follow-ups. More products mean more questions. More marketing means more content. More activity means more decisions.
               </p>
-            </div>
-
-            {/* Strong Visual Statement Card */}
-            <div className="p-6 rounded-2xl bg-[#130C08] border border-white/[0.08] shadow-2xl relative overflow-hidden group">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#9B2208]/15 via-transparent to-transparent opacity-60" />
               
-              <div className="relative space-y-3">
-                <div className="text-[11px] font-syne font-semibold uppercase tracking-wider text-[#B83A0A]">
-                  The Structural Irony
-                </div>
-                <div className="text-xl sm:text-2xl font-black font-syne text-[#FAFAF9] tracking-tight">
-                  MORE GROWTH <span className="text-[#B83A0A]">→</span> MORE WORK
-                </div>
-                <p className="text-xs sm:text-sm font-dm text-[#F5EDE4]/70 leading-relaxed">
-                  Every new customer, campaign, and revenue milestone introduces an exponential accumulation of daily operational obligations.
-                </p>
+              <div className="p-4 rounded-2xl bg-[#130C08] border border-white/[0.08] space-y-1 font-syne font-bold text-sm text-[#FAFAF9]">
+                <div>The business grows.</div>
+                <div className="text-[#B83A0A]">So does everything around it.</div>
               </div>
             </div>
 
-            {/* Central Idea Final Statement */}
-            <div className="pt-2 border-t border-white/[0.07] space-y-2">
-              <div className="text-lg sm:text-xl font-syne font-bold text-[#FAFAF9] leading-snug">
-                The problem isn’t growth.
-              </div>
-              <div className="text-base sm:text-lg font-syne font-semibold text-[#B83A0A]">
-                It’s that the work grows with it.
-              </div>
-            </div>
-
-            {/* Interactive Stage Controller (Subtle scale demonstration) */}
+            {/* Interactive Scale Controller */}
             <div className="pt-2 space-y-2.5">
-              <div className="flex items-center justify-between text-xs text-[#F5EDE4]/60 font-dm">
-                <span>Simulate Business Scale:</span>
-                <span className="text-[#FAFAF9] font-medium">{currentScale.label}</span>
+              <div className="text-xs font-dm text-[#F5EDE4]/60 flex items-center justify-between">
+                <span>Interactive Workload Scenario:</span>
+                <span className="text-[#FAFAF9] font-medium font-syne">{currentScale.label}</span>
               </div>
               <div className="grid grid-cols-3 gap-2 p-1.5 rounded-xl bg-[#130C08] border border-white/[0.06]">
                 {(['moderate', 'expanding', 'high'] as const).map((stage) => (
@@ -210,7 +190,7 @@ export const CapacityProblemSection: React.FC = () => {
                         : 'text-[#F5EDE4]/60 hover:text-white hover:bg-white/[0.03]'
                     }`}
                   >
-                    {stage === 'moderate' ? '1x Scale' : stage === 'expanding' ? '3x Scale' : '5x Scale'}
+                    {stage === 'moderate' ? '1× Scale' : stage === 'expanding' ? '3× Scale' : '5× Scale'}
                   </button>
                 ))}
               </div>
@@ -218,35 +198,14 @@ export const CapacityProblemSection: React.FC = () => {
 
           </div>
 
-          {/* ================= RIGHT COLUMN: ABSTRACT WORKLOAD ACCUMULATION COMPOSITION ================= */}
+          {/* Interactive Workload Visualization Composition */}
           <div className="lg:col-span-7">
-            <div className="relative rounded-3xl bg-[#130C08] border border-white/[0.09] p-5 sm:p-7 lg:p-8 shadow-2xl overflow-hidden min-h-[580px] flex flex-col justify-between">
+            <div className="relative rounded-3xl bg-[#130C08] border border-white/[0.09] p-5 sm:p-7 lg:p-8 shadow-2xl overflow-hidden min-h-[560px] flex flex-col justify-between">
               
               {/* Subtle grid pattern background */}
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff04_1px,transparent_1px),linear-gradient(to_bottom,#ffffff04_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
-              
-              {/* Converging SVG Flow Lines toward Central Human Bottleneck */}
-              <svg 
-                className="absolute inset-0 w-full h-full pointer-events-none opacity-30" 
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#FAFAF9" stopOpacity="0.1" />
-                    <stop offset="70%" stopColor="#B83A0A" stopOpacity="0.6" />
-                    <stop offset="100%" stopColor="#9B2208" stopOpacity="0.9" />
-                  </linearGradient>
-                </defs>
-                {/* Radial lines from cards to center */}
-                <line x1="20%" y1="15%" x2="50%" y2="50%" stroke="url(#lineGrad)" strokeWidth="1" strokeDasharray="3 3" />
-                <line x1="80%" y1="15%" x2="50%" y2="50%" stroke="url(#lineGrad)" strokeWidth="1" strokeDasharray="3 3" />
-                <line x1="15%" y1="40%" x2="50%" y2="50%" stroke="url(#lineGrad)" strokeWidth="1" strokeDasharray="3 3" />
-                <line x1="85%" y1="40%" x2="50%" y2="50%" stroke="url(#lineGrad)" strokeWidth="1" strokeDasharray="3 3" />
-                <line x1="20%" y1="85%" x2="50%" y2="50%" stroke="url(#lineGrad)" strokeWidth="1" strokeDasharray="3 3" />
-                <line x1="80%" y1="85%" x2="50%" y2="50%" stroke="url(#lineGrad)" strokeWidth="1" strokeDasharray="3 3" />
-              </svg>
 
-              {/* Composition Header / Live Workload Header */}
+              {/* Composition Header */}
               <div className="relative z-10 flex items-center justify-between border-b border-white/[0.06] pb-4 mb-4">
                 <div className="flex items-center gap-2.5">
                   <div className="w-2 h-2 rounded-full bg-[#B83A0A] animate-pulse" />
@@ -264,12 +223,10 @@ export const CapacityProblemSection: React.FC = () => {
                 </div>
               </div>
 
-              {/* Central Focal Point: The Finite Capacity Bottleneck */}
-              <div className="relative z-10 my-auto py-6">
-                
-                {/* Visual Work Accumulation Cards Grid (Floating and structured) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">
-                  {ACTIVITY_STREAMS.slice(0, 6).map((item, idx) => {
+              {/* Work Streams Grid */}
+              <div className="relative z-10 my-auto py-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-5">
+                  {ACTIVITY_STREAMS.slice(0, currentScale.activeItemsCount).map((item, idx) => {
                     const Icon = item.icon;
                     const isHovered = activeItemHover === item.id;
 
@@ -278,10 +235,10 @@ export const CapacityProblemSection: React.FC = () => {
                         key={item.id}
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: idx * 0.05 }}
+                        transition={{ duration: 0.3, delay: idx * 0.04 }}
                         onMouseEnter={() => setActiveItemHover(item.id)}
                         onMouseLeave={() => setActiveItemHover(null)}
-                        className={`relative rounded-xl p-3.5 sm:p-4 bg-[#0A0705]/80 border transition-all duration-300 ${
+                        className={`relative rounded-xl p-3.5 sm:p-4 bg-[#0A0705]/85 border transition-all duration-300 ${
                           isHovered 
                             ? 'border-[#B83A0A] bg-[#160D09] shadow-lg shadow-[#9B2208]/15 transform -translate-y-0.5' 
                             : 'border-white/[0.08] hover:border-white/20'
@@ -308,29 +265,12 @@ export const CapacityProblemSection: React.FC = () => {
                         <p className="text-[11px] font-dm text-[#F5EDE4]/60 leading-relaxed italic line-clamp-2">
                           {item.meta}
                         </p>
-
-                        {/* Density indicator indicator dots */}
-                        <div className="mt-2.5 pt-2 border-t border-white/[0.04] flex items-center justify-between text-[10px] text-[#F5EDE4]/50">
-                          <span>Volume at current scale</span>
-                          <div className="flex items-center gap-1">
-                            {Array.from({ length: 4 }).map((_, dotIdx) => (
-                              <div 
-                                key={dotIdx}
-                                className={`w-1.5 h-1.5 rounded-full ${
-                                  dotIdx < (scaleLevel === 'high' ? 4 : scaleLevel === 'expanding' ? 3 : 2)
-                                    ? 'bg-[#B83A0A]' 
-                                    : 'bg-white/10'
-                                }`}
-                              />
-                            ))}
-                          </div>
-                        </div>
                       </motion.div>
                     );
                   })}
                 </div>
 
-                {/* The 7th Item: Central Operational Decisions Bar */}
+                {/* Central Operational Decisions Bar */}
                 <div className="rounded-xl p-4 bg-gradient-to-r from-[#180C07] via-[#221008] to-[#180C07] border border-[#9B2208]/40 shadow-xl relative overflow-hidden">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div className="flex items-center gap-3">
@@ -356,19 +296,20 @@ export const CapacityProblemSection: React.FC = () => {
 
               </div>
 
-              {/* Central Focal Bottleneck Callout Footer */}
+              {/* Bottleneck Callout Footer */}
               <div className="relative z-10 pt-4 border-t border-white/[0.08] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs">
                 <div className="flex items-center gap-2 text-[#FAFAF9]">
                   <AlertCircle className="w-4 h-4 text-[#B83A0A] shrink-0" />
                   <span className="font-syne font-semibold">
-                    The Bottleneck:
+                    The Capacity Constraint:
                   </span>
                   <span className="font-dm text-[#F5EDE4]/80">
-                    Human team capacity is fixed at 24 hours in a day.
+                    Human team attention is finite and fixed.
                   </span>
                 </div>
 
                 <div className="flex items-center gap-2 font-syne font-bold text-[11px] px-3 py-1 rounded-lg bg-[#9B2208]/20 text-[#FAFAF9] border border-[#9B2208]/30">
+                  <Activity className="w-3.5 h-3.5 text-[#B83A0A]" />
                   <span>Capacity Load: {currentScale.loadPct}</span>
                 </div>
               </div>
@@ -376,6 +317,93 @@ export const CapacityProblemSection: React.FC = () => {
             </div>
           </div>
 
+        </div>
+
+        {/* ================= VISUAL CONTRAST: SEARCHING & ACTING ================= */}
+        <div className="pt-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Left: Without Capacity */}
+            <div className="rounded-2xl bg-[#100906] border border-white/[0.07] p-5 sm:p-6 space-y-4">
+              <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
+                <span className="text-[11px] font-syne font-bold uppercase tracking-wider text-[#F5EDE4]/50">
+                  WITHOUT SUFFICIENT CAPACITY
+                </span>
+                <span className="text-[10px] font-mono text-[#E58330]/70">Limited Attention</span>
+              </div>
+              <p className="text-xs sm:text-sm font-dm text-[#F5EDE4]/70">
+                Customer enquiries, cart pauses, and follow-ups arrive continuously. As team hours run out, attention splits:
+              </p>
+              <div className="p-3.5 rounded-xl bg-[#0A0705] border border-white/[0.05] space-y-2 text-xs font-dm text-[#F5EDE4]/60">
+                <div className="flex items-center justify-between">
+                  <span>Signals appear across channels</span>
+                  <span className="text-[#B83A0A] font-semibold">Inflow continues</span>
+                </div>
+                <div className="flex items-center justify-between">
+                  <span>Delayed responses & skipped follow-ups</span>
+                  <span className="text-[#B83A0A]/80 font-mono text-[11px]">Chances slip away</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: With Mupezeni */}
+            <div className="rounded-2xl bg-gradient-to-br from-[#1A0E08] to-[#120A06] border border-[#B83A0A]/40 p-5 sm:p-6 space-y-4 shadow-xl">
+              <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+                <div className="flex items-center gap-2">
+                  <MupezeniBirdIcon size={20} />
+                  <span className="text-[11px] font-syne font-bold uppercase tracking-wider text-[#FAFAF9]">
+                    WITH MUPEZENI
+                  </span>
+                </div>
+                <span className="text-[10.5px] font-syne font-bold text-[#E58330]">
+                  ✦ Signals Discovered
+                </span>
+              </div>
+              <p className="text-xs sm:text-sm font-dm text-[#F5EDE4]/85">
+                The Mupezeni seeker constantly scans signals, discovers potential sales, and puts AI workers in motion:
+              </p>
+              <div className="p-3.5 rounded-xl bg-[#0A0705] border border-[#B83A0A]/30 space-y-2 text-xs font-dm">
+                <div className="flex items-center justify-between text-[#FAFAF9]">
+                  <span className="flex items-center gap-1.5">
+                    <span className="text-[#E58330]">✦</span>
+                    <span>Bird detects buying intent & enquiries</span>
+                  </span>
+                  <span className="text-[#10B981] font-mono text-[11px]">Instant Signal</span>
+                </div>
+                <div className="flex items-center justify-between text-[#F5EDE4]/80">
+                  <span>AI Worker responds & follows up</span>
+                  <span className="text-[#FAFAF9] font-syne font-bold text-[11px]">Owner informed</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ================= BOTTOM PART: THE STRUCTURAL PROBLEM ================= */}
+        <div className="pt-10 border-t border-white/[0.08]">
+          <div className="max-w-3xl mx-auto text-center space-y-6">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black font-syne text-[#FAFAF9] tracking-tight">
+              The problem isn't growth.
+            </h3>
+
+            <div className="text-2xl sm:text-3xl lg:text-4xl font-editorial text-[#F5EDE4]/90 tracking-normal">
+              It’s what growth asks you to keep up with.
+            </div>
+
+            <div className="space-y-3 text-base sm:text-lg font-dm text-[#F5EDE4]/80 leading-relaxed max-w-2xl mx-auto">
+              <p>
+                Every new customer, campaign, enquiry, order, and follow-up creates another piece of work.
+              </p>
+              <p>
+                Eventually, the business isn’t constrained by demand. It’s constrained by how much work the team can actually absorb.
+              </p>
+            </div>
+
+            <div className="pt-4">
+              <div className="inline-block px-6 py-3 rounded-2xl bg-[#130C08] border border-[#9B2208]/50 text-base sm:text-lg font-syne font-extrabold text-[#FAFAF9] shadow-xl">
+                That is where sales start <span className="font-editorial text-[#B83A0A] underline underline-offset-4">slipping through the cracks.</span>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>

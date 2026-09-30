@@ -2,15 +2,12 @@ import React, { useState } from 'react';
 import { Logo } from './Logo';
 import { 
   Mail, 
-  MapPin, 
   ArrowUp, 
   Globe, 
-  Sparkles, 
-  Bot,
-  ArrowRight,
   Phone,
   MessageSquare,
-  ShieldCheck
+  ShieldCheck,
+  Share2
 } from 'lucide-react';
 import { PageId } from '../types';
 
@@ -70,17 +67,13 @@ export const Footer: React.FC<FooterProps> = ({
             </p>
 
             <p className="text-xs sm:text-sm text-[#FAFAF9]/75 max-w-md leading-relaxed">
-              Whether you sell from your shop, WhatsApp, social media, or an online store, <span className="font-brand font-light text-white tracking-[0.18em]">MUPEZENI</span> helps you handle customer support and marketing with AI, so your business can keep serving customers while you focus on sourcing great products, running your operations, and growing.
+              AI workers for businesses ready to grow beyond the limits of human capacity. Mupezeni puts autonomous AI workers behind customer support, sales conversations, and marketing.
             </p>
 
-            {/* Location & Contact Details */}
+            {/* Contact Details */}
             <div className="space-y-2 pt-2 text-xs text-[#FAFAF9]/80 font-medium">
               <div className="flex items-center gap-2.5">
-                <MapPin className="w-4 h-4 text-[#D95A1A] flex-shrink-0" />
-                <span>Kamwala South, Lusaka, Zambia</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-[#D95A1A] flex-shrink-0" />
+                <Mail className="w-4 h-4 text-[#D95A1A] shrink-0" />
                 <a 
                   href="mailto:hello.mupezeni@gmail.com" 
                   className="hover:text-[#D95A1A] transition-colors font-mono"
@@ -89,7 +82,7 @@ export const Footer: React.FC<FooterProps> = ({
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone className="w-4 h-4 text-[#D95A1A] flex-shrink-0" />
+                <Phone className="w-4 h-4 text-[#D95A1A] shrink-0" />
                 <a 
                   href="https://wa.me/260776091393"
                   target="_blank"
@@ -101,7 +94,7 @@ export const Footer: React.FC<FooterProps> = ({
                 </a>
               </div>
               <div className="flex items-center gap-2.5">
-                <Globe className="w-4 h-4 text-[#D95A1A] flex-shrink-0" />
+                <Globe className="w-4 h-4 text-[#D95A1A] shrink-0" />
                 <button
                   onClick={() => handleNav('home')}
                   className="hover:text-[#D95A1A] transition-colors"
@@ -112,31 +105,12 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
 
-          {/* Quick Pages Navigation (Span 3) */}
+          {/* Quick Navigation (Span 3) */}
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#D95A1A] font-syne">
-              Explore <span className="font-brand font-light text-white tracking-[0.2em]">MUPEZENI</span>
+              Navigation
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-[#FAFAF9]/75">
-              <li>
-                <button
-                  onClick={() => handleNav('home')}
-                  className="hover:text-white transition-colors cursor-pointer"
-                >
-                  Home
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => handleNav('pricing')}
-                  className="hover:text-white transition-colors cursor-pointer text-left flex items-center gap-1.5"
-                >
-                  <span>Pricing</span>
-                  <span className="text-[10px] font-bold px-1.5 py-0.2 rounded-full bg-[#1C0F0A] text-[#D95A1A] border border-[#9B2208]/30">
-                    $100/mo
-                  </span>
-                </button>
-              </li>
               <li>
                 <button
                   onClick={() => handleNav('how-it-works')}
@@ -148,9 +122,17 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={() => handleNav('solutions')}
+                  className="hover:text-white transition-colors cursor-pointer text-left"
+                >
+                  AI Workforce
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('pricing')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Solutions
+                  Pricing
                 </button>
               </li>
               <li>
@@ -158,78 +140,100 @@ export const Footer: React.FC<FooterProps> = ({
                   onClick={() => handleNav('about')}
                   className="hover:text-white transition-colors cursor-pointer"
                 >
-                  About & Why We Believe
+                  About
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => handleNav('contact')}
-                  className="hover:text-white transition-colors cursor-pointer font-semibold text-[#D95A1A]"
+                  className="hover:text-white transition-colors cursor-pointer"
                 >
-                  Get Started
+                  Contact
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Action Column (Span 4) */}
-          <div className="lg:col-span-4 space-y-4">
+          {/* Social Channels (Span 4) */}
+          <div className="lg:col-span-4 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-[#D95A1A] font-syne">
-              Transform Your Store
+              Connect With Us
             </h4>
-            <p className="text-xs text-[#FAFAF9]/70 leading-relaxed font-syne">
-              Every retailer receives a personalized onboarding plan tailored to their store — no setup fee, month-to-month flexibility.
+            <p className="text-xs text-[#FAFAF9]/70 leading-relaxed">
+              Explore how autonomous AI employees handle recurring business execution.
             </p>
-
-            <button
-              onClick={() => handleNav('contact')}
-              className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-syne font-bold text-xs text-white bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] hover:shadow-lg hover:shadow-[#9B2208]/35 transition-all cursor-pointer whitespace-nowrap"
-            >
-              <span>Get Your AI Team</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-
-            <div className="flex items-center justify-center sm:justify-start gap-1.5 text-emerald-400 text-[11px] font-syne font-semibold pt-0.5">
-              <ShieldCheck className="w-3.5 h-3.5 flex-shrink-0" />
-              <span>30-Day Money-Back Guarantee</span>
+            <div className="flex flex-wrap gap-2 pt-1">
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-lg bg-[#140C07] border border-white/10 hover:border-[#D95A1A]/50 text-xs font-dm text-[#FAFAF9]/80 hover:text-white transition-colors"
+              >
+                Instagram
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-lg bg-[#140C07] border border-white/10 hover:border-[#D95A1A]/50 text-xs font-dm text-[#FAFAF9]/80 hover:text-white transition-colors"
+              >
+                Facebook
+              </a>
+              <a
+                href="https://www.linkedin.com/in/ernest-zimba-904661318"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-lg bg-[#140C07] border border-white/10 hover:border-[#D95A1A]/50 text-xs font-dm text-[#FAFAF9]/80 hover:text-white transition-colors"
+              >
+                LinkedIn
+              </a>
+              <a
+                href="https://tiktok.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 rounded-lg bg-[#140C07] border border-white/10 hover:border-[#D95A1A]/50 text-xs font-dm text-[#FAFAF9]/80 hover:text-white transition-colors"
+              >
+                TikTok
+              </a>
             </div>
           </div>
+
         </div>
 
-        {/* Bottom Strip */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#FAFAF9]/60">
-          <div className="flex items-center gap-2">
-            <span 
-              onClick={handleSecretTrigger}
-              className="cursor-default select-none transition-colors active:text-white"
-              title="© Mupezeni Technologies"
-            >
-              © {new Date().getFullYear()} <span className="font-brand font-light text-white tracking-[0.2em]">MUPEZENI</span> Technologies. Founder-led AI transformation for retail.
-            </span>
+        {/* Bottom Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#FAFAF9]/50">
+          <div 
+            onClick={handleSecretTrigger}
+            className="cursor-default select-none flex items-center gap-1 font-dm"
+          >
+            <span>© {new Date().getFullYear()} MUPEZENI.AI — All rights reserved.</span>
           </div>
 
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
             <button
-              onClick={onOpenPrivacy}
-              className="hover:text-[#FAFAF9] transition-colors focus:outline-none cursor-pointer"
+              onClick={() => onOpenPolicy ? onOpenPolicy('privacy') : (onOpenPrivacy && onOpenPrivacy())}
+              className="hover:text-white transition-colors cursor-pointer"
             >
               Privacy Policy
             </button>
+            <span>·</span>
             <button
-              onClick={onOpenTerms}
-              className="hover:text-[#FAFAF9] transition-colors focus:outline-none cursor-pointer"
+              onClick={() => onOpenPolicy ? onOpenPolicy('terms') : (onOpenTerms && onOpenTerms())}
+              className="hover:text-white transition-colors cursor-pointer"
             >
               Terms of Service
             </button>
+            <span>·</span>
             <button
               onClick={scrollToTop}
-              className="inline-flex items-center gap-1.5 hover:text-[#D95A1A] transition-colors focus:outline-none cursor-pointer"
+              className="p-2 rounded-lg bg-[#140C07] hover:bg-[#1E1109] text-[#FAFAF9] border border-white/10 transition-colors flex items-center gap-1 cursor-pointer ml-2"
+              title="Back to top"
             >
-              <span>Back to top</span>
               <ArrowUp className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
+
       </div>
     </footer>
   );

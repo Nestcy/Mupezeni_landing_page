@@ -11,7 +11,6 @@ import {
   GitBranch, 
   BarChart3
 } from 'lucide-react';
-import founderErnestImg from '../assets/images/ernest_zimba_exact_founder_1788808890593.jpg';
 
 interface AboutPageProps {
   onNavigate: (page: PageId) => void;
@@ -204,7 +203,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate, onOpenBookingM
             <div className="lg:col-span-4 flex flex-col items-center text-center space-y-4">
               <div className="relative w-48 h-48 sm:w-56 sm:h-56 rounded-2xl overflow-hidden border border-white/[0.12] bg-[#0A0705] shadow-2xl">
                 <img 
-                  src={founderErnestImg} 
+                  src="/founder.png" 
                   alt="Ernest Zimba - Founder & AI Systems Architect"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover object-center filter contrast-105"
