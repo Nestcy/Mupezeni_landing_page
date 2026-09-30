@@ -108,8 +108,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             </p>
           </div>
 
-          {/* 5B. BRANDED SEARCHING FOR SALES INFOGRAPHIC */}
-          <div className="w-full pt-4">
+          {/* 5B. BRANDED SEARCHING FOR SALES MINI BADGE */}
+          <div className="w-full pt-1.5 sm:pt-2">
             <HeroSearchingInfographic />
           </div>
 

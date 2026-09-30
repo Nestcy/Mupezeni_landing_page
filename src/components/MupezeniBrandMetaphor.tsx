@@ -68,8 +68,8 @@ export const SignalStar: React.FC<{
 };
 
 /**
- * Hero Infographic: The Searching-For-Sales Visual Loop
- * Simplified Editorial Visual: Customer Signals -> Bird Scans -> ✦ Potential Sale Found -> AI Worker Responds
+ * Hero Infographic: The Searching-For-Sales Mini Loop
+ * A very small, sleek and compact brand indicator: Search → Find → Act → Sale
  */
 export const HeroSearchingInfographic: React.FC<{ className?: string }> = ({ className = '' }) => {
   const [phase, setPhase] = useState<number>(0);
@@ -77,118 +77,58 @@ export const HeroSearchingInfographic: React.FC<{ className?: string }> = ({ cla
   useEffect(() => {
     const timer = setInterval(() => {
       setPhase((prev) => (prev + 1) % 4);
-    }, 2800);
+    }, 2400);
     return () => clearInterval(timer);
   }, []);
 
   const steps = [
-    {
-      label: 'SEARCH',
-      sub: 'Scanning incoming customer signals across channels',
-      badge: 'Unread WhatsApp & Web Traffic'
-    },
-    {
-      label: 'FIND & IDENTIFY',
-      sub: 'Bird identifies high-intent buying question',
-      badge: '✦ Potential Sale Detected'
-    },
-    {
-      label: 'ACT',
-      sub: 'AI Worker confirms stock, pricing & answers delivery',
-      badge: 'Autonomous Response in 0.8s'
-    },
-    {
-      label: 'CAPTURE SALE',
-      sub: 'Follow-up re-engages and secures order',
-      badge: 'Sale captured · Human kept in control'
-    }
+    { label: 'SEARCH', hint: 'Scanning signals' },
+    { label: 'FIND', hint: '✦ Intent identified' },
+    { label: 'ACT', hint: 'AI Worker replies' },
+    { label: 'SALE', hint: 'Order captured' }
   ];
 
   return (
-    <div className={`relative rounded-2xl bg-[#130C08]/90 border border-white/10 p-5 sm:p-6 shadow-2xl backdrop-blur-md overflow-hidden ${className}`}>
-      {/* Top subtle glow line */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#B83A0A]/70 to-transparent" />
-
-      {/* Header */}
-      <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
-        <div className="flex items-center gap-2.5">
-          <MupezeniBirdIcon size={24} />
-          <div>
-            <span className="text-xs font-syne font-bold uppercase tracking-wider text-[#FAFAF9] block">
-              Searching For Sales
-            </span>
-            <span className="text-[10px] font-dm text-[#F5EDE4]/50">
-              How Mupezeni discovers and acts on sales opportunities
-            </span>
-          </div>
-        </div>
-
-        <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#0A0705] border border-white/10">
-          <span className="text-[#E58330] text-xs">✦</span>
-          <span className="text-[10px] font-dm font-semibold text-[#FAFAF9]/90 uppercase tracking-wider">
-            Signal Active
-          </span>
-        </div>
+    <div className={`inline-flex flex-wrap items-center gap-2 sm:gap-2.5 py-1.5 px-3 sm:px-3.5 rounded-xl sm:rounded-full bg-[#130C08]/90 border border-white/10 shadow-md backdrop-blur-sm text-xs ${className}`}>
+      {/* Seeker Bird Icon & Label */}
+      <div className="flex items-center gap-1.5 shrink-0">
+        <MupezeniBirdIcon size={15} />
+        <span className="text-[11px] font-syne font-bold text-[#FAFAF9]">
+          Searching For Sales
+        </span>
+        <span className="text-[#E58330] text-[10px] animate-pulse">✦</span>
       </div>
 
-      {/* Visual Metaphor Diagram */}
-      <div className="grid grid-cols-1 sm:grid-cols-4 gap-2.5 py-2">
+      <div className="hidden sm:block h-3 w-[1px] bg-white/15 shrink-0" />
+
+      {/* Mini Flow Pipeline */}
+      <div className="flex items-center gap-1 sm:gap-1.5 text-[10px] sm:text-[10.5px] font-mono">
         {steps.map((step, idx) => {
           const isActive = phase === idx;
           return (
-            <div
-              key={idx}
-              className={`relative rounded-xl p-3 border transition-all duration-300 flex flex-col justify-between ${
-                isActive
-                  ? 'bg-gradient-to-b from-[#1E110A] to-[#140B07] border-[#B83A0A] shadow-[0_0_16px_rgba(184,58,10,0.25)]'
-                  : 'bg-[#0A0705]/70 border-white/[0.06] opacity-75'
-              }`}
-            >
-              <div className="space-y-1.5">
-                <div className="flex items-center justify-between">
-                  <span className="text-[9.5px] font-syne font-bold tracking-widest text-[#B83A0A]">
-                    STEP 0{idx + 1}
-                  </span>
-                  {isActive && (
-                    <span className="text-[#E58330] text-xs animate-spin-slow">✦</span>
-                  )}
-                </div>
-
-                <h4 className="text-xs font-syne font-bold text-[#FAFAF9]">
-                  {step.label}
-                </h4>
-
-                <p className="text-[11px] font-dm text-[#F5EDE4]/70 leading-snug">
-                  {step.sub}
-                </p>
-              </div>
-
-              <div className="pt-2 mt-2 border-t border-white/[0.06]">
-                <span className={`text-[9.5px] font-mono block truncate ${isActive ? 'text-[#E58330] font-bold' : 'text-[#F5EDE4]/40'}`}>
-                  {step.badge}
-                </span>
-              </div>
+            <div key={idx} className="flex items-center gap-1 sm:gap-1.5">
+              <span
+                className={`px-1.5 py-0.5 rounded transition-all duration-300 ${
+                  isActive
+                    ? 'bg-[#B83A0A] text-white font-bold shadow-sm shadow-[#B83A0A]/40'
+                    : 'text-[#F5EDE4]/60 bg-white/[0.03]'
+                }`}
+                title={step.hint}
+              >
+                {step.label}
+              </span>
+              {idx < steps.length - 1 && (
+                <span className="text-[#F5EDE4]/30 text-[9px]">→</span>
+              )}
             </div>
           );
         })}
       </div>
 
-      {/* Progress sequence bar */}
-      <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-between text-[10.5px] font-dm text-[#F5EDE4]/60">
-        <div className="flex items-center gap-2">
-          <span className="text-[#B83A0A] font-bold font-syne text-xs">SEARCH → FIND → IDENTIFY → ACT → SALE</span>
-        </div>
-        <div className="flex items-center gap-1">
-          {[0, 1, 2, 3].map((dot) => (
-            <span
-              key={dot}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                phase === dot ? 'w-5 bg-[#B83A0A]' : 'w-1.5 bg-white/20'
-              }`}
-            />
-          ))}
-        </div>
-      </div>
+      {/* Live Active Micro-hint */}
+      <span className="hidden md:inline-block text-[10px] font-mono text-emerald-400/90 pl-1 border-l border-white/10">
+        {steps[phase].hint}
+      </span>
     </div>
   );
 };

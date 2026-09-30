@@ -7,16 +7,14 @@ import {
   MessageSquare, 
   TrendingUp, 
   BarChart3, 
-  Layers, 
   CreditCard, 
   Megaphone,
-  X,
-  ShieldCheck
+  X
 } from 'lucide-react';
 import supportWorkerImg from '../assets/images/ai_worker_01_customer_support_sales_1790759123892.png';
 import marketingWorkerImg from '../assets/images/ai_worker_02_marketing_growth_1790759546208.png';
 import dashboardPreviewImg from '../assets/images/ai_insights_dashboard_preview_1790420118811.png';
-import { MupezeniBirdIcon, SignalStar } from './MupezeniBrandMetaphor';
+import { MupezeniBirdIcon } from './MupezeniBrandMetaphor';
 
 interface AiTeamSectionProps {
   onGetStarted?: () => void;
@@ -40,122 +38,113 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({
   return (
     <section 
       id="autonomous-workforce"
-      className="relative py-20 sm:py-28 lg:py-32 bg-[#0A0705] text-[#FAFAF9] overflow-hidden border-t border-b border-white/[0.06]"
+      className="relative py-10 sm:py-16 lg:py-24 bg-[#0A0705] text-[#FAFAF9] overflow-hidden border-t border-b border-white/[0.06]"
     >
       {/* Background ambient lighting - Warm Mupezeni Glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[720px] h-[400px] bg-[#9B2208]/10 rounded-full blur-[170px] pointer-events-none -z-10" />
       <div className="absolute bottom-1/4 right-10 w-[500px] h-[500px] bg-[#B83A0A]/8 rounded-full blur-[150px] pointer-events-none -z-10" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_35%,rgba(19,12,8,0.6),#0A0705_100%)] pointer-events-none -z-10" />
 
-      <div className="max-w-[1240px] mx-auto px-5 sm:px-8 lg:px-10 space-y-20 sm:space-y-24">
+      <div className="max-w-[1240px] mx-auto px-3.5 sm:px-6 lg:px-8 space-y-8 sm:space-y-12 lg:space-y-16">
         
         {/* ================= 1. SECTION HEADER ================= */}
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="space-y-2">
-            <span className="text-[11px] font-syne font-bold uppercase tracking-[0.25em] text-[#B83A0A] block">
+        <div className="text-center max-w-3xl mx-auto space-y-2.5 sm:space-y-4">
+          <div className="space-y-1.5">
+            <span className="text-[10px] sm:text-[11px] font-syne font-bold uppercase tracking-[0.25em] text-[#B83A0A] block">
               Autonomous Workforce
             </span>
-            <div className="h-[1px] w-12 bg-[#9B2208]/50 mx-auto" />
+            <div className="h-[1px] w-10 sm:w-12 bg-[#9B2208]/50 mx-auto" />
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black font-syne text-[#FAFAF9] tracking-tight leading-[1.12] text-balance">
+          <h2 className="text-2xl sm:text-3xl lg:text-[42px] font-black font-syne text-[#FAFAF9] tracking-tight leading-[1.15] text-balance">
             Two AI Workers. One Intelligence Layer.
           </h2>
 
-          <div className="text-lg sm:text-xl font-syne font-semibold text-[#F5EDE4]/90 tracking-tight">
-            Your digital frontline, handled.
-          </div>
-
-          <p className="text-base font-dm text-[#F5EDE4]/75 max-w-2xl mx-auto leading-relaxed pt-1">
+          <p className="text-xs sm:text-base font-dm text-[#F5EDE4]/75 max-w-2xl mx-auto leading-relaxed">
             Mupezeni puts recurring customer, sales, and marketing work in motion while giving you a clear view of what’s happening across the business.
           </p>
         </div>
 
-        {/* ================= 2. THE TWO AI WORKERS (Desktop 2-Column Balanced Grid) ================= */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 sm:gap-8 lg:gap-9 items-stretch">
+        {/* ================= 2. THE TWO AI WORKERS (Responsive Grid) ================= */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 items-stretch">
           
           {/* ---------------- WORKER 01: CUSTOMER SUPPORT & SALES ---------------- */}
           <motion.article
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4 }}
-            className="relative rounded-3xl bg-[#130C08] border border-white/[0.08] hover:border-[#B83A0A]/40 transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between group shadow-2xl"
+            transition={{ duration: 0.35 }}
+            className="relative rounded-2xl sm:rounded-3xl bg-[#130C08] border border-white/[0.08] hover:border-[#B83A0A]/40 transition-all duration-300 p-4 sm:p-6 lg:p-7 flex flex-col justify-between group shadow-xl"
           >
-            <div className="space-y-6">
+            <div className="space-y-3 sm:space-y-4">
               
               {/* Card Header: Eyebrow + Status Indicator */}
-              <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
+              <div className="flex items-center justify-between border-b border-white/[0.06] pb-2.5 sm:pb-3">
                 <div className="space-y-0.5">
-                  <span className="text-[10.5px] font-syne font-bold uppercase tracking-[0.2em] text-[#B83A0A] block">
+                  <span className="text-[9.5px] sm:text-[10px] font-syne font-bold uppercase tracking-[0.2em] text-[#B83A0A] block">
                     AI WORKER 01
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-black font-syne text-[#FAFAF9] tracking-tight">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-black font-syne text-[#FAFAF9] tracking-tight">
                     CUSTOMER SUPPORT & SALES
                   </h3>
                 </div>
 
-                {/* Restrained Status Indicator */}
-                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0A0705] border border-white/[0.08] text-[10.5px] font-mono text-emerald-400">
+                <div className="flex items-center gap-1.5 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-[#0A0705] border border-white/[0.08] text-[9.5px] sm:text-[10px] font-mono text-emerald-400">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="font-semibold tracking-wide">ACTIVE</span>
                 </div>
               </div>
 
               {/* Primary Narrative */}
-              <div className="space-y-2">
-                <div className="text-base sm:text-lg font-bold font-syne text-[#FAFAF9] leading-snug">
-                  Every customer conversation handled.
-                </div>
-                <p className="text-xs sm:text-sm font-dm text-[#F5EDE4]/75 leading-relaxed">
-                  Handles customer enquiries, product questions, sales conversations and follow-ups across the channels where your customers reach you.
+              <div>
+                <p className="text-xs sm:text-sm font-dm text-[#F5EDE4]/80 leading-relaxed">
+                  Handles customer enquiries, product questions, sizing, and automated follow-ups across your active channels.
                 </p>
               </div>
 
-              {/* PRODUCT VISUAL: Customer Support & Sales Image (Occupies ~55-65% height) */}
-              <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0705] shadow-inner group/visual">
-                <div className="aspect-[16/11] sm:aspect-[16/10] w-full overflow-hidden">
+              {/* PRODUCT VISUAL */}
+              <div className="relative rounded-xl overflow-hidden border border-white/[0.08] bg-[#0A0705] shadow-inner group/visual">
+                <div className="aspect-[16/10] sm:aspect-[16/10] w-full overflow-hidden">
                   <img 
                     src={supportWorkerImg} 
                     alt="AI Worker 01 Customer Support and Sales Interface"
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/visual:scale-[1.015]"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/visual:scale-[1.01]"
                   />
                 </div>
                 
-                {/* Visual Label */}
-                <div className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-lg bg-[#0A0705]/85 backdrop-blur-md border border-white/[0.08] text-[10px] font-mono text-[#F5EDE4]/60">
+                <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded-md bg-[#0A0705]/85 backdrop-blur-md border border-white/[0.08] text-[9px] sm:text-[10px] font-mono text-[#F5EDE4]/60">
                   Worker 01 Product View
                 </div>
               </div>
 
               {/* DISCOVERY METAPHOR BANNER */}
-              <div className="p-2.5 rounded-xl bg-[#0A0705] border border-white/[0.08] flex items-center justify-between text-xs font-dm">
-                <div className="flex items-center gap-2 text-[#FAFAF9]">
-                  <MupezeniBirdIcon size={18} />
+              <div className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0A0705] border border-white/[0.08] flex items-center justify-between text-[11px] sm:text-xs font-dm">
+                <div className="flex items-center gap-1.5 text-[#FAFAF9] truncate">
+                  <MupezeniBirdIcon size={15} />
                   <span className="text-[#E58330] font-bold">✦</span>
-                  <span className="text-[11px] text-[#F5EDE4]/80">Discovers customer ready to buy</span>
+                  <span className="text-[#F5EDE4]/80 truncate">Discovers customer ready to buy</span>
                 </div>
-                <span className="text-emerald-400 font-syne font-bold text-[10.5px]">AI Worker Responds →</span>
+                <span className="text-emerald-400 font-syne font-bold text-[10px] sm:text-[10.5px] shrink-0 pl-1">Responds 0.8s →</span>
               </div>
 
-              {/* RESPONSIBILITIES: Compact Labels (Not a Feature Grid) */}
-              <div className="space-y-2 pt-1">
-                <span className="text-[10px] font-syne font-bold uppercase tracking-wider text-[#B83A0A] block">
+              {/* RESPONSIBILITIES: Compact Labels */}
+              <div className="space-y-1.5">
+                <span className="text-[9.5px] sm:text-[10px] font-syne font-bold uppercase tracking-wider text-[#B83A0A] block">
                   Responsibilities:
                 </span>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1 sm:gap-1.5">
                   {[
-                    'Customer conversations',
-                    'Product & stock questions',
+                    'Customer chats',
+                    'Product & stock',
                     'Sales enquiries',
                     'Follow-ups',
-                    'Delivery questions',
+                    'Delivery quotes',
                     'Payment guidance'
                   ].map((label, idx) => (
                     <span
                       key={idx}
-                      className="px-2.5 py-1 rounded-lg bg-[#0A0705] border border-white/[0.08] text-[11px] font-dm text-[#F5EDE4]/90"
+                      className="px-2 py-0.5 rounded-md bg-[#0A0705] border border-white/[0.08] text-[10px] sm:text-[11px] font-dm text-[#F5EDE4]/90"
                     >
                       {label}
                     </span>
@@ -166,105 +155,100 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({
             </div>
 
             {/* Card Footer: Channels & Worker Badge */}
-            <div className="mt-6 pt-4 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
-              <div className="flex items-center gap-2">
-                <span className="text-[10.5px] font-syne font-semibold uppercase tracking-wider text-[#F5EDE4]/50">
+            <div className="mt-4 pt-2.5 border-t border-white/[0.06] flex items-center justify-between gap-2 text-[10.5px] sm:text-xs">
+              <div className="flex items-center gap-1.5 truncate">
+                <span className="font-syne font-semibold uppercase tracking-wider text-[#F5EDE4]/50 text-[9.5px]">
                   Channels:
                 </span>
-                <span className="font-dm font-medium text-[#FAFAF9]">
-                  WhatsApp · Instagram · Website
+                <span className="font-dm font-medium text-[#FAFAF9] truncate">
+                  WhatsApp · IG · Web
                 </span>
               </div>
 
-              <div className="text-[11px] font-mono text-[#F5EDE4]/50 flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-                <span>AI WORKER 01 · ACTIVE</span>
+              <div className="font-mono text-[#F5EDE4]/50 flex items-center gap-1 shrink-0 text-[10px]">
+                <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                <span>ACTIVE</span>
               </div>
             </div>
           </motion.article>
 
           {/* ---------------- WORKER 02: MARKETING & GROWTH ---------------- */}
           <motion.article
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 14 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="relative rounded-3xl bg-[#130C08] border border-white/[0.08] hover:border-[#B83A0A]/40 transition-all duration-300 p-6 sm:p-8 flex flex-col justify-between group shadow-2xl"
+            transition={{ duration: 0.35, delay: 0.08 }}
+            className="relative rounded-2xl sm:rounded-3xl bg-[#130C08] border border-white/[0.08] hover:border-[#B83A0A]/40 transition-all duration-300 p-4 sm:p-6 lg:p-7 flex flex-col justify-between group shadow-xl"
           >
-            <div className="space-y-6">
+            <div className="space-y-3 sm:space-y-4">
               
               {/* Card Header: Eyebrow + Status Indicator */}
-              <div className="flex items-center justify-between border-b border-white/[0.06] pb-4">
+              <div className="flex items-center justify-between border-b border-white/[0.06] pb-2.5 sm:pb-3">
                 <div className="space-y-0.5">
-                  <span className="text-[10.5px] font-syne font-bold uppercase tracking-[0.2em] text-[#B83A0A] block">
+                  <span className="text-[9.5px] sm:text-[10px] font-syne font-bold uppercase tracking-[0.2em] text-[#B83A0A] block">
                     AI WORKER 02
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-black font-syne text-[#FAFAF9] tracking-tight">
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-black font-syne text-[#FAFAF9] tracking-tight">
                     MARKETING & GROWTH
                   </h3>
                 </div>
 
-                {/* Restrained Status Indicator */}
-                <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#0A0705] border border-white/[0.08] text-[10.5px] font-mono text-[#D95A1A]">
+                <div className="flex items-center gap-1.5 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-[#0A0705] border border-white/[0.08] text-[9.5px] sm:text-[10px] font-mono text-[#D95A1A]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D95A1A] animate-pulse" />
                   <span className="font-semibold tracking-wide">RUNNING</span>
                 </div>
               </div>
 
               {/* Primary Narrative */}
-              <div className="space-y-2">
-                <div className="text-base sm:text-lg font-bold font-syne text-[#FAFAF9] leading-snug">
-                  Keep your marketing moving.
-                </div>
-                <p className="text-xs sm:text-sm font-dm text-[#F5EDE4]/75 leading-relaxed">
-                  Creates, organizes, and keeps recurring marketing activity moving across your digital channels.
+              <div>
+                <p className="text-xs sm:text-sm font-dm text-[#F5EDE4]/80 leading-relaxed">
+                  Creates, organizes, and keeps recurring marketing campaigns and social content active across channels.
                 </p>
               </div>
 
-              {/* PRODUCT VISUAL: Marketing & Growth Image (Occupies ~55-65% height) */}
-              <div className="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#0A0705] shadow-inner group/visual">
-                <div className="aspect-[16/11] sm:aspect-[16/10] w-full overflow-hidden">
+              {/* PRODUCT VISUAL */}
+              <div className="relative rounded-xl overflow-hidden border border-white/[0.08] bg-[#0A0705] shadow-inner group/visual">
+                <div className="aspect-[16/10] sm:aspect-[16/10] w-full overflow-hidden">
                   <img 
                     src={marketingWorkerImg} 
                     alt="AI Worker 02 Marketing and Growth Interface"
                     referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/visual:scale-[1.015]"
+                    className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/visual:scale-[1.01]"
                   />
                 </div>
                 
-                {/* Visual Label */}
-                <div className="absolute bottom-2.5 right-2.5 px-2.5 py-1 rounded-lg bg-[#0A0705]/85 backdrop-blur-md border border-white/[0.08] text-[10px] font-mono text-[#F5EDE4]/60">
+                <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded-md bg-[#0A0705]/85 backdrop-blur-md border border-white/[0.08] text-[9px] sm:text-[10px] font-mono text-[#F5EDE4]/60">
                   Worker 02 Product View
                 </div>
               </div>
 
               {/* DISCOVERY METAPHOR BANNER */}
-              <div className="p-2.5 rounded-xl bg-[#0A0705] border border-white/[0.08] flex items-center justify-between text-xs font-dm">
-                <div className="flex items-center gap-2 text-[#FAFAF9]">
-                  <MupezeniBirdIcon size={18} />
+              <div className="p-2 sm:p-2.5 rounded-lg sm:rounded-xl bg-[#0A0705] border border-white/[0.08] flex items-center justify-between text-[11px] sm:text-xs font-dm">
+                <div className="flex items-center gap-1.5 text-[#FAFAF9] truncate">
+                  <MupezeniBirdIcon size={15} />
                   <span className="text-[#E58330] font-bold">✦</span>
-                  <span className="text-[11px] text-[#F5EDE4]/80">Discovers product interest increasing</span>
+                  <span className="text-[#F5EDE4]/80 truncate">Discovers customer interest surge</span>
                 </div>
-                <span className="text-[#D95A1A] font-syne font-bold text-[10.5px]">Marketing Acts →</span>
+                <span className="text-[#D95A1A] font-syne font-bold text-[10px] sm:text-[10.5px] shrink-0 pl-1">Acts Daily →</span>
               </div>
 
-              {/* RESPONSIBILITIES: Compact Labels (Not a Feature Grid) */}
-              <div className="space-y-2 pt-1">
-                <span className="text-[10px] font-syne font-bold uppercase tracking-wider text-[#B83A0A] block">
+              {/* RESPONSIBILITIES: Compact Labels */}
+              <div className="space-y-1.5">
+                <span className="text-[9.5px] sm:text-[10px] font-syne font-bold uppercase tracking-wider text-[#B83A0A] block">
                   Responsibilities:
                 </span>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1 sm:gap-1.5">
                   {[
                     'Content creation',
-                    'Campaign preparation',
-                    'Promotional offers',
-                    'Customer re-engagement',
-                    'Social activity',
-                    'Marketing monitoring'
+                    'Campaign planning',
+                    'Promotions',
+                    'Re-engagement',
+                    'Social posts',
+                    'Trend tracking'
                   ].map((label, idx) => (
                     <span
                       key={idx}
-                      className="px-2.5 py-1 rounded-lg bg-[#0A0705] border border-white/[0.08] text-[11px] font-dm text-[#F5EDE4]/90"
+                      className="px-2 py-0.5 rounded-md bg-[#0A0705] border border-white/[0.08] text-[10px] sm:text-[11px] font-dm text-[#F5EDE4]/90"
                     >
                       {label}
                     </span>
@@ -275,19 +259,19 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({
             </div>
 
             {/* Card Footer: Channels & Worker Badge */}
-            <div className="mt-6 pt-4 border-t border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
-              <div className="flex items-center gap-2">
-                <span className="text-[10.5px] font-syne font-semibold uppercase tracking-wider text-[#F5EDE4]/50">
+            <div className="mt-4 pt-2.5 border-t border-white/[0.06] flex items-center justify-between gap-2 text-[10.5px] sm:text-xs">
+              <div className="flex items-center gap-1.5 truncate">
+                <span className="font-syne font-semibold uppercase tracking-wider text-[#F5EDE4]/50 text-[9.5px]">
                   Channels:
                 </span>
-                <span className="font-dm font-medium text-[#FAFAF9]">
-                  WhatsApp Status · Instagram · Facebook · TikTok · Website
+                <span className="font-dm font-medium text-[#FAFAF9] truncate">
+                  WhatsApp · IG · FB · TikTok
                 </span>
               </div>
 
-              <div className="text-[11px] font-mono text-[#F5EDE4]/50 flex items-center gap-1.5">
-                <CheckCircle2 className="w-3.5 h-3.5 text-[#D95A1A]" />
-                <span>AI WORKER 02 · RUNNING</span>
+              <div className="font-mono text-[#F5EDE4]/50 flex items-center gap-1 shrink-0 text-[10px]">
+                <CheckCircle2 className="w-3 h-3 text-[#D95A1A]" />
+                <span>RUNNING</span>
               </div>
             </div>
           </motion.article>
@@ -296,48 +280,42 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({
 
         {/* ================= 3. BUSINESS INSIGHTS: CENTRAL VISIBILITY & CONTROL ================= */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="relative rounded-3xl bg-[#130C08] border border-white/[0.09] p-6 sm:p-10 lg:p-12 shadow-2xl overflow-hidden space-y-10"
+          transition={{ duration: 0.4 }}
+          className="relative rounded-2xl sm:rounded-3xl bg-[#130C08] border border-white/[0.09] p-4 sm:p-7 lg:p-10 shadow-xl overflow-hidden space-y-4 sm:space-y-6"
         >
           {/* Subtle Ambient Radial Highlight */}
           <div className="absolute top-0 right-1/4 w-[600px] h-[350px] bg-[#9B2208]/10 rounded-full blur-[160px] pointer-events-none -z-10" />
 
-          {/* Intelligence Layer Header (The Transition from Workers to Visibility) */}
-          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 border-b border-white/[0.07] pb-8">
-            <div className="space-y-3 max-w-2xl">
-              <div className="space-y-1.5">
-                <span className="text-[11px] font-syne font-bold uppercase tracking-[0.25em] text-[#B83A0A] block">
-                  Central Visibility
-                </span>
-                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black font-syne text-[#FAFAF9] tracking-tight leading-tight">
-                  See what’s happening across your business.
-                </h3>
-              </div>
-
-              <p className="text-sm sm:text-base font-dm text-[#F5EDE4]/75 leading-relaxed">
-                Your AI workers handle the work. Mupezeni gives you the visibility to understand what is happening, spot important signals, and step in whenever you want.
+          {/* Intelligence Layer Header */}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/[0.07] pb-3 sm:pb-4">
+            <div className="space-y-1 max-w-xl">
+              <span className="text-[9.5px] sm:text-[10px] font-syne font-bold uppercase tracking-[0.25em] text-[#B83A0A] block">
+                Central Visibility Layer
+              </span>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-black font-syne text-[#FAFAF9] tracking-tight">
+                See what’s happening across your business.
+              </h3>
+              <p className="text-xs sm:text-sm font-dm text-[#F5EDE4]/75">
+                Your AI workers handle execution. You retain full real-time visibility into customer sentiment, sales, and demand signals.
               </p>
             </div>
 
-            {/* Control Interaction: View Business / Open Dashboard */}
-            <div className="flex items-center gap-3 shrink-0">
-              <button
-                type="button"
-                onClick={handleOpenDashboard}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#0A0705] hover:bg-[#1A0F0A] border border-white/15 hover:border-[#B83A0A]/60 text-white font-syne font-bold text-xs sm:text-sm transition-all duration-300 cursor-pointer shadow-lg active:scale-98"
-              >
-                <Eye className="w-4 h-4 text-[#B83A0A]" />
-                <span>Open Dashboard</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#F5EDE4]/60" />
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={handleOpenDashboard}
+              className="inline-flex items-center justify-center gap-1.5 px-4 py-2 sm:py-2.5 rounded-xl bg-[#0A0705] hover:bg-[#1A0F0A] border border-white/15 text-white font-syne font-bold text-xs transition-all cursor-pointer shadow-md shrink-0"
+            >
+              <Eye className="w-3.5 h-3.5 text-[#B83A0A]" />
+              <span>Open Dashboard</span>
+              <ArrowUpRight className="w-3.5 h-3.5 text-[#F5EDE4]/60" />
+            </button>
           </div>
 
-          {/* HERO VISUAL: BUSINESS INSIGHTS IMAGE (Largest visual asset in the section, ~65-75% footprint) */}
-          <div className="relative rounded-2xl overflow-hidden border border-white/[0.1] bg-[#0A0705] shadow-2xl group/dashboard">
+          {/* HERO VISUAL: BUSINESS INSIGHTS IMAGE */}
+          <div className="relative rounded-xl overflow-hidden border border-white/[0.1] bg-[#0A0705] shadow-lg group/dashboard">
             <div className="w-full overflow-hidden">
               <img 
                 src={dashboardPreviewImg} 
@@ -348,99 +326,90 @@ export const AiTeamSection: React.FC<AiTeamSectionProps> = ({
             </div>
 
             {/* Subtle Overlay Strip with Product Context */}
-            <div className="p-3 sm:p-4 bg-[#0A0705]/95 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs font-dm text-[#F5EDE4]/70">
-              <div className="flex items-center gap-2.5">
-                <MupezeniBirdIcon size={18} />
+            <div className="p-2 sm:p-2.5 bg-[#0A0705]/95 border-t border-white/[0.08] flex items-center justify-between gap-2 text-[10px] sm:text-xs font-dm text-[#F5EDE4]/70">
+              <div className="flex items-center gap-1.5 truncate">
+                <MupezeniBirdIcon size={15} />
                 <span className="text-[#E58330] font-bold">✦</span>
-                <span className="font-syne font-bold text-[#FAFAF9]">Discovers repeated demand signals</span>
-                <span aria-hidden="true" className="text-white/20">·</span>
-                <span className="text-[#F5EDE4]/80">Central visibility reveals the full pattern</span>
+                <span className="font-syne font-bold text-[#FAFAF9] truncate">Central pattern visibility</span>
               </div>
-              <div className="text-[11px] font-mono text-emerald-400 font-semibold flex items-center gap-1.5">
+              <div className="text-[9.5px] sm:text-[10px] font-mono text-emerald-400 font-semibold flex items-center gap-1 shrink-0">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                <span>INTELLIGENCE LAYER ACTIVE</span>
+                <span>INTELLIGENCE ACTIVE</span>
               </div>
             </div>
           </div>
 
-          {/* SUPPORTING CONTENT: 5 Concise Reinforcements */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 pt-2">
-            
-            {/* 1. Customer Activity */}
-            <div className="p-4 rounded-xl bg-[#0A0705] border border-white/[0.06] space-y-1.5">
-              <div className="text-[11px] font-syne font-bold text-[#FAFAF9] flex items-center gap-1.5 uppercase tracking-wider">
-                <MessageSquare className="w-3.5 h-3.5 text-[#B83A0A] shrink-0" />
-                <span>Customer Activity</span>
+          {/* SUPPORTING CONTENT: 5 Concise Reinforcements (Dense Responsive Grid) */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-2.5">
+            <div className="p-2.5 rounded-lg bg-[#0A0705] border border-white/[0.06] space-y-0.5">
+              <div className="text-[10.5px] font-syne font-bold text-[#FAFAF9] flex items-center gap-1">
+                <MessageSquare className="w-3 h-3 text-[#B83A0A] shrink-0" />
+                <span>Customer Chats</span>
               </div>
-              <p className="text-xs font-dm text-[#F5EDE4]/70 leading-relaxed">
-                See conversations and customer activity.
+              <p className="text-[10px] sm:text-[10.5px] font-dm text-[#F5EDE4]/65">
+                Active customer enquiries
               </p>
             </div>
 
-            {/* 2. Orders & Payments */}
-            <div className="p-4 rounded-xl bg-[#0A0705] border border-white/[0.06] space-y-1.5">
-              <div className="text-[11px] font-syne font-bold text-[#FAFAF9] flex items-center gap-1.5 uppercase tracking-wider">
-                <CreditCard className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <div className="p-2.5 rounded-lg bg-[#0A0705] border border-white/[0.06] space-y-0.5">
+              <div className="text-[10.5px] font-syne font-bold text-[#FAFAF9] flex items-center gap-1">
+                <CreditCard className="w-3 h-3 text-emerald-400 shrink-0" />
                 <span>Orders & Payments</span>
               </div>
-              <p className="text-xs font-dm text-[#F5EDE4]/70 leading-relaxed">
-                Understand current order and payment activity.
+              <p className="text-[10px] sm:text-[10.5px] font-dm text-[#F5EDE4]/65">
+                Locked & pending orders
               </p>
             </div>
 
-            {/* 3. Product Demand */}
-            <div className="p-4 rounded-xl bg-[#0A0705] border border-white/[0.06] space-y-1.5">
-              <div className="text-[11px] font-syne font-bold text-[#FAFAF9] flex items-center gap-1.5 uppercase tracking-wider">
-                <TrendingUp className="w-3.5 h-3.5 text-[#B83A0A] shrink-0" />
+            <div className="p-2.5 rounded-lg bg-[#0A0705] border border-white/[0.06] space-y-0.5">
+              <div className="text-[10.5px] font-syne font-bold text-[#FAFAF9] flex items-center gap-1">
+                <TrendingUp className="w-3 h-3 text-[#B83A0A] shrink-0" />
                 <span>Product Demand</span>
               </div>
-              <p className="text-xs font-dm text-[#F5EDE4]/70 leading-relaxed">
-                See what customers are asking for and what is gaining attention.
+              <p className="text-[10px] sm:text-[10.5px] font-dm text-[#F5EDE4]/65">
+                Top requested items
               </p>
             </div>
 
-            {/* 4. Marketing */}
-            <div className="p-4 rounded-xl bg-[#0A0705] border border-white/[0.06] space-y-1.5">
-              <div className="text-[11px] font-syne font-bold text-[#FAFAF9] flex items-center gap-1.5 uppercase tracking-wider">
-                <Megaphone className="w-3.5 h-3.5 text-[#D95A1A] shrink-0" />
+            <div className="p-2.5 rounded-lg bg-[#0A0705] border border-white/[0.06] space-y-0.5">
+              <div className="text-[10.5px] font-syne font-bold text-[#FAFAF9] flex items-center gap-1">
+                <Megaphone className="w-3 h-3 text-[#D95A1A] shrink-0" />
                 <span>Marketing</span>
               </div>
-              <p className="text-xs font-dm text-[#F5EDE4]/70 leading-relaxed">
-                Monitor campaigns and engagement.
+              <p className="text-[10px] sm:text-[10.5px] font-dm text-[#F5EDE4]/65">
+                Active promotions & reach
               </p>
             </div>
 
-            {/* 5. Business Signals */}
-            <div className="p-4 rounded-xl bg-[#0A0705] border border-white/[0.06] space-y-1.5 sm:col-span-2 lg:col-span-1">
-              <div className="text-[11px] font-syne font-bold text-[#FAFAF9] flex items-center gap-1.5 uppercase tracking-wider">
-                <BarChart3 className="w-3.5 h-3.5 text-[#B83A0A] shrink-0" />
-                <span>Business Signals</span>
+            <div className="p-2.5 rounded-lg bg-[#0A0705] border border-white/[0.06] space-y-0.5 col-span-2 sm:col-span-1">
+              <div className="text-[10.5px] font-syne font-bold text-[#FAFAF9] flex items-center gap-1">
+                <BarChart3 className="w-3 h-3 text-[#B83A0A] shrink-0" />
+                <span>Signals</span>
               </div>
-              <p className="text-xs font-dm text-[#F5EDE4]/70 leading-relaxed">
-                Surface patterns and activity that may require attention.
+              <p className="text-[10px] sm:text-[10.5px] font-dm text-[#F5EDE4]/65">
+                Unattended opportunities
               </p>
             </div>
-
           </div>
 
         </motion.div>
 
         {/* ================= 4. FINAL STATEMENT: PAYOFF ================= */}
-        <div className="pt-6 border-t border-white/[0.08]">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold font-syne text-[#FAFAF9] tracking-tight">
+        <div className="pt-2 sm:pt-4 border-t border-white/[0.08]">
+          <div className="max-w-2xl mx-auto text-center space-y-2.5 sm:space-y-3">
+            <h3 className="text-xl sm:text-2xl lg:text-3xl font-extrabold font-syne text-[#FAFAF9] tracking-tight">
               Your business keeps moving. You stay in control.
             </h3>
             
-            <p className="text-base sm:text-lg font-dm text-[#F5EDE4]/80 leading-relaxed max-w-2xl mx-auto">
+            <p className="text-xs sm:text-sm font-dm text-[#F5EDE4]/75 leading-relaxed">
               «Mupezeni handles recurring digital work in the background while keeping you connected to the activity, customers, and signals that matter.»
             </p>
 
-            <div className="pt-4 flex items-center justify-center gap-3">
+            <div className="pt-2 flex items-center justify-center">
               <button
                 type="button"
                 onClick={onGetStarted}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] hover:shadow-2xl hover:shadow-[#9B2208]/40 text-white font-syne font-bold text-xs sm:text-sm transition-all duration-300 transform hover:-translate-y-0.5 active:scale-98 cursor-pointer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-syne font-bold text-xs sm:text-sm transition-all shadow-lg active:scale-98 cursor-pointer"
               >
                 <span>Deploy Your AI Workforce</span>
                 <ArrowUpRight className="w-4 h-4" />
