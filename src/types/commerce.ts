@@ -116,6 +116,19 @@ export interface DomainDnsRecord {
   status: 'verified' | 'pending';
 }
 
+export interface StoreColors {
+  primary?: string;
+  accent?: string;
+  background?: string;
+  text?: string;
+}
+
+export interface StoreContact {
+  phone?: string;
+  email?: string;
+  address?: string;
+}
+
 export interface Store {
   id: string;
   business_id: string;
@@ -128,7 +141,10 @@ export interface Store {
   ssl_status: 'active' | 'provisioning' | 'pending';
   domain_dns_records?: DomainDnsRecord[];
   description: string;
+  about?: string;
   logo_url?: string;
+  colors?: StoreColors;
+  contact?: StoreContact;
   contact_email: string;
   contact_phone: string;
   social_links: BusinessSocialLinks;

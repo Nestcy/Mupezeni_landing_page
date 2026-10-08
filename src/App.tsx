@@ -26,8 +26,21 @@ import { ResetPasswordPage } from './pages/ResetPasswordPage';
 import { BusinessPickerPage } from './pages/BusinessPickerPage';
 import { ConnectCallbackPage } from './pages/ConnectCallbackPage';
 
+const resolveStorefrontSlugFromPath = (): string => {
+  const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+  if (path.startsWith('s/')) {
+    return path.substring(2);
+  }
+  if (path.startsWith('storefront/')) {
+    return path.substring(11);
+  }
+  const params = new URLSearchParams(window.location.search);
+  return params.get('slug') || '';
+};
+
 const resolvePageFromLocation = (): { page: PageId; mode: 'login' | 'signup' } => {
   const path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+  if (path.startsWith('s/') || path === 's' || path.startsWith('storefront/')) return { page: 'storefront', mode: 'login' };
   if (path === 'connect/callback' || path === 'connect-callback') return { page: 'connect-callback', mode: 'login' };
   if (path === 'reset-password') return { page: 'reset-password', mode: 'login' };
   if (path === 'business-picker') return { page: 'business-picker', mode: 'login' };
@@ -51,7 +64,7 @@ export const AppContent: React.FC = () => {
   
   const [currentPage, setCurrentPage] = useState<PageId>(() => resolvePageFromLocation().page);
   const [authMode, setAuthMode] = useState<'login' | 'signup'>(() => resolvePageFromLocation().mode);
-  const [storefrontSlug, setStorefrontSlug] = useState<string>('');
+  const [storefrontSlug, setStorefrontSlug] = useState<string>(() => resolveStorefrontSlugFromPath());
   const [policyModal, setPolicyModal] = useState<{ isOpen: boolean; type: 'terms' | 'privacy' | 'guarantee' }>({
     isOpen: false,
     type: 'guarantee'
@@ -65,6 +78,7 @@ export const AppContent: React.FC = () => {
       const { page, mode } = resolvePageFromLocation();
       setCurrentPage(page);
       setAuthMode(mode);
+      setStorefrontSlug(resolveStorefrontSlugFromPath());
     };
 
     window.addEventListener('popstate', handlePopState);
@@ -131,6 +145,9 @@ export const AppContent: React.FC = () => {
   const handleViewStorefront = (slug: string) => {
     setStorefrontSlug(slug);
     setCurrentPage('storefront');
+    if (slug && window.location.pathname !== `/s/${slug}`) {
+      window.history.pushState(null, '', `/s/${slug}`);
+    }
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

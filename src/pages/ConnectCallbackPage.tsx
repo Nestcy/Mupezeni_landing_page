@@ -132,22 +132,38 @@ export const ConnectCallbackPage: React.FC<ConnectCallbackPageProps> = ({ onNavi
                 </p>
               </div>
 
-              <div className="pt-2 flex flex-col sm:flex-row gap-3">
-                <button
-                  type="button"
-                  onClick={() => onNavigate('onboarding')}
-                  className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-[#9B2208] to-[#CD481B] text-white font-syne font-bold text-xs flex items-center justify-center gap-2 shadow-lg cursor-pointer"
-                >
-                  <span>Return to Onboarding Wizard</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
+              <div className="pt-2 flex flex-col gap-2.5">
+                <div className="flex flex-col sm:flex-row gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      window.history.pushState(null, '', '/onboarding?step=3');
+                      onNavigate('onboarding');
+                    }}
+                    className="flex-1 py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 text-white font-syne font-bold text-xs flex items-center justify-center gap-2 cursor-pointer border border-white/10"
+                  >
+                    <span>← Back to Channels (Step 3)</span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      window.history.pushState(null, '', '/onboarding?step=4');
+                      onNavigate('onboarding');
+                    }}
+                    className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-r from-[#9B2208] to-[#CD481B] text-white font-syne font-bold text-xs flex items-center justify-center gap-2 shadow-lg cursor-pointer"
+                  >
+                    <span>Continue to Step 4 (Activate)</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </div>
 
                 <button
                   type="button"
                   onClick={() => onNavigate('dashboard')}
-                  className="py-3 px-4 rounded-xl bg-white/5 hover:bg-white/10 text-white font-syne font-bold text-xs cursor-pointer"
+                  className="w-full py-2.5 px-4 rounded-xl bg-white/[0.02] hover:bg-white/5 text-[#F5EDE4]/60 hover:text-white font-syne text-[11px] cursor-pointer"
                 >
-                  <span>Go to Dashboard</span>
+                  <span>Skip to Merchant Dashboard</span>
                 </button>
               </div>
             </div>

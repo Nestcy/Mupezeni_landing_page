@@ -264,6 +264,29 @@ export const OnboardingPage: React.FC<OnboardingPageProps> = ({ onNavigate }) =>
     }
   };
 
+  const handleConnectMupezeniCatalog = async () => {
+    if (!activeBusinessId) {
+      setErrorNotice('No active business ID found. Please complete Step 1 first.');
+      return;
+    }
+    setIsSubmitting(true);
+    setErrorNotice(null);
+    try {
+      await apiClient.connectCatalog(activeBusinessId, {
+        provider: 'mupezeni',
+        config: { provider: 'mupezeni_managed' },
+        credentials: {}
+      });
+      await loadBusinessData(activeBusinessId);
+      setSuccessNotice('Connected provider "mupezeni" successfully!');
+      setTimeout(() => setSuccessNotice(null), 3000);
+    } catch (err: any) {
+      setErrorNotice(err?.message || 'Failed to connect Mupezeni catalog.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   // ====================================================
   // STEP 3: META AUTHORIZE FLOW
   // POST .../connectors/{provider}/authorize -> redirect to authorize_url
@@ -769,29 +792,72 @@ export const OnboardingPage: React.FC<OnboardingPageProps> = ({ onNavigate }) =>
                 </div>
               ) : (
                 /* MUPEZENI MANAGED */
-                <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-                    <h4 className="font-syne font-bold text-white text-sm">
-                      Mupezeni Native Managed Storefront
-                    </h4>
-                  </div>
-                  <p className="text-xs font-dm text-[#F5EDE4]/70 leading-relaxed">
-                    You have chosen the Mupezeni Managed path. Your items in the Products catalog are immediately queried live by your AI worker.
-                  </p>
-                  <div className="flex items-center gap-2 pt-1">
-                    <button
-                      type="button"
-                      onClick={() => onNavigate('dashboard')}
-                      className="px-3.5 py-1.5 rounded-xl bg-white/5 hover:bg-white/10 text-white font-syne font-bold text-xs flex items-center gap-1.5 cursor-pointer"
-                    >
-                      <span>Go to Products Screen</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </button>
-                    <span className="text-[11px] font-mono text-emerald-400">
-                      provider = "mupezeni"
+                <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/10 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <span className={`w-2.5 h-2.5 rounded-full ${isChannelConnected('mupezeni') ? 'bg-emerald-400' : 'bg-amber-400 animate-pulse'}`} />
+                      <h4 className="font-syne font-bold text-white text-sm">
+                        Mupezeni Native Managed Storefront & Catalog
+                      </h4>
+                    </div>
+
+                    <span className={`text-[10px] font-mono px-2 py-0.5 rounded-full ${
+                      isChannelConnected('mupezeni')
+                        ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                        : 'bg-white/10 text-white/50'
+                    }`}>
+                      {isChannelConnected('mupezeni') ? '● Connected (mupezeni)' : 'Catalog Pending'}
                     </span>
                   </div>
+
+                  <p className="text-xs font-dm text-[#F5EDE4]/70 leading-relaxed">
+                    For Mupezeni-managed stores, first go to the Products screen to review or add your inventory, then connect provider <strong>"mupezeni"</strong> so your AI workers can autonomously search and sell products.
+                  </p>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        window.history.pushState(null, '', '/dashboard?tab=products&from=onboarding');
+                        onNavigate('dashboard');
+                      }}
+                      className="p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white font-syne font-bold text-xs flex items-center justify-center gap-2 cursor-pointer transition-colors"
+                    >
+                      <Package className="w-4 h-4 text-[#E58330]" />
+                      <span>1. Go to Products Screen</span>
+                      <ExternalLink className="w-3.5 h-3.5 text-white/40" />
+                    </button>
+
+                    <button
+                      type="button"
+                      disabled={isSubmitting || isChannelConnected('mupezeni')}
+                      onClick={handleConnectMupezeniCatalog}
+                      className={`p-3 rounded-xl font-syne font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer ${
+                        isChannelConnected('mupezeni')
+                          ? 'bg-emerald-500/20 border border-emerald-500/30 text-emerald-300'
+                          : 'bg-gradient-to-r from-[#9B2208] to-[#CD481B] hover:brightness-110 text-white'
+                      }`}
+                    >
+                      <Check className="w-4 h-4" />
+                      <span>{isChannelConnected('mupezeni') ? 'Catalog Connected (mupezeni)' : '2. Connect Provider "mupezeni"'}</span>
+                    </button>
+                  </div>
+
+                  {isChannelConnected('mupezeni') && (
+                    <div className="pt-2 flex items-center justify-between border-t border-white/[0.05]">
+                      <span className="text-[11px] font-mono text-emerald-400">
+                        Provider: "mupezeni" · Status: Connected
+                      </span>
+                      <button
+                        type="button"
+                        onClick={() => handleDisconnectConnector('mupezeni')}
+                        className="text-xs font-syne font-bold text-rose-400 hover:text-rose-300 flex items-center gap-1 cursor-pointer"
+                      >
+                        <Trash2 className="w-3.5 h-3.5" />
+                        <span>Disconnect (DELETE)</span>
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -1010,7 +1076,7 @@ export const OnboardingPage: React.FC<OnboardingPageProps> = ({ onNavigate }) =>
 
               {/* 4. WEBSITE CHAT WIDGET CARD */}
               <div className="p-4 sm:p-5 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3 flex flex-col justify-between">
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                       <div className="w-8 h-8 rounded-xl bg-[#E58330]/20 text-[#E58330] flex items-center justify-center">
@@ -1034,9 +1100,24 @@ export const OnboardingPage: React.FC<OnboardingPageProps> = ({ onNavigate }) =>
                   <p className="text-[11px] font-dm text-[#F5EDE4]/65">
                     Embed on any store or website. Generates a unique site key with allowed origin protection.
                   </p>
+
+                  {!isChannelConnected('web') && (
+                    <div className="space-y-1 pt-1">
+                      <label className="block font-mono text-[10px] text-[#F5EDE4]/70">
+                        Allowed Origins (comma-separated domains) *
+                      </label>
+                      <input
+                        type="text"
+                        value={webChatAllowedOrigins}
+                        onChange={(e) => setWebChatAllowedOrigins(e.target.value)}
+                        placeholder="https://mystore.com, https://localhost:3000"
+                        className="w-full bg-[#130C08] border border-white/10 rounded-xl px-3 py-2 text-xs text-white font-mono placeholder-white/30 focus:border-[#E58330]"
+                      />
+                    </div>
+                  )}
                 </div>
 
-                <div className="pt-2 flex items-center justify-between">
+                <div className="pt-2 flex items-center justify-between border-t border-white/[0.05]">
                   {isChannelConnected('web') ? (
                     <button
                       type="button"
@@ -1044,13 +1125,13 @@ export const OnboardingPage: React.FC<OnboardingPageProps> = ({ onNavigate }) =>
                       className="text-xs font-syne font-bold text-rose-400 hover:text-rose-300 flex items-center gap-1 cursor-pointer"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
-                      <span>Disconnect</span>
+                      <span>Disconnect (DELETE)</span>
                     </button>
                   ) : (
                     <button
                       type="button"
                       onClick={handleConnectWebChat}
-                      className="px-3 py-1.5 rounded-xl bg-gradient-to-r from-[#9B2208] to-[#CD481B] text-white font-syne font-bold text-xs flex items-center gap-1.5 shadow cursor-pointer"
+                      className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-[#9B2208] to-[#CD481B] text-white font-syne font-bold text-xs flex items-center gap-1.5 shadow cursor-pointer ml-auto"
                     >
                       <span>Connect Web Chat</span>
                       <ArrowRight className="w-3 h-3" />

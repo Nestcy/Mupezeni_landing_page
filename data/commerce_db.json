@@ -7,7 +7,7 @@
           "id": "usr_ernest_demo",
           "email": "demo@mupezeni.ai",
           "fullName": "Ernest Zimba",
-          "createdAt": "2026-10-08T08:08:32.955Z"
+          "createdAt": "2026-10-08T14:51:10.143Z"
         },
         "passwordHash": "password123"
       }
@@ -47,8 +47,8 @@
         },
         "has_existing_store": false,
         "store_provider": "mupezeni",
-        "created_at": "2026-10-08T08:08:32.955Z",
-        "updated_at": "2026-10-08T08:08:32.955Z"
+        "created_at": "2026-10-08T14:51:10.144Z",
+        "updated_at": "2026-10-08T14:51:10.144Z"
       }
     ]
   ],
@@ -96,8 +96,8 @@
           "tiktok": "@ernestsneakers"
         },
         "is_published": true,
-        "created_at": "2026-10-08T08:08:32.955Z",
-        "updated_at": "2026-10-08T08:08:32.955Z"
+        "created_at": "2026-10-08T14:51:10.144Z",
+        "updated_at": "2026-10-08T14:51:10.144Z"
       }
     ]
   ],
@@ -155,8 +155,8 @@
             "Avoid excessive emojis (max 2 per post)"
           ]
         },
-        "created_at": "2026-10-08T08:08:32.955Z",
-        "updated_at": "2026-10-08T08:08:32.955Z"
+        "created_at": "2026-10-08T14:51:10.144Z",
+        "updated_at": "2026-10-08T14:51:10.144Z"
       }
     ]
   ],
@@ -189,7 +189,7 @@
             },
             "stock_quantity": 4,
             "is_available": true,
-            "created_at": "2026-10-08T08:08:32.955Z"
+            "created_at": "2026-10-08T14:51:10.144Z"
           },
           {
             "id": "var_cs_42_blk",
@@ -203,7 +203,7 @@
             },
             "stock_quantity": 6,
             "is_available": true,
-            "created_at": "2026-10-08T08:08:32.955Z"
+            "created_at": "2026-10-08T14:51:10.144Z"
           },
           {
             "id": "var_cs_43_wht",
@@ -217,11 +217,11 @@
             },
             "stock_quantity": 3,
             "is_available": true,
-            "created_at": "2026-10-08T08:08:32.955Z"
+            "created_at": "2026-10-08T14:51:10.144Z"
           }
         ],
-        "created_at": "2026-10-08T08:08:32.955Z",
-        "updated_at": "2026-10-08T08:08:32.955Z"
+        "created_at": "2026-10-08T14:51:10.144Z",
+        "updated_at": "2026-10-08T14:51:10.144Z"
       }
     ],
     [
@@ -252,7 +252,7 @@
             },
             "stock_quantity": 2,
             "is_available": true,
-            "created_at": "2026-10-08T08:08:32.955Z"
+            "created_at": "2026-10-08T14:51:10.144Z"
           },
           {
             "id": "var_rr_42_gry",
@@ -266,11 +266,11 @@
             },
             "stock_quantity": 5,
             "is_available": true,
-            "created_at": "2026-10-08T08:08:32.955Z"
+            "created_at": "2026-10-08T14:51:10.144Z"
           }
         ],
-        "created_at": "2026-10-08T08:08:32.955Z",
-        "updated_at": "2026-10-08T08:08:32.955Z"
+        "created_at": "2026-10-08T14:51:10.144Z",
+        "updated_at": "2026-10-08T14:51:10.144Z"
       }
     ],
     [
@@ -289,8 +289,8 @@
         "is_available": true,
         "has_variants": false,
         "variants": [],
-        "created_at": "2026-10-08T08:08:32.955Z",
-        "updated_at": "2026-10-08T08:08:32.955Z"
+        "created_at": "2026-10-08T14:51:10.144Z",
+        "updated_at": "2026-10-08T14:51:10.144Z"
       }
     ]
   ],
@@ -307,7 +307,7 @@
         "sku": "ES-CS-41-BLK",
         "quantity": 4,
         "availability_status": "in_stock",
-        "updated_at": "2026-10-08T08:08:32.955Z"
+        "updated_at": "2026-10-08T14:51:10.144Z"
       }
     ],
     [
@@ -322,7 +322,7 @@
         "sku": "ES-CS-42-BLK",
         "quantity": 6,
         "availability_status": "in_stock",
-        "updated_at": "2026-10-08T08:08:32.955Z"
+        "updated_at": "2026-10-08T14:51:10.144Z"
       }
     ],
     [
@@ -337,7 +337,7 @@
         "sku": "ES-CS-43-WHT",
         "quantity": 3,
         "availability_status": "in_stock",
-        "updated_at": "2026-10-08T08:08:32.955Z"
+        "updated_at": "2026-10-08T14:51:10.144Z"
       }
     ],
     [
@@ -352,7 +352,7 @@
         "sku": "ES-RR-40-GRY",
         "quantity": 2,
         "availability_status": "low_stock",
-        "updated_at": "2026-10-08T08:08:32.955Z"
+        "updated_at": "2026-10-08T14:51:10.144Z"
       }
     ],
     [
@@ -367,7 +367,7 @@
         "sku": "ES-RR-42-GRY",
         "quantity": 5,
         "availability_status": "in_stock",
-        "updated_at": "2026-10-08T08:08:32.955Z"
+        "updated_at": "2026-10-08T14:51:10.144Z"
       }
     ],
     [
@@ -381,7 +381,7 @@
         "sku": "ES-SS-003",
         "quantity": 12,
         "availability_status": "in_stock",
-        "updated_at": "2026-10-08T08:08:32.955Z"
+        "updated_at": "2026-10-08T14:51:10.144Z"
       }
     ]
   ],
@@ -402,7 +402,7 @@
           "cash_on_delivery": "Pay cash or Mobile Money on rider delivery inside Lusaka."
         },
         "provider_type": "manual_mock",
-        "updated_at": "2026-10-08T08:08:32.955Z"
+        "updated_at": "2026-10-08T14:51:10.144Z"
       }
     ]
   ],
@@ -439,7 +439,7 @@
           }
         ],
         "provider_type": "business_delivery",
-        "updated_at": "2026-10-08T08:08:32.955Z"
+        "updated_at": "2026-10-08T14:51:10.144Z"
       }
     ]
   ],
@@ -472,7 +472,7 @@
         "payment_method": "mobile_money",
         "delivery_option": "Lusaka Same-Day Express (Motorcycle)",
         "status": "dispatched",
-        "created_at": "2026-10-08T05:08:32.955Z"
+        "created_at": "2026-10-08T11:51:10.144Z"
       }
     ]
   ],
@@ -486,11 +486,9 @@
         "title": "15% Off VIP Courtesy Discount",
         "description": "AI Worker drafted 15% discount for repeat customer Mwamba Banda inquiring about Men Classic Urban Sneaker (Size 42)",
         "requested_by": "AI Sales Worker (WhatsApp)",
-        "status": "approved",
+        "status": "pending",
         "amount_minor_units": 12750,
-        "created_at": "2026-10-08T07:33:32.955Z",
-        "resolved_at": "2026-10-08T08:08:55.401Z",
-        "resolved_by": "Store Manager"
+        "created_at": "2026-10-08T14:16:10.144Z"
       }
     ],
     [
@@ -504,7 +502,7 @@
         "requested_by": "AI Customer Care",
         "status": "pending",
         "amount_minor_units": 4500,
-        "created_at": "2026-10-08T06:38:32.955Z"
+        "created_at": "2026-10-08T13:21:10.144Z"
       }
     ]
   ],
@@ -519,28 +517,54 @@
         "customer_phone": "+260 97 123 4567",
         "last_message": "Can I pay cash on delivery in Kabulonga or do you take Airtel Money?",
         "unread": true,
+        "unread_count": 1,
         "needs_human": false,
         "status": "open",
+        "ai_paused": false,
+        "window_open": true,
+        "window_expires_at": "2026-10-09T12:51:10.144Z",
+        "cart": {
+          "id": "cart_1",
+          "items_count": 1,
+          "subtotal": 85000,
+          "items": [
+            {
+              "name": "Men's Classic Urban Sneaker",
+              "quantity": 1,
+              "price": 85000,
+              "variant_title": "Size 42 - Triple Black"
+            }
+          ]
+        },
         "messages_count": 4,
-        "updated_at": "2026-10-08T07:56:32.955Z",
+        "updated_at": "2026-10-08T14:39:10.144Z",
         "messages": [
           {
             "id": "m1",
+            "conversation_id": "conv_1",
+            "sender_type": "customer",
             "sender": "customer",
             "text": "Hello, do you have sneakers in size 42?",
-            "timestamp": "2026-10-08T07:48:32.955Z"
+            "status": "read",
+            "timestamp": "2026-10-08T14:31:10.144Z"
           },
           {
             "id": "m2",
+            "conversation_id": "conv_1",
+            "sender_type": "worker",
             "sender": "ai",
-            "text": "Yes! We have the Men's Classic Urban Sneaker in Size 42 (Triple Black) in stock for ZMW 850.",
-            "timestamp": "2026-10-08T07:50:32.955Z"
+            "text": "Yes! We have the Men's Classic Urban Sneaker in Size 42 (Triple Black) in stock for ZMW 850. Would you like me to reserve a pair for delivery?",
+            "status": "read",
+            "timestamp": "2026-10-08T14:33:10.144Z"
           },
           {
             "id": "m3",
+            "conversation_id": "conv_1",
+            "sender_type": "customer",
             "sender": "customer",
             "text": "Can I pay cash on delivery in Kabulonga or do you take Airtel Money?",
-            "timestamp": "2026-10-08T07:56:32.955Z"
+            "status": "delivered",
+            "timestamp": "2026-10-08T14:39:10.144Z"
           }
         ]
       }
@@ -553,36 +577,51 @@
         "channel": "whatsapp",
         "customer_name": "Mutale Phiri",
         "customer_phone": "+260 96 987 6543",
-        "last_message": "Hello Mutale, this is the store manager. For 10 pairs we can offer wholesale at ZMW 720 per pair!",
-        "unread": false,
-        "needs_human": false,
-        "status": "open",
-        "messages_count": 6,
-        "updated_at": "2026-10-08T08:09:04.055Z",
+        "last_message": "I want to speak with the store manager regarding a bulk purchase of 10 pairs.",
+        "unread": true,
+        "unread_count": 2,
+        "needs_human": true,
+        "status": "pending_human",
+        "ai_paused": false,
+        "window_open": false,
+        "window_expires_at": "2026-10-08T10:51:10.144Z",
+        "order": {
+          "id": "ord_wholesale_01",
+          "order_number": "MPZ-88910",
+          "total": 750000,
+          "status": "pending",
+          "payment_status": "unpaid",
+          "created_at": "2026-10-07T10:51:10.144Z"
+        },
+        "messages_count": 4,
+        "updated_at": "2026-10-08T14:06:10.144Z",
         "messages": [
           {
             "id": "m2_1",
+            "conversation_id": "conv_2",
+            "sender_type": "customer",
             "sender": "customer",
-            "text": "Good morning, do you do wholesale pricing for 10 pairs?",
-            "timestamp": "2026-10-08T07:18:32.955Z"
+            "text": "Good morning, do you do wholesale pricing for 10 pairs of the retro sneakers?",
+            "status": "read",
+            "timestamp": "2026-10-07T10:51:10.144Z"
           },
           {
             "id": "m2_2",
+            "conversation_id": "conv_2",
+            "sender_type": "worker",
             "sender": "ai",
-            "text": "Let me connect you directly to our store manager so they can approve custom wholesale pricing for you!",
-            "timestamp": "2026-10-08T07:20:32.955Z"
+            "text": "Hello Mutale! For orders above 5 pairs, our owner provides a 15% wholesale discount. Connecting you now!",
+            "status": "read",
+            "timestamp": "2026-10-07T11:51:10.144Z"
           },
           {
             "id": "m2_3",
+            "conversation_id": "conv_2",
+            "sender_type": "customer",
             "sender": "customer",
             "text": "I want to speak with the store manager regarding a bulk purchase of 10 pairs.",
-            "timestamp": "2026-10-08T07:23:32.955Z"
-          },
-          {
-            "id": "msg_1791446944055_5b21",
-            "sender": "human",
-            "text": "Hello Mutale, this is the store manager. For 10 pairs we can offer wholesale at ZMW 720 per pair!",
-            "timestamp": "2026-10-08T08:09:04.055Z"
+            "status": "read",
+            "timestamp": "2026-10-07T12:51:10.144Z"
           }
         ]
       }
@@ -597,28 +636,123 @@
         "customer_phone": "+260 77 444 1122",
         "last_message": "Ordered via web checkout! Thanks for the quick sizing advice.",
         "unread": false,
+        "unread_count": 0,
         "needs_human": false,
         "status": "resolved",
-        "messages_count": 6,
-        "updated_at": "2026-10-08T06:08:32.955Z",
+        "ai_paused": false,
+        "window_open": true,
+        "order": {
+          "id": "ord_sample_99",
+          "order_number": "MPZ-44109",
+          "total": 85000,
+          "status": "confirmed",
+          "payment_status": "paid",
+          "created_at": "2026-10-08T12:51:10.144Z"
+        },
+        "messages_count": 4,
+        "updated_at": "2026-10-08T12:51:10.144Z",
         "messages": [
           {
             "id": "m3_1",
+            "conversation_id": "conv_3",
+            "sender_type": "customer",
             "sender": "customer",
-            "text": "Hi! Is size 42 true to size?",
-            "timestamp": "2026-10-08T05:38:32.955Z"
+            "text": "Hi! Is size 42 true to size or should I size up?",
+            "status": "read",
+            "timestamp": "2026-10-08T12:21:10.144Z"
           },
           {
             "id": "m3_2",
+            "conversation_id": "conv_3",
+            "sender_type": "worker",
             "sender": "ai",
-            "text": "Yes, it is standard European sizing and fits true to size.",
-            "timestamp": "2026-10-08T05:40:32.955Z"
+            "text": "Hi Kondwani! It fits true to size with genuine leather that softens nicely.",
+            "status": "read",
+            "timestamp": "2026-10-08T12:23:10.144Z"
           },
           {
             "id": "m3_3",
+            "conversation_id": "conv_3",
+            "sender_type": "customer",
             "sender": "customer",
             "text": "Ordered via web checkout! Thanks for the quick sizing advice.",
-            "timestamp": "2026-10-08T06:08:32.955Z"
+            "status": "read",
+            "timestamp": "2026-10-08T12:51:10.144Z"
+          },
+          {
+            "id": "m3_4",
+            "conversation_id": "conv_3",
+            "sender_type": "worker",
+            "sender": "ai",
+            "text": "You're welcome! Your dispatch tracking will be shared here once packaged. Enjoy your sneakers!",
+            "status": "read",
+            "timestamp": "2026-10-08T12:56:10.144Z"
+          }
+        ]
+      }
+    ],
+    [
+      "conv_4",
+      {
+        "id": "conv_4",
+        "business_id": "biz_ernest_sneakers",
+        "channel": "web",
+        "customer_name": "Thandiwe Banda",
+        "customer_phone": "+260 97 888 3344",
+        "last_message": "Do you deliver to Roma Lusaka within 2 hours?",
+        "unread": true,
+        "unread_count": 1,
+        "needs_human": false,
+        "status": "open",
+        "ai_paused": false,
+        "window_open": true,
+        "cart": {
+          "id": "cart_4",
+          "items_count": 2,
+          "subtotal": 135000,
+          "items": [
+            {
+              "name": "Retro Leather Lows",
+              "quantity": 1,
+              "price": 90000,
+              "variant_title": "Size 43"
+            },
+            {
+              "name": "Sneaker Protect Spray",
+              "quantity": 1,
+              "price": 45000
+            }
+          ]
+        },
+        "messages_count": 3,
+        "updated_at": "2026-10-08T14:46:10.144Z",
+        "messages": [
+          {
+            "id": "m4_1",
+            "conversation_id": "conv_4",
+            "sender_type": "customer",
+            "sender": "customer",
+            "text": "Good afternoon, is same-day delivery available?",
+            "status": "read",
+            "timestamp": "2026-10-08T14:41:10.144Z"
+          },
+          {
+            "id": "m4_2",
+            "conversation_id": "conv_4",
+            "sender_type": "worker",
+            "sender": "ai",
+            "text": "Good afternoon Thandiwe! Yes, we offer Same-Day Express Dispatch in Lusaka for ZMW 75.",
+            "status": "read",
+            "timestamp": "2026-10-08T14:43:10.144Z"
+          },
+          {
+            "id": "m4_3",
+            "conversation_id": "conv_4",
+            "sender_type": "customer",
+            "sender": "customer",
+            "text": "Do you deliver to Roma Lusaka within 2 hours?",
+            "status": "delivered",
+            "timestamp": "2026-10-08T14:46:10.144Z"
           }
         ]
       }
@@ -667,6 +801,519 @@
             "action_tab": "dashboard"
           }
         ]
+      }
+    ]
+  ],
+  "connectors": [],
+  "marketingCampaigns": [
+    [
+      "cmp_lusaka_launch",
+      {
+        "id": "cmp_lusaka_launch",
+        "business_id": "biz_ernest_sneakers",
+        "name": "Lusaka Sneakerheads Autumn Drop",
+        "status": "active",
+        "platforms": [
+          "instagram",
+          "whatsapp",
+          "facebook",
+          "tiktok"
+        ],
+        "number_of_posts": 4,
+        "start_date": "2026-10-08",
+        "cadence": "daily",
+        "tone_notes": "Streetwear culture, friendly Zambian English, highlight fast local delivery and Airtel/MTN mobile money.",
+        "featured_product_names": [
+          "Nike Air Force 1 Classic",
+          "Adidas Samba OG",
+          "Air Jordan 4 Retro",
+          "New Balance 550"
+        ],
+        "created_at": "2026-10-05T14:51:10.144Z",
+        "updated_at": "2026-10-08T14:51:10.144Z",
+        "approved_at": "2026-10-06T14:51:10.144Z",
+        "content_count": 4,
+        "approved_count": 2,
+        "published_count": 1
+      }
+    ]
+  ],
+  "marketingContents": [
+    [
+      "cnt_post_001",
+      {
+        "id": "cnt_post_001",
+        "campaign_id": "cmp_lusaka_launch",
+        "business_id": "biz_ernest_sneakers",
+        "platform": "instagram",
+        "caption": "🔥 Nike Air Force 1 Low Classic - Crisp Triple White restock just touched down in Lusaka! 🇿🇲 Same-day dispatch to East Park, Woodlands, and Kabulonga. Nationwide delivery via ZamPost courier. Order via WhatsApp or tap the link in bio! #LusakaSneakers #ZambiaStreetwear #AirForce1ZM",
+        "image_url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80",
+        "scheduled_at": "2026-10-06T14:51:10.144Z",
+        "scheduled_at_lusaka": "Tue, 6 Oct 2026, 16:51 CAT (Africa/Lusaka)",
+        "status": "published",
+        "content_hash": "79fca2c7c6d81dd5",
+        "approval_required": true,
+        "approved_at": "2026-10-06T14:51:10.144Z",
+        "published_at": "2026-10-06T14:51:10.144Z",
+        "created_at": "2026-10-05T14:51:10.144Z",
+        "updated_at": "2026-10-08T14:51:10.165Z"
+      }
+    ],
+    [
+      "cnt_post_002",
+      {
+        "id": "cnt_post_002",
+        "campaign_id": "cmp_lusaka_launch",
+        "business_id": "biz_ernest_sneakers",
+        "platform": "whatsapp",
+        "caption": "👟 Exclusive Drop: Adidas Samba OG Cloud White & Core Black is here! The timeless terrace silhouette you've been asking for. We accept Airtel Money and MTN MoMo on dispatch. Reply directly to this WhatsApp to lock in your UK size today!",
+        "image_url": "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?auto=format&fit=crop&w=800&q=80",
+        "scheduled_at": "2026-10-09T14:51:10.144Z",
+        "scheduled_at_lusaka": "Fri, 9 Oct 2026, 16:51 CAT (Africa/Lusaka)",
+        "status": "scheduled",
+        "content_hash": "3f703705431ce0f6",
+        "approval_required": true,
+        "approved_at": "2026-10-08T14:51:10.165Z",
+        "created_at": "2026-10-05T14:51:10.144Z",
+        "updated_at": "2026-10-08T14:51:10.165Z"
+      }
+    ],
+    [
+      "cnt_post_003",
+      {
+        "id": "cnt_post_003",
+        "campaign_id": "cmp_lusaka_launch",
+        "business_id": "biz_ernest_sneakers",
+        "platform": "facebook",
+        "caption": "✨ Air Jordan 4 Retro 'White Cement' - Premium tumbled leather, iconic cement speckling, and unmatched street presence. Strictly limited quantities available for in-store pickup at Cairo Road or express delivery anywhere across Zambia. Tap to chat with our AI team for instant sizing advice.",
+        "image_url": "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=800&q=80",
+        "scheduled_at": "2026-10-10T14:51:10.144Z",
+        "scheduled_at_lusaka": "Sat, 10 Oct 2026, 16:51 CAT (Africa/Lusaka)",
+        "status": "pending_approval",
+        "content_hash": "cc769559ad627ed4",
+        "approval_required": true,
+        "created_at": "2026-10-05T14:51:10.144Z",
+        "updated_at": "2026-10-08T14:51:10.165Z"
+      }
+    ],
+    [
+      "cnt_post_004",
+      {
+        "id": "cnt_post_004",
+        "campaign_id": "cmp_lusaka_launch",
+        "business_id": "biz_ernest_sneakers",
+        "platform": "tiktok",
+        "caption": "🎥 Lusaka Unboxing Drop: New Balance 550 Vintage White / Dark Green! On-feet styling video. Rate the drip from 1-10 in the comments! Cop yours via WhatsApp bio link. #NewBalance550 #LusakaDrip #ZedTikTok #ZambiaSneakers",
+        "image_url": "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=800&q=80",
+        "scheduled_at": "2026-10-11T14:51:10.144Z",
+        "scheduled_at_lusaka": "Sun, 11 Oct 2026, 16:51 CAT (Africa/Lusaka)",
+        "status": "failed",
+        "failure_reason": "Meta/TikTok Graph API connection timeout (504 Gateway Timeout) - Lusaka endpoint response delay. Ready for retry.",
+        "retry_available": true,
+        "retry_count": 1,
+        "content_hash": "e4979b44730be1bd",
+        "approval_required": true,
+        "approved_at": "2026-10-08T14:51:10.165Z",
+        "created_at": "2026-10-05T14:51:10.144Z",
+        "updated_at": "2026-10-08T14:51:10.165Z"
+      }
+    ]
+  ],
+  "adAccounts": [
+    [
+      "act_ernest_meta_01",
+      {
+        "id": "act_ernest_meta_01",
+        "business_id": "biz_ernest_sneakers",
+        "account_name": "Ernest Sneakers Meta Ads (Zambia)",
+        "currency": "ZMW",
+        "timezone": "Africa/Lusaka",
+        "status": "active",
+        "hard_cap_minor_units": 600000,
+        "monthly_spend_cap_minor_units": 1800000,
+        "current_spend_minor_units": 145000,
+        "auto_pause_at_cap": true,
+        "is_connected": true,
+        "updated_at": "2026-10-08T14:55:58.868Z"
+      }
+    ]
+  ],
+  "adDrafts": [
+    [
+      "draft_ad_jordan4",
+      {
+        "id": "draft_ad_jordan4",
+        "business_id": "biz_ernest_sneakers",
+        "goal": "click_to_whatsapp",
+        "product_id": "prod_aj4_cement",
+        "product_name": "Air Jordan 4 Retro 'White Cement'",
+        "daily_budget_minor_units": 15000,
+        "start_date": "2026-10-09",
+        "end_date": "2026-10-16",
+        "total_days": 7,
+        "max_possible_spend_minor_units": 105000,
+        "currency": "ZMW",
+        "audience": {
+          "locations": [
+            "Lusaka (+25km)",
+            "Kitwe",
+            "Ndola"
+          ],
+          "age_min": 18,
+          "age_max": 42,
+          "interests": [
+            "Sneaker collecting",
+            "Basketball",
+            "Streetwear",
+            "Fashion"
+          ],
+          "gender": "all"
+        },
+        "ai_creatives": [
+          {
+            "id": "cr_jordan4_opt1",
+            "headline": "Air Jordan 4 Retro 'White Cement' Has Landed 🇿🇲",
+            "primary_text": "Strictly limited pairs! Premium tumbled leather and iconic cement speckle wings. Tap below to chat instantly with our AI assistant on WhatsApp to secure your size before sold out.",
+            "call_to_action": "Send WhatsApp Message",
+            "image_url": "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=800&q=80",
+            "description": "ZMW 2,400.00 · Cairo Road Store & Nationwide ZamPost Delivery"
+          },
+          {
+            "id": "cr_jordan4_opt2",
+            "headline": "Elevate Your Lusaka Sneaker Rotation",
+            "primary_text": "Looking for 100% authentic Jordan 4s in Zambia? Reserve your size directly on WhatsApp in under 30 seconds. Same-day courier dispatch across Lusaka.",
+            "call_to_action": "Chat on WhatsApp Now",
+            "image_url": "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=800&q=80",
+            "description": "Cash on delivery & Mobile Money accepted on arrival"
+          }
+        ],
+        "selected_creative_id": "cr_jordan4_opt1",
+        "status": "draft_review",
+        "created_at": "2026-10-08T14:51:10.165Z",
+        "updated_at": "2026-10-08T14:51:10.165Z"
+      }
+    ],
+    [
+      "draft_ad_1791471151129",
+      {
+        "id": "draft_ad_1791471151129",
+        "business_id": "biz_ernest_sneakers",
+        "goal": "click_to_whatsapp",
+        "product_name": "Men's Classic Urban Sneaker",
+        "daily_budget_minor_units": 15000,
+        "start_date": "2026-10-10",
+        "end_date": "2026-10-17",
+        "total_days": 7,
+        "max_possible_spend_minor_units": 105000,
+        "currency": "ZMW",
+        "audience": {
+          "locations": [
+            "Lusaka (+25km)"
+          ],
+          "age_min": 18,
+          "age_max": 40,
+          "interests": [
+            "Sneakers",
+            "Fashion"
+          ],
+          "gender": "all"
+        },
+        "ai_creatives": [
+          {
+            "id": "cr_draft_ad_1791471151129_01",
+            "headline": "🔥 Men's Classic Urban Sneaker - Official Restock in Lusaka!",
+            "primary_text": "Looking for authentic Men's Classic Urban Sneaker with same-day delivery in Lusaka? Tap below to chat instantly with our AI worker on WhatsApp for real-time stock, sizing, and courier dispatch across Zambia.",
+            "call_to_action": "Send WhatsApp Message",
+            "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+            "description": "ZMW 850.00 · Pay on delivery via Airtel Money & MTN MoMo"
+          },
+          {
+            "id": "cr_draft_ad_1791471151129_02",
+            "headline": "Upgrade Your Rotation: Men's Classic Urban Sneaker 🇿🇲",
+            "primary_text": "Limited quantities available for in-store pickup or door-to-door delivery. Verified authentic, crisp quality. Chat directly on WhatsApp to reserve your pair before sizes run out!",
+            "call_to_action": "Chat on WhatsApp",
+            "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+            "description": "Verified Authentic · Cairo Road & Nationwide ZamPost Delivery"
+          }
+        ],
+        "selected_creative_id": "cr_draft_ad_1791471151129_01",
+        "status": "approved",
+        "created_at": "2026-10-08T14:52:31.129Z",
+        "updated_at": "2026-10-08T14:52:37.579Z"
+      }
+    ],
+    [
+      "draft_ad_1791471363344",
+      {
+        "id": "draft_ad_1791471363344",
+        "business_id": "biz_ernest_sneakers",
+        "goal": "traffic",
+        "product_name": "Men's Classic Urban Sneaker",
+        "daily_budget_minor_units": 12000,
+        "start_date": "2026-10-10",
+        "end_date": "2026-10-17",
+        "total_days": 7,
+        "max_possible_spend_minor_units": 84000,
+        "currency": "ZMW",
+        "audience": {
+          "locations": [
+            "Lusaka, Zambia"
+          ],
+          "age_min": 18,
+          "age_max": 35,
+          "interests": [
+            "Sneakers",
+            "Streetwear"
+          ],
+          "gender": "all"
+        },
+        "ai_creatives": [
+          {
+            "id": "cr_draft_ad_1791471363344_01",
+            "headline": "🔥 Men's Classic Urban Sneaker - Official Restock in Lusaka!",
+            "primary_text": "Looking for authentic Men's Classic Urban Sneaker with same-day delivery in Lusaka? Tap below to chat instantly with our AI worker on WhatsApp for real-time stock, sizing, and courier dispatch across Zambia.",
+            "call_to_action": "Shop Catalog Now",
+            "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+            "description": "ZMW 850.00 · Pay on delivery via Airtel Money & MTN MoMo"
+          },
+          {
+            "id": "cr_draft_ad_1791471363344_02",
+            "headline": "Upgrade Your Rotation: Men's Classic Urban Sneaker 🇿🇲",
+            "primary_text": "Limited quantities available for in-store pickup or door-to-door delivery. Verified authentic, crisp quality. Chat directly on WhatsApp to reserve your pair before sizes run out!",
+            "call_to_action": "View Products",
+            "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+            "description": "Verified Authentic · Cairo Road & Nationwide ZamPost Delivery"
+          }
+        ],
+        "selected_creative_id": "cr_draft_ad_1791471363344_01",
+        "status": "approved",
+        "created_at": "2026-10-08T14:56:03.345Z",
+        "updated_at": "2026-10-08T14:56:07.436Z"
+      }
+    ]
+  ],
+  "adCampaigns": [
+    [
+      "ad_cmp_001",
+      {
+        "id": "ad_cmp_001",
+        "business_id": "biz_ernest_sneakers",
+        "ad_account_id": "act_ernest_meta_01",
+        "draft_id": "draft_ad_af1",
+        "name": "Air Force 1 - Lusaka WhatsApp Inflow",
+        "goal": "click_to_whatsapp",
+        "status": "active",
+        "daily_budget_minor_units": 12000,
+        "max_possible_spend_minor_units": 84000,
+        "current_spend_minor_units": 48000,
+        "hard_cap_minor_units": 600000,
+        "auto_pause_at_cap": true,
+        "currency": "ZMW",
+        "start_date": "2026-10-04",
+        "end_date": "2026-10-11",
+        "creative": {
+          "id": "cr_af1_01",
+          "headline": "🔥 Triple White Air Force 1 Low Restock",
+          "primary_text": "Get authentic Nike Air Force 1 delivered directly to your doorstep in Lusaka today. Chat directly with our AI assistant on WhatsApp for instant sizing & dispatch!",
+          "call_to_action": "Send WhatsApp Message",
+          "image_url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80",
+          "description": "ZMW 1,850.00 · Same-day delivery in Lusaka"
+        },
+        "audience": {
+          "locations": [
+            "Lusaka (+25km)"
+          ],
+          "age_min": 18,
+          "age_max": 45,
+          "interests": [
+            "Sneakers",
+            "Streetwear",
+            "Fashion"
+          ],
+          "gender": "all"
+        },
+        "approved_at": "2026-10-04T14:51:10.144Z",
+        "approved_by": "usr_ernest_demo",
+        "created_at": "2026-10-03T14:51:10.144Z",
+        "updated_at": "2026-10-08T14:51:10.165Z"
+      }
+    ],
+    [
+      "ad_cmp_002",
+      {
+        "id": "ad_cmp_002",
+        "business_id": "biz_ernest_sneakers",
+        "ad_account_id": "act_ernest_meta_01",
+        "draft_id": "draft_ad_samba",
+        "name": "Samba OG Weekend Flash Retargeting",
+        "goal": "catalog_sales",
+        "status": "paused",
+        "daily_budget_minor_units": 15000,
+        "max_possible_spend_minor_units": 75000,
+        "current_spend_minor_units": 30000,
+        "hard_cap_minor_units": 500000,
+        "auto_pause_at_cap": true,
+        "currency": "ZMW",
+        "start_date": "2026-10-02",
+        "end_date": "2026-10-07",
+        "creative": {
+          "id": "cr_samba_01",
+          "headline": "👟 Adidas Samba OG Cloud White Restock",
+          "primary_text": "The iconic terrace classic is back in Lusaka! Pay on delivery via Airtel Money or MTN MoMo.",
+          "call_to_action": "View Catalog & Chat",
+          "image_url": "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?auto=format&fit=crop&w=800&q=80",
+          "description": "ZMW 1,950.00 · Limited sizing available"
+        },
+        "audience": {
+          "locations": [
+            "Lusaka",
+            "Kitwe",
+            "Ndola"
+          ],
+          "age_min": 20,
+          "age_max": 40,
+          "interests": [
+            "Football fashion",
+            "Terrace wear",
+            "Sneakers"
+          ],
+          "gender": "all"
+        },
+        "approved_at": "2026-10-02T14:51:10.144Z",
+        "approved_by": "usr_ernest_demo",
+        "created_at": "2026-10-01T14:51:10.144Z",
+        "updated_at": "2026-10-08T14:51:10.165Z"
+      }
+    ],
+    [
+      "ad_cmp_1791471157579",
+      {
+        "id": "ad_cmp_1791471157579",
+        "business_id": "biz_ernest_sneakers",
+        "ad_account_id": "act_ernest_meta_01",
+        "draft_id": "draft_ad_1791471151129",
+        "name": "Men's Classic Urban Sneaker - WhatsApp Direct",
+        "goal": "click_to_whatsapp",
+        "status": "active",
+        "daily_budget_minor_units": 15000,
+        "max_possible_spend_minor_units": 105000,
+        "current_spend_minor_units": 0,
+        "hard_cap_minor_units": 600000,
+        "auto_pause_at_cap": true,
+        "currency": "ZMW",
+        "start_date": "2026-10-10",
+        "end_date": "2026-10-17",
+        "creative": {
+          "id": "cr_draft_ad_1791471151129_01",
+          "headline": "🔥 Men's Classic Urban Sneaker - Official Restock in Lusaka!",
+          "primary_text": "Looking for authentic Men's Classic Urban Sneaker with same-day delivery in Lusaka? Tap below to chat instantly with our AI worker on WhatsApp for real-time stock, sizing, and courier dispatch across Zambia.",
+          "call_to_action": "Send WhatsApp Message",
+          "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+          "description": "ZMW 850.00 · Pay on delivery via Airtel Money & MTN MoMo"
+        },
+        "audience": {
+          "locations": [
+            "Lusaka (+25km)"
+          ],
+          "age_min": 18,
+          "age_max": 40,
+          "interests": [
+            "Sneakers",
+            "Fashion"
+          ],
+          "gender": "all"
+        },
+        "approved_at": "2026-10-08T14:52:37.579Z",
+        "approved_by": "authorized_user",
+        "created_at": "2026-10-08T14:52:37.579Z",
+        "updated_at": "2026-10-08T14:52:37.579Z"
+      }
+    ],
+    [
+      "ad_cmp_1791471367436",
+      {
+        "id": "ad_cmp_1791471367436",
+        "business_id": "biz_ernest_sneakers",
+        "ad_account_id": "act_ernest_meta_01",
+        "draft_id": "draft_ad_1791471363344",
+        "name": "Men's Classic Urban Sneaker - Social Boost",
+        "goal": "traffic",
+        "status": "active",
+        "daily_budget_minor_units": 12000,
+        "max_possible_spend_minor_units": 84000,
+        "current_spend_minor_units": 0,
+        "hard_cap_minor_units": 600000,
+        "auto_pause_at_cap": true,
+        "currency": "ZMW",
+        "start_date": "2026-10-10",
+        "end_date": "2026-10-17",
+        "creative": {
+          "id": "cr_draft_ad_1791471363344_01",
+          "headline": "🔥 Men's Classic Urban Sneaker - Official Restock in Lusaka!",
+          "primary_text": "Looking for authentic Men's Classic Urban Sneaker with same-day delivery in Lusaka? Tap below to chat instantly with our AI worker on WhatsApp for real-time stock, sizing, and courier dispatch across Zambia.",
+          "call_to_action": "Shop Catalog Now",
+          "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+          "description": "ZMW 850.00 · Pay on delivery via Airtel Money & MTN MoMo"
+        },
+        "audience": {
+          "locations": [
+            "Lusaka, Zambia"
+          ],
+          "age_min": 18,
+          "age_max": 35,
+          "interests": [
+            "Sneakers",
+            "Streetwear"
+          ],
+          "gender": "all"
+        },
+        "approved_at": "2026-10-08T14:56:07.436Z",
+        "approved_by": "authorized_user",
+        "created_at": "2026-10-08T14:56:07.436Z",
+        "updated_at": "2026-10-08T14:56:17.099Z"
+      }
+    ]
+  ],
+  "metaAdsConnectors": [
+    [
+      "biz_ernest_sneakers",
+      {
+        "business_id": "biz_ernest_sneakers",
+        "is_connected": true,
+        "auth_state": "connected",
+        "selected_ad_account_id": "act_ernest_meta_01",
+        "selected_page_id": "page_ernest_sneakers",
+        "ad_accounts": [
+          {
+            "id": "act_ernest_meta_01",
+            "name": "Ernest Sneakers Meta Ads (Zambia)",
+            "currency": "ZMW",
+            "timezone": "Africa/Lusaka",
+            "status": "ACTIVE",
+            "balance_minor_units": 54000
+          },
+          {
+            "id": "act_ernest_meta_backup",
+            "name": "Ernest Commerce Secondary",
+            "currency": "ZMW",
+            "timezone": "Africa/Lusaka",
+            "status": "ACTIVE",
+            "balance_minor_units": 20000
+          }
+        ],
+        "pages": [
+          {
+            "id": "page_ernest_sneakers",
+            "name": "Ernest Sneakers Lusaka",
+            "category": "Footwear & Fashion"
+          },
+          {
+            "id": "page_ernest_lifestyle",
+            "name": "Ernest Lifestyle & Drip",
+            "category": "Apparel & Streetwear"
+          }
+        ],
+        "connected_at": "2026-10-08T14:55:58.868Z"
       }
     ]
   ],

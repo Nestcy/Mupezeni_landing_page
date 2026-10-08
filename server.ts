@@ -1,4 +1,5 @@
 import express from 'express';
+import multer from 'multer';
 import { createServer as createViteServer } from 'vite';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -326,7 +327,7 @@ async function startServer() {
   });
 
   // GET /api/v1/businesses/:id/onboarding
-  app.get('/api/v1/businesses/:id/onboarding', async (req, res) => {
+  app.get(['/api/v1/businesses/:id/onboarding', '/businesses/:id/onboarding'], async (req, res) => {
     const { id } = req.params;
     try {
       // 1. Optional fast forward to Render
@@ -357,7 +358,7 @@ async function startServer() {
   });
 
   // POST /api/v1/onboarding/businesses (Step 1 of Wizard)
-  app.post('/api/v1/onboarding/businesses', async (req, res) => {
+  app.post(['/api/v1/onboarding/businesses', '/onboarding/businesses'], async (req, res) => {
     try {
       const { name, path, country, currency, phone, email } = req.body;
       if (!name) {
@@ -389,7 +390,7 @@ async function startServer() {
   });
 
   // POST /api/v1/businesses/:id/connectors/catalog (Step 2 of Wizard)
-  app.post('/api/v1/businesses/:id/connectors/catalog', (req, res) => {
+  app.post(['/api/v1/businesses/:id/connectors/catalog', '/businesses/:id/connectors/catalog'], (req, res) => {
     const { id } = req.params;
     const { provider, config, credentials } = req.body;
     if (!provider) {
@@ -422,8 +423,12 @@ async function startServer() {
   });
 
   // POST /api/v1/businesses/:id/connectors/:provider/authorize (Step 3: Meta cards authorize)
-  app.post('/api/v1/businesses/:id/connectors/:provider/authorize', (req, res) => {
+  app.post(['/api/v1/businesses/:id/connectors/:provider/authorize', '/businesses/:id/connectors/:provider/authorize'], (req, res) => {
     const { id, provider } = req.params;
+    if (provider === 'meta_ads') {
+      const result = commerceStore.authorizeMetaAdsConnector(id);
+      return res.json({ success: true, ...result });
+    }
     const state = `st_${id}_${Date.now()}`;
     const code = `auth_${provider}_${Date.now()}`;
     const authorize_url = `/connect/callback?provider=${encodeURIComponent(provider)}&business_id=${encodeURIComponent(id)}&state=${encodeURIComponent(state)}&code=${encodeURIComponent(code)}`;
@@ -435,8 +440,16 @@ async function startServer() {
   });
 
   // GET /api/v1/businesses/:id/connectors/:provider/assets (Step 3: Asset picker)
-  app.get('/api/v1/businesses/:id/connectors/:provider/assets', (req, res) => {
+  app.get(['/api/v1/businesses/:id/connectors/:provider/assets', '/businesses/:id/connectors/:provider/assets'], (req, res) => {
     const { id, provider } = req.params;
+    if (provider === 'meta_ads') {
+      const metaAssets = commerceStore.getMetaAdsAssets(id);
+      return res.json({
+        ...metaAssets,
+        assets: metaAssets.ad_accounts.map(a => ({ id: a.id, name: a.name }))
+      });
+    }
+
     const biz = commerceStore.getBusiness(id);
     const bizName = biz?.name || 'Retail Store';
 
@@ -463,9 +476,17 @@ async function startServer() {
   });
 
   // POST /api/v1/businesses/:id/connectors/:provider/complete (Step 3: Complete meta connection)
-  app.post('/api/v1/businesses/:id/connectors/:provider/complete', (req, res) => {
-    const { id, provider } = req.params;
-    const { code, state, external_account_id } = req.body;
+  app.post(['/api/v1/businesses/:id/connectors/:provider/complete', '/businesses/:id/connectors/:provider/complete', '/api/v1/businesses/:id/connectors/complete', '/businesses/:id/connectors/complete'], (req, res) => {
+    const { id } = req.params;
+    const provider = req.params.provider || req.body.provider || 'whatsapp';
+    const { code, state, external_account_id, ad_account_id, page_id } = req.body;
+
+    if (provider === 'meta_ads' && (ad_account_id || external_account_id)) {
+      const accId = ad_account_id || external_account_id;
+      const pgId = page_id || 'page_ernest_sneakers';
+      const metaConn = commerceStore.completeMetaAdsConnector(id, { ad_account_id: accId, page_id: pgId });
+      return res.json({ success: true, connector: metaConn });
+    }
 
     const connector = commerceStore.saveConnector({
       id: `conn_${provider}_${Date.now()}`,
@@ -492,7 +513,7 @@ async function startServer() {
   });
 
   // POST /api/v1/businesses/:id/connectors/web (Step 3: Website chat)
-  app.post('/api/v1/businesses/:id/connectors/web', (req, res) => {
+  app.post(['/api/v1/businesses/:id/connectors/web', '/businesses/:id/connectors/web'], (req, res) => {
     const { id } = req.params;
     const { allowed_origins } = req.body || {};
     const siteKey = `wk_${id.replace(/[^a-zA-Z0-9]/g, '')}`;
@@ -518,7 +539,7 @@ async function startServer() {
   });
 
   // GET /api/v1/businesses/:id/connectors
-  app.get('/api/v1/businesses/:id/connectors', (req, res) => {
+  app.get(['/api/v1/businesses/:id/connectors', '/businesses/:id/connectors'], (req, res) => {
     const { id } = req.params;
     const list = commerceStore.getConnectors(id);
     return res.json({
@@ -534,7 +555,7 @@ async function startServer() {
   });
 
   // DELETE /api/v1/businesses/:id/connectors/:provider (Disconnect action)
-  app.delete('/api/v1/businesses/:id/connectors/:provider', (req, res) => {
+  app.delete(['/api/v1/businesses/:id/connectors/:provider', '/businesses/:id/connectors/:provider'], (req, res) => {
     const { id, provider } = req.params;
     const deleted = commerceStore.deleteConnector(id, provider);
     commerceStore.getOnboarding(id);
@@ -546,7 +567,7 @@ async function startServer() {
   });
 
   // POST /api/v1/businesses/:id/onboarding/activate (Step 4: Activate button)
-  app.post('/api/v1/businesses/:id/onboarding/activate', (req, res) => {
+  app.post(['/api/v1/businesses/:id/onboarding/activate', '/businesses/:id/onboarding/activate'], (req, res) => {
     const { id } = req.params;
     const ob = commerceStore.getOnboarding(id);
     if (!ob.can_activate && ob.status !== 'active') {
@@ -595,70 +616,178 @@ async function startServer() {
   });
 
   // GET /api/v1/businesses/:id/conversations
-  app.get('/api/v1/businesses/:id/conversations', async (req, res) => {
+  app.get(['/api/v1/businesses/:id/conversations', '/businesses/:id/conversations'], async (req, res) => {
     const { id } = req.params;
-    try {
-      // 1. Optional fast forward to Render
-      const renderUrl = getRenderUrl();
-      try {
-        const upstream = await fetch(`${renderUrl}/api/v1/businesses/${id}/conversations`, {
-          headers: { 'Authorization': req.headers.authorization || '' },
-          signal: AbortSignal.timeout(2000)
-        });
-        if (upstream.ok) {
-          const uData = await upstream.json();
-          return res.json(uData);
-        }
-      } catch {}
+    const { status, channel, needs_human } = req.query;
 
-      const convos = commerceStore.getConversations(id);
-      const unreadCount = convos.filter(c => c.unread).length;
-      const needingHumanCount = convos.filter(c => c.needs_human || c.status === 'pending_human').length;
-      const todayStr = new Date().toISOString().slice(0, 10);
-      let todayMsgs = 0;
-      convos.forEach(c => {
-        c.messages.forEach(m => {
-          if (m.timestamp && m.timestamp.slice(0, 10) === todayStr) todayMsgs++;
-        });
-      });
-      if (todayMsgs === 0) {
-        todayMsgs = convos.reduce((a, c) => a + c.messages_count, 0);
+    try {
+      const allConvos = commerceStore.getConversations(id);
+
+      // Filter
+      let filtered = [...allConvos];
+      if (status && status !== 'all') {
+        filtered = filtered.filter(c => c.status === status);
+      }
+      if (channel && channel !== 'all') {
+        filtered = filtered.filter(c => c.channel === channel);
+      }
+      if (needs_human === 'true' || needs_human === true) {
+        filtered = filtered.filter(c => c.needs_human || c.status === 'pending_human');
       }
 
+      const unreadCount = allConvos.filter(c => c.unread).length;
+      const needingHumanCount = allConvos.filter(c => c.needs_human || c.status === 'pending_human').length;
+      const openCount = allConvos.filter(c => c.status === 'open').length;
+      const resolvedCount = allConvos.filter(c => c.status === 'resolved').length;
+
+      const counts = {
+        all: allConvos.length,
+        open: openCount,
+        needs_human: needingHumanCount,
+        resolved: resolvedCount,
+        unread: unreadCount,
+        whatsapp: allConvos.filter(c => c.channel === 'whatsapp').length,
+        web: allConvos.filter(c => c.channel === 'web').length,
+        instagram: allConvos.filter(c => c.channel === 'instagram').length,
+        messenger: allConvos.filter(c => c.channel === 'messenger').length
+      };
+
       return res.json({
-        conversations: convos,
+        conversations: filtered,
         unread_count: unreadCount,
         needs_human_count: needingHumanCount,
-        today_messages_count: todayMsgs
+        counts
       });
     } catch (err: any) {
       return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to fetch conversations.' } });
     }
   });
 
+  // GET /api/v1/businesses/:id/conversations/:convoId/messages?after=
+  app.get(
+    [
+      '/api/v1/businesses/:id/conversations/:convoId/messages',
+      '/businesses/:id/conversations/:convoId/messages',
+      '/api/v1/conversations/:convoId/messages',
+      '/conversations/:convoId/messages'
+    ],
+    (req, res) => {
+      const { convoId } = req.params;
+      const after = req.query.after as string | undefined;
+      const msgs = commerceStore.getConversationMessages(convoId, after);
+      const conversation = commerceStore.getConversationById(convoId);
+      return res.json({ messages: msgs, conversation });
+    }
+  );
+
+  // POST /api/v1/businesses/:id/conversations/:convoId/takeover (Pauses the AI)
+  app.post(
+    [
+      '/api/v1/businesses/:id/conversations/:convoId/takeover',
+      '/businesses/:id/conversations/:convoId/takeover',
+      '/api/v1/conversations/:convoId/takeover',
+      '/conversations/:convoId/takeover'
+    ],
+    (req, res) => {
+      const { convoId } = req.params;
+      const updated = commerceStore.takeoverConversation(convoId);
+      if (!updated) {
+        return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Conversation not found.' } });
+      }
+      return res.json({ success: true, ai_paused: true, conversation: updated });
+    }
+  );
+
+  // POST /api/v1/businesses/:id/conversations/:convoId/release (Hand back to AI)
+  app.post(
+    [
+      '/api/v1/businesses/:id/conversations/:convoId/release',
+      '/businesses/:id/conversations/:convoId/release',
+      '/api/v1/conversations/:convoId/release',
+      '/conversations/:convoId/release'
+    ],
+    (req, res) => {
+      const { convoId } = req.params;
+      const updated = commerceStore.releaseConversation(convoId);
+      if (!updated) {
+        return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Conversation not found.' } });
+      }
+      return res.json({ success: true, ai_paused: false, conversation: updated });
+    }
+  );
+
   // POST /api/v1/businesses/:id/conversations/:convoId/messages
-  app.post('/api/v1/businesses/:id/conversations/:convoId/messages', (req, res) => {
-    const { convoId } = req.params;
-    const { sender, text } = req.body;
-    if (!text) {
-      return res.status(400).json({ error: { code: 'INVALID_INPUT', message: 'Message text is required.' } });
+  app.post(
+    [
+      '/api/v1/businesses/:id/conversations/:convoId/messages',
+      '/businesses/:id/conversations/:convoId/messages',
+      '/api/v1/conversations/:convoId/messages',
+      '/conversations/:convoId/messages'
+    ],
+    (req, res) => {
+      const { convoId } = req.params;
+      const { sender, sender_type, text, is_template } = req.body;
+      if (!text) {
+        return res.status(400).json({ error: { code: 'INVALID_INPUT', message: 'Message text is required.' } });
+      }
+
+      const senderType = sender_type || (sender === 'ai' ? 'worker' : sender === 'customer' ? 'customer' : 'owner');
+      const updated = commerceStore.addConversationMessage(convoId, senderType, text, is_template);
+      if (!updated) {
+        return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Conversation not found.' } });
+      }
+      const lastMsg = updated.messages[updated.messages.length - 1];
+      return res.json({ success: true, message: lastMsg, conversation: updated });
     }
-    const updated = commerceStore.addConversationMessage(convoId, sender || 'human', text);
-    if (!updated) {
-      return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Conversation not found.' } });
-    }
-    return res.json(updated);
-  });
+  );
 
   // POST /api/v1/businesses/:id/conversations/:convoId/resolve
-  app.post('/api/v1/businesses/:id/conversations/:convoId/resolve', (req, res) => {
-    const { convoId } = req.params;
-    const updated = commerceStore.resolveConversation(convoId);
-    if (!updated) {
-      return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Conversation not found.' } });
+  app.post(
+    [
+      '/api/v1/businesses/:id/conversations/:convoId/resolve',
+      '/businesses/:id/conversations/:convoId/resolve',
+      '/api/v1/conversations/:convoId/resolve',
+      '/conversations/:convoId/resolve'
+    ],
+    (req, res) => {
+      const { convoId } = req.params;
+      const updated = commerceStore.resolveConversation(convoId);
+      if (!updated) {
+        return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Conversation not found.' } });
+      }
+      return res.json(updated);
     }
-    return res.json(updated);
-  });
+  );
+
+  // GET & PATCH /ai-settings and /businesses/:id/ai-settings
+  app.get(
+    [
+      '/api/v1/businesses/:id/ai-settings',
+      '/businesses/:id/ai-settings',
+      '/api/v1/ai-settings',
+      '/ai-settings'
+    ],
+    (req, res) => {
+      const bizId = req.params.id || (req.query.business_id as string) || 'biz_ernest_sneakers';
+      const settings = commerceStore.getAiSettings(bizId);
+      return res.json({ ai_settings: settings });
+    }
+  );
+
+  app.patch(
+    [
+      '/api/v1/businesses/:id/ai-settings',
+      '/businesses/:id/ai-settings',
+      '/api/v1/ai-settings',
+      '/ai-settings'
+    ],
+    (req, res) => {
+      const bizId = req.params.id || (req.query.business_id as string) || (req.body?.business_id as string) || 'biz_ernest_sneakers';
+      const updates = req.body;
+      const updated = commerceStore.updateAiSettings(bizId, updates);
+      return res.json({ success: true, ai_settings: updated });
+    }
+  );
 
   // GET /api/v1/businesses/:id/dashboard-stats
   app.get('/api/v1/businesses/:id/dashboard-stats', (req, res) => {
@@ -674,12 +803,908 @@ async function startServer() {
     return res.json({ orders: ordersList });
   });
 
-  // GET /api/v1/businesses/:id/products
-  app.get('/api/v1/businesses/:id/products', (req, res) => {
+  // Multer upload handler for media uploads
+  const upload = multer({
+    storage: multer.memoryStorage(),
+    limits: { fileSize: 10 * 1024 * 1024 }
+  });
+
+  // POST /businesses/:id/media (Image upload via multipart form-data, returns URL)
+  app.post(
+    ['/api/v1/businesses/:id/media', '/businesses/:id/media', '/api/v1/media', '/media'],
+    upload.any(),
+    (req, res) => {
+      try {
+        const file = (req.files as Express.Multer.File[])?.[0] || req.file;
+        if (!file) {
+          if (req.body?.image || req.body?.url || req.body?.data) {
+            return res.json({ url: req.body.image || req.body.url || req.body.data, id: `med_${Date.now()}` });
+          }
+          return res.status(400).json({ error: { code: 'INVALID_INPUT', message: 'No file provided in multipart request.' } });
+        }
+
+        const mimeType = file.mimetype || 'image/jpeg';
+        const base64 = file.buffer.toString('base64');
+        const dataUrl = `data:${mimeType};base64,${base64}`;
+
+        return res.json({
+          url: dataUrl,
+          id: `med_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`,
+          name: file.originalname,
+          size: file.size,
+          mimeType
+        });
+      } catch (err: any) {
+        return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to upload media.' } });
+      }
+    }
+  );
+
+  // Products: GET & POST /businesses/:id/products
+  // Prices are entered in major units and sent as minor units
+  app.get(['/api/v1/businesses/:id/products', '/businesses/:id/products'], (req, res) => {
     const { id } = req.params;
     const prods = commerceStore.getProductsByBusiness(id);
     return res.json({ products: prods });
   });
+
+  app.post(['/api/v1/businesses/:id/products', '/businesses/:id/products'], (req, res) => {
+    try {
+      const { id } = req.params;
+      const data = req.body;
+      if (!data.name || data.price == null) {
+        return res.status(400).json({ error: { code: 'INVALID_INPUT', message: 'Product name and price (in minor units) are required.' } });
+      }
+
+      const prodId = data.id || `prod_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`;
+      const rawPrice = Number(data.price);
+
+      // Format variants if provided
+      const rawVariants = Array.isArray(data.variants) ? data.variants : [];
+      const formattedVariants = rawVariants.map((v: any, idx: number) => ({
+        id: v.id || `var_${prodId}_${idx + 1}_${Math.random().toString(36).substring(2, 5)}`,
+        business_id: id,
+        product_id: prodId,
+        title: v.title || `Variant ${idx + 1}`,
+        sku: v.sku || `${data.sku || 'SKU'}-${idx + 1}`,
+        price_override: v.price_override != null ? Number(v.price_override) : undefined,
+        attributes: v.attributes || { title: v.title || '' },
+        stock_quantity: v.stock_quantity != null ? Number(v.stock_quantity) : 10,
+        is_available: v.is_available !== false,
+        created_at: v.created_at || new Date().toISOString()
+      }));
+
+      const newProduct = {
+        id: prodId,
+        business_id: id,
+        catalog_id: data.catalog_id || 'cat_default',
+        name: data.name.trim(),
+        description: data.description || '',
+        price: rawPrice,
+        currency: data.currency || 'ZMW',
+        image_url: data.image_url || 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80',
+        sku: data.sku || `SKU-${Date.now().toString().slice(-4)}`,
+        category: data.category || 'General',
+        is_available: data.is_available !== false,
+        has_variants: formattedVariants.length > 0,
+        variants: formattedVariants,
+        created_at: new Date().toISOString(),
+        updated_at: new Date().toISOString()
+      };
+
+      commerceStore.saveProduct(newProduct as any);
+      return res.status(201).json({ success: true, product: newProduct });
+    } catch (err: any) {
+      return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to create product.' } });
+    }
+  });
+
+  // Products: GET /businesses/:id/products/:pid
+  app.get(['/api/v1/businesses/:id/products/:pid', '/businesses/:id/products/:pid'], (req, res) => {
+    const { pid } = req.params;
+    const prod = commerceStore.getProductById(pid);
+    if (!prod) {
+      return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Product not found.' } });
+    }
+    return res.json({ product: prod });
+  });
+
+  // Products: PATCH /businesses/:id/products/:pid
+  app.patch(['/api/v1/businesses/:id/products/:pid', '/businesses/:id/products/:pid'], (req, res) => {
+    try {
+      const { id, pid } = req.params;
+      const updates = req.body;
+      const updated = commerceStore.patchProduct(pid, updates);
+      if (!updated) {
+        return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Product not found.' } });
+      }
+      return res.json({ success: true, product: updated });
+    } catch (err: any) {
+      return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to update product.' } });
+    }
+  });
+
+  // Products: DELETE /businesses/:id/products/:pid
+  app.delete(['/api/v1/businesses/:id/products/:pid', '/businesses/:id/products/:pid'], (req, res) => {
+    const { pid } = req.params;
+    const deleted = commerceStore.deleteProduct(pid);
+    if (!deleted) {
+      return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Product not found.' } });
+    }
+    return res.json({ success: true, id: pid });
+  });
+
+  // Store Settings: GET /businesses/:id/store
+  app.get(['/api/v1/businesses/:id/store', '/businesses/:id/store'], (req, res) => {
+    const { id } = req.params;
+    let store = commerceStore.getStoreByBusiness(id);
+    if (!store) {
+      store = commerceStore.patchStore(id, {});
+    }
+    return res.json({ store });
+  });
+
+  // Store Settings: PATCH /businesses/:id/store (name, slug, logo, colors, about, contact)
+  app.patch(['/api/v1/businesses/:id/store', '/businesses/:id/store'], (req, res) => {
+    try {
+      const { id } = req.params;
+      const { name, slug, logo, logo_url, colors, about, contact, description } = req.body;
+      const updates: any = {};
+      if (name !== undefined) updates.name = name;
+      if (slug !== undefined) updates.slug = slug;
+      if (logo_url !== undefined || logo !== undefined) updates.logo_url = logo_url || logo;
+      if (colors !== undefined) updates.colors = colors;
+      if (about !== undefined) updates.about = about;
+      if (description !== undefined) updates.description = description;
+      if (contact !== undefined) updates.contact = contact;
+
+      const store = commerceStore.patchStore(id, updates);
+      return res.json({ success: true, store });
+    } catch (err: any) {
+      return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to update store settings.' } });
+    }
+  });
+
+  // Store Settings: POST /businesses/:id/store/publish
+  app.post(['/api/v1/businesses/:id/store/publish', '/businesses/:id/store/publish'], (req, res) => {
+    try {
+      const { id } = req.params;
+      const store = commerceStore.publishStore(id);
+      return res.json({ success: true, is_published: true, store });
+    } catch (err: any) {
+      return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to publish store.' } });
+    }
+  });
+
+  // ================= MARKETING ENDPOINTS =================
+  // (a) "New plan" form: POST /businesses/:id/marketing/plans (returns 202 with campaign id)
+  app.post(
+    ['/api/v1/businesses/:id/marketing/plans', '/businesses/:id/marketing/plans', '/marketing/plans'],
+    (req, res) => {
+      try {
+        const { id } = req.params;
+        const result = commerceStore.createMarketingPlan(id, req.body);
+        return res.status(202).json({
+          status: 'generating',
+          campaign_id: result.campaign.id,
+          campaign: result.campaign,
+          items_count: result.items.length,
+          message: 'Campaign plan generation accepted and processing in background.'
+        });
+      } catch (err: any) {
+        return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to create marketing plan.' } });
+      }
+    }
+  );
+
+  // GET /businesses/:id/marketing/campaigns/:cid (poll generating state)
+  app.get(
+    [
+      '/api/v1/businesses/:id/marketing/campaigns/:cid',
+      '/businesses/:id/marketing/campaigns/:cid',
+      '/api/v1/marketing/campaigns/:cid',
+      '/marketing/campaigns/:cid'
+    ],
+    (req, res) => {
+      const { cid } = req.params;
+      const camp = commerceStore.getMarketingCampaign(cid);
+      if (!camp) {
+        return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Campaign not found.' } });
+      }
+      return res.json({ campaign: camp });
+    }
+  );
+
+  // GET /businesses/:id/marketing/campaigns
+  app.get(
+    ['/api/v1/businesses/:id/marketing/campaigns', '/businesses/:id/marketing/campaigns', '/marketing/campaigns'],
+    (req, res) => {
+      const { id } = req.params;
+      const campaigns = commerceStore.getMarketingCampaignsByBusiness(id);
+      return res.json({ campaigns });
+    }
+  );
+
+  // (b) Calendar + list preview: GET /businesses/:id/marketing/content?campaign_id=
+  app.get(
+    ['/api/v1/businesses/:id/marketing/content', '/businesses/:id/marketing/content', '/marketing/content'],
+    (req, res) => {
+      const { id } = req.params;
+      const campaignId = req.query.campaign_id as string | undefined;
+      const items = commerceStore.getMarketingContent(campaignId, id);
+      const camp = campaignId ? commerceStore.getMarketingCampaign(campaignId) : null;
+      return res.json({ items, campaign: camp });
+    }
+  );
+
+  // Editing copy/date/image calls PATCH and marks it "needs re-approval"
+  // PATCH /businesses/:id/marketing/content/:contentId
+  app.patch(
+    [
+      '/api/v1/businesses/:id/marketing/content/:contentId',
+      '/businesses/:id/marketing/content/:contentId',
+      '/api/v1/marketing/content/:contentId',
+      '/marketing/content/:contentId'
+    ],
+    (req, res) => {
+      try {
+        const { contentId } = req.params;
+        const updated = commerceStore.updateMarketingContent(contentId, req.body);
+        if (!updated) {
+          return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Marketing content not found.' } });
+        }
+        return res.json({ success: true, item: updated, message: 'Content updated and marked as needs re-approval.' });
+      } catch (err: any) {
+        return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to update content.' } });
+      }
+    }
+  );
+
+  // (c) "Approve all" sends POST /campaigns/{cid}/approve with each content id and its content_hash
+  app.post(
+    [
+      '/api/v1/businesses/:id/marketing/campaigns/:cid/approve',
+      '/businesses/:id/marketing/campaigns/:cid/approve',
+      '/api/v1/campaigns/:cid/approve',
+      '/campaigns/:cid/approve'
+    ],
+    (req, res) => {
+      try {
+        const { cid } = req.params;
+        const items = req.body?.items; // Array of { id, content_hash }
+        const result = commerceStore.approveMarketingCampaignAll(cid, items);
+        return res.json(result);
+      } catch (err: any) {
+        return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to approve campaign.' } });
+      }
+    }
+  );
+
+  // Per-post approve: POST /businesses/:id/marketing/content/:contentId/approve
+  app.post(
+    [
+      '/api/v1/businesses/:id/marketing/content/:contentId/approve',
+      '/businesses/:id/marketing/content/:contentId/approve',
+      '/api/v1/marketing/content/:contentId/approve',
+      '/marketing/content/:contentId/approve'
+    ],
+    (req, res) => {
+      try {
+        const { contentId } = req.params;
+        const contentHash = req.body?.content_hash;
+        const updated = commerceStore.approveMarketingContent(contentId, contentHash);
+        if (!updated) {
+          return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Marketing content not found.' } });
+        }
+        return res.json({ success: true, item: updated });
+      } catch (err: any) {
+        return res.status(400).json({ error: { code: 'APPROVE_FAILED', message: err?.message || 'Failed to approve content.' } });
+      }
+    }
+  );
+
+  // Per-post reject: POST /businesses/:id/marketing/content/:contentId/reject
+  app.post(
+    [
+      '/api/v1/businesses/:id/marketing/content/:contentId/reject',
+      '/businesses/:id/marketing/content/:contentId/reject',
+      '/api/v1/marketing/content/:contentId/reject',
+      '/marketing/content/:contentId/reject'
+    ],
+    (req, res) => {
+      try {
+        const { contentId } = req.params;
+        const reason = req.body?.reason;
+        const updated = commerceStore.rejectMarketingContent(contentId, reason);
+        if (!updated) {
+          return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Marketing content not found.' } });
+        }
+        return res.json({ success: true, item: updated });
+      } catch (err: any) {
+        return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to reject content.' } });
+      }
+    }
+  );
+
+  // (d) Campaign controls: Pause, Resume, Cancel
+  app.post(
+    [
+      '/api/v1/businesses/:id/marketing/campaigns/:cid/pause',
+      '/businesses/:id/marketing/campaigns/:cid/pause',
+      '/api/v1/campaigns/:cid/pause',
+      '/campaigns/:cid/pause'
+    ],
+    (req, res) => {
+      const { cid } = req.params;
+      const camp = commerceStore.pauseMarketingCampaign(cid);
+      if (!camp) return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Campaign not found.' } });
+      return res.json({ success: true, campaign: camp });
+    }
+  );
+
+  app.post(
+    [
+      '/api/v1/businesses/:id/marketing/campaigns/:cid/resume',
+      '/businesses/:id/marketing/campaigns/:cid/resume',
+      '/api/v1/campaigns/:cid/resume',
+      '/campaigns/:cid/resume'
+    ],
+    (req, res) => {
+      const { cid } = req.params;
+      const camp = commerceStore.resumeMarketingCampaign(cid);
+      if (!camp) return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Campaign not found.' } });
+      return res.json({ success: true, campaign: camp });
+    }
+  );
+
+  app.post(
+    [
+      '/api/v1/businesses/:id/marketing/campaigns/:cid/cancel',
+      '/businesses/:id/marketing/campaigns/:cid/cancel',
+      '/api/v1/campaigns/:cid/cancel',
+      '/campaigns/:cid/cancel'
+    ],
+    (req, res) => {
+      const { cid } = req.params;
+      const camp = commerceStore.cancelMarketingCampaign(cid);
+      if (!camp) return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Campaign not found.' } });
+      return res.json({ success: true, campaign: camp });
+    }
+  );
+
+  // (e) Post-publish controls: explicit publish and retry
+  // "Never publish without an explicit approval click."
+  app.post(
+    [
+      '/api/v1/businesses/:id/marketing/content/:contentId/publish',
+      '/businesses/:id/marketing/content/:contentId/publish',
+      '/api/v1/marketing/content/:contentId/publish',
+      '/marketing/content/:contentId/publish'
+    ],
+    (req, res) => {
+      try {
+        const { contentId } = req.params;
+        const updated = commerceStore.publishMarketingContent(contentId);
+        if (!updated) return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Marketing content not found.' } });
+        return res.json({ success: true, item: updated });
+      } catch (err: any) {
+        return res.status(400).json({ error: { code: 'PUBLISH_ERROR', message: err?.message || 'Failed to publish content.' } });
+      }
+    }
+  );
+
+  app.post(
+    [
+      '/api/v1/businesses/:id/marketing/content/:contentId/retry',
+      '/businesses/:id/marketing/content/:contentId/retry',
+      '/api/v1/marketing/content/:contentId/retry',
+      '/marketing/content/:contentId/retry'
+    ],
+    (req, res) => {
+      try {
+        const { contentId } = req.params;
+        const updated = commerceStore.retryMarketingContent(contentId);
+        if (!updated) return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Marketing content not found.' } });
+        return res.json({ success: true, item: updated });
+      } catch (err: any) {
+        return res.status(500).json({ error: { code: 'RETRY_ERROR', message: err?.message || 'Failed to retry content.' } });
+      }
+    }
+  );
+
+  // ==========================================
+  // ADS & META CONNECTOR ENDPOINTS
+  // ==========================================
+
+  // (1) Connect flow: POST .../connectors/meta_ads/authorize
+  app.post(
+    [
+      '/api/v1/businesses/:id/connectors/meta_ads/authorize',
+      '/businesses/:id/connectors/meta_ads/authorize',
+      '/api/v1/connectors/meta_ads/authorize',
+      '/connectors/meta_ads/authorize'
+    ],
+    (req, res) => {
+      try {
+        const id = req.params.id || req.body?.business_id || 'biz_ernest_sneakers';
+        const result = commerceStore.authorizeMetaAdsConnector(id);
+        return res.json({ success: true, ...result });
+      } catch (err: any) {
+        return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to authorize Meta Ads' } });
+      }
+    }
+  );
+
+  // Callback handler: GET /connectors/meta_ads/callback
+  app.get(
+    [
+      '/api/v1/connectors/meta_ads/callback',
+      '/connectors/meta_ads/callback',
+      '/api/v1/businesses/:id/connectors/meta_ads/callback',
+      '/businesses/:id/connectors/meta_ads/callback'
+    ],
+    (req, res) => {
+      const businessId = (req.query.business_id as string) || req.params.id || 'biz_ernest_sneakers';
+      // Complete authorization and redirect back to app with tab=ads
+      return res.redirect(`/?tab=ads&business_id=${encodeURIComponent(businessId)}&connector_auth=success`);
+    }
+  );
+
+  // GET .../connectors/meta_ads/assets to pick an ad account and Page
+  app.get(
+    [
+      '/api/v1/businesses/:id/connectors/meta_ads/assets',
+      '/businesses/:id/connectors/meta_ads/assets',
+      '/api/v1/connectors/meta_ads/assets',
+      '/connectors/meta_ads/assets'
+    ],
+    (req, res) => {
+      try {
+        const id = req.params.id || (req.query.business_id as string) || 'biz_ernest_sneakers';
+        const assets = commerceStore.getMetaAdsAssets(id);
+        return res.json(assets);
+      } catch (err: any) {
+        return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to get assets' } });
+      }
+    }
+  );
+
+  // Complete connector setup: POST .../connectors/meta_ads/complete
+  app.post(
+    [
+      '/api/v1/businesses/:id/connectors/meta_ads/complete',
+      '/businesses/:id/connectors/meta_ads/complete',
+      '/api/v1/connectors/meta_ads/complete',
+      '/connectors/meta_ads/complete',
+      '/api/v1/businesses/:id/connectors/meta_ads/select_assets',
+      '/businesses/:id/connectors/meta_ads/select_assets'
+    ],
+    (req, res) => {
+      try {
+        const id = req.params.id || req.body?.business_id || 'biz_ernest_sneakers';
+        const { ad_account_id, page_id } = req.body;
+        if (!ad_account_id || !page_id) {
+          return res.status(400).json({ error: { code: 'BAD_REQUEST', message: 'ad_account_id and page_id are required' } });
+        }
+        const state = commerceStore.completeMetaAdsConnector(id, { ad_account_id, page_id });
+        return res.json({ success: true, connector: state });
+      } catch (err: any) {
+        return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to complete connector' } });
+      }
+    }
+  );
+
+  // GET connector status
+  app.get(
+    [
+      '/api/v1/businesses/:id/connectors/meta_ads',
+      '/businesses/:id/connectors/meta_ads',
+      '/api/v1/connectors/meta_ads',
+      '/connectors/meta_ads'
+    ],
+    (req, res) => {
+      const id = req.params.id || (req.query.business_id as string) || 'biz_ernest_sneakers';
+      const state = commerceStore.getMetaAdsConnector(id);
+      return res.json({ connector: state });
+    }
+  );
+
+  // POST disconnect
+  app.post(
+    [
+      '/api/v1/businesses/:id/connectors/meta_ads/disconnect',
+      '/businesses/:id/connectors/meta_ads/disconnect',
+      '/api/v1/connectors/meta_ads/disconnect',
+      '/connectors/meta_ads/disconnect'
+    ],
+    (req, res) => {
+      const id = req.params.id || req.body?.business_id || 'biz_ernest_sneakers';
+      commerceStore.disconnectMetaAdsConnector(id);
+      return res.json({ success: true });
+    }
+  );
+
+  // (2) Show account currency and hard caps: GET .../ads/accounts
+  app.get(
+    [
+      '/api/v1/businesses/:id/ads/accounts',
+      '/businesses/:id/ads/accounts',
+      '/api/v1/ads/accounts',
+      '/ads/accounts'
+    ],
+    (req, res) => {
+      try {
+        const id = req.params.id || (req.query.business_id as string) || 'biz_ernest_sneakers';
+        const accounts = commerceStore.getAdAccounts(id);
+        return res.json({ accounts });
+      } catch (err: any) {
+        return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to load ad accounts' } });
+      }
+    }
+  );
+
+  // Admins edit caps via PUT .../ads/accounts/{aid}/limits
+  app.put(
+    [
+      '/api/v1/businesses/:id/ads/accounts/:aid/limits',
+      '/businesses/:id/ads/accounts/:aid/limits',
+      '/api/v1/ads/accounts/:aid/limits',
+      '/ads/accounts/:aid/limits'
+    ],
+    (req, res) => {
+      try {
+        const businessId = req.params.id || req.body?.business_id || 'biz_ernest_sneakers';
+        const aid = req.params.aid;
+        const updated = commerceStore.updateAdAccountLimits(businessId, aid, req.body);
+        if (!updated) {
+          return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Ad account not found' } });
+        }
+        return res.json({ success: true, account: updated });
+      } catch (err: any) {
+        return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to update caps' } });
+      }
+    }
+  );
+
+  // (3) "New ad" form creates a draft: POST .../ads/drafts
+  app.post(
+    [
+      '/api/v1/businesses/:id/ads/drafts',
+      '/businesses/:id/ads/drafts',
+      '/api/v1/ads/drafts',
+      '/ads/drafts'
+    ],
+    (req, res) => {
+      try {
+        const id = req.params.id || req.body?.business_id || 'biz_ernest_sneakers';
+        const draft = commerceStore.createAdDraft(id, req.body);
+        return res.status(201).json({ success: true, draft });
+      } catch (err: any) {
+        return res.status(400).json({ error: { code: 'DRAFT_CREATION_FAILED', message: err?.message || 'Failed to create ad draft' } });
+      }
+    }
+  );
+
+  app.get(
+    [
+      '/api/v1/businesses/:id/ads/drafts',
+      '/businesses/:id/ads/drafts',
+      '/api/v1/ads/drafts',
+      '/ads/drafts'
+    ],
+    (req, res) => {
+      const id = req.params.id || (req.query.business_id as string) || 'biz_ernest_sneakers';
+      const drafts = commerceStore.getAdDraftsByBusiness(id);
+      return res.json({ drafts });
+    }
+  );
+
+  app.get(
+    [
+      '/api/v1/businesses/:id/ads/drafts/:draftId',
+      '/businesses/:id/ads/drafts/:draftId',
+      '/api/v1/ads/drafts/:draftId',
+      '/ads/drafts/:draftId'
+    ],
+    (req, res) => {
+      const draft = commerceStore.getAdDraft(req.params.draftId);
+      if (!draft) return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Draft not found' } });
+      return res.json({ draft });
+    }
+  );
+
+  // Clear approval screen stating maximum possible spend:
+  // "Ads never start without approval" -> POST .../ads/drafts/{id}/approve
+  app.post(
+    [
+      '/api/v1/businesses/:id/ads/drafts/:draftId/approve',
+      '/businesses/:id/ads/drafts/:draftId/approve',
+      '/api/v1/ads/drafts/:draftId/approve',
+      '/ads/drafts/:draftId/approve'
+    ],
+    (req, res) => {
+      try {
+        const id = req.params.id || req.body?.business_id || 'biz_ernest_sneakers';
+        const { draftId } = req.params;
+        const selectedCreativeId = req.body?.selected_creative_id;
+        const result = commerceStore.approveAdDraft(id, draftId, selectedCreativeId, req.body?.user_id);
+        return res.json(result);
+      } catch (err: any) {
+        return res.status(400).json({ error: { code: 'APPROVAL_FAILED', message: err?.message || 'Failed to approve ad draft' } });
+      }
+    }
+  );
+
+  // Reject draft
+  app.post(
+    [
+      '/api/v1/businesses/:id/ads/drafts/:draftId/reject',
+      '/businesses/:id/ads/drafts/:draftId/reject',
+      '/api/v1/ads/drafts/:draftId/reject',
+      '/ads/drafts/:draftId/reject'
+    ],
+    (req, res) => {
+      try {
+        const { draftId } = req.params;
+        const draft = commerceStore.rejectAdDraft(draftId, req.body?.reason);
+        if (!draft) return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Draft not found' } });
+        return res.json({ success: true, draft });
+      } catch (err: any) {
+        return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to reject draft' } });
+      }
+    }
+  );
+
+  // (4) Campaign list & Daily insights:
+  // GET .../ads/campaigns
+  app.get(
+    [
+      '/api/v1/businesses/:id/ads/campaigns',
+      '/businesses/:id/ads/campaigns',
+      '/api/v1/ads/campaigns',
+      '/ads/campaigns'
+    ],
+    (req, res) => {
+      try {
+        const id = req.params.id || (req.query.business_id as string) || 'biz_ernest_sneakers';
+        const campaigns = commerceStore.getAdCampaigns(id);
+        return res.json({ campaigns });
+      } catch (err: any) {
+        return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to get campaigns' } });
+      }
+    }
+  );
+
+  // Daily insights: GET .../ads/campaigns/{id}/insights (spend, clicks, conversions)
+  app.get(
+    [
+      '/api/v1/businesses/:id/ads/campaigns/:cid/insights',
+      '/businesses/:id/ads/campaigns/:cid/insights',
+      '/api/v1/ads/campaigns/:cid/insights',
+      '/ads/campaigns/:cid/insights'
+    ],
+    (req, res) => {
+      try {
+        const { cid } = req.params;
+        const insights = commerceStore.getAdCampaignInsights(cid);
+        return res.json({ insights });
+      } catch (err: any) {
+        return res.status(500).json({ error: { code: 'SERVER_ERROR', message: err?.message || 'Failed to get insights' } });
+      }
+    }
+  );
+
+  // Pause campaign: POST .../ads/campaigns/{id}/pause
+  app.post(
+    [
+      '/api/v1/businesses/:id/ads/campaigns/:cid/pause',
+      '/businesses/:id/ads/campaigns/:cid/pause',
+      '/api/v1/ads/campaigns/:cid/pause',
+      '/ads/campaigns/:cid/pause'
+    ],
+    (req, res) => {
+      const { cid } = req.params;
+      const cmp = commerceStore.pauseAdCampaign(cid);
+      if (!cmp) return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Campaign not found' } });
+      return res.json({ success: true, campaign: cmp });
+    }
+  );
+
+  // Resume campaign: POST .../ads/campaigns/{id}/resume
+  app.post(
+    [
+      '/api/v1/businesses/:id/ads/campaigns/:cid/resume',
+      '/businesses/:id/ads/campaigns/:cid/resume',
+      '/api/v1/ads/campaigns/:cid/resume',
+      '/ads/campaigns/:cid/resume'
+    ],
+    (req, res) => {
+      const { cid } = req.params;
+      const result = commerceStore.resumeAdCampaign(cid);
+      if (!result.success && !result.campaign) {
+        return res.status(404).json({ error: { code: 'NOT_FOUND', message: result.message } });
+      }
+      if (!result.success) {
+        return res.status(400).json({ error: { code: 'RESUME_FAILED', message: result.message }, campaign: result.campaign });
+      }
+      return res.json(result);
+    }
+  );
+
+  // ================= PUBLIC STOREFRONT ENDPOINTS =================
+  // GET /public/stores/:slug
+  app.get(['/api/v1/public/stores/:slug', '/public/stores/:slug'], (req, res) => {
+    const { slug } = req.params;
+    const store = commerceStore.getStoreBySlug(slug) || commerceStore.getStoreByDomain(slug);
+    if (!store) {
+      return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Store not found.' } });
+    }
+    const business = commerceStore.getBusiness(store.business_id);
+    const brandProfile = commerceStore.getBrandProfile(store.business_id);
+    return res.json({
+      store: {
+        id: store.id,
+        business_id: store.business_id,
+        name: store.name,
+        slug: store.slug,
+        default_subdomain: store.default_subdomain,
+        custom_domain: store.custom_domain,
+        logo_url: store.logo_url,
+        colors: store.colors || { primary: '#B83010', accent: '#E58330', background: '#070402', text: '#F7F5F0' },
+        about: store.about || store.description,
+        description: store.description,
+        contact: store.contact || { phone: store.contact_phone, email: store.contact_email },
+        contact_phone: store.contact_phone,
+        contact_email: store.contact_email,
+        social_links: store.social_links,
+        is_published: store.is_published
+      },
+      business: business ? {
+        id: business.id,
+        name: business.name,
+        currency: business.currency,
+        phone: business.phone,
+        email: business.email,
+        country: business.country,
+        location: business.location
+      } : null,
+      brandProfile
+    });
+  });
+
+  // GET /public/stores/:slug/products
+  app.get(
+    ['/api/v1/public/stores/:slug/products', '/public/stores/:slug/products', '/api/v1/public/products', '/public/products'],
+    (req, res) => {
+      const slug = req.params.slug || (req.query.store as string) || (req.query.slug as string);
+      let store = slug ? (commerceStore.getStoreBySlug(slug) || commerceStore.getStoreByDomain(slug)) : null;
+      let prods: any[] = [];
+      if (store) {
+        prods = commerceStore.getProductsByBusiness(store.business_id);
+      } else {
+        prods = commerceStore.getAllProducts();
+      }
+      return res.json({ products: prods });
+    }
+  );
+
+  // GET /public/stores/:slug/products/:productSlug and /public/products/:productSlug
+  app.get(
+    [
+      '/api/v1/public/stores/:slug/products/:productSlug', 
+      '/public/stores/:slug/products/:productSlug',
+      '/api/v1/public/products/:productSlug',
+      '/public/products/:productSlug'
+    ],
+    (req, res) => {
+      const slug = req.params.slug || (req.query.store as string) || (req.query.slug as string);
+      const productSlug = req.params.productSlug;
+      let store = slug ? (commerceStore.getStoreBySlug(slug) || commerceStore.getStoreByDomain(slug)) : null;
+
+      let prods: any[] = [];
+      if (store) {
+        prods = commerceStore.getProductsByBusiness(store.business_id);
+      } else {
+        prods = commerceStore.getAllProducts();
+      }
+
+      const prod = prods.find(p => 
+        p.id === productSlug || 
+        p.sku === productSlug || 
+        p.name.toLowerCase().replace(/[^a-z0-9]+/g, '-') === productSlug.toLowerCase()
+      );
+
+      if (!prod) {
+        return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Product not found.' } });
+      }
+
+      return res.json({ product: prod });
+    }
+  );
+
+  // POST /public/stores/:slug/checkout
+  app.post(
+    ['/api/v1/public/stores/:slug/checkout', '/public/stores/:slug/checkout', '/api/v1/public/checkout', '/public/checkout'],
+    (req, res) => {
+      const { slug } = req.params;
+      const store = commerceStore.getStoreBySlug(slug) || commerceStore.getStoreByDomain(slug) || Array.from((commerceStore as any).stores?.values?.() || [])[0];
+      if (!store) {
+        return res.status(404).json({ error: { code: 'NOT_FOUND', message: 'Store not found.' } });
+      }
+
+      const { 
+        items, 
+        customer_name, 
+        customer_phone, 
+        customer_email, 
+        customer_address, 
+        delivery_option, 
+        delivery_fee = 0, 
+        payment_method, 
+        notes 
+      } = req.body;
+
+      if (!items || !items.length) {
+        return res.status(400).json({ error: { code: 'INVALID_INPUT', message: 'Cart items are required.' } });
+      }
+      if (!customer_name || !customer_phone) {
+        return res.status(400).json({ error: { code: 'INVALID_INPUT', message: 'Customer name and phone number are required.' } });
+      }
+
+      const subtotal = items.reduce((acc: number, it: any) => acc + (Number(it.price) * Number(it.quantity)), 0);
+      const total = subtotal + Number(delivery_fee);
+      const orderId = `ord_${Date.now()}_${Math.random().toString(36).substring(2, 6)}`;
+      const orderNumber = `MPZ-${Date.now().toString().slice(-6)}`;
+
+      const newOrder = {
+        id: orderId,
+        business_id: store.business_id,
+        order_number: orderNumber,
+        customer_name,
+        customer_email: customer_email || 'shopper@mupezeni.ai',
+        customer_phone,
+        customer_address: customer_address || 'Lusaka, Zambia',
+        items: items.map((it: any) => ({
+          product_id: it.product_id || it.id,
+          variant_id: it.variant_id,
+          name: it.name || it.title,
+          variant_title: it.variant_title,
+          price: it.price,
+          quantity: it.quantity,
+          image_url: it.image_url || it.imageUrl
+        })),
+        subtotal,
+        delivery_fee: Number(delivery_fee),
+        total,
+        currency: (store as any).currency || 'ZMW',
+        payment_method: payment_method || 'mobile_money',
+        delivery_option: delivery_option || 'Standard Lusaka Dispatch',
+        status: 'pending' as const,
+        created_at: new Date().toISOString()
+      };
+
+      commerceStore.saveOrder(newOrder);
+
+      // Format WhatsApp order text for direct mobile ordering fallback
+      const itemsList = items.map((it: any) => {
+        const itemMajor = it.price >= 1000 ? (it.price / 100).toFixed(2) : Number(it.price).toFixed(2);
+        return `• ${it.quantity}x ${it.name || it.title}${it.variant_title ? ` (${it.variant_title})` : ''} — ZMW ${itemMajor}`;
+      }).join('\n');
+
+      const totalMajor = total >= 1000 ? (total / 100).toFixed(2) : Number(total).toFixed(2);
+      const waText = `Hello *${store.name}*! 👋\nI would like to place an order via your online store:\n\n*Order #${orderNumber}*\n${itemsList}\n\n*Total Amount:* ZMW ${totalMajor}\n\n*Delivery & Customer Details:*\n👤 *Name:* ${customer_name}\n📞 *Phone:* ${customer_phone}\n📍 *Address:* ${customer_address || 'Lusaka, Zambia'}${notes ? `\n📝 *Notes:* ${notes}` : ''}\n💳 *Payment Preference:* ${payment_method || 'Mobile Money (Airtel / MTN)'}\n\nPlease confirm stock availability and dispatch time. Thank you!`;
+
+      const rawPhone = (store.contact?.phone || store.contact_phone || '+260 77 609 1393').replace(/[^0-9]/g, '');
+      const whatsappUrl = `https://wa.me/${rawPhone}?text=${encodeURIComponent(waText)}`;
+
+      return res.status(201).json({
+        success: true,
+        order: newOrder,
+        whatsapp_url: whatsappUrl,
+        whatsapp_message: waText
+      });
+    }
+  );
 
   // FastAPI Native Proxy: Forward all other /api/v1 requests to Render Backend (github.com/Nestcy/mupezeni.ai)
   app.use('/api/v1', async (req, res) => {

@@ -66,7 +66,13 @@ export const SignedShell: React.FC<SignedShellProps> = ({ onNavigate, onViewStor
     store 
   } = useAuth();
 
-  const [activeTab, setActiveTab] = useState<ShellTabId>('dashboard');
+  const [activeTab, setActiveTab] = useState<ShellTabId>(() => {
+    const params = new URLSearchParams(window.location.search);
+    const tabParam = params.get('tab') as ShellTabId;
+    const validTabs: ShellTabId[] = ['dashboard', 'inbox', 'orders', 'products', 'marketing', 'ads', 'connections', 'settings'];
+    if (validTabs.includes(tabParam)) return tabParam;
+    return 'dashboard';
+  });
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
   const [isBusinessSwitcherOpen, setIsBusinessSwitcherOpen] = useState(false);
   const [isNotificationOpen, setIsNotificationOpen] = useState(false);
