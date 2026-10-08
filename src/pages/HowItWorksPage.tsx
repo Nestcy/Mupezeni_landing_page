@@ -8,10 +8,16 @@ import { Database, Sliders, Rocket, Check, ArrowRight, Clock, ShieldCheck, Zap }
 interface HowItWorksPageProps {
   onNavigate: (page: PageId) => void;
   onOpenBookingModal: () => void;
+  onOpenGetAiTeam?: () => void;
 }
 
-export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onNavigate, onOpenBookingModal }) => {
+export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ 
+  onNavigate, 
+  onOpenBookingModal,
+  onOpenGetAiTeam 
+}) => {
   const stepIcons = [Database, Sliders, Rocket];
+  const handleGetAiTeam = onOpenGetAiTeam || onOpenBookingModal;
 
   return (
     <div className="pt-24 pb-16 bg-[#030202] min-h-screen text-[#F7F5F0]">
@@ -32,7 +38,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onNavigate, onOp
         </div>
 
         {/* Live Interactive Mobile Phone Demo */}
-        <InteractiveAgentDemo onNavigateToContact={onNavigate} className="rounded-3xl border border-[#26150C]" />
+        <InteractiveAgentDemo onNavigateToContact={handleGetAiTeam} className="rounded-3xl border border-[#26150C]" />
 
         {/* 3 Step Deployment Timeline */}
         <div className="space-y-8">
@@ -119,7 +125,7 @@ export const HowItWorksPage: React.FC<HowItWorksPageProps> = ({ onNavigate, onOp
 
         {/* Consultation Callout */}
         <ConsultationCtaSection 
-          onNavigateToContact={() => onNavigate('contact')}
+          onNavigateToContact={handleGetAiTeam}
           onNavigateToHowItWorks={() => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }}

@@ -7,9 +7,15 @@ import { MessageSquareText, Sparkles, BarChart3, Check, ArrowRight, ShieldCheck,
 interface SolutionsPageProps {
   onNavigate: (page: PageId) => void;
   onOpenBookingModal: () => void;
+  onOpenGetAiTeam?: () => void;
 }
 
-export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate, onOpenBookingModal }) => {
+export const SolutionsPage: React.FC<SolutionsPageProps> = ({ 
+  onNavigate, 
+  onOpenBookingModal,
+  onOpenGetAiTeam 
+}) => {
+  const handleGetAiTeam = onOpenGetAiTeam || onOpenBookingModal;
   return (
     <div className="pt-24 pb-16 bg-[#030202] min-h-screen text-[#F7F5F0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
@@ -161,7 +167,7 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({ onNavigate, onOpen
             Ready to deploy your AI Team for $100/month?
           </h3>
           <button
-            onClick={onOpenBookingModal}
+            onClick={handleGetAiTeam}
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-extrabold text-sm shadow-xl shadow-[#9B2208]/40 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
           >
             <span>Get Your AI Team</span>

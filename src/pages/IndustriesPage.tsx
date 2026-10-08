@@ -25,10 +25,16 @@ import fashionImg from '../assets/images/retail_fashion_showcase_1790265502740.j
 interface IndustriesPageProps {
   onNavigate: (page: PageId) => void;
   onOpenBookingModal: () => void;
+  onOpenGetAiTeam?: () => void;
 }
 
-export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate, onOpenBookingModal }) => {
+export const IndustriesPage: React.FC<IndustriesPageProps> = ({ 
+  onNavigate, 
+  onOpenBookingModal,
+  onOpenGetAiTeam 
+}) => {
   const [selectedIndustry, setSelectedIndustry] = useState<string>('fashion');
+  const handleGetAiTeam = onOpenGetAiTeam || onOpenBookingModal;
 
   const current = INDUSTRY_SOLUTIONS.find(i => i.id === selectedIndustry) || INDUSTRY_SOLUTIONS[0];
   const CurrentIcon = industryIconMap[current.iconName] || Shirt;
@@ -277,7 +283,7 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate, onOp
                 Every industry plan is strictly <strong>$100 / month flat</strong>. Zero setup fees.
               </span>
               <button
-                onClick={onOpenBookingModal}
+                onClick={handleGetAiTeam}
                 className="px-6 py-3 rounded-xl bg-gradient-to-r from-[#9B2208] via-[#B83010] to-[#CD481B] text-white font-bold text-xs shadow-lg shadow-[#9B2208]/35 hover:scale-[1.02] active:scale-[0.98] transition-all cursor-pointer"
               >
                 <span>Get Your AI Team For {current.name}</span>
@@ -288,7 +294,7 @@ export const IndustriesPage: React.FC<IndustriesPageProps> = ({ onNavigate, onOp
 
         {/* Consultation Callout */}
         <ConsultationCtaSection 
-          onNavigateToContact={() => onNavigate('contact')}
+          onNavigateToContact={handleGetAiTeam}
           onNavigateToHowItWorks={() => onNavigate('how-it-works')}
         />
 

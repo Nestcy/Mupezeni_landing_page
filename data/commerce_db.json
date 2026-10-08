@@ -1,0 +1,674 @@
+{
+  "users": [
+    [
+      "demo@mupezeni.ai",
+      {
+        "user": {
+          "id": "usr_ernest_demo",
+          "email": "demo@mupezeni.ai",
+          "fullName": "Ernest Zimba",
+          "createdAt": "2026-10-08T08:08:32.955Z"
+        },
+        "passwordHash": "password123"
+      }
+    ],
+    [
+      "testowner@example.com",
+      {
+        "user": {
+          "id": "usr_1791445900007_gu7fv",
+          "email": "testowner@example.com",
+          "fullName": "Test Owner",
+          "createdAt": "2026-10-08T07:51:40.007Z"
+        },
+        "passwordHash": "newpassword456"
+      }
+    ]
+  ],
+  "businesses": [
+    [
+      "biz_ernest_sneakers",
+      {
+        "id": "biz_ernest_sneakers",
+        "owner_id": "usr_ernest_demo",
+        "name": "Ernest Sneakers Lusaka",
+        "description": "Premier curated streetwear & classic sneakers in Lusaka, Zambia.",
+        "industry": "Fashion & Footwear",
+        "country": "Zambia",
+        "location": "East Park & Cairo Road, Lusaka",
+        "currency": "ZMW",
+        "phone": "+260 77 609 1393",
+        "email": "ernest@sneakers.zm",
+        "social_links": {
+          "whatsapp": "260776091393",
+          "instagram": "@ernestsneakers_zm",
+          "facebook": "Ernest Sneakers Lusaka",
+          "tiktok": "@ernestsneakers"
+        },
+        "has_existing_store": false,
+        "store_provider": "mupezeni",
+        "created_at": "2026-10-08T08:08:32.955Z",
+        "updated_at": "2026-10-08T08:08:32.955Z"
+      }
+    ]
+  ],
+  "stores": [
+    [
+      "store_ernest_sneakers",
+      {
+        "id": "store_ernest_sneakers",
+        "business_id": "biz_ernest_sneakers",
+        "name": "Ernest Sneakers",
+        "slug": "ernest-sneakers",
+        "default_subdomain": "ernest-sneakers.mupezeni.com",
+        "custom_domain": "www.ernestsneakers.com",
+        "custom_domain_status": "connected",
+        "primary_domain": "subdomain",
+        "ssl_status": "active",
+        "domain_dns_records": [
+          {
+            "type": "CNAME",
+            "host": "www",
+            "value": "cname.mupezeni.com",
+            "status": "verified"
+          },
+          {
+            "type": "A",
+            "host": "@",
+            "value": "76.76.21.21",
+            "status": "verified"
+          },
+          {
+            "type": "TXT",
+            "host": "_mupezeni-verify",
+            "value": "mpz_verify_ernest_sneakers_9381",
+            "status": "verified"
+          }
+        ],
+        "description": "Authentic classic kicks, runners & streetwear with instant dispatch across Lusaka.",
+        "logo_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80",
+        "contact_email": "sales@ernestsneakers.com",
+        "contact_phone": "+260 77 609 1393",
+        "social_links": {
+          "whatsapp": "260776091393",
+          "instagram": "@ernestsneakers_zm",
+          "facebook": "Ernest Sneakers Lusaka",
+          "tiktok": "@ernestsneakers"
+        },
+        "is_published": true,
+        "created_at": "2026-10-08T08:08:32.955Z",
+        "updated_at": "2026-10-08T08:08:32.955Z"
+      }
+    ]
+  ],
+  "brandProfiles": [
+    [
+      "biz_ernest_sneakers",
+      {
+        "id": "brand_ernest_sneakers",
+        "business_id": "biz_ernest_sneakers",
+        "logo_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80",
+        "alternate_logo_url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=400&q=80",
+        "favicon_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=128&q=80",
+        "colors": {
+          "primary": "#110B07",
+          "secondary": "#1A110B",
+          "accent": "#B83A0A",
+          "background": "#070403",
+          "text": "#FAFAF9"
+        },
+        "typography": {
+          "heading_font": "Syne",
+          "body_font": "DM Sans",
+          "accent_font": "Space Grotesk"
+        },
+        "personality": [
+          "Bold",
+          "Premium",
+          "Streetwear Classic",
+          "Friendly"
+        ],
+        "voice_summary": "Confident, direct and warm. Clear prices in Zambian Kwacha. Fast local delivery focus. Keep captions conversational.",
+        "visual_style": [
+          "Minimal",
+          "Editorial",
+          "Product-focused",
+          "Modern"
+        ],
+        "imagery": {
+          "style": "Clean product photography with dramatic studio lighting",
+          "background": "Neutral studio and rich dark canvas",
+          "composition": "Spacious and product-focused with high texture detail",
+          "graphic_style": "Minimalist editorial badges with contrast accents"
+        },
+        "guidelines": {
+          "always": [
+            "Always show prices in Zambian Kwacha (ZMW)",
+            "Highlight same-day Lusaka motorcycle dispatch",
+            "Include official authentic guarantee stamp",
+            "Feature WhatsApp direct support number +260 77 609 1393"
+          ],
+          "avoid": [
+            "Avoid exaggerated claims like 100% best in world",
+            "Never make unverified shipping promises outside Lusaka",
+            "Avoid cluttered layouts or low-resolution imagery",
+            "Avoid excessive emojis (max 2 per post)"
+          ]
+        },
+        "created_at": "2026-10-08T08:08:32.955Z",
+        "updated_at": "2026-10-08T08:08:32.955Z"
+      }
+    ]
+  ],
+  "products": [
+    [
+      "prod_classic_sneaker",
+      {
+        "id": "prod_classic_sneaker",
+        "business_id": "biz_ernest_sneakers",
+        "catalog_id": "cat_default",
+        "name": "Men's Classic Urban Sneaker",
+        "description": "Lightweight cushioned sole, breathable upper mesh, and premium matte overlays. Perfect for daily active wear.",
+        "price": 850,
+        "currency": "ZMW",
+        "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=800&q=80",
+        "sku": "ES-CS-001",
+        "category": "Footwear",
+        "is_available": true,
+        "has_variants": true,
+        "variants": [
+          {
+            "id": "var_cs_41_blk",
+            "business_id": "biz_ernest_sneakers",
+            "product_id": "prod_classic_sneaker",
+            "title": "Size 41 / Triple Black",
+            "sku": "ES-CS-41-BLK",
+            "attributes": {
+              "size": "41",
+              "color": "Triple Black"
+            },
+            "stock_quantity": 4,
+            "is_available": true,
+            "created_at": "2026-10-08T08:08:32.955Z"
+          },
+          {
+            "id": "var_cs_42_blk",
+            "business_id": "biz_ernest_sneakers",
+            "product_id": "prod_classic_sneaker",
+            "title": "Size 42 / Triple Black",
+            "sku": "ES-CS-42-BLK",
+            "attributes": {
+              "size": "42",
+              "color": "Triple Black"
+            },
+            "stock_quantity": 6,
+            "is_available": true,
+            "created_at": "2026-10-08T08:08:32.955Z"
+          },
+          {
+            "id": "var_cs_43_wht",
+            "business_id": "biz_ernest_sneakers",
+            "product_id": "prod_classic_sneaker",
+            "title": "Size 43 / Pure White",
+            "sku": "ES-CS-43-WHT",
+            "attributes": {
+              "size": "43",
+              "color": "Pure White"
+            },
+            "stock_quantity": 3,
+            "is_available": true,
+            "created_at": "2026-10-08T08:08:32.955Z"
+          }
+        ],
+        "created_at": "2026-10-08T08:08:32.955Z",
+        "updated_at": "2026-10-08T08:08:32.955Z"
+      }
+    ],
+    [
+      "prod_retro_runner",
+      {
+        "id": "prod_retro_runner",
+        "business_id": "biz_ernest_sneakers",
+        "catalog_id": "cat_default",
+        "name": "Air Cushion Vintage Runner",
+        "description": "Heritage running silhouette with responsive heel air-unit and gum rubber traction outsole.",
+        "price": 1100,
+        "currency": "ZMW",
+        "image_url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=800&q=80",
+        "sku": "ES-RR-002",
+        "category": "Footwear",
+        "is_available": true,
+        "has_variants": true,
+        "variants": [
+          {
+            "id": "var_rr_40_gry",
+            "business_id": "biz_ernest_sneakers",
+            "product_id": "prod_retro_runner",
+            "title": "Size 40 / Retro Grey",
+            "sku": "ES-RR-40-GRY",
+            "attributes": {
+              "size": "40",
+              "color": "Retro Grey"
+            },
+            "stock_quantity": 2,
+            "is_available": true,
+            "created_at": "2026-10-08T08:08:32.955Z"
+          },
+          {
+            "id": "var_rr_42_gry",
+            "business_id": "biz_ernest_sneakers",
+            "product_id": "prod_retro_runner",
+            "title": "Size 42 / Retro Grey",
+            "sku": "ES-RR-42-GRY",
+            "attributes": {
+              "size": "42",
+              "color": "Retro Grey"
+            },
+            "stock_quantity": 5,
+            "is_available": true,
+            "created_at": "2026-10-08T08:08:32.955Z"
+          }
+        ],
+        "created_at": "2026-10-08T08:08:32.955Z",
+        "updated_at": "2026-10-08T08:08:32.955Z"
+      }
+    ],
+    [
+      "prod_street_slides",
+      {
+        "id": "prod_street_slides",
+        "business_id": "biz_ernest_sneakers",
+        "catalog_id": "cat_default",
+        "name": "Molded Comfort Street Slides",
+        "description": "Ultra-cushioned EVA foam slides for relaxation, post-workout recovery or warm-day streetwear.",
+        "price": 350,
+        "currency": "ZMW",
+        "image_url": "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=800&q=80",
+        "sku": "ES-SS-003",
+        "category": "Footwear",
+        "is_available": true,
+        "has_variants": false,
+        "variants": [],
+        "created_at": "2026-10-08T08:08:32.955Z",
+        "updated_at": "2026-10-08T08:08:32.955Z"
+      }
+    ]
+  ],
+  "inventory": [
+    [
+      "var_cs_41_blk",
+      {
+        "id": "inv_var_cs_41_blk",
+        "business_id": "biz_ernest_sneakers",
+        "product_id": "prod_classic_sneaker",
+        "variant_id": "var_cs_41_blk",
+        "product_name": "Men's Classic Urban Sneaker",
+        "variant_title": "Size 41 / Triple Black",
+        "sku": "ES-CS-41-BLK",
+        "quantity": 4,
+        "availability_status": "in_stock",
+        "updated_at": "2026-10-08T08:08:32.955Z"
+      }
+    ],
+    [
+      "var_cs_42_blk",
+      {
+        "id": "inv_var_cs_42_blk",
+        "business_id": "biz_ernest_sneakers",
+        "product_id": "prod_classic_sneaker",
+        "variant_id": "var_cs_42_blk",
+        "product_name": "Men's Classic Urban Sneaker",
+        "variant_title": "Size 42 / Triple Black",
+        "sku": "ES-CS-42-BLK",
+        "quantity": 6,
+        "availability_status": "in_stock",
+        "updated_at": "2026-10-08T08:08:32.955Z"
+      }
+    ],
+    [
+      "var_cs_43_wht",
+      {
+        "id": "inv_var_cs_43_wht",
+        "business_id": "biz_ernest_sneakers",
+        "product_id": "prod_classic_sneaker",
+        "variant_id": "var_cs_43_wht",
+        "product_name": "Men's Classic Urban Sneaker",
+        "variant_title": "Size 43 / Pure White",
+        "sku": "ES-CS-43-WHT",
+        "quantity": 3,
+        "availability_status": "in_stock",
+        "updated_at": "2026-10-08T08:08:32.955Z"
+      }
+    ],
+    [
+      "var_rr_40_gry",
+      {
+        "id": "inv_var_rr_40_gry",
+        "business_id": "biz_ernest_sneakers",
+        "product_id": "prod_retro_runner",
+        "variant_id": "var_rr_40_gry",
+        "product_name": "Air Cushion Vintage Runner",
+        "variant_title": "Size 40 / Retro Grey",
+        "sku": "ES-RR-40-GRY",
+        "quantity": 2,
+        "availability_status": "low_stock",
+        "updated_at": "2026-10-08T08:08:32.955Z"
+      }
+    ],
+    [
+      "var_rr_42_gry",
+      {
+        "id": "inv_var_rr_42_gry",
+        "business_id": "biz_ernest_sneakers",
+        "product_id": "prod_retro_runner",
+        "variant_id": "var_rr_42_gry",
+        "product_name": "Air Cushion Vintage Runner",
+        "variant_title": "Size 42 / Retro Grey",
+        "sku": "ES-RR-42-GRY",
+        "quantity": 5,
+        "availability_status": "in_stock",
+        "updated_at": "2026-10-08T08:08:32.955Z"
+      }
+    ],
+    [
+      "prod_street_slides",
+      {
+        "id": "inv_prod_street_slides",
+        "business_id": "biz_ernest_sneakers",
+        "product_id": "prod_street_slides",
+        "variant_id": null,
+        "product_name": "Molded Comfort Street Slides",
+        "sku": "ES-SS-003",
+        "quantity": 12,
+        "availability_status": "in_stock",
+        "updated_at": "2026-10-08T08:08:32.955Z"
+      }
+    ]
+  ],
+  "paymentConfigs": [
+    [
+      "biz_ernest_sneakers",
+      {
+        "id": "pay_cfg_ernest",
+        "business_id": "biz_ernest_sneakers",
+        "supported_methods": [
+          "mobile_money",
+          "cash_on_delivery",
+          "bank_transfer"
+        ],
+        "instructions": {
+          "mobile_money": "Airtel Money or MTN Mobile Money to +260 77 609 1393 (Ernest Zimba). Use your Order Number as Reference.",
+          "bank_transfer": "FNB Zambia: Account #62819283929, Branch: Commercial Center Lusaka.",
+          "cash_on_delivery": "Pay cash or Mobile Money on rider delivery inside Lusaka."
+        },
+        "provider_type": "manual_mock",
+        "updated_at": "2026-10-08T08:08:32.955Z"
+      }
+    ]
+  ],
+  "deliveryConfigs": [
+    [
+      "biz_ernest_sneakers",
+      {
+        "id": "del_cfg_ernest",
+        "business_id": "biz_ernest_sneakers",
+        "options": [
+          {
+            "id": "del_local_express",
+            "name": "Lusaka Same-Day Express (Motorcycle)",
+            "description": "Dispatched via motorcycle rider within 2 to 4 hours inside Lusaka.",
+            "fee": 45,
+            "estimated_time": "2-4 hours",
+            "enabled": true
+          },
+          {
+            "id": "del_store_pickup",
+            "name": "East Park Storefront Pickup",
+            "description": "Collect in-person from our East Park collection booth.",
+            "fee": 0,
+            "estimated_time": "Instant / Same day",
+            "enabled": true
+          },
+          {
+            "id": "del_nationwide_post",
+            "name": "Nationwide Courier (Intercity)",
+            "description": "Dispatch to Ndola, Kitwe, Livingstone, Solwezi via local courier.",
+            "fee": 95,
+            "estimated_time": "24-48 hours",
+            "enabled": true
+          }
+        ],
+        "provider_type": "business_delivery",
+        "updated_at": "2026-10-08T08:08:32.955Z"
+      }
+    ]
+  ],
+  "orders": [
+    [
+      "ord_demo_101",
+      {
+        "id": "ord_demo_101",
+        "business_id": "biz_ernest_sneakers",
+        "order_number": "#MPZ-4819",
+        "customer_name": "Mwape Chanda",
+        "customer_email": "mwape.c@gmail.com",
+        "customer_phone": "+260 97 881 2910",
+        "customer_address": "Plot 42, Woodlands, Lusaka",
+        "items": [
+          {
+            "product_id": "prod_classic_sneaker",
+            "variant_id": "var_cs_42_blk",
+            "name": "Men's Classic Urban Sneaker",
+            "variant_title": "Size 42 / Triple Black",
+            "price": 850,
+            "quantity": 1,
+            "image_url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=400&q=80"
+          }
+        ],
+        "subtotal": 850,
+        "delivery_fee": 45,
+        "total": 895,
+        "currency": "ZMW",
+        "payment_method": "mobile_money",
+        "delivery_option": "Lusaka Same-Day Express (Motorcycle)",
+        "status": "dispatched",
+        "created_at": "2026-10-08T05:08:32.955Z"
+      }
+    ]
+  ],
+  "approvals": [
+    [
+      "appr_1",
+      {
+        "id": "appr_1",
+        "business_id": "biz_ernest_sneakers",
+        "type": "discount",
+        "title": "15% Off VIP Courtesy Discount",
+        "description": "AI Worker drafted 15% discount for repeat customer Mwamba Banda inquiring about Men Classic Urban Sneaker (Size 42)",
+        "requested_by": "AI Sales Worker (WhatsApp)",
+        "status": "approved",
+        "amount_minor_units": 12750,
+        "created_at": "2026-10-08T07:33:32.955Z",
+        "resolved_at": "2026-10-08T08:08:55.401Z",
+        "resolved_by": "Store Manager"
+      }
+    ],
+    [
+      "appr_2",
+      {
+        "id": "appr_2",
+        "business_id": "biz_ernest_sneakers",
+        "type": "refund",
+        "title": "Delivery Fee Waiver Approval",
+        "description": "Customer in Woodlands Lusaka requested waiver on late afternoon courier dispatch",
+        "requested_by": "AI Customer Care",
+        "status": "pending",
+        "amount_minor_units": 4500,
+        "created_at": "2026-10-08T06:38:32.955Z"
+      }
+    ]
+  ],
+  "conversations": [
+    [
+      "conv_1",
+      {
+        "id": "conv_1",
+        "business_id": "biz_ernest_sneakers",
+        "channel": "whatsapp",
+        "customer_name": "Chileshe Mulenga",
+        "customer_phone": "+260 97 123 4567",
+        "last_message": "Can I pay cash on delivery in Kabulonga or do you take Airtel Money?",
+        "unread": true,
+        "needs_human": false,
+        "status": "open",
+        "messages_count": 4,
+        "updated_at": "2026-10-08T07:56:32.955Z",
+        "messages": [
+          {
+            "id": "m1",
+            "sender": "customer",
+            "text": "Hello, do you have sneakers in size 42?",
+            "timestamp": "2026-10-08T07:48:32.955Z"
+          },
+          {
+            "id": "m2",
+            "sender": "ai",
+            "text": "Yes! We have the Men's Classic Urban Sneaker in Size 42 (Triple Black) in stock for ZMW 850.",
+            "timestamp": "2026-10-08T07:50:32.955Z"
+          },
+          {
+            "id": "m3",
+            "sender": "customer",
+            "text": "Can I pay cash on delivery in Kabulonga or do you take Airtel Money?",
+            "timestamp": "2026-10-08T07:56:32.955Z"
+          }
+        ]
+      }
+    ],
+    [
+      "conv_2",
+      {
+        "id": "conv_2",
+        "business_id": "biz_ernest_sneakers",
+        "channel": "whatsapp",
+        "customer_name": "Mutale Phiri",
+        "customer_phone": "+260 96 987 6543",
+        "last_message": "Hello Mutale, this is the store manager. For 10 pairs we can offer wholesale at ZMW 720 per pair!",
+        "unread": false,
+        "needs_human": false,
+        "status": "open",
+        "messages_count": 6,
+        "updated_at": "2026-10-08T08:09:04.055Z",
+        "messages": [
+          {
+            "id": "m2_1",
+            "sender": "customer",
+            "text": "Good morning, do you do wholesale pricing for 10 pairs?",
+            "timestamp": "2026-10-08T07:18:32.955Z"
+          },
+          {
+            "id": "m2_2",
+            "sender": "ai",
+            "text": "Let me connect you directly to our store manager so they can approve custom wholesale pricing for you!",
+            "timestamp": "2026-10-08T07:20:32.955Z"
+          },
+          {
+            "id": "m2_3",
+            "sender": "customer",
+            "text": "I want to speak with the store manager regarding a bulk purchase of 10 pairs.",
+            "timestamp": "2026-10-08T07:23:32.955Z"
+          },
+          {
+            "id": "msg_1791446944055_5b21",
+            "sender": "human",
+            "text": "Hello Mutale, this is the store manager. For 10 pairs we can offer wholesale at ZMW 720 per pair!",
+            "timestamp": "2026-10-08T08:09:04.055Z"
+          }
+        ]
+      }
+    ],
+    [
+      "conv_3",
+      {
+        "id": "conv_3",
+        "business_id": "biz_ernest_sneakers",
+        "channel": "instagram",
+        "customer_name": "Kondwani Tembo",
+        "customer_phone": "+260 77 444 1122",
+        "last_message": "Ordered via web checkout! Thanks for the quick sizing advice.",
+        "unread": false,
+        "needs_human": false,
+        "status": "resolved",
+        "messages_count": 6,
+        "updated_at": "2026-10-08T06:08:32.955Z",
+        "messages": [
+          {
+            "id": "m3_1",
+            "sender": "customer",
+            "text": "Hi! Is size 42 true to size?",
+            "timestamp": "2026-10-08T05:38:32.955Z"
+          },
+          {
+            "id": "m3_2",
+            "sender": "ai",
+            "text": "Yes, it is standard European sizing and fits true to size.",
+            "timestamp": "2026-10-08T05:40:32.955Z"
+          },
+          {
+            "id": "m3_3",
+            "sender": "customer",
+            "text": "Ordered via web checkout! Thanks for the quick sizing advice.",
+            "timestamp": "2026-10-08T06:08:32.955Z"
+          }
+        ]
+      }
+    ]
+  ],
+  "onboardings": [
+    [
+      "biz_ernest_sneakers",
+      {
+        "business_id": "biz_ernest_sneakers",
+        "status": "in_progress",
+        "steps": [
+          {
+            "id": "step_connect_channel",
+            "title": "Connect WhatsApp or Web Chat Widget",
+            "description": "Link your WhatsApp Business Cloud API number or embed the chat bubble on your storefront.",
+            "completed": true,
+            "action_tab": "connections"
+          },
+          {
+            "id": "step_add_products",
+            "title": "Add Retail Products & Inventory Stock",
+            "description": "Publish your items with variants, sizing, and pricing in minor integer units.",
+            "completed": true,
+            "action_tab": "products"
+          },
+          {
+            "id": "step_delivery_payment",
+            "title": "Configure Delivery Zones & Mobile Money",
+            "description": "Set Lusaka / Copperbelt dispatch fees and Airtel / MTN Mobile Money numbers.",
+            "completed": true,
+            "action_tab": "settings"
+          },
+          {
+            "id": "step_ai_worker_voice",
+            "title": "Set AI Worker Personality & Guidelines",
+            "description": "Customize tone of voice, greeting messages, and human escalation triggers.",
+            "completed": false,
+            "action_tab": "settings"
+          },
+          {
+            "id": "step_test_ai_sales",
+            "title": "Test Autonomous Sales in Live Simulator",
+            "description": "Run sample queries to verify stock availability check and auto-checkout generation.",
+            "completed": false,
+            "action_tab": "dashboard"
+          }
+        ]
+      }
+    ]
+  ],
+  "events": []
+}

@@ -45,9 +45,10 @@ interface ConsultationFormData {
 
 interface PricingPageProps {
   onNavigate: (page: PageId) => void;
+  onOpenGetAiTeam?: () => void;
 }
 
-export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
+export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate, onOpenGetAiTeam }) => {
   const [currency, setCurrency] = useState<CurrencyMode>('ZMW');
   const [selectedPlanId, setSelectedPlanId] = useState<'start' | 'grow' | 'scale'>('grow');
   const [formData, setFormData] = useState<ConsultationFormData>({
@@ -256,10 +257,15 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
               <div className="pt-3 border-t border-white/10 flex items-center justify-between">
                 <span className="text-xs text-[#FAFAF9]/60 font-syne">Digital Foundation Setup</span>
                 <button
-                  onClick={() => onNavigate('solutions')}
+                  onClick={() => {
+                    try {
+                      sessionStorage.setItem('mupezeni_selected_track', 'no_store');
+                    } catch (e) {}
+                    onNavigate('onboarding');
+                  }}
                   className="text-xs font-bold font-syne text-[#D95A1A] hover:text-white inline-flex items-center gap-1 cursor-pointer"
                 >
-                  <span>Explore Track 1</span>
+                  <span>Start Store Builder</span>
                   <ArrowRight className="w-3 h-3" />
                 </button>
               </div>
@@ -304,10 +310,15 @@ export const PricingPage: React.FC<PricingPageProps> = ({ onNavigate }) => {
               <div className="pt-3 border-t border-white/10 flex items-center justify-between">
                 <span className="text-xs text-[#FAFAF9]/60 font-syne">Direct Stack Integration</span>
                 <button
-                  onClick={() => onNavigate('solutions')}
+                  onClick={() => {
+                    try {
+                      sessionStorage.setItem('mupezeni_selected_track', 'existing_store');
+                    } catch (e) {}
+                    onNavigate('onboarding');
+                  }}
                   className="text-xs font-bold font-syne text-[#D95A1A] hover:text-white inline-flex items-center gap-1 cursor-pointer"
                 >
-                  <span>Explore Track 2</span>
+                  <span>Connect Existing Store</span>
                   <ArrowRight className="w-3 h-3" />
                 </button>
               </div>

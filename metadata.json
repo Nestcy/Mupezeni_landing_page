@@ -2,5 +2,5 @@
   "name": "Mupezeni - AI Business Growth Company",
   "description": "Mupezeni is an AI Business Growth Company. We help retail businesses grow by giving them scalable AI Teams that manage the digital work while owners focus on inventory, sourcing, and dispatch.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": []
 }

@@ -1,4 +1,20 @@
-export type PageId = 'home' | 'solutions' | 'pricing' | 'how-it-works' | 'industries' | 'about' | 'contact' | 'admin';
+export type PageId = 
+  | 'home' 
+  | 'solutions' 
+  | 'pricing' 
+  | 'how-it-works' 
+  | 'industries' 
+  | 'about' 
+  | 'contact' 
+  | 'admin'
+  | 'auth'
+  | 'onboarding'
+  | 'dashboard'
+  | 'storefront'
+  | 'ai-workers-test'
+  | 'reset-password'
+  | 'business-picker'
+  | 'connect-callback';
 
 export interface ConsultationBookingData {
   businessName: string;

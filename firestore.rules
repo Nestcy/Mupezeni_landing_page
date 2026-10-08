@@ -14,5 +14,21 @@ service cloud.firestore {
       allow create: if isValidBooking(request.resource.data);
       allow read, update, delete: if true;
     }
+
+    match /businesses/{businessId} {
+      allow read, write: if true;
+    }
+
+    match /stores/{storeId} {
+      allow read, write: if true;
+    }
+
+    match /products/{productId} {
+      allow read, write: if true;
+    }
+
+    match /orders/{orderId} {
+      allow read, write: if true;
+    }
   }
 }

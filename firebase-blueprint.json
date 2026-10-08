@@ -1,73 +1,132 @@
 {
   "entities": {
+    "Business": {
+      "title": "Business",
+      "description": "Retail business profile and settings",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "owner_id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "industry": { "type": "string" },
+        "country": { "type": "string" },
+        "location": { "type": "string" },
+        "currency": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "has_existing_store": { "type": "boolean" },
+        "store_provider": { "type": "string" },
+        "created_at": { "type": "string" },
+        "updated_at": { "type": "string" }
+      },
+      "required": ["id", "owner_id", "name", "currency"]
+    },
+    "Store": {
+      "title": "Store",
+      "description": "Storefront configuration, domains and publishing settings",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "business_id": { "type": "string" },
+        "name": { "type": "string" },
+        "slug": { "type": "string" },
+        "default_subdomain": { "type": "string" },
+        "custom_domain": { "type": "string" },
+        "custom_domain_status": { "type": "string" },
+        "primary_domain": { "type": "string" },
+        "ssl_status": { "type": "string" },
+        "is_published": { "type": "boolean" },
+        "created_at": { "type": "string" },
+        "updated_at": { "type": "string" }
+      },
+      "required": ["id", "business_id", "slug", "name"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Mupezeni native catalog product with pricing, variants, and stock",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "business_id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "price": { "type": "number" },
+        "compare_at_price": { "type": "number" },
+        "category": { "type": "string" },
+        "sku": { "type": "string" },
+        "image_url": { "type": "string" },
+        "gallery_images": { "type": "array", "items": { "type": "string" } },
+        "is_available": { "type": "boolean" },
+        "is_featured": { "type": "boolean" },
+        "created_at": { "type": "string" },
+        "updated_at": { "type": "string" }
+      },
+      "required": ["id", "business_id", "name", "price"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer order placed on the store",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "business_id": { "type": "string" },
+        "order_number": { "type": "string" },
+        "customer_name": { "type": "string" },
+        "customer_email": { "type": "string" },
+        "customer_phone": { "type": "string" },
+        "customer_address": { "type": "string" },
+        "subtotal": { "type": "number" },
+        "delivery_fee": { "type": "number" },
+        "total": { "type": "number" },
+        "currency": { "type": "string" },
+        "status": { "type": "string" },
+        "created_at": { "type": "string" }
+      },
+      "required": ["id", "business_id", "order_number", "total", "customer_name", "customer_phone"]
+    },
     "ConsultationBooking": {
       "title": "ConsultationBooking",
       "description": "A consultation booking request submitted by a retailer",
       "type": "object",
       "properties": {
-        "fullName": {
-          "type": "string",
-          "description": "Full name of the retailer or store owner"
-        },
-        "email": {
-          "type": "string",
-          "format": "email",
-          "description": "Work or direct email address"
-        },
-        "phone": {
-          "type": "string",
-          "description": "Contact phone or WhatsApp number"
-        },
-        "storeName": {
-          "type": "string",
-          "description": "Retail brand or store name"
-        },
-        "website": {
-          "type": "string",
-          "description": "Store URL or primary social commerce link"
-        },
-        "channels": {
-          "type": "array",
-          "items": { "type": "string" },
-          "description": "Active sales channels (e.g., Shopify, WhatsApp, In-Store)"
-        },
-        "monthlyOrders": {
-          "type": "string",
-          "description": "Estimated monthly order volume or business scale"
-        },
-        "primaryGoal": {
-          "type": "string",
-          "description": "Key bottlenecks, automation priorities, or primary retail goal"
-        },
-        "preferredDate": {
-          "type": "string",
-          "description": "Preferred date for the 30-minute strategic consultation"
-        },
-        "preferredTime": {
-          "type": "string",
-          "description": "Preferred time or window for the call"
-        },
-        "status": {
-          "type": "string",
-          "enum": ["pending", "contacted", "scheduled", "completed", "cancelled"],
-          "description": "Lifecycle state of the consultation lead"
-        },
-        "createdAt": {
-          "type": "string",
-          "description": "ISO timestamp when the consultation request was logged"
-        },
-        "adminNotes": {
-          "type": "string",
-          "description": "Internal notes added by Ernest / retail strategist"
-        }
+        "fullName": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "phone": { "type": "string" },
+        "storeName": { "type": "string" },
+        "website": { "type": "string" },
+        "channels": { "type": "array", "items": { "type": "string" } },
+        "monthlyOrders": { "type": "string" },
+        "primaryGoal": { "type": "string" },
+        "preferredDate": { "type": "string" },
+        "preferredTime": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "adminNotes": { "type": "string" }
       },
       "required": ["fullName", "email", "phone", "storeName", "createdAt"]
     }
   },
   "firestore": {
+    "/businesses/{businessId}": {
+      "schema": "Business",
+      "description": "Retail business data and information"
+    },
+    "/stores/{storeId}": {
+      "schema": "Store",
+      "description": "Store configuration and live domain settings"
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Native Mupezeni retail product catalog"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Orders received by the business"
+    },
     "/consultations/{consultationId}": {
       "schema": "ConsultationBooking",
-      "description": "Incoming consultation bookings and inquiries from prospective retail clients"
+      "description": "Incoming consultation bookings and inquiries"
     }
   }
 }
