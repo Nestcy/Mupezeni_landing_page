@@ -207,8 +207,8 @@ export const DashboardTab: React.FC<DashboardTabProps> = ({
         </motion.div>
       )}
 
-      {/* SETUP CHECKLIST: GET /businesses/{id}/onboarding until status is 'active' */}
-      {onboarding && onboarding.status !== 'active' && (
+      {/* SETUP CHECKLIST: GET /businesses/{id}/onboarding */}
+      {onboarding && (
         <div className="rounded-3xl bg-[#0D0805] border border-white/10 p-5 sm:p-6 shadow-xl relative overflow-hidden">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/[0.08]">
             <div className="space-y-1">

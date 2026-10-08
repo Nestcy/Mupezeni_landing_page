@@ -1326,7 +1326,13 @@ export const commerceStore = {
         name: data.name,
         slug,
         default_subdomain: `${slug}.mupezeni.com`,
+        custom_domain_status: 'not_configured',
         primary_domain: 'subdomain',
+        ssl_status: 'active',
+        description: `${data.name} online storefront`,
+        contact_email: data.email || 'store@mupezeni.ai',
+        contact_phone: data.phone || '+260 77 609 1393',
+        social_links: {},
         is_published: true,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString()
